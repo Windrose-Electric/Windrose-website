@@ -5421,45 +5421,6 @@ var HOMOLOG_NAMES = {
     Patented EV Technology<br>for the Global Market
   </h2>
 
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-  <div style="margin-top:2rem;">
-    <div id="mv-tabs" style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
-      <button onclick="switchModel('frame')" id="mv-tab-frame" style="font-family:Barlow Condensed,sans-serif;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:4px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;">Chassis Frame</button>
-      <button onclick="switchModel('truck')" id="mv-tab-truck" style="font-family:Barlow Condensed,sans-serif;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;">Full Truck</button>
-    </div>
-    <model-viewer
-      id="wr-model-viewer"
-      src="/assets/Frame.glb"
-      alt="Windrose E670 electric truck 3D model"
-      auto-rotate
-      auto-rotate-delay="1000"
-      rotation-per-second="20deg"
-      camera-controls
-      shadow-intensity="0.8"
-      exposure="1.1"
-      environment-image="neutral"
-      ar
-      style="width:100%;height:65vh;min-height:380px;background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%);border-radius:8px;display:block;"
-    ></model-viewer>
-    <p style="color:var(--muted);font-size:0.8rem;text-align:center;margin:0.5rem 0 0;">Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
-  </div>
-  <script>
-  function switchModel(which) {
-    var mv = document.getElementById('wr-model-viewer');
-    var tFrame = document.getElementById('mv-tab-frame');
-    var tTruck = document.getElementById('mv-tab-truck');
-    if (which === 'frame') {
-      mv.src = '/assets/Frame.glb';
-      tFrame.style.background = 'var(--accent)'; tFrame.style.color = '#fff'; tFrame.style.borderColor = 'var(--accent)';
-      tTruck.style.background = 'transparent'; tTruck.style.color = 'var(--muted)'; tTruck.style.borderColor = 'var(--border)';
-    } else {
-      mv.src = '/assets/Windrose-truck-3D.glb';
-      tTruck.style.background = 'var(--accent)'; tTruck.style.color = '#fff'; tTruck.style.borderColor = 'var(--accent)';
-      tFrame.style.background = 'transparent'; tFrame.style.color = 'var(--muted)'; tFrame.style.borderColor = 'var(--border)';
-    }
-  }
-  </script>
-
   <div class="tech-grid">
 
     <div class="tech-card">
