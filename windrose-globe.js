@@ -283,8 +283,14 @@
       var activeLayers = new Set(opts.defaultLayers != null ? opts.defaultLayers : availLayers);
 
       el.style.position = 'relative';
-      el.style.background = '#060f1e';
+      el.style.background = '#040c1a';
       el.style.overflow = 'hidden';
+
+      // Fill viewport height minus nav bars (~130px for topbar+langrow+nav)
+      var _initH = Math.max(320, window.innerHeight - 130);
+      el.style.height = _initH + 'px';
+      el.style.minHeight = '320px';
+      el.style.maxHeight = 'none';
 
       // Tooltip div
       var tooltip = document.createElement('div');
@@ -388,25 +394,7 @@
     var isMobile = window.innerWidth < 640;
     var H = container.offsetHeight || (isMobile ? 320 : 520);
     svgEl.setAttribute('height', H);
-    // Shrink container (and its wrapper parent) to the globe circle diameter so no background bleeds on the sides
-    var _tightW = Math.ceil(2 * H / 2.05) + 6; // globe diameter + 3px each side
-    if (W > _tightW) {
-      container.style.maxWidth = _tightW + 'px';
-      container.style.marginLeft = 'auto';
-      container.style.marginRight = 'auto';
-      // Also shrink the immediate parent wrapper so its background doesn't show beyond the globe
-      var _par = container.parentElement;
-      if (_par && _par !== document.body && !/^(SECTION|MAIN|ARTICLE|HEADER|FOOTER)$/.test(_par.tagName)) {
-        var _parDisplay = window.getComputedStyle(_par).display;
-        // Skip flex/grid parents — those hold multi-column layouts (e.g. map + controls)
-        if (_parDisplay !== 'flex' && _parDisplay !== 'grid') {
-          _par.style.maxWidth = _tightW + 'px';
-          _par.style.marginLeft = 'auto';
-          _par.style.marginRight = 'auto';
-        }
-      }
-      W = container.offsetWidth || _tightW;
-    }
+    W = container.offsetWidth || W;
 
     var rot = [10, -25, 0]; // default: centered roughly on Eurasia
     // scaleBase driven by H so globe always fills height; (W-6)/2 caps for narrow parents
@@ -421,7 +409,36 @@
     var pathFn = d3.geoPath().projection(proj);
 
     var g = svg.append('g');
-    var sphereBg  = g.append('path').datum({type:'Sphere'}).attr('fill','#060f1e').attr('d', pathFn);
+
+    // ── Space background rect (fills SVG behind sphere and stars)
+    g.append('rect').attr('x',0).attr('y',0).attr('width','100%').attr('height','100%').attr('fill','#040c1a');
+
+    // ── Starfield (rendered under sphere so stars appear only in outer space around globe)
+    (function() {
+      if (!document.getElementById('wg-star-css')) {
+        var st = document.createElement('style');
+        st.id = 'wg-star-css';
+        st.textContent = '@keyframes wg-twinkle{0%,100%{opacity:1}50%{opacity:0.1}}';
+        document.head.appendChild(st);
+      }
+      var sg = g.append('g').attr('class','wg-stars').attr('pointer-events','none');
+      var spread = Math.max(W, H) * 1.5;
+      for (var i = 0; i < 320; i++) {
+        var sx = Math.random() * spread - spread * 0.1;
+        var sy = Math.random() * spread - spread * 0.1;
+        var r  = Math.random() < 0.08 ? 2.0 : Math.random() < 0.3 ? 1.2 : 0.6;
+        var op = (0.3 + Math.random() * 0.7).toFixed(2);
+        var col = Math.random() < 0.1 ? '#b8d4ff' : Math.random() < 0.1 ? '#ffdcaa' : '#ffffff';
+        var dur = (2.5 + Math.random() * 5).toFixed(1);
+        var del = -(Math.random() * 9).toFixed(1);
+        sg.append('circle')
+          .attr('cx', sx).attr('cy', sy).attr('r', r)
+          .attr('fill', col).attr('opacity', op)
+          .attr('style', 'animation:wg-twinkle ' + dur + 's ease-in-out ' + del + 's infinite');
+      }
+    })();
+
+    var sphereBg  = g.append('path').datum({type:'Sphere'}).attr('fill','#070e1f').attr('d', pathFn);
     var landLayer  = g.append('path')
       .datum(topojson.feature(world, world.objects.countries))
       .attr('fill','#0f2340').attr('stroke','#1d4a6e').attr('stroke-width', 0.5)
@@ -646,69 +663,80 @@
       .on('end', function(){ svg.style('cursor','grab'); })
     );
 
-    /* ── Resize handle ──────────────────────────────────────────────────── */
-    var resizeHandle = document.createElement('div');
-    resizeHandle.title = 'Drag to resize map';
-    resizeHandle.style.cssText = 'position:absolute;bottom:0;left:0;right:0;height:16px;cursor:ns-resize;z-index:20;display:flex;align-items:center;justify-content:center;gap:3px;background:linear-gradient(to top,rgba(6,15,30,0.7),transparent);';
-    resizeHandle.innerHTML = '<div style="width:32px;height:3px;border-radius:2px;background:rgba(74,158,255,0.5);transition:background 0.15s;"></div><div style="width:32px;height:3px;border-radius:2px;background:rgba(74,158,255,0.5);transition:background 0.15s;position:absolute;top:7px;"></div>';
-    resizeHandle.addEventListener('mouseover', function(){ resizeHandle.querySelectorAll('div').forEach(function(d){d.style.background='rgba(74,158,255,0.9)';}); });
-    resizeHandle.addEventListener('mouseout',  function(){ resizeHandle.querySelectorAll('div').forEach(function(d){d.style.background='rgba(74,158,255,0.5)';}); });
-    (function(){
-      var startY, startH, startScaleK;
-      resizeHandle.addEventListener('mousedown', function(ev) {
-        startY = ev.clientY;
-        startH = container.offsetHeight;
-        startScaleK = scaleK;
-        ev.preventDefault();
-        function onMove(e) {
-          var newH = Math.max(260, startH + (e.clientY - startY));
-          container.style.height = newH + 'px';
-          container.style.minHeight = newH + 'px';
-          container.style.maxHeight = 'none';
-          container.style.maxWidth = (Math.ceil(2 * newH / 2.05) + 6) + 'px';
-          var nW = container.offsetWidth;
-          W = nW; H = newH;
-          scaleBase = Math.min(H / 2.05, (W - 6) / 2);
-          scaleK = Math.min(MAX_ZOOM, Math.max(0.35, startScaleK * (newH / startH)));
-          proj.scale(scaleBase * scaleK).translate([W/2, H/2]);
-          svgEl.setAttribute('height', H);
-          redraw();
+    /* ── All-edge + corner resize handles ──────────────────────────────── */
+    (function() {
+      var E = 10, C = 16; // edge and corner hit-area px
+      // [cursor, top, right, bottom, left, w, h, dxSign, dySign, showBar]
+      var defs = [
+        ['s-resize',  'auto', C,      0,      C,      null, E,    0,  1, true ],
+        ['n-resize',  0,      C,      'auto', C,      null, E,    0, -1, false],
+        ['e-resize',  C,      0,      C,      'auto', E,    null, 1,  0, false],
+        ['w-resize',  C,      'auto', C,      0,      E,    null,-1,  0, false],
+        ['se-resize', 'auto', 0,      0,      'auto', C,    C,    1,  1, false],
+        ['sw-resize', 'auto','auto',  0,      0,      C,    C,   -1,  1, false],
+        ['ne-resize', 0,      0,   'auto',   'auto',  C,    C,    1, -1, false],
+        ['nw-resize', 0,   'auto', 'auto',    0,      C,    C,   -1, -1, false],
+      ];
+      defs.forEach(function(d) {
+        var cursor=d[0], top=d[1], right=d[2], bottom=d[3], left=d[4];
+        var w=d[5], h=d[6], dxSign=d[7], dySign=d[8], showBar=d[9];
+        var handle = document.createElement('div');
+        var cs = 'position:absolute;z-index:20;cursor:'+cursor+';';
+        cs += top    ==='auto'?'top:auto;'   :'top:'   +(top===0?'0':top+'px')+';';
+        cs += right  ==='auto'?'right:auto;' :'right:' +(right===0?'0':right+'px')+';';
+        cs += bottom ==='auto'?'bottom:auto;':'bottom:'+(bottom===0?'0':bottom+'px')+';';
+        cs += left   ==='auto'?'left:auto;'  :'left:'  +(left===0?'0':left+'px')+';';
+        cs += w!==null?'width:'+w+'px;':'width:calc(100% - '+(2*C)+'px);';
+        cs += h!==null?'height:'+h+'px;':'height:calc(100% - '+(2*C)+'px);';
+        handle.style.cssText = cs;
+        if (showBar) {
+          handle.style.background = 'linear-gradient(to top,rgba(4,12,26,0.8),transparent)';
+          handle.style.display = 'flex';
+          handle.style.alignItems = 'center';
+          handle.style.justifyContent = 'center';
+          handle.innerHTML = '<div style="width:36px;height:3px;border-radius:2px;background:rgba(74,158,255,0.45);pointer-events:none;transition:background 0.15s;"></div>';
+          handle.addEventListener('mouseover', function(){ this.querySelector('div').style.background='rgba(74,158,255,0.9)'; });
+          handle.addEventListener('mouseout',  function(){ this.querySelector('div').style.background='rgba(74,158,255,0.45)'; });
         }
-        function onUp() {
-          document.removeEventListener('mousemove', onMove);
-          document.removeEventListener('mouseup', onUp);
+        function startResize(sx, sy) {
+          var startH = container.offsetHeight, startW = container.offsetWidth;
+          function doMove(ex, ey) {
+            if (dySign !== 0) {
+              var nH = Math.max(280, startH + (ey - sy) * dySign);
+              container.style.height = nH + 'px';
+              container.style.minHeight = nH + 'px';
+              container.style.maxHeight = 'none';
+              H = container.offsetHeight;
+            }
+            if (dxSign !== 0) {
+              var nW = Math.max(280, startW + (ex - sx) * dxSign);
+              container.style.width = nW + 'px';
+              container.style.maxWidth = 'none';
+              W = container.offsetWidth;
+            }
+            scaleBase = Math.min(H / 2.05, (W - 6) / 2);
+            proj.scale(scaleBase * scaleK).translate([W/2, H/2]);
+            svgEl.setAttribute('height', H);
+            redraw();
+          }
+          function onMM(e) { doMove(e.clientX, e.clientY); }
+          function onTM(e) { if(e.touches.length===1) doMove(e.touches[0].clientX, e.touches[0].clientY); }
+          function onUp() {
+            document.removeEventListener('mousemove', onMM);
+            document.removeEventListener('mouseup', onUp);
+            document.removeEventListener('touchmove', onTM);
+            document.removeEventListener('touchend', onUp);
+          }
+          document.addEventListener('mousemove', onMM);
+          document.addEventListener('mouseup', onUp);
+          document.addEventListener('touchmove', onTM, {passive:false});
+          document.addEventListener('touchend', onUp);
         }
-        document.addEventListener('mousemove', onMove);
-        document.addEventListener('mouseup', onUp);
+        handle.addEventListener('mousedown', function(ev){ ev.preventDefault(); ev.stopPropagation(); startResize(ev.clientX, ev.clientY); });
+        handle.addEventListener('touchstart', function(ev){ if(ev.touches.length!==1) return; ev.preventDefault(); ev.stopPropagation(); startResize(ev.touches[0].clientX, ev.touches[0].clientY); }, {passive:false});
+        container.appendChild(handle);
       });
-      resizeHandle.addEventListener('touchstart', function(ev) {
-        if (ev.touches.length !== 1) return;
-        startY = ev.touches[0].clientY;
-        startH = container.offsetHeight;
-        startScaleK = scaleK;
-        ev.preventDefault();
-        function onMove(e) {
-          var newH = Math.max(260, startH + (e.touches[0].clientY - startY));
-          container.style.height = newH + 'px';
-          container.style.minHeight = newH + 'px';
-          container.style.maxHeight = 'none';
-          container.style.maxWidth = (Math.ceil(2 * newH / 2.05) + 6) + 'px';
-          W = container.offsetWidth; H = newH;
-          scaleBase = Math.min(H / 2.05, (W - 6) / 2);
-          scaleK = Math.min(MAX_ZOOM, Math.max(0.35, startScaleK * (newH / startH)));
-          proj.scale(scaleBase * scaleK).translate([W/2, H/2]);
-          svgEl.setAttribute('height', H);
-          redraw();
-        }
-        function onUp() {
-          resizeHandle.removeEventListener('touchmove', onMove);
-          resizeHandle.removeEventListener('touchend', onUp);
-        }
-        resizeHandle.addEventListener('touchmove', onMove, {passive:false});
-        resizeHandle.addEventListener('touchend', onUp);
-      }, {passive:false});
     })();
-    container.appendChild(resizeHandle);
 
     /* ── Zoom buttons (+/−/reset) ────────────────────────────────────────── */
     var MAX_ZOOM = 1000;
@@ -760,11 +788,12 @@
 
     /* ── Resize ──────────────────────────────────────────────────────────── */
     var _ro = window.ResizeObserver ? new ResizeObserver(function() {
-      var nW = container.offsetWidth;
-      if (Math.abs(nW - W) < 4) return;
-      W = nW;
+      var nW = container.offsetWidth, nH = container.offsetHeight;
+      if (Math.abs(nW - W) < 4 && Math.abs(nH - H) < 4) return;
+      W = nW; H = nH;
       scaleBase = Math.min(H / 2.05, (W - 6) / 2);
       proj.scale(scaleBase * scaleK).translate([W/2, H/2]);
+      svgEl.setAttribute('height', H);
       redraw();
     }) : null;
     if (_ro) _ro.observe(container);
