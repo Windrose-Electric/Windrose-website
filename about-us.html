@@ -2841,27 +2841,18 @@ document.addEventListener("DOMContentLoaded", function() {
     .org-role  { font-size: 0.875rem; color:rgba(74,158,255,0.55); letter-spacing:0.08em; text-transform:uppercase; margin-top: auto; }
 
     /* ── branching tree scaffold ── */
-    .orgx-wrap { width:100%; overflow-x:auto; padding:0.25rem 0 0.5rem; }
+    .orgx-wrap { width:100%; padding:0.25rem 0 0.5rem; }
     .orgx, .orgx ul { list-style:none; margin:0; padding:0; }
-    .orgx { width:max-content; margin:0; box-sizing:border-box; display:flex; justify-content:flex-start; }
-    .orgx ul { position:relative; display:flex; justify-content:center; padding-top:28px; }
-    .orgx li { position:relative; display:flex; flex-direction:column; align-items:center; padding:28px 14px 0; }
-    .orgx .org-card, .orgx > li > a { width:210px; }
-    .orgx > li > a { text-decoration:none; display:block; }
-    /* horizontal connector across siblings + vertical drop into each */
-    .orgx li::before, .orgx li::after { content:""; position:absolute; top:0; width:50%; height:28px; border-top:2px solid var(--border); }
-    .orgx li::before { right:50%; }
-    .orgx li::after  { left:50%; border-left:2px solid var(--border); }
-    .orgx li:only-child { padding-top:0; }
-    .orgx li:only-child::before, .orgx li:only-child::after { display:none; }
-    .orgx li:first-child::before, .orgx li:last-child::after { border-top:0; }
-    .orgx li:last-child::before { border-right:2px solid var(--border); }
-    /* vertical drop from a parent node down to its children's row */
-    .orgx ul::before { content:""; position:absolute; top:0; left:50%; width:0; height:28px; border-left:2px solid var(--border); }
-    /* root has no parent above it */
-    .orgx > li { padding-top:0; }
-    .orgx > li::before, .orgx > li::after { display:none; }
-    @media(max-width:700px){ .orgx li { padding-left:8px; padding-right:8px; } .orgx .org-card, .orgx > li > a { width:180px; } }
+    .orgx { display:block; }
+    .orgx ul { display:block; padding-left:2.25rem; position:relative; margin-top:0.5rem; }
+    .orgx ul::before { content:""; position:absolute; left:0; top:0; bottom:0.9rem; width:0; border-left:2px solid var(--border); }
+    .orgx li { display:block; position:relative; padding:0.55rem 0 0; }
+    .orgx li::before { content:""; position:absolute; left:-2.25rem; top:1.75rem; width:2.25rem; height:0; border-top:2px solid var(--border); }
+    .orgx li::after { display:none; }
+    .orgx > li { padding:0; }
+    .orgx > li::before { display:none; }
+    .orgx .org-card { width:300px; }
+    .orgx > li > a { text-decoration:none; display:block; width:300px; }
   </style>
 
   <div class="orgx-wrap">
