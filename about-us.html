@@ -2840,19 +2840,20 @@ document.addEventListener("DOMContentLoaded", function() {
     .org-loc   { font-size: 0.875rem; color:var(--muted); letter-spacing:0.04em; }
     .org-role  { font-size: 0.875rem; color:rgba(74,158,255,0.55); letter-spacing:0.08em; text-transform:uppercase; margin-top: auto; }
 
-    /* ── left-stacked tree scaffold ── */
+    /* ── left-flush layered org chart ── */
     .orgx-wrap { width:100%; padding:0.25rem 0 0.5rem; }
     .orgx, .orgx ul { list-style:none; margin:0; padding:0; }
     .orgx { display:block; }
-    .orgx ul { display:block; padding-left:2.5rem; position:relative; margin-top:0.5rem; }
-    .orgx ul::before { content:""; position:absolute; left:0; top:0; bottom:1rem; width:0; border-left:2px solid var(--border); }
-    .orgx li { display:block; position:relative; padding:0.5rem 0 0; }
-    .orgx li::before { content:""; position:absolute; left:-2.5rem; top:1.5rem; width:2.5rem; height:0; border-top:2px solid var(--border); }
-    .orgx li::after { display:none; }
+    /* all levels flush to left — no indentation */
+    .orgx ul { display:block; padding-left:0; margin-top:0.35rem; }
+    .orgx li { display:block; padding:0.3rem 0 0; }
+    .orgx li::before, .orgx li::after { display:none; }
     .orgx > li { padding:0; }
-    .orgx > li::before { display:none; }
-    /* compact horizontal card overrides */
-    .orgx .org-card { width:min(540px,100%); flex-direction:row; align-items:center; height:auto; }
+    /* add breathing room after each branch */
+    .orgx > li > ul > li { padding-bottom:0.15rem; }
+    .orgx > li > ul > li > ul { margin-bottom:0.4rem; }
+    /* base card: horizontal row */
+    .orgx .org-card { width:min(580px,100%); flex-direction:row; align-items:center; height:auto; }
     .orgx .org-card:hover { transform:none; box-shadow:0 4px 18px rgba(0,0,0,0.4); }
     .orgx .org-media { width:52px; min-width:52px; height:54px; flex-shrink:0; border-right:1px solid var(--border); border-radius:0; }
     .orgx .org-media img { object-fit:cover; }
@@ -2862,6 +2863,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .orgx .org-role { margin-top:0.1rem; font-size:0.75rem; }
     .orgx .org-loc { font-size:0.78rem; }
     .orgx > li > a { text-decoration:none; display:block; }
+    /* level depth shown via left border on the card itself */
+    .orgx > li > ul > li > .org-card { border-left:3px solid rgba(74,158,255,0.45); }
+    .orgx > li > ul > li > ul > li > .org-card { border-left:3px solid rgba(74,158,255,0.28); }
+    .orgx > li > ul > li > ul > li > ul > li > .org-card { border-left:3px solid rgba(74,158,255,0.14); }
   </style>
 
   <div class="orgx-wrap">
