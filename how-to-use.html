@@ -290,8 +290,8 @@ html{scroll-behavior:smooth;}
     /* Patented tech section — ensure 1 col */
     .tech-grid { grid-template-columns: 1fr !important; }
 
-    /* Range calculator map — reduce height */
-    #rc-map { aspect-ratio:unset; height:min(320px,50vh) !important; }
+    /* Range calculator map — mobile */
+    #rc-map { aspect-ratio:unset; height:calc(100vh - 180px) !important; min-height:300px !important; }
     #rc-resizer { display:none; }
     .rc-panel { border-left:1px solid var(--border) !important; width:100% !important; }
 
@@ -620,7 +620,7 @@ html{scroll-behavior:smooth;}
   @media(max-width:640px){
     /* Range calculator: map above, controls below */
     .rc-wrap { flex-direction:column !important; }
-    #rc-map  { aspect-ratio:unset; height:300px !important; min-height:0; }
+    #rc-map  { aspect-ratio:unset; height:calc(100vh - 180px) !important; min-height:300px !important; }
     #rc-resizer { display:none !important; }
     .rc-panel { width:100% !important; border-left:1px solid var(--border) !important; }
 
@@ -1004,8 +1004,8 @@ function setLang(lang) {
   .rc-result-label { font-family:DM Sans, sans-serif; font-size:0.875rem; color:var(--muted); margin-top:0.25rem; }
   .rc-result-note { font-family:DM Sans, sans-serif; font-size:0.85rem; color:rgba(122,154,191,0.6); margin-top:0.5rem; font-style:italic; }
 
-  #rc-map { width:100%; height:clamp(380px,50vh,640px); border-radius:0 0 8px 8px; overflow:hidden; z-index:1; min-height:320px; max-height:820px; box-sizing:border-box; }
-  @media(max-width:600px){ #rc-map { aspect-ratio:unset; height:320px; } }
+  #rc-map { width:100%; height:calc(100vh - 160px); border-radius:0 0 8px 8px; overflow:hidden; z-index:1; min-height:500px; box-sizing:border-box; }
+  @media(max-width:600px){ #rc-map { height:calc(100vh - 180px); min-height:300px; } }
 
   /* Override Leaflet popup to match theme */
   .leaflet-popup-content-wrapper { background:#0d1f38; border:1px solid var(--border); border-radius:4px; color:var(--off-white); box-shadow:0 4px 20px rgba(0,0,0,0.6); }
@@ -1316,7 +1316,7 @@ function setLang(lang) {
   <h2 style="font-size: 1.25rem; line-height: 1.15; margin-bottom: 1.5rem;" data-i18n="chg.h2">We charge with the world's best infrastructure providers</h2>
 
   <div style="position:relative; width:100%; overflow:hidden; background:#060f1e; margin-bottom:3rem;">
-    <div id="chg-map" style="width:100%; height:clamp(420px,58vh,700px); position:relative; border-radius:8px; overflow:hidden;"></div>
+    <div id="chg-map" style="width:100%; height:calc(100vh - 160px); min-height:500px; position:relative; border-radius:8px; overflow:hidden;"></div>
   </div>
 
   <!-- ── MCS — MEGAWATT CHARGING (6 cards) ──────────────────────── -->
