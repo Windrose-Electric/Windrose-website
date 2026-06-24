@@ -2862,6 +2862,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .org-row-1 .org-card { border-left:3px solid rgba(74,158,255,0.6); }
     .org-row-2 .org-card { border-left:3px solid rgba(74,158,255,0.35); }
     .org-row-3 .org-card { border-left:3px solid rgba(74,158,255,0.18); }
+    /* parent-group wrappers within a row */
+    .org-group { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:flex-start; padding:0.45rem 0.65rem 0.55rem; background:rgba(74,158,255,0.025); border-radius:5px; border-top:1px solid rgba(74,158,255,0.15); }
+    .org-group-label { width:100%; font-family:Barlow Condensed,sans-serif; font-size:0.67rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(74,158,255,0.5); margin-bottom:0.15rem; white-space:nowrap; }
   </style>
 
   <div class="orgx-wrap">
@@ -2908,81 +2911,90 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <!-- Layer 2: Subsidiaries of layer 1 -->
     <div class="org-row org-row-2" data-level="Layer 2">
-      <div class="org-card">
-        <div class="org-media">
-          <img loading="lazy" src="og/windrose-antwerp.jpg" alt="Windrose Technology Antwerp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="org-media-flag" style="display:none;">🇧🇪</span>
+      <div class="org-group">
+        <div class="org-group-label">↳ Technology Inc</div>
+        <div class="org-card">
+          <div class="org-media">
+            <img loading="lazy" src="og/windrose-antwerp.jpg" alt="Windrose Technology Antwerp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="org-media-flag" style="display:none;">🇧🇪</span>
+          </div>
+          <div class="org-body">
+            <div class="org-name">Windrose Technology Antwerp NV</div>
+            <div class="org-loc" data-i18n="about.corp.antwerp.location">Belgium</div>
+            <div class="org-role" data-i18n="about.corp.antwerp.role">European Operations</div>
+          </div>
         </div>
-        <div class="org-body">
-          <div class="org-name">Windrose Technology Antwerp NV</div>
-          <div class="org-loc" data-i18n="about.corp.antwerp.location">Belgium</div>
-          <div class="org-role" data-i18n="about.corp.antwerp.role">European Operations</div>
+        <div class="org-card">
+          <div class="org-media"><span class="org-media-flag">🇳🇱</span></div>
+          <div class="org-body">
+            <div class="org-name" data-i18n="about.corp.nl.name">Dutch Entity</div>
+            <div class="org-loc" data-i18n="about.corp.nl.location">Netherlands</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-media"><span class="org-media-flag">🇦🇺</span></div>
+          <div class="org-body">
+            <div class="org-name" data-i18n="about.corp.autr.name">Australian Trading Entity</div>
+            <div class="org-loc" data-i18n="about.corp.autr.location">Australia</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
+          <div class="org-body">
+            <div class="org-name" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</div>
+            <div class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
+          <div class="org-body">
+            <div class="org-name">Windrose Electric HK Limited</div>
+            <div class="org-loc">Hong Kong, China</div>
+            <div class="org-role">Chile Market Commerce</div>
+          </div>
         </div>
       </div>
-      <div class="org-card">
-        <div class="org-media"><span class="org-media-flag">🇳🇱</span></div>
-        <div class="org-body">
-          <div class="org-name" data-i18n="about.corp.nl.name">Dutch Entity</div>
-          <div class="org-loc" data-i18n="about.corp.nl.location">Netherlands</div>
-          <div class="org-role">&nbsp;</div>
-        </div>
-      </div>
-      <div class="org-card">
-        <div class="org-media"><span class="org-media-flag">🇦🇺</span></div>
-        <div class="org-body">
-          <div class="org-name" data-i18n="about.corp.autr.name">Australian Trading Entity</div>
-          <div class="org-loc" data-i18n="about.corp.autr.location">Australia</div>
-          <div class="org-role">&nbsp;</div>
-        </div>
-      </div>
-      <div class="org-card">
-        <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-        <div class="org-body">
-          <div class="org-name" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</div>
-          <div class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</div>
-          <div class="org-role">&nbsp;</div>
-        </div>
-      </div>
-      <div class="org-card">
-        <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-        <div class="org-body">
-          <div class="org-name">Windrose Electric HK Limited</div>
-          <div class="org-loc">Hong Kong, China</div>
-          <div class="org-role">Chile Market Commerce</div>
-        </div>
-      </div>
-      <div class="org-card">
-        <div class="org-media"><span class="org-media-flag">🇨🇳</span></div>
-        <div class="org-body">
-          <div class="org-name">Shanghai Windrose Automotive Technology</div>
-          <div class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</div>
-          <div class="org-role">&nbsp;</div>
+      <div class="org-group">
+        <div class="org-group-label">↳ HK Holdings</div>
+        <div class="org-card">
+          <div class="org-media"><span class="org-media-flag">🇨🇳</span></div>
+          <div class="org-body">
+            <div class="org-name">Shanghai Windrose Automotive Technology</div>
+            <div class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Layer 3: Subsidiaries of layer 2 -->
     <div class="org-row org-row-3" data-level="Layer 3">
-      <div class="org-card">
-        <div class="org-media">
-          <img loading="lazy" src="og/windrose-anhui.jpg" alt="Anhui Windrose Holdings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="org-media-flag" style="display:none;">🇨🇳</span>
+      <div class="org-group">
+        <div class="org-group-label">↳ Shanghai Windrose</div>
+        <div class="org-card">
+          <div class="org-media">
+            <img loading="lazy" src="og/windrose-anhui.jpg" alt="Anhui Windrose Holdings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="org-media-flag" style="display:none;">🇨🇳</span>
+          </div>
+          <div class="org-body">
+            <div class="org-name">Anhui Windrose Holdings</div>
+            <div class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
         </div>
-        <div class="org-body">
-          <div class="org-name">Anhui Windrose Holdings</div>
-          <div class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</div>
-          <div class="org-role">&nbsp;</div>
-        </div>
-      </div>
-      <div class="org-card">
-        <div class="org-media">
-          <img loading="lazy" src="og/windrose-suzhou.jpg" alt="Jiangsu Siwei Industries" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="org-media-flag" style="display:none;">🇨🇳</span>
-        </div>
-        <div class="org-body">
-          <div class="org-name">Jiangsu Siwei Industries</div>
-          <div class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</div>
-          <div class="org-role">&nbsp;</div>
+        <div class="org-card">
+          <div class="org-media">
+            <img loading="lazy" src="og/windrose-suzhou.jpg" alt="Jiangsu Siwei Industries" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="org-media-flag" style="display:none;">🇨🇳</span>
+          </div>
+          <div class="org-body">
+            <div class="org-name">Jiangsu Siwei Industries</div>
+            <div class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</div>
+            <div class="org-role">&nbsp;</div>
+          </div>
         </div>
       </div>
     </div>
