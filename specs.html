@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specifications — Windrose Electric</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windrose Electric — Technical Specifications">
+<meta property="og:description" content="Diesel parity pricing, everywhere, today. EUR €198,000 · GBP £139,000 · USD $180,000 · AUD A$450,000 · CAD C$360,000">
+<meta property="og:image" content="https://assets.bobitstudios.com/image/upload/f_auto,q_auto,dpr_auto,c_limit,w_684/windrose-2-hdt-ajp-5617_1768116384393_ikwztl.jpg">
+<meta property="og:image:width" content="684">
+<meta property="og:image:height" content="456">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing — Windrose Electric">
+<meta name="twitter:description" content="Diesel parity pricing, everywhere, today.">
+<meta name="twitter:image" content="https://assets.bobitstudios.com/image/upload/f_auto,q_auto,dpr_auto,c_limit,w_684/windrose-2-hdt-ajp-5617_1768116384393_ikwztl.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMyIgZmlsbD0iIzA2MGYxZSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTgsMyA4LDE4IDE1LDE4IDE0LDI5IDI0LDE0IDE3LDE0IiBmaWxsPSIjNGE5ZWZmIi8+Cjwvc3ZnPg==">
+  <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMyIgZmlsbD0iIzA2MGYxZSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTgsMyA4LDE4IDE1LDE4IDE0LDI5IDI0LDE0IDE3LDE0IiBmaWxsPSIjNGE5ZWZmIi8+Cjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ════════════════════════════════════════════════════════════════════
+     CANONICAL HEADER — identical across all pages
+     Stack: topbar(38px) + lang-row(36px) + nav(44px) = 118px
+  ════════════════════════════════════════════════════════════════════ */
+
+  /* Topbar */
+  #topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 103;
+    height: 38px; background: var(--accent-dark);
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+    padding: 0 2rem; box-sizing: border-box;
+  }
+  #topbar span {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.1em; color: #fff;
+  }
+  #topbar a {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: #fff; color: var(--accent-dark);
+    text-decoration: none; padding: 0.3rem 1.1rem; white-space: nowrap;
+  }
+
+  /* Lang row */
+  #lang-row {
+    position: fixed; top: 38px; left: 0; right: 0; z-index: 102;
+    height: 36px; background: rgba(6,15,30,0.97);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: stretch;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  #lang-switcher {
+    display: flex; flex-wrap: nowrap; align-items: stretch; min-width: 100%;
+  }
+  .lang-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.04em;
+    padding: 0 0.6rem; background: transparent; border: none;
+    border-right: 1px solid var(--border); color: var(--muted);
+    cursor: pointer; flex: 1 1 0; min-width: 56px;
+    display: flex; align-items: center; justify-content: center;
+    white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover  { background: rgba(74,158,255,0.08); color: var(--off-white); }
+  .lang-btn.active { background: rgba(74,158,255,0.15); color: var(--accent); font-weight: 700; }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 74px; left: 0; right: 0; z-index: 100;
+    height: 44px; background: rgba(6,15,30,0.97);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: stretch;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 0.08em; color: var(--accent); text-decoration: none;
+    display: flex; align-items: center; padding: 0 1.5rem;
+    border-right: 1px solid var(--border);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex; list-style: none; margin: 0; padding: 0;
+    flex: 1; min-width: 0;
+  }
+  .nav-links li { flex: 1 1 0; display: flex; min-width: 7rem; }
+  .nav-links a {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%; padding: 0;
+    border-right: 1px solid var(--border); white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links li:last-child a { border-right: none; }
+  .nav-links a:hover  { background: rgba(74,158,255,0.08); color: var(--off-white); }
+  .nav-links a.active { background: rgba(74,158,255,0.15); color: var(--accent); font-weight: 700; }
+
+  /* ── Responsive ────────────────────────────────────────────────────── */
+  /* Tablet (≤900px): nav-links still visible, just scrolls */
+  @media (max-width: 900px) {
+    .nav-links li { min-width: 8rem; }
+  }
+
+  /* Mobile (≤600px): compact topbar, taller lang-row */
+
+@media (max-width: 768px) {
+  }
+
+  :root {
+    --accent: #4a9eff;
+    --accent-dark: #1a6abf;
+    --off-white: #f0f4ff;
+    --muted: #7a9abf;
+    --dark: #060f1e;
+    --card-bg: #0d1f38;
+    --border: rgba(74, 158, 255, 0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--off-white);
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    padding-top: 118px;
+  }
+
+  /* NAV */
+
+  /* HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 55% at 75% 55%, rgba(26, 58, 110, 0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 35% at 15% 85%, rgba(74, 158, 255, 0.07) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.035;
+    background-image: linear-gradient(to right, var(--off-white) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--off-white) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-inner { position: relative; z-index: 1; width: 100%; }
+  .eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 0.9rem;
+  }
+  .eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 10rem);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--off-white); margin-bottom: 2rem;
+  }
+  h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75; color: var(--muted);
+    max-width: 480px; margin-bottom: 2.8rem;
+  }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent-dark); color: #fff;
+    padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost {
+    border: 1px solid rgba(74, 158, 255, 0.35); color: var(--off-white);
+    padding: 0.9rem 2.2rem; font-size: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SHARED */
+  section { padding: 4rem 3rem 2rem; }
+  section > *:last-child { margin-bottom: 0 !important; }
+  section > .news-grid:last-child, section > div:last-child > .news-grid { margin-bottom: 0 !important; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--accent); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+    line-height: 1; letter-spacing: 0.03em; margin-bottom: 3rem;
+  }
+
+  /* METRICS BAND */
+  .metrics-section {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .metric {
+    padding: 2.8rem 2.2rem;
+    border-right: 1px solid var(--border);
+    position: relative; overflow: hidden; transition: background 0.2s;
+  }
+  .metric:last-child { border-right: none; }
+  .metric:hover { background: rgba(74, 158, 255, 0.04); }
+  .metric::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 2px; height: 0; background: var(--accent);
+    transition: height 0.35s ease;
+  }
+  .metric:hover::after { height: 100%; }
+  .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; line-height: 1; letter-spacing: 0.02em;
+    color: var(--off-white); margin-bottom: 0.4rem;
+  }
+  .metric-val em { font-style: normal; color: var(--accent); font-size: 2rem; }
+  .metric-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.35rem;
+  }
+  .metric-note { font-size: 0.8rem; color: rgba(122, 154, 191, 0.55); line-height: 1.4; }
+
+  /* SPECS */
+  .specs-section { background: var(--dark); }
+  .specs-row {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  .spec-cell {
+    background: var(--dark); padding: 2rem 1.8rem; transition: background 0.2s;
+  }
+  .spec-cell:hover { background: var(--card-bg); }
+  .spec-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; color: var(--off-white); line-height: 1; letter-spacing: 0.02em;
+  }
+  .spec-big em { font-style: normal; color: var(--off-white); font-size: 1.6rem; }
+  .spec-key {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin: 0.4rem 0 0.3rem;
+  }
+  .spec-note { font-size: 0.8rem; color: rgba(122, 154, 191, 0.5); line-height: 1.4; }
+
+  /* PRICING */
+  .pricing-section { background: var(--card-bg); border-top: 1px solid var(--border); }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  .price-card {
+    background: var(--card-bg); padding: 2rem 1.2rem;
+    position: relative; overflow: hidden; transition: background 0.2s;
+  }
+  .price-card:hover { background: #112240; }
+  .price-card.featured { background: #0a2040; border-top: 2px solid var(--accent); }
+  .price-flag { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .price-currency {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.6rem;
+  }
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.3rem, 1.6vw, 2rem); line-height: 1; color: var(--off-white); letter-spacing: 0.02em;
+  }
+  .price-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5; }
+
+  /* NEWS */
+  .news-section { background: var(--dark); }
+  .news-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: stretch; }
+  .news-card { position: relative; }
+  .card-country-badge {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .news-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    overflow: hidden; transition: border-color 0.2s, transform 0.2s; cursor: pointer;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .news-thumb {
+    width: 100%; height: 160px; object-fit: cover; object-position: center;
+    background: #0a1a30; display: block; flex-shrink: 0;
+  }
+  .news-thumb-placeholder {
+    width: 100%; height: 160px; flex-shrink: 0;
+    background: linear-gradient(135deg, #0a1a30 0%, #1a3a6e 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .news-thumb-placeholder svg { width: 38px; height: 38px; stroke: var(--accent); fill: none; opacity: 0.35; }
+  .news-body { padding: 1rem 1.2rem 1.2rem; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .news-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-meta {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.5rem; display: flex; gap: 0.8rem;
+  }
+  .region-badge {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.1em;
+    color: #4a9eff;
+    background: rgba(74, 158, 255, 0.1);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    padding: 0.3rem 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+  .news-title {
+    font-size: 0.8rem; font-weight: 400; line-height: 1.4; color: var(--off-white); margin-bottom: 0.5rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .news-excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.8rem; }
+  .news-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; margin-top: auto;
+  }
+  .news-link::after { content: ' →'; }
+
+  /* VIDEO */
+  .video-section { background: var(--card-bg); border-top: 1px solid var(--border); }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .video-card {
+    display: block; text-decoration: none;
+    background: var(--dark); border: 1px solid var(--border);
+    overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+  }
+  .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .video-thumb-wrap {
+    position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  }
+  .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vthumb-fallback {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a1a30 0%, #132d55 100%);
+    display: none; align-items: center; justify-content: center;
+    position: absolute; inset: 0;
+  }
+  .play-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .play-btn {
+    width: 56px; height: 56px;
+    background: rgba(26, 106, 191, 0.9); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .video-card:hover .play-btn { transform: scale(1.1); background: var(--accent); }
+  .play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+  .nyt-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .giants-featured {
+    grid-column: 1 / -1;
+  }
+  .giants-featured .video-thumb-wrap {
+    aspect-ratio: 21/7;
+  }
+  .video-card-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0.55rem 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: var(--off-white);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .video-card-header span.flag { font-size: 1rem; }
+  .video-card-header span.country { color: var(--accent); }
+  .nyt-featured .video-thumb-wrap {
+    aspect-ratio: 16/7;
+  }
+  .nyt-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(6,15,30,0.75) 40%, rgba(6,15,30,0.15) 100%);
+    display: flex; align-items: center;
+    padding: 2.5rem 3rem;
+    transition: background 0.3s;
+  }
+  .nyt-featured:hover .nyt-overlay {
+    background: linear-gradient(to right, rgba(6,15,30,0.82) 45%, rgba(6,15,30,0.25) 100%);
+  }
+  .nyt-overlay-inner { max-width: 520px; }
+  .nyt-masthead {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(255,255,255,0.25);
+    padding-bottom: 0.6rem;
+    display: inline-block;
+  }
+  .nyt-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    line-height: 1.35; font-weight: 300;
+    color: rgba(240,244,255,0.9); margin-bottom: 1.4rem;
+  }
+  .nyt-cta {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(74,158,255,0.4);
+    display: inline-block; padding: 0.5rem 1.2rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nyt-featured:hover .nyt-cta {
+    background: rgba(74,158,255,0.1);
+    border-color: var(--accent);
+  }
+  .outlet-badge {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(6, 15, 30, 0.82);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); padding: 0.4rem 0.8rem;
+  }
+  .video-card-body { padding: 0.9rem 1.1rem; }
+  .video-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #040b14; border-top: 1px solid var(--border);
+    padding: 3.5rem 3rem;
+    display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;
+  }
+  .footer-brand
+  .footer-brand p { font-size: 0.8rem; color: var(--muted); line-height: 1.65; max-width: 220px; }
+  .footer-links { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .footer-col h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.7rem; }
+  .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--off-white); }
+  .footer-bottom {
+    background: #040b14; border-top: 1px solid rgba(74, 158, 255, 0.05);
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .footer-bottom p { font-size: 0.6rem; color: rgba(122, 154, 191, 0.35); }
+
+  /* RESPONSIVE — tablet */
+  @media (max-width: 900px) {
+section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .specs-row { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-grid { grid-template-columns: 1fr; }
+    footer { padding: 2.5rem 1.5rem; }
+    .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    /* Specs image overlay — stack vertically on tablet */
+    .specs-img-wrap > div[style*="position:absolute"][style*="left:3rem"],
+    .specs-img-wrap > div[style*="position:absolute"][style*="right:3rem"] {
+      position: static !important;
+      transform: none !important;
+      display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--card-bg);
+    }
+  }
+
+
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .roadmap-grid > div { min-width: 0; overflow: hidden; }
+  
+
+  @media (max-width: 900px) {
+    .roadmap-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ══ MOBILE CLEAN VIEW (≤600px) ══════════════════════════════════════ */
+
+  /* ══ ROADMAP PAGE MOBILE ══════════════════════════════════════════════ */
+
+
+  body { padding-top: 118px; }
+
+  /* ── Hamburger menu (tablet + mobile) ───────────────────────────── */
+  
+  
+  #hamburger:hover span { background: var(--off-white); }
+  
+  
+  
+  
+  @media (max-width: 480px) {
+    
+}
+
+  /* ═══ MOBILE (≤600px) ══════════════════════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+  /* ── TOPBAR ── */
+  #topbar { height: 36px; padding: 0 0.75rem; gap: 0; justify-content: space-between; }
+  #topbar span { font-size: 0.55rem; letter-spacing: 0.06em; display: block; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #cde; }
+  #topbar a { font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.25rem 0.7rem; white-space: nowrap; flex-shrink: 0; }
+
+  /* ── LANGUAGE ROW ── */
+  #lang-row { height: 36px; top: 36px; }
+  .lang-btn { font-size: 0.6rem; min-width: 48px; padding: 0 0.4rem; height: 36px; letter-spacing: 0.02em; }
+
+  /* ── NAV ── */
+  nav { top: 72px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  .logo { font-size: 1.1rem; padding: 0 0.8rem; flex-shrink: 0; }
+  .nav-links li { flex: 0 0 auto; min-width: auto; }
+  .nav-links a { font-size: 0.75rem; padding: 0 0.8rem; white-space: nowrap; letter-spacing: 0.04em; }
+
+  /* ── BODY OFFSET ── */
+  body { padding-top: 116px; }
+
+  /* ── SECTION SPACING ── */
+  section, .hero { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  section { padding-top: 2rem !important; padding-bottom: 1.5rem !important; }
+
+  /* ── TYPOGRAPHY ── */
+  h2 { font-size: clamp(1.4rem, 7vw, 2rem) !important; line-height: 1.1 !important; }
+  .section-label { font-size: 0.55rem !important; letter-spacing: 0.18em !important; }
+
+  /* ── FORCE ALL MULTI-COLUMN GRIDS TO SINGLE COLUMN ── */
+  [style*="grid-template-columns:repeat(2"],
+  [style*="grid-template-columns: repeat(2"],
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:repeat(4"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── GENERATION RANGE BAR ── */
+  #gen-range-bar { grid-template-columns: 1fr !important; }
+  #gen-range-bar > div { padding: 1rem 1.25rem !important; }
+
+  /* ── NAMED GRIDS → SINGLE COLUMN ── */
+  .pricing-grid,
+  .roadmap-grid,
+  .news-grid,
+  .metrics-grid,
+  .specs-row,
+  .key-specs-grid,
+  .video-grid,
+  .press-layout { grid-template-columns: 1fr !important; }
+
+  /* ── HERO ── */
+  .hero { min-height: 55vh !important; aspect-ratio: unset !important; }
+  #hero-section { min-height: 55vh !important; }
+  #hero-section h1 { font-size: clamp(1.5rem, 7vw, 2.2rem) !important; letter-spacing: 0.01em !important; }
+  [data-i18n="banner.eyebrow"] { font-size: 0.55rem !important; letter-spacing: 0.1em !important; }
+
+  /* ── MAP ── */
+  #wr-panel { display: none !important; }
+
+  /* ── VIDEO CARDS ── */
+  .video-card { min-width: 0 !important; }
+  .video-card-body { padding: 0.8rem !important; }
+  .video-title { font-size: 0.9rem !important; line-height: 1.3 !important; }
+
+  /* ── PRESS RELEASE PAGES ── */
+  .press-layout { grid-template-columns: 1fr !important; }
+  .press-stats-bar { flex-wrap: wrap; }
+  .press-stat { min-width: 30%; flex: 1 1 30%; }
+
+  /* ── FOOTER ── */
+  footer { grid-template-columns: 1fr !important; padding: 2rem 1.25rem !important; }
+  .footer-links { flex-direction: column; gap: 1rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+  /* ── SPECS TABLE ── */
+  .spec-table td, .spec-table th { font-size: 0.75rem !important; padding: 0.5rem 0.6rem !important; }
+
+  /* ── CHATBOT ── */
+  #wr-chat-btn { bottom: 1rem !important; right: 1rem !important; width: 44px !important; height: 44px !important; }
+
+}
+
+
+  /* ── Smooth page transitions & scroll animations ───────────────── */
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  
+  /* Fade-in on scroll */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Smooth image loading */
+  img { transition: opacity 0.4s ease; }
+  img[src=""] { opacity: 0; }
+
+  /* Card hover lift */
+  .news-card {
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+  }
+  .news-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 40px rgba(74,158,255,0.12) !important;
+  }
+
+  /* Smooth nav transitions */
+  #topbar, #lang-row, nav {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  body.scrolled-down #topbar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+  body.scrolled-down #lang-row { transform: translateY(-38px); }
+  body.scrolled-down nav { transform: translateY(-74px); }
+  body.scrolled-down { padding-top: 44px !important; }
+
+  /* Page load fade-in */
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+  body { animation: pageIn 0.5s ease; }
+
+  /* Section divider glow on hover */
+  .section-label { transition: color 0.3s ease; }
+
+
+  /* ── Search ──────────────────────────────────────────────────── */
+  .search-toggle {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.06em; color: var(--muted); background: none; border: none;
+    cursor: pointer; padding: 0 1.2rem; display: flex; align-items: center;
+    gap: 0.4rem; white-space: nowrap; transition: color 0.15s; flex-shrink: 0;
+  }
+  .search-toggle:hover { color: var(--off-white); }
+  .search-toggle svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .search-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(4,8,18,0.95); backdrop-filter: blur(16px);
+    align-items: flex-start; justify-content: center;
+  }
+  .search-overlay.open { display: flex; }
+  .search-box { width: 100%; max-width: 680px; margin-top: 130px; padding: 0 2rem; }
+  .search-input-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .search-input {
+    flex: 1; background: none; border: none; border-bottom: 2px solid var(--accent);
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 4vw, 2.6rem);
+    letter-spacing: 0.04em; color: var(--off-white); padding: 0.4rem 0; outline: none;
+  }
+  .search-input::placeholder { color: rgba(122,154,191,0.4); }
+  .search-close {
+    background: none; border: 1px solid var(--border); color: var(--muted);
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em;
+    padding: 0.35rem 0.9rem; cursor: pointer; text-transform: uppercase;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .search-close:hover { color: var(--off-white); border-color: var(--accent); }
+  .search-results { list-style: none; max-height: 55vh; overflow-y: auto; }
+  .search-results li { border-bottom: 1px solid var(--border); }
+  .search-results a {
+    display: block; padding: 0.8rem 0.5rem; text-decoration: none; transition: background 0.15s;
+  }
+  .search-results a:hover { background: rgba(74,158,255,0.06); }
+  .search-results .sr-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+    color: var(--off-white); letter-spacing: 0.03em;
+  }
+  .search-results .sr-page {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.55rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+    margin-top: 0.15rem;
+  }
+  .search-results .sr-excerpt {
+    font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
+    color: var(--muted); line-height: 1.5; margin-top: 0.2rem;
+  }
+  .search-hint {
+    font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+    color: rgba(122,154,191,0.5); text-align: center; padding: 2rem 0;
+  }
+
+</style>
+<script>
+// Guard: ensures setLang is defined before any onclick fires.
+// Always reads from window.TRANSLATIONS at call-time so it picks up
+// the full data once the body scripts have loaded.
+var LANG_ALIAS = { 'en_world':'en', 'en_us':'en', 'en_uk':'en', 'zh_tw':'zh_tw' };
+function setLang(lang) {
+  var alias = LANG_ALIAS[lang] || lang;
+  var trans = window.TRANSLATIONS || {};
+  var t = trans[alias] || trans['en'] || {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) {
+      if (/<[a-z]/.test(t[k])) el.innerHTML = t[k];
+      else el.textContent = t[k];
+    }
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  var btn = document.getElementById('lang-' + lang);
+  if (btn) btn.classList.add('active');
+}
+</script>
+</head>
+<body>
+
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <span style="font-size:0.5rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;">Updated 05 May 2026</span><span data-i18n="topbar.text">Limited reservations now open</span>
+  <a href="https://buy.stripe.com/5kQ00jaZOfFidW21e8gQE01" target="_blank" rel="noopener" data-i18n="topbar.btn">Reserve Your Windrose →</a>
+</div>
+
+<!-- LANG ROW -->
+<div id="lang-row"><div id="lang-switcher">
+  <button onclick="setLang('en_world')" class="lang-btn active" id="lang-en_world">🌍 World</button>
+  <button onclick="setLang('en_us')" class="lang-btn" id="lang-en_us">🇺🇸 US</button>
+  <button onclick="setLang('en_uk')" class="lang-btn" id="lang-en_uk">🇬🇧 UK</button>
+  <button onclick="setLang('zh')" class="lang-btn" id="lang-zh">🇨🇳 简体</button>
+  <button onclick="setLang('zh_tw')" class="lang-btn" id="lang-zh_tw">🇹🇼 繁體</button>
+  <button onclick="setLang('ja')" class="lang-btn" id="lang-ja">🇯🇵 日本語</button>
+  <button onclick="setLang('ko')" class="lang-btn" id="lang-ko">🇰🇷 한국어</button>
+  <button onclick="setLang('es')" class="lang-btn" id="lang-es">🇪🇸 Español</button>
+  <button onclick="setLang('pt')" class="lang-btn" id="lang-pt">🇧🇷 Português</button>
+  <button onclick="setLang('de')" class="lang-btn" id="lang-de">🇩🇪 Deutsch</button>
+  <button onclick="setLang('fr')" class="lang-btn" id="lang-fr">🇫🇷 Français</button>
+  <button onclick="setLang('it')" class="lang-btn" id="lang-it">🇮🇹 Italiano</button>
+  <button onclick="setLang('pl')" class="lang-btn" id="lang-pl">🇵🇱 Polski</button>
+  <button onclick="setLang('nl')" class="lang-btn" id="lang-nl">🇳🇱 Nederlands</button>
+  <button onclick="setLang('sv')" class="lang-btn" id="lang-sv">🇸🇪 Svenska</button>
+  <button onclick="setLang('da')" class="lang-btn" id="lang-da">🇩🇰 Dansk</button>
+  <button onclick="setLang('no')" class="lang-btn" id="lang-no">🇳🇴 Norsk</button>
+  <button onclick="setLang('fi')" class="lang-btn" id="lang-fi">🇫🇮 Suomi</button>
+</div></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Windrose Electric</a>
+  <ul class="nav-links">
+    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+    <li><a href="network.html" data-i18n="nav.network">Network</a></li>
+    <li><a href="roadmap.html" data-i18n="nav.roadmap">Future Roadmap</a></li>
+    <li><a href="commercialization.html" data-i18n="nav.commercialization">Customers</a></li>
+    <li><a href="specs.html" class="active" data-i18n="nav.specs">Specifications</a></li>
+    <li><a href="news.html" data-i18n="nav.news">News</a></li>
+    <li><a href="manufacturing.html" data-i18n="nav.manufacturing">Manufacturing</a></li>
+    <li><a href="charging.html" data-i18n="nav.charging">Charging</a></li>
+    <li><a href="manual.html">Manual</a></li>
+  </ul>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-row">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search Windrose..." autocomplete="off">
+      <button class="search-close" onclick="closeSearch()">ESC</button>
+    </div>
+    <ul class="search-results" id="searchResults"></ul>
+    <div class="search-hint" id="searchHint">Type to search across all pages, press releases, and content</div>
+  </div>
+</div>
+
+
+
+
+<!-- SPECS PAGE -->
+<div style="padding:3rem 3rem 1rem;">
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--accent);display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;">
+    <span style="display:block;width:2rem;height:1px;background:var(--accent);"></span>Technical Data
+  </div>
+  <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.0;margin-bottom:0.5rem;">Windrose E670 — Full Specifications</h1>
+  <p style="font-size:0.85rem;color:var(--muted);max-width:52rem;line-height:1.6;margin-bottom:0.5rem;">Generation 2 · LFP · Available 2026 · 6×4 Configuration</p>
+</div>
+
+<!-- QUICK STATS -->
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);margin:0 3rem 3rem;">
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--off-white);line-height:1;">670</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">km Range</div>
+  </div>
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--off-white);line-height:1;">705</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">kWh Battery</div>
+  </div>
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--off-white);line-height:1;">44t</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">GVW</div>
+  </div>
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--accent);line-height:1;">920A</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">Max Charge</div>
+  </div>
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--off-white);line-height:1;">43,000</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">N·m Torque</div>
+  </div>
+  <div style="background:var(--card-bg);padding:1.2rem 1rem;text-align:center;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#4aff9e;line-height:1;">6×4</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-top:0.2rem;">Drive Config</div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0 3rem 3rem;">
+
+  <!-- LEFT COLUMN -->
+  <div style="padding-right:2rem;border-right:1px solid var(--border);">
+
+    <!-- DIMENSIONS -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Dimensions</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Overall Length</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">8,100 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Overall Width</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">2,545 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Overall Height</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">3,935 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Wheelbase</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">4,650 + 1,350 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Cab Type</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Sleeper cab</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Configuration</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">6×4 tractor</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- WEIGHT -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Weight & Payload</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Gross Vehicle Weight (GVW)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">44 t</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Gross Combined Weight (GCW)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Up to 68 t</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Front Axle Load</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">7.5 t</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Rear Bogie Load</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">26 t</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- PERFORMANCE -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Performance</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Range (loaded, single trailer)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:#4aff9e;font-weight:500;">670 km</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Energy consumption</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">1.05 kWh/km</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Max gradability (1st gear, 10 km/h)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Sustained climb</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Max output torque</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">43,000 N·m (quad-motor)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Operating temperature</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">−32°C to +48°C</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Altitude tested</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Up to 4,700 m</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- TYRES -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Tyres</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Standard tyre (all position)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">295/80R22.5 18PR</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Optional tyre</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">315/70R22.5 20PR</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Rim</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">9.00×22.5</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Inflation pressure</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">900 kPa</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div style="padding-left:2rem;">
+
+    <!-- BATTERY -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Battery</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Chemistry (Gen 2)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">LFP (lithium iron phosphate)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Capacity</td>
+          <td style="padding:0.6rem 0;text-align:right;color:#4aff9e;font-weight:500;">705.2 kWh</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Number of packs</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">4</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Battery model</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">EV-CALB-766230</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Lifetime</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">1,000,000 km target</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Heat tolerance</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">2× vs NMC</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- DRIVETRAIN -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Drivetrain</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Motor model</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">TZ230XSSW001</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Motor manufacturer</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Jiangsu Swell Industry</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">E-axle model</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">HDE10t (Hande)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Transmission</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">AMT (automated manual)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Max torque (triple-motor)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">35,000 N·m</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Max torque (quad-motor)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--accent);font-weight:500;">43,000 N·m</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">VCU manufacturer</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Anhui Windrose Holdings</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- CHARGING -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Charging</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Charging mode</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">DC fast charge</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Max charge current (LFP)</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--accent);font-weight:500;">920 A</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Supported standards</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">MCS · CCS2 · GB/T</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Communication protocol</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">ISO 15118-20 · Ethernet</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Plug & Charge</td>
+          <td style="padding:0.6rem 0;text-align:right;color:#4aff9e;font-weight:500;">Supported</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- BRAKES & SAFETY -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.5rem;margin-bottom:1rem;">Brakes & Safety</div>
+      <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Service brake</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Air disc, dual circuit</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Retarder</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Regenerative + engine brake</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0;color:var(--muted);">Air reservoir max pressure</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">1.25 MPa</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 0;color:var(--muted);">Autonomous ready</td>
+          <td style="padding:0.6rem 0;text-align:right;color:var(--off-white);font-weight:500;">Drive-by-wire (L4 by 2030)</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- GENERATION COMPARISON -->
+<div style="border-top:1px solid var(--border);padding:3rem;background:var(--card-bg);">
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:1rem;">Generation Comparison</div>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;margin-bottom:1.5rem;">All generations at a glance</h2>
+  <div style="overflow-x:auto;">
+  <table style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;min-width:600px;">
+    <thead>
+      <tr style="border-bottom:1px solid var(--border);">
+        <th style="padding:0.8rem 1rem;text-align:left;font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--muted);font-weight:400;">Specification</th>
+        <th style="padding:0.8rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.08em;color:var(--accent);">Gen 2 · 2026</th>
+        <th style="padding:0.8rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.08em;color:var(--muted);">Gen 3 · 2028</th>
+        <th style="padding:0.8rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.08em;color:var(--muted);">Gen 4 · 2030</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Range</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:#4aff9e;font-weight:500;">670 km</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">815 km</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">1,000+ km</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Battery capacity</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">705 kWh</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">811 kWh</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">960+ kWh</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Battery chemistry</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">LFP</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">LMFP</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">LMFP+</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Consumption</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">1.05 kWh/km</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">0.99 kWh/km</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">0.96 kWh/km</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">E-axle</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">HDE10t</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">New e-axle</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">New e-axle</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Engine cooling</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">Water-cooled</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">Oil-cooled</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">Oil-cooled</td>
+      </tr>
+      <tr>
+        <td style="padding:0.7rem 1rem;color:var(--muted);">Autonomy</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);font-weight:500;">Drive-by-wire ready</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--off-white);">L2+ ADAS</td>
+        <td style="padding:0.7rem 1rem;text-align:center;color:var(--accent);">L4 autonomous</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+<!-- GLOBAL OVERLAP -->
+<div style="border-top:1px solid var(--border);padding:3rem;background:var(--card-bg);">
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:0.5rem;">Platform Commonality</div>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;margin-bottom:0.5rem;">Global parts overlap across truck variants</h2>
+  <p style="font-size:0.85rem;color:var(--muted);max-width:52rem;line-height:1.6;margin-bottom:2rem;">Each variant is homologated for its target market — but shares a high percentage of components with every other variant, minimising tooling investment and enabling global supply chain consolidation.</p>
+
+  <div style="overflow-x:auto;">
+  <table id="overlap-table" style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:0.85rem;min-width:520px;">
+    <thead>
+      <tr style="border-bottom:1px solid var(--border);">
+        <th style="padding:0.75rem 1rem;text-align:left;font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--muted);font-weight:400;white-space:nowrap;">Base ╲ Compared</th>
+        <th style="padding:0.75rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.7rem;letter-spacing:0.06em;color:var(--off-white);">
+          WH13<br><span style="font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;">🇪🇺 Europe</span>
+        </th>
+        <th style="padding:0.75rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.7rem;letter-spacing:0.06em;color:var(--off-white);">
+          WH14<br><span style="font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;">🇦🇺 Australia</span>
+        </th>
+        <th style="padding:0.75rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.7rem;letter-spacing:0.06em;color:var(--off-white);">
+          WH11<br><span style="font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;">🇨🇳 China</span>
+        </th>
+        <th style="padding:0.75rem 1rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.7rem;letter-spacing:0.06em;color:var(--off-white);">
+          WH12<br><span style="font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;">🇺🇸 US</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.75rem 1rem;color:var(--off-white);font-weight:500;white-space:nowrap;">🇪🇺 WH13 Europe</td>
+        <td id="c00" style="padding:0.75rem 1rem;text-align:center;font-weight:600;background:rgba(74,255,158,0.18);color:#4aff9e;">100%</td>
+        <td id="c01" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">91%</td>
+        <td id="c02" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">80%</td>
+        <td id="c03" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">79%</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.75rem 1rem;color:var(--off-white);font-weight:500;white-space:nowrap;">🇦🇺 WH14 Australia</td>
+        <td id="c10" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">89%</td>
+        <td id="c11" style="padding:0.75rem 1rem;text-align:center;font-weight:600;background:rgba(74,255,158,0.18);color:#4aff9e;">100%</td>
+        <td id="c12" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">76%</td>
+        <td id="c13" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">81%</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:0.75rem 1rem;color:var(--off-white);font-weight:500;white-space:nowrap;">🇨🇳 WH11 China</td>
+        <td id="c20" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">83%</td>
+        <td id="c21" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">81%</td>
+        <td id="c22" style="padding:0.75rem 1rem;text-align:center;font-weight:600;background:rgba(74,255,158,0.18);color:#4aff9e;">100%</td>
+        <td id="c23" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">77%</td>
+      </tr>
+      <tr>
+        <td style="padding:0.75rem 1rem;color:var(--off-white);font-weight:500;white-space:nowrap;">🇺🇸 WH12 US</td>
+        <td id="c30" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">79%</td>
+        <td id="c31" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">83%</td>
+        <td id="c32" style="padding:0.75rem 1rem;text-align:center;font-weight:500;color:var(--off-white);">74%</td>
+        <td id="c33" style="padding:0.75rem 1rem;text-align:center;font-weight:600;background:rgba(74,255,158,0.18);color:#4aff9e;">100%</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <script>
+  (function() {
+    const data = [
+      [100, 91, 80, 79],
+      [89, 100, 76, 81],
+      [83, 81, 100, 77],
+      [79, 83, 74, 100]
+    ];
+    // Colour non-diagonal cells by heat: 74% = muted, 100% = green
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 4; c++) {
+        if (r === c) continue;
+        const v = data[r][c];
+        const t = (v - 74) / (91 - 74); // normalise 74-91 → 0-1
+        const alpha = 0.04 + t * 0.14;   // 0.04 – 0.18
+        const el = document.getElementById('c' + r + c);
+        if (el) el.style.background = 'rgba(74,158,255,' + alpha.toFixed(2) + ')';
+      }
+    }
+  })();
+  </script>
+
+  <p style="margin-top:1.5rem;font-size:0.78rem;color:var(--muted);line-height:1.6;">
+    Values represent percentage of shared unique components (part numbers) between variants. Diagonal = 100% (self-comparison). The high cross-variant overlap — minimum 74%, average ~82% — enables a single global supply chain and drastically reduces localisation cost compared to traditional market-specific platforms.
+  </p>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div style="border-top:1px solid var(--border);padding:3rem;background:var(--dark);">
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:1rem;">Homologation & Certifications</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);">
+    <div style="background:var(--card-bg);padding:1.2rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:#4aff9e;margin-bottom:0.4rem;">&#10003; FULLY HOMOLOGATED</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--off-white);margin-bottom:0.3rem;">🇪🇺 Europe</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.5;">EU whole vehicle type approval — compliant across all 27 EU member states plus Norway, Switzerland and Iceland</div>
+    </div>
+    <div style="background:var(--card-bg);padding:1.2rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:#4aff9e;margin-bottom:0.4rem;">&#10003; FULLY HOMOLOGATED</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--off-white);margin-bottom:0.3rem;">🇨🇳 China</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.5;">GB/T national standard type approval — the WH11 variant is production-certified for China's road network</div>
+    </div>
+    <div style="background:var(--card-bg);padding:1.2rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:#4aff9e;margin-bottom:0.4rem;">&#10003; FULLY HOMOLOGATED</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--off-white);margin-bottom:0.3rem;">🇺🇸 United States</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.5;">FMVSS type approval — the WH12 variant meets all Federal Motor Vehicle Safety Standards for US roads</div>
+    </div>
+    <div style="background:var(--card-bg);padding:1.2rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:0.55rem;letter-spacing:0.15em;color:#4aff9e;margin-bottom:0.4rem;">&#10003; FULLY HOMOLOGATED</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--off-white);margin-bottom:0.3rem;">🇨🇱 Chile</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Chilean road transport authority approval — certified for operation on Chile's highway network</div>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE CSS -->
+<style>
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:repeat(6"] { grid-template-columns: repeat(3,1fr) !important; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  div[style*="padding-right:2rem"] { padding-right: 0 !important; border-right: none !important; }
+  div[style*="padding-left:2rem"] { padding-left: 0 !important; }
+  div[style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr 1fr !important; }
+  div[style*="padding:3rem 3rem"] { padding: 2rem 1.25rem !important; }
+  div[style*="padding:0 3rem"] { padding: 0 1.25rem !important; }
+}
+</style>
+
+
+>

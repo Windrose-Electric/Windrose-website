@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.webp">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Windrose and Hubject implement ISO 15118-20 for automatic Plug&Charge authentication on electric trucks.">
+  <link rel="canonical" href="https://www.windrose.ai/press/hubject-plug-charge">
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMyIgZmlsbD0iIzA2MGYxZSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTgsMyA4LDE4IDE1LDE4IDE0LDI5IDI0LDE0IDE3LDE0IiBmaWxsPSIjNGE5ZWZmIi8+Cjwvc3ZnPg==">
+  <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMyIgZmlsbD0iIzA2MGYxZSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTgsMyA4LDE4IDE1LDE4IDE0LDI5IDI0LDE0IDE3LDE0IiBmaWxsPSIjNGE5ZWZmIi8+Cjwvc3ZnPg==">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hubject and Windrose Partner to Enable Plug&Charge and MCS — Windrose Electric</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ════════════════════════════════════════════════════════════════════
+     CANONICAL HEADER — identical across all pages
+     Stack: topbar(38px) + lang-row(36px) + nav(44px) = 118px
+  ════════════════════════════════════════════════════════════════════ */
+
+  /* Topbar */
+  #topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 103;
+    height: 38px; background: var(--accent-dark);
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+    padding: 0 2rem; box-sizing: border-box;
+  }
+  #topbar span {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.1em; color: #fff;
+  }
+  #topbar a {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: #fff; color: var(--accent-dark);
+    text-decoration: none; padding: 0.3rem 1.1rem; white-space: nowrap;
+  }
+
+  /* Lang row */
+  #lang-row {
+    position: fixed; top: 38px; left: 0; right: 0; z-index: 102;
+    height: 36px; background: rgba(6,15,30,0.97);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: stretch;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  #lang-switcher {
+    display: flex; flex-wrap: nowrap; align-items: stretch; min-width: 100%;
+  }
+  .lang-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.04em;
+    padding: 0 0.6rem; background: transparent; border: none;
+    border-right: 1px solid var(--border); color: var(--muted);
+    cursor: pointer; flex: 1 1 0; min-width: 56px;
+    display: flex; align-items: center; justify-content: center;
+    white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover  { background: rgba(74,158,255,0.08); color: var(--off-white); }
+  .lang-btn.active { background: rgba(74,158,255,0.15); color: var(--accent); font-weight: 700; }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 74px; left: 0; right: 0; z-index: 100;
+    height: 44px; background: rgba(6,15,30,0.97);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: stretch;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 0.08em; color: var(--accent); text-decoration: none;
+    display: flex; align-items: center; padding: 0 1.5rem;
+    border-right: 1px solid var(--border);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex; list-style: none; margin: 0; padding: 0;
+    flex: 1; min-width: 0;
+  }
+  .nav-links li { flex: 1 1 0; display: flex; min-width: 7rem; }
+  .nav-links a {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%; padding: 0;
+    border-right: 1px solid var(--border); white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links li:last-child a { border-right: none; }
+  .nav-links a:hover  { background: rgba(74,158,255,0.08); color: var(--off-white); }
+  .nav-links a.active { background: rgba(74,158,255,0.15); color: var(--accent); font-weight: 700; }
+
+  /* ── Responsive ────────────────────────────────────────────────────── */
+  /* Tablet (≤900px): nav-links still visible, just scrolls */
+  @media (max-width: 900px) {
+    .nav-links li { min-width: 8rem; }
+  }
+
+  /* Mobile (≤600px): compact topbar, taller lang-row */
+
+@media (max-width: 768px) {
+  }
+
+  :root {
+    --accent: #4a9eff;
+    --accent-dark: #1a6abf;
+    --off-white: #f0f4ff;
+    --muted: #7a9abf;
+    --dark: #060f1e;
+    --card-bg: #0d1f38;
+    --border: rgba(74, 158, 255, 0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--off-white);
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    padding-top: 118px;
+  }
+
+  /* NAV */
+
+  /* HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 55% at 75% 55%, rgba(26, 58, 110, 0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 35% at 15% 85%, rgba(74, 158, 255, 0.07) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.035;
+    background-image: linear-gradient(to right, var(--off-white) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--off-white) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-inner { position: relative; z-index: 1; width: 100%; }
+  .eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 0.9rem;
+  }
+  .eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 10rem);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--off-white); margin-bottom: 2rem;
+  }
+  h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75; color: var(--muted);
+    max-width: 480px; margin-bottom: 2.8rem;
+  }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent-dark); color: #fff;
+    padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost {
+    border: 1px solid rgba(74, 158, 255, 0.35); color: var(--off-white);
+    padding: 0.9rem 2.2rem; font-size: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SHARED */
+  section { padding: 4rem 3rem 2rem; }
+  section > *:last-child { margin-bottom: 0 !important; }
+  section > .news-grid:last-child, section > div:last-child > .news-grid { margin-bottom: 0 !important; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--accent); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+    line-height: 1; letter-spacing: 0.03em; margin-bottom: 3rem;
+  }
+
+  /* METRICS BAND */
+  .metrics-section {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .metric {
+    padding: 2.8rem 2.2rem;
+    border-right: 1px solid var(--border);
+    position: relative; overflow: hidden; transition: background 0.2s;
+  }
+  .metric:last-child { border-right: none; }
+  .metric:hover { background: rgba(74, 158, 255, 0.04); }
+  .metric::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 2px; height: 0; background: var(--accent);
+    transition: height 0.35s ease;
+  }
+  .metric:hover::after { height: 100%; }
+  .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; line-height: 1; letter-spacing: 0.02em;
+    color: var(--off-white); margin-bottom: 0.4rem;
+  }
+  .metric-val em { font-style: normal; color: var(--accent); font-size: 2rem; }
+  .metric-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.35rem;
+  }
+  .metric-note { font-size: 0.8rem; color: rgba(122, 154, 191, 0.55); line-height: 1.4; }
+
+  /* SPECS */
+  .specs-section { background: var(--dark); }
+  .specs-row {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  .spec-cell {
+    background: var(--dark); padding: 2rem 1.8rem; transition: background 0.2s;
+  }
+  .spec-cell:hover { background: var(--card-bg); }
+  .spec-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; color: var(--off-white); line-height: 1; letter-spacing: 0.02em;
+  }
+  .spec-big em { font-style: normal; color: var(--off-white); font-size: 1.6rem; }
+  .spec-key {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin: 0.4rem 0 0.3rem;
+  }
+  .spec-note { font-size: 0.8rem; color: rgba(122, 154, 191, 0.5); line-height: 1.4; }
+
+  /* PRICING */
+  .pricing-section { background: var(--card-bg); border-top: 1px solid var(--border); }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  .price-card {
+    background: var(--card-bg); padding: 2.5rem 2rem;
+    position: relative; overflow: hidden; transition: background 0.2s;
+  }
+  .price-card:hover { background: #112240; }
+  .price-card.featured { background: #0a2040; border-top: 2px solid var(--accent); }
+  .price-flag { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .price-currency {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.6rem;
+  }
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; line-height: 1; color: var(--off-white); letter-spacing: 0.02em;
+  }
+  .price-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5; }
+
+  /* NEWS */
+  .news-section { background: var(--dark); }
+  .news-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: stretch; }
+  .news-card { position: relative; }
+  .card-country-badge {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .news-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    overflow: hidden; transition: border-color 0.2s, transform 0.2s; cursor: pointer;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .news-thumb {
+    width: 100%; height: 160px; object-fit: cover; object-position: center;
+    background: #0a1a30; display: block; flex-shrink: 0;
+  }
+  .news-thumb-placeholder {
+    width: 100%; height: 160px; flex-shrink: 0;
+    background: linear-gradient(135deg, #0a1a30 0%, #1a3a6e 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .news-thumb-placeholder svg { width: 38px; height: 38px; stroke: var(--accent); fill: none; opacity: 0.35; }
+  .news-body { padding: 1rem 1.2rem 1.2rem; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .news-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-meta {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.5rem; display: flex; gap: 0.8rem;
+  }
+  .region-badge {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    color: #4a9eff;
+    background: rgba(74, 158, 255, 0.1);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    padding: 0.3rem 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+  .news-title {
+    font-size: 0.8rem; font-weight: 400; line-height: 1.4; color: var(--off-white); margin-bottom: 0.5rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .news-excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.8rem; }
+  .news-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; margin-top: auto;
+  }
+  .news-link::after { content: ' →'; }
+
+  /* VIDEO */
+  .video-section { background: var(--card-bg); border-top: 1px solid var(--border); }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .video-card {
+    display: block; text-decoration: none;
+    background: var(--dark); border: 1px solid var(--border);
+    overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+  }
+  .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .video-thumb-wrap {
+    position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  }
+  .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vthumb-fallback {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a1a30 0%, #132d55 100%);
+    display: none; align-items: center; justify-content: center;
+    position: absolute; inset: 0;
+  }
+  .play-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .play-btn {
+    width: 56px; height: 56px;
+    background: rgba(26, 106, 191, 0.9); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .video-card:hover .play-btn { transform: scale(1.1); background: var(--accent); }
+  .play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+  .nyt-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .giants-featured {
+    grid-column: 1 / -1;
+  }
+  .giants-featured .video-thumb-wrap {
+    aspect-ratio: 21/7;
+  }
+  .video-card-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0.55rem 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: var(--off-white);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .video-card-header span.flag { font-size: 1rem; }
+  .video-card-header span.country { color: var(--accent); }
+  .nyt-featured .video-thumb-wrap {
+    aspect-ratio: 16/7;
+  }
+  .nyt-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(6,15,30,0.75) 40%, rgba(6,15,30,0.15) 100%);
+    display: flex; align-items: center;
+    padding: 2.5rem 3rem;
+    transition: background 0.3s;
+  }
+  .nyt-featured:hover .nyt-overlay {
+    background: linear-gradient(to right, rgba(6,15,30,0.82) 45%, rgba(6,15,30,0.25) 100%);
+  }
+  .nyt-overlay-inner { max-width: 520px; }
+  .nyt-masthead {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(255,255,255,0.25);
+    padding-bottom: 0.6rem;
+    display: inline-block;
+  }
+  .nyt-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    line-height: 1.35; font-weight: 300;
+    color: rgba(240,244,255,0.9); margin-bottom: 1.4rem;
+  }
+  .nyt-cta {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(74,158,255,0.4);
+    display: inline-block; padding: 0.5rem 1.2rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nyt-featured:hover .nyt-cta {
+    background: rgba(74,158,255,0.1);
+    border-color: var(--accent);
+  }
+  .outlet-badge {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(6, 15, 30, 0.82);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); padding: 0.4rem 0.8rem;
+  }
+  .video-card-body { padding: 0.9rem 1.1rem; }
+  .video-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #040b14; border-top: 1px solid var(--border);
+    padding: 3.5rem 3rem;
+    display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;
+  }
+  .footer-brand
+  .footer-brand p { font-size: 0.8rem; color: var(--muted); line-height: 1.65; max-width: 220px; }
+  .footer-links { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .footer-col h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.7rem; }
+  .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--off-white); }
+  .footer-bottom {
+    background: #040b14; border-top: 1px solid rgba(74, 158, 255, 0.05);
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .footer-bottom p { font-size: 0.72rem; color: rgba(122, 154, 191, 0.35); }
+
+  /* RESPONSIVE — tablet */
+  @media (max-width: 900px) {
+section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .specs-row { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-grid { grid-template-columns: 1fr; }
+    footer { padding: 2.5rem 1.5rem; }
+    .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    /* Specs image overlay — stack vertically on tablet */
+    .specs-img-wrap > div[style*="position:absolute"][style*="left:3rem"],
+    .specs-img-wrap > div[style*="position:absolute"][style*="right:3rem"] {
+      position: static !important;
+      transform: none !important;
+      display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--card-bg);
+    }
+  }
+
+
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .roadmap-grid > div { min-width: 0; overflow: hidden; }
+  
+
+  @media (max-width: 900px) {
+    .roadmap-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ══ MOBILE CLEAN VIEW (≤600px) ══════════════════════════════════════ */
+
+  /* ══ ROADMAP PAGE MOBILE ══════════════════════════════════════════════ */
+
+
+  /* ── Hamburger menu (tablet + mobile) ───────────────────────────── */
+  
+  
+  #hamburger:hover span { background: var(--off-white); }
+  
+  
+  
+  
+  @media (max-width: 480px) {
+    
+}
+
+  /* ═══ MOBILE (≤600px) ══════════════════════════════════════════════════════ */
+  @media (max-width: 600px) {
+    /* Fixed header */
+    #topbar span { display: none; }
+    #topbar { gap: 0; justify-content: flex-end; padding-right: 1rem; }
+    #lang-row { height: 44px; }
+    .lang-btn { font-size: 0.75rem; min-width: 52px; height: 44px; }
+    nav { top: 82px; }
+    body { padding-top: 118px; }
+
+    /* Section spacing — tight on mobile, no large gaps */
+    section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; }
+    section { padding-top: 1.5rem !important; padding-bottom: 1.2rem !important; }
+    section[style*="padding: 4rem"] { padding: 1.5rem 1rem !important; }
+    section[style*="padding: 3rem"] { padding: 1.5rem 1rem !important; }
+
+    /* Typography */
+    .section-label { font-size: 0.6rem !important; margin-bottom: 0.5rem !important; }
+    h2 { font-size: clamp(1.4rem, 6vw, 2rem) !important; margin-bottom: 1rem !important; }
+
+    /* Grids → single column */
+    .pricing-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
+    .pricing-section { padding-top: 1rem !important; }
+    .price-card > div[style*="background:rgba(74,255,158"] { display: none !important; }
+    .roadmap-grid { grid-template-columns: 1fr !important; }
+    .news-grid { grid-template-columns: 1fr !important; }
+    .metrics-grid { grid-template-columns: 1fr !important; }
+    .specs-row, .key-specs-grid { grid-template-columns: 1fr !important; }
+    .video-grid { grid-template-columns: 1fr !important; }
+    #manufacturing .news-grid, #charging .news-grid { grid-template-columns: 1fr !important; }
+
+    /* Content simplification */
+    .news-excerpt { display: none !important; }
+    .news-grid > div[style*="grid-column:1/-1"] { font-size: 0.8rem !important; margin: 1.2rem 0 0.5rem !important; }
+    .specs-stats-left, .specs-stats-right { display: none !important; }
+    .specs-img-wrap img { aspect-ratio: 16/9 !important; }
+    .nyt-overlay { display: none !important; }
+    .nyt-featured .video-thumb-wrap, .giants-featured .video-thumb-wrap { aspect-ratio: 16/9 !important; }
+    .pricing-section > div:last-child { display: none !important; }
+
+    /* Hero */
+    .hero { min-height: 60vh !important; aspect-ratio: unset !important; }
+    .hero-bg-photo { background-position: 20% 45% !important; background-size: cover !important; }
+    #hero-section { min-height: 60vh !important; }
+    #hero-section > div:last-child { padding: 1.5rem !important; }
+    #hero-section h1 { font-size: clamp(1.6rem, 6vw, 2.8rem) !important; }
+
+    /* Map */
+    #wr-map-svg { height: 200px !important; }
+    #wr-panel { display: none !important; }
+
+    /* Footer */
+    footer { grid-template-columns: 1fr !important; padding: 2rem 1rem !important; }
+    .footer-links { flex-direction: column; gap: 1rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; padding: 1rem; }
+
+    /* Chatbot */
+    #wr-chat-btn { bottom: 1rem !important; right: 1rem !important; width: 44px !important; height: 44px !important; }
+
+    /* Roadmap page */
+    .roadmap-page-wrap { padding: 0 1rem 2rem !important; }
+
+    /* After-sales / warranty tabs */
+    .tab-row { overflow-x: auto; }
+    .stat-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
+
+    /* Network US hero card */
+    a[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+
+
+  /* ── Smooth page transitions & scroll animations ───────────────── */
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  
+  /* Fade-in on scroll */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Smooth image loading */
+  img { transition: opacity 0.4s ease; }
+  img[src=""] { opacity: 0; }
+
+  /* Card hover lift */
+  .news-card {
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+  }
+  .news-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 40px rgba(74,158,255,0.12) !important;
+  }
+
+  /* Smooth nav transitions */
+  #topbar, #lang-row, nav {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  body.scrolled-down #topbar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+  body.scrolled-down #lang-row { transform: translateY(-38px); }
+  body.scrolled-down nav { transform: translateY(-74px); }
+  body.scrolled-down { padding-top: 44px !important; }
+
+  /* Page load fade-in */
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+  body { animation: pageIn 0.5s ease; }
+
+  /* Section divider glow on hover */
+  .section-label { transition: color 0.3s ease; }
+
+
+  /* ── Press — full-width, stats top, text|photos split ────────── */
+  .press-article { max-width: 100%; margin: 0; padding: 1rem 2.5rem 1rem; }
+  .press-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); text-decoration: none;
+    margin-bottom: 0.8rem; transition: opacity 0.2s;
+  }
+  .press-back:hover { opacity: 0.7; }
+
+  /* Stats banner — full width at the very top */
+  .press-stats-bar {
+    display: flex; gap: 1px; margin-bottom: 0.8rem;
+    background: var(--border);
+  }
+  .press-stat {
+    flex: 1; background: var(--card-bg); padding: 0.5rem 0.8rem;
+    display: flex; flex-direction: column; gap: 0.1rem; text-align: center;
+  }
+  .press-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--off-white); line-height: 1; }
+  .press-stat-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+  /* Main layout: text left, photos right */
+  .press-layout { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 1.5rem; align-items: start; }
+
+  /* Meta */
+  .press-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .press-meta-tag {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.15rem 0.5rem; border: 1px solid var(--border); color: var(--accent);
+  }
+  .press-meta-date { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; color: var(--muted); }
+  .press-headline {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.05; letter-spacing: 0.02em; color: var(--off-white); margin-bottom: 0.6rem;
+  }
+  .press-subline {
+    font-family: 'DM Sans', sans-serif; font-size: 0.92rem; line-height: 1.45;
+    color: var(--accent); font-weight: 400;
+    margin-bottom: 0.8rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
+  }
+  .press-body { font-family: 'DM Sans', sans-serif; font-size: 0.88rem; line-height: 1.65; color: rgba(240,244,255,0.82); }
+  .press-body p { margin-bottom: 0.6rem; }
+  .press-body strong { color: var(--off-white); font-weight: 500; }
+  .press-quote {
+    border-left: 2px solid var(--accent); padding: 0.4rem 0.6rem;
+    margin: 0.6rem 0; background: rgba(74,158,255,0.04);
+  }
+  .press-quote p { font-style: italic; color: var(--off-white); margin-bottom: 0.15rem; font-size: 0.85rem; line-height: 1.55; }
+  .press-quote cite { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; color: var(--accent); font-style: normal; }
+  .press-source {
+    margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);
+  }
+  .press-source a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Photos column */
+  .press-photos { display: flex; flex-direction: column; gap: 0.5rem; position: sticky; top: 125px; }
+  .press-photos img { width: 100%; object-fit: cover; display: block; border: 1px solid var(--border); }
+  .press-photos .photo-main { width: 100%; height: auto; }
+  .press-photos .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .press-photos .photo-row img { width: 100%; height: auto; }
+
+  /* iPad portrait + tablets */
+  @media (max-width: 1024px) {
+    .press-article { padding: 1.2rem 1.5rem; }
+    .press-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+    .press-photos { order: -1; position: static; }
+    .press-photos .photo-main { aspect-ratio: 21/9; }
+  }
+  /* Mobile */
+  @media (max-width: 600px) {
+    .press-article { padding: 1rem; }
+    .press-stats-bar { flex-wrap: wrap; }
+    .press-stat { min-width: 30%; flex: 1 1 30%; }
+    .press-headline { font-size: 1.7rem; }
+    .press-photos .photo-row { grid-template-columns: 1fr; }
+  }
+
+
+  .translated-banner {
+    display: none;
+    background: rgba(74,158,255,0.08); border-bottom: 1px solid var(--border);
+    padding: 0.3rem 2.5rem; text-align: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+  }
+  .translated-banner a { color: var(--accent); text-decoration: none; }
+  body.lang-translated .translated-banner { display: block; }
+
+
+  /* ── Search ──────────────────────────────────────────────────── */
+  .search-toggle {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.06em; color: var(--muted); background: none; border: none;
+    cursor: pointer; padding: 0 1.2rem; display: flex; align-items: center;
+    gap: 0.4rem; white-space: nowrap; transition: color 0.15s; flex-shrink: 0;
+  }
+  .search-toggle:hover { color: var(--off-white); }
+  .search-toggle svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .search-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(4,8,18,0.95); backdrop-filter: blur(16px);
+    align-items: flex-start; justify-content: center;
+  }
+  .search-overlay.open { display: flex; }
+  .search-box { width: 100%; max-width: 680px; margin-top: 130px; padding: 0 2rem; }
+  .search-input-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .search-input {
+    flex: 1; background: none; border: none; border-bottom: 2px solid var(--accent);
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 4vw, 2.6rem);
+    letter-spacing: 0.04em; color: var(--off-white); padding: 0.4rem 0; outline: none;
+  }
+  .search-input::placeholder { color: rgba(122,154,191,0.4); }
+  .search-close {
+    background: none; border: 1px solid var(--border); color: var(--muted);
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em;
+    padding: 0.35rem 0.9rem; cursor: pointer; text-transform: uppercase;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .search-close:hover { color: var(--off-white); border-color: var(--accent); }
+  .search-results { list-style: none; max-height: 55vh; overflow-y: auto; }
+  .search-results li { border-bottom: 1px solid var(--border); }
+  .search-results a {
+    display: block; padding: 0.8rem 0.5rem; text-decoration: none; transition: background 0.15s;
+  }
+  .search-results a:hover { background: rgba(74,158,255,0.06); }
+  .search-results .sr-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+    color: var(--off-white); letter-spacing: 0.03em;
+  }
+  .search-results .sr-page {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.55rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+    margin-top: 0.15rem;
+  }
+  .search-results .sr-excerpt {
+    font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
+    color: var(--muted); line-height: 1.5; margin-top: 0.2rem;
+  }
+  .search-hint {
+    font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+    color: rgba(122,154,191,0.5); text-align: center; padding: 2rem 0;
+  }
+
+</style>
+<script>
+// Guard: ensures setLang is defined before any onclick fires.
+// Always reads from window.TRANSLATIONS at call-time so it picks up
+// the full data once the body scripts have loaded.
+var LANG_ALIAS = { 'en_world':'en', 'en_us':'en', 'en_uk':'en', 'zh_tw':'zh_tw' };
+function setLang(lang) {
+  var alias = LANG_ALIAS[lang] || lang;
+  var trans = window.TRANSLATIONS || {};
+  var t = trans[alias] || trans['en'] || {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) {
+      if (/<[a-z]/.test(t[k])) el.innerHTML = t[k];
+      else el.textContent = t[k];
+    }
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  var btn = document.getElementById('lang-' + lang);
+  if (btn) btn.classList.add('active');
+}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://windrose.ai/press/hubject-plug-charge.html">
+<meta property="og:title" content="Hubject and Windrose Partner to Enable Plug&Charge and MCS" id="og-title">
+<meta property="og:description" content="Windrose and Hubject implement ISO 15118-20 for automatic Plug&Charge authentication on electric trucks." id="og-description">
+<meta property="og:image" content="https://windrose.ai/press/images/hubject.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Windrose Electric">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hubject and Windrose Partner to Enable Plug&Charge and MCS" id="tw-title">
+<meta name="twitter:description" content="Windrose and Hubject implement ISO 15118-20 for automatic Plug&Charge authentication on electric trucks." id="tw-description">
+<meta name="twitter:image" content="https://windrose.ai/press/images/hubject.jpg">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <span data-i18n="topbar.text">Limited reservations now open</span>
+  <a href="https://buy.stripe.com/5kQ00jaZOfFidW21e8gQE01" target="_blank" rel="noopener" data-i18n="topbar.btn">Reserve Your Windrose →</a>
+</div>
+
+<div id="lang-row"><div id="lang-switcher">
+  <button onclick="setLang('en_world')" class="lang-btn active" id="lang-en_world">🌍 World</button>
+  <button onclick="setLang('en_us')" class="lang-btn" id="lang-en_us">🇺🇸 US</button>
+  <button onclick="setLang('en_uk')" class="lang-btn" id="lang-en_uk">🇬🇧 UK</button>
+  <button onclick="setLang('zh')" class="lang-btn" id="lang-zh">🇨🇳 简体</button>
+  <button onclick="setLang('zh_tw')" class="lang-btn" id="lang-zh_tw">🇹🇼 繁體</button>
+  <button onclick="setLang('ja')" class="lang-btn" id="lang-ja">🇯🇵 日本語</button>
+  <button onclick="setLang('ko')" class="lang-btn" id="lang-ko">🇰🇷 한국어</button>
+  <button onclick="setLang('es')" class="lang-btn" id="lang-es">🇪🇸 Español</button>
+  <button onclick="setLang('pt')" class="lang-btn" id="lang-pt">🇧🇷 Português</button>
+  <button onclick="setLang('de')" class="lang-btn" id="lang-de">🇩🇪 Deutsch</button>
+  <button onclick="setLang('fr')" class="lang-btn" id="lang-fr">🇫🇷 Français</button>
+  <button onclick="setLang('it')" class="lang-btn" id="lang-it">🇮🇹 Italiano</button>
+  <button onclick="setLang('pl')" class="lang-btn" id="lang-pl">🇵🇱 Polski</button>
+  <button onclick="setLang('nl')" class="lang-btn" id="lang-nl">🇳🇱 Nederlands</button>
+  <button onclick="setLang('sv')" class="lang-btn" id="lang-sv">🇸🇪 Svenska</button>
+  <button onclick="setLang('da')" class="lang-btn" id="lang-da">🇩🇰 Dansk</button>
+  <button onclick="setLang('no')" class="lang-btn" id="lang-no">🇳🇴 Norsk</button>
+  <button onclick="setLang('fi')" class="lang-btn" id="lang-fi">🇫🇮 Suomi</button>
+</div></div>
+
+<nav>
+  <a href="../index.html" class="logo">Windrose Electric</a>
+  <ul class="nav-links">
+    <li><a href="../pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+    <li><a href="../network.html" data-i18n="nav.network">Network</a></li>
+    <li><a href="../roadmap.html" data-i18n="nav.roadmap">Future Roadmap</a></li>
+    <li><a href="../commercialization.html" data-i18n="nav.commercialization">Customers</a></li>
+    <li><a href="../specs.html" data-i18n="nav.specs">Specifications</a></li>
+    <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+    <li><a href="../manufacturing.html" data-i18n="nav.manufacturing">Manufacturing</a></li>
+    <li><a href="../charging.html" data-i18n="nav.charging">Charging</a></li>
+  </ul>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-row">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search Windrose..." autocomplete="off">
+      <button class="search-close" onclick="closeSearch()">ESC</button>
+    </div>
+    <ul class="search-results" id="searchResults"></ul>
+    <div class="search-hint" id="searchHint">Type to search across all pages, press releases, and content</div>
+  </div>
+</div>
+
+<article class="press-article">
+  <a href="../news.html" class="press-back">← <span data-i18n="press.back">Back to News</span></a>
+  
+  <div class="press-stats-bar">
+    <div class="press-stat"><span class="press-stat-val">ISO 15118-20</span><span class="press-stat-label"><span data-i18n="hubject_plug_charge.stat_label.0">Standard</span></span></div>
+    <div class="press-stat"><span class="press-stat-val">Plug&Charge</span><span class="press-stat-label"><span data-i18n="hubject_plug_charge.stat_label.1">Authentication</span></span></div>
+    <div class="press-stat"><span class="press-stat-val">Automatic</span><span class="press-stat-label"><span data-i18n="hubject_plug_charge.stat_label.2">Connection</span></span></div>
+  </div>
+
+  <div class="press-layout">
+    <div class="press-text">
+      <div class="press-meta">
+        <span class="press-meta-tag"><span data-i18n="hubject_plug_charge.type">Partnership</span></span>
+        <span class="press-meta-tag">🇩🇪 Germany · Hubject · Plug&Charge</span>
+        <span class="press-meta-date">2026</span>
+      </div>
+      <h1 class="press-headline"><span data-i18n="hubject_plug_charge.headline">Hubject and Windrose Partner to Enable Plug&Charge and MCS</span></h1>
+      <p class="press-subline"><span data-i18n="hubject_plug_charge.subline">Windrose and Hubject implement ISO 15118-20 for automatic Plug&Charge authentication on electric trucks.</span></p>
+      <div class="press-body">
+        <p data-i18n="hubject_plug_charge.body.0">Windrose and Hubject have partnered to implement <strong>ISO 15118-20</strong> for automatic Plug&Charge authentication on electric trucks — enabling drivers to simply plug in and charge without cards or apps.</p>
+<p data-i18n="hubject_plug_charge.body.1">The integration supports both CCS and MCS charging standards, future-proofing Windrose trucks for next-generation charging infrastructure.</p>
+
+        <div class="press-source">
+          <p><span data-i18n="press.source">View original source</span>: <a href="https://www.hubject.com/blog-posts/hubject-and-windrose-partner-to-enable-plug-charge-and-mcs-for-electric-trucks" target="_blank" rel="noopener">https://www.hubject.com/blog-posts/hubject-and-windrose-part… →</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="press-photos">
+      <img class="photo-main" src="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.webp" alt="Hubject and Windrose Partner to Enable Plug&Charge and MCS" onerror="this.style.display='none'">
+    </div>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer style="background:#040b14; border-top:1px solid var(--border); padding: 3rem 3rem 0;">
+  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem; margin-bottom:3rem;">
+    <a href="../index.html" class="logo" style="font-size:1.6rem;">Windrose Electric</a>
+    <p style="font-size:0.8rem; color:var(--muted); max-width:340px; line-height:1.65;" data-i18n="footer.tagline">Building the electric trucks that move the world — cleaner, smarter, and further.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3rem;">
+
+    <a href="https://www.linkedin.com/company/windrosetrucks/?viewAsMember=true" target="_blank" rel="noopener"
+       style="text-decoration:none; background:var(--card-bg); border:1px solid var(--border); padding:1.8rem 2rem; display:flex; flex-direction:column; gap:0.8rem; transition:border-color 0.2s;"
+       onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='rgba(74,158,255,0.12)'">
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent)"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="var(--accent)"/></svg>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent);">LinkedIn</span>
+      </div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--off-white); letter-spacing:0.04em;">Windrose Trucks</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest news, partnerships, and milestones on LinkedIn.</div>
+    </a>
+
+    <a href="https://www.youtube.com/@windrose-EV-truck-lv8iw" target="_blank" rel="noopener"
+       style="text-decoration:none; background:var(--card-bg); border:1px solid var(--border); padding:1.8rem 2rem; display:flex; flex-direction:column; gap:0.8rem; transition:border-color 0.2s;"
+       onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='rgba(74,158,255,0.12)'">
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent)"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#040b14"/></svg>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent);">YouTube</span>
+      </div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--off-white); letter-spacing:0.04em;">Windrose EV Truck</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demos, and commercial deployments.</div>
+    </a>
+
+        <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener"
+       style="text-decoration:none; background:var(--card-bg); border:1px solid var(--border); padding:1.8rem 2rem; display:flex; flex-direction:column; gap:0.8rem; transition:border-color 0.2s;"
+       onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='rgba(74,158,255,0.12)'">
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent)"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent);">Facebook</span>
+      </div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--off-white); letter-spacing:0.04em;">Windrose Electric</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div>
+    </a>
+
+  </div>
+
+};
+</script>
+<script>
+// ── URL language parameter ────────────────────────────────────────────────
+(function() {
+  // On load: read ?lang= from URL and apply
+  var params = new URLSearchParams(window.location.search);
+  var urlLang = params.get('lang');
+  if (urlLang) {
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.setLang) {
+        window.setLang(urlLang);
+      }
+    });
+  }
+
+  // Patch setLang to also update the URL parameter
+  var _origSetLang2 = window.setLang;
+  window.setLang = function(lang) {
+    // Update URL without reloading
+    var url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    window.history.replaceState({}, '', url.toString());
+    if (_origSetLang2) _origSetLang2(lang);
+  };
+})();
+</script>
+
+<script>
+// ── Translate og:title, og:description, and document.title when lang changes ──
+(function() {
+  var _origSetLangOG = window.setLang;
+  window.setLang = function(lang) {
+    if (_origSetLangOG) _origSetLangOG(lang);
+    // Update og meta + document title from TRANSLATIONS
+    var alias = ({ 'en_world':'en', 'en_us':'en', 'en_uk':'en', 'zh_tw':'zh_tw' })[lang] || lang;
+    var t = (window.TRANSLATIONS || {})[alias] || (window.TRANSLATIONS || {})['en'] || {};
+    var headline = t['hubject_plug_charge.headline'];
+    var subline  = t['hubject_plug_charge.subline'];
+    if (headline) {
+      var ogT = document.getElementById('og-title');
+      var twT = document.getElementById('tw-title');
+      if (ogT) ogT.setAttribute('content', headline);
+      if (twT) twT.setAttribute('content', headline);
+      document.title = headline + ' — Windrose Electric';
+    }
+    if (subline) {
+      var ogD = document.getElementById('og-description');
+      var twD = document.getElementById('tw-description');
+      var short = subline.substring(0, 200);
+      if (ogD) ogD.setAttribute('content', short);
+      if (twD) twD.setAttribute('content', short);
+    }
+  };
+})();
+</script>
+</body>
+
+<script>
+// ── Language persistence + URL param ────────────────────────────────
+(function() {
+  function getLangFromURL() {
+    var params = new URLSearchParams(window.location.search);
+    return params.get('lang');
+  }
+  var urlLang   = getLangFromURL();
+  var savedLang = localStorage.getItem('wr-lang') || 'en_world';
+  var initLang  = urlLang || savedLang;
+  var _origSetLang = window.setLang;
+  window.setLang = function(lang) {
+    localStorage.setItem('wr-lang', lang);
+    var url = new URL(window.location.href);
+    if (lang === 'en_world') { url.searchParams.delete('lang'); }
+    else { url.searchParams.set('lang', lang); }
+    history.replaceState(null, '', url.toString());
+    if (_origSetLang) _origSetLang(lang);
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    if (initLang && initLang !== 'en_world') { setLang(initLang); }
+  });
+})();
+</script>
+
+
+<script>
+// ── Scroll reveal ─────────────────────────────────────────────────
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('section, .news-card, .pricing-section, .hero, [id$="-section"]').forEach(function(el){
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+  });
+})();
+
+// ── Smart nav collapse on scroll down ─────────────────────────────
+(function(){
+  var last=0, ticking=false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ window.requestAnimationFrame(function(){
+      var y = window.pageYOffset;
+      if(y > 160 && y > last+5) document.body.classList.add('scrolled-down');
+      else if(y < last-5 || y < 80) document.body.classList.remove('scrolled-down');
+      last = y; ticking = false;
+    }); ticking = true; }
+  }, {passive:true});
+})();
+</script>
+
+
+<script>
+// ── Global broken-image fallback ──────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var fallback = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjIwIiBzdHlsZT0id2lkdGg6MTAwJTthc3BlY3QtcmF0aW86NDAwLzIyMDtiYWNrZ3JvdW5kOiMwYTE2Mjg7ZGlzcGxheTpibG9jazsiPgogIDxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjIwIiBmaWxsPSIjMGExNjI4Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIyMDAsNTUgMTc4LDEwNSAxOTIsMTA1IDE5MCwxNDUgMjEyLDk1IDE5OCw5NSIgZmlsbD0iIzRhOWVmZiIgb3BhY2l0eT0iMC4yNSIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMTc1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNGE5ZWZmIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGV0dGVyLXNwYWNpbmc9IjMiIG9wYWNpdHk9IjAuNSI+SU1BR0UgVU5BVkFJTEFCTEU8L3RleHQ+Cjwvc3ZnPg==';
+  document.querySelectorAll('.news-card img, .news-thumb').forEach(function(img) {
+    // If image already failed to load
+    if (img.complete && img.naturalHeight === 0 && img.src && !img.src.startsWith('data:')) {
+      img.onerror = null;
+      img.src = fallback;
+      img.style.objectFit = 'contain';
+      img.style.background = '#0a1628';
+    }
+    // Add handler for future failures
+    if (!img.getAttribute('onerror')) {
+      img.onerror = function() {
+        this.onerror = null;
+        this.src = fallback;
+        this.style.objectFit = 'contain';
+        this.style.background = '#0a1628';
+      };
+    }
+  });
+});
+</script>
+
+
+<script>
+// ── Site-wide search ──────────────────────────────────────────
+var SITE_SEARCH = [
+  {t:'Home',u:'../index.html',p:'Main',d:'Windrose Electric global electric truck 700km range 24 countries 5 continents zero emissions long-haul freight diesel parity pricing'},
+  {t:'Pricing — Diesel Parity Everywhere',u:'../pricing.html',p:'Pricing',d:'EUR AUD GBP USD CNY diesel parity pricing electric truck cost per km TCO total cost ownership'},
+  {t:'Network — Global Dealer & Service',u:'../network.html',p:'Network',d:'dealer service partner global network FleetNet Yrkesbil Alliance Automotive Raskibe Xos'},
+  {t:'Roadmap — Every Generation Better',u:'../roadmap.html',p:'Roadmap',d:'Generation 2 3 4 E670 E960 R700 MCS CCS battery kWh motor suspension EPS autonomous L4'},
+  {t:'Customers Around the World',u:'../commercialization.html',p:'Customers',d:'CEVA Kuehne Nagel KLN Decathlon ATC Danske Fragtmand Bluescope New Energy Transport'},
+  {t:'Specifications',u:'../specs.html',p:'Specs',d:'specifications battery range kWh motor torque axle weight dimensions charging CCS MCS'},
+  {t:'News & Media Coverage',u:'../news.html',p:'News',d:'New York Times Forbes Reuters France 24 Le Monde FAZ interviews press releases'},
+  {t:'Manufacturing',u:'../manufacturing.html',p:'Manufacturing',d:'Suzhou China Antwerp Belgium Hauts-de-France manufacturing assembly multi-continent'},
+  {t:'Charging Partners',u:'../charging.html',p:'Charging',d:'Greenlane Terawatt ENGIE Vianeo Milence Kempower Autel Hubject Sinexcel MCS megawatt charging'},
+  {t:'CEVA & Lenovo — China–Kazakhstan Corridor',u:'../press/ceva-lenovo-china-kazakhstan-2026.html',p:'Press Release',d:'CEVA Lenovo China Kazakhstan 6000km 46% CO2 reduction Shenzhen Alashankou Almaty electric truck pilot April 2026'},
+  {t:'CEVA — Algeciras–Madrid 100% Electric',u:'../press/ceva-spain-algeciras-madrid.html',p:'Press Release',d:'CEVA Spain Algeciras Madrid 1383km electric truck 670km range November 2025'},
+  {t:'ATC — 2,600 km Venlo to Budapest',u:'../press/atc-2600km-netherlands-hungary.html',p:'Press Release',d:'ATC Netherlands Hungary 2600km Venlo Budapest 5 countries cross-border electric truck'},
+  {t:'Kuehne+Nagel China — Low-Carbon Logistics',u:'../press/kuehne-nagel-china.html',p:'Press Release',d:'Kuehne Nagel China 1300km 45 tonnes low-carbon logistics electric truck'},
+  {t:'Port of Antwerp-Bruges — European Assembly',u:'../press/antwerp-port-assembly.html',p:'Press Release',d:'Antwerp Belgium Port Bruges Noorderlaan assembly European manufacturing'},
+  {t:'Xos — US Deliveries Begin May 2026',u:'../press/xos-us-deliveries.html',p:'Press Release',d:'Xos Trucks United States North America R700 deliveries May 2026'},
+  {t:'Greenlane — 3 Months Free Charging',u:'../press/greenlane-charging.html',p:'Press Release',d:'Greenlane network free charging 3 months US high-power'},
+  {t:'Terawatt — Strategic Partnership',u:'../press/terawatt-partnership.html',p:'Press Release',d:'Terawatt Infrastructure high-power charging software integration US'},
+  {t:'EV Realty — MCS Interoperability',u:'../press/ev-realty-mcs.html',p:'Press Release',d:'Kempower EV Realty MCS megawatt San Bernardino California validation'},
+  {t:'ENGIE Vianeo — Heavy-Duty Electrification',u:'../press/engie-vianeo.html',p:'Press Release',d:'ENGIE Vianeo France Europe heavy-duty electrification'},
+  {t:'Autel — MCS 1.2 MW Validation',u:'../press/autel-mcs-validation.html',p:'Press Release',d:'Autel MCS 1.2MW Roosendaal Netherlands megawatt charging validation'},
+  {t:'Hubject — Plug&Charge & MCS',u:'../press/hubject-plug-charge.html',p:'Press Release',d:'Hubject ISO 15118-20 Plug Charge MCS automatic authentication'},
+  {t:'UK Fastest Charging Session',u:'../press/uk-fastest-charging.html',p:'Press Release',d:'United Kingdom fastest charging record ultra-fast session'},
+  {t:'FleetNet America — Service Coverage',u:'../press/fleetnet-america.html',p:'Press Release',d:'FleetNet America Cox Automotive 65000 service locations nationwide Class 8'},
+  {t:'TJA Portugal — Electric Truck Trial',u:'../press/tja-portugal.html',p:'Press Release',d:'TJA Transportes Amaral Portugal Iberian Peninsula electric truck trial'},
+  {t:'Sinexcel — Australia Charging',u:'../press/sinexcel-australia.html',p:'Press Release',d:'Sinexcel Australia high-power charging infrastructure'},
+];
+
+function openSearch() {
+  document.getElementById('searchOverlay').classList.add('open');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').innerHTML = '';
+  document.getElementById('searchHint').style.display = '';
+  setTimeout(function(){ document.getElementById('searchInput').focus(); }, 100);
+}
+function closeSearch() {
+  document.getElementById('searchOverlay').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+  if (e.key === 'Escape') closeSearch();
+});
+document.getElementById('searchInput').addEventListener('input', function() {
+  var q = this.value.toLowerCase().trim();
+  var results = document.getElementById('searchResults');
+  var hint = document.getElementById('searchHint');
+  if (!q) { results.innerHTML = ''; hint.style.display = ''; return; }
+  hint.style.display = 'none';
+  var words = q.split(/\s+/);
+  var matches = SITE_SEARCH.filter(function(item) {
+    var haystack = (item.t + ' ' + item.d + ' ' + item.p).toLowerCase();
+    return words.every(function(w) { return haystack.indexOf(w) !== -1; });
+  });
+  if (!matches.length) {
+    results.innerHTML = '<div class="search-hint">No results found</div>';
+    return;
+  }
+  results.innerHTML = matches.slice(0, 12).map(function(item) {
+    // Highlight matching words in description
+    var desc = item.d.substring(0, 120);
+    return '<li><a href="' + item.u + '">' +
+      '<div class="sr-title">' + item.t + '</div>' +
+      '<div class="sr-page">' + item.p + '</div>' +
+      '<div class="sr-excerpt">' + desc + '</div>' +
+      '</a></li>';
+  }).join('');
+});
+// Click outside to close
+document.getElementById('searchOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeSearch();
+});
+</script>
+
+
+<script>
+// ── YouTube fallback for regions where YouTube is blocked ──────
+(function(){
+  var ytFallback = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjI1IiBzdHlsZT0id2lkdGg6MTAwJTtiYWNrZ3JvdW5kOiMwYTE2Mjg7ZGlzcGxheTpibG9jazsiPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgZmlsbD0iIzBhMTYyOCIvPgo8cG9seWdvbiBwb2ludHM9IjIwMCw1NSAxNzgsMTA1IDE5MiwxMDUgMTkwLDE0NSAyMTIsOTUgMTk4LDk1IiBmaWxsPSIjNGE5ZWZmIiBvcGFjaXR5PSIwLjE1Ii8+Cjxwb2x5Z29uIHBvaW50cz0iMTg4LDk4IDIxNiwxMTMgMTg4LDEyOCIgZmlsbD0iIzRhOWVmZiIgb3BhY2l0eT0iMC40Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNGE5ZWZmIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBsZXR0ZXItc3BhY2luZz0iMyIgb3BhY2l0eT0iMC40Ij5WSURFTzwvdGV4dD4KPC9zdmc+';
+  var ytBlocked = false;
+  
+  // Probe YouTube with a tiny image
+  var probe = new Image();
+  probe.onload = function(){ ytBlocked = false; };
+  probe.onerror = function(){
+    ytBlocked = true;
+    // Replace ALL YouTube thumbnail images
+    document.querySelectorAll('img').forEach(function(img){
+      if (img.src && img.src.indexOf('img.youtube.com') !== -1) {
+        img.src = ytFallback;
+        img.style.objectFit = 'contain';
+        img.style.background = '#0a1628';
+      }
+    });
+    // Hide YouTube iframes
+    document.querySelectorAll('iframe').forEach(function(f){
+      if (f.src && f.src.indexOf('youtube.com') !== -1) {
+        f.style.display = 'none';
+      }
+    });
+    // Replace YouTube URLs in any dynamically built cards
+    if (window._origBuildCards) return;
+    window._origBuildCards = true;
+  };
+  // Use a known tiny YouTube resource to probe
+  probe.src = 'https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg?' + Date.now();
+  
+  // Also handle images that fail to load individually (backup for race conditions)
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('img[src*="img.youtube.com"]').forEach(function(img){
+      var origOnerror = img.onerror;
+      img.onerror = function(){
+        this.onerror = null;
+        this.src = ytFallback;
+        this.style.objectFit = 'contain';
+        this.style.background = '#0a1628';
+      };
+      // If already failed
+      if (img.complete && img.naturalHeight === 0) {
+        img.src = ytFallback;
+        img.style.objectFit = 'contain';
+        img.style.background = '#0a1628';
+      }
+    });
+  });
+})();
+</script>
+
+</html>
