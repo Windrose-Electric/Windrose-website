@@ -6,36 +6,8 @@
 <title>Windrose – מדריך הבעלים</title>
 <link href="styles.css" rel="stylesheet"/>
 <script src="../owners-manual-lang.js"></script>
-<script>
-(function(){
-  var KEY = 'draftBannerDismissed';
-  var banner = document.getElementById('draft-banner');
-  if (!banner) return;
-  if (sessionStorage.getItem(KEY)) { banner.style.display = 'none'; return; }
-  function applyOffset() {
-    var h = banner.style.display === 'none' ? 0 : banner.offsetHeight;
-    var header = document.querySelector('.site-header');
-    var sidebar = document.querySelector('.sidebar');
-    var main = document.querySelector('.main-content');
-    var hh = header ? header.offsetHeight : 56;
-    if (header) header.style.top = h + 'px';
-    if (sidebar) sidebar.style.top = (h + hh) + 'px';
-    if (main) main.style.marginTop = (h + hh) + 'px';
-  }
-  document.getElementById('draft-banner-close').addEventListener('click', function(){
-    banner.style.display = 'none';
-    sessionStorage.setItem(KEY, '1');
-    applyOffset();
-  });
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyOffset);
-  } else { applyOffset(); }
-  window.addEventListener('resize', applyOffset);
-})();
-</script>
 </head>
 <body>
-<div id="draft-banner" style="position:fixed;top:0;left:0;right:0;z-index:1100;background:#fff3cd;color:#3d2000;padding:7px 16px 7px 20px;font-size:0.85rem;line-height:1.4;border-bottom:3px solid #e6a817;display:flex;align-items:center;justify-content:space-between;gap:12px;direction:rtl;text-align:right;"><span><strong>⚠ תרגום אוטומטי לא רשמי — לא לשימוש לקוחות.</strong></span><button id="draft-banner-close" style="flex-shrink:0;background:none;border:1px solid #c8860a;color:#3d2000;font-size:1rem;line-height:1;padding:2px 8px;cursor:pointer;border-radius:3px;" aria-label="Dismiss">✕</button></div>
 <header class="site-header">
 <div class="header-left">
 <button aria-label="הצג/הסתר ניווט" class="nav-toggle" id="navToggle">☰</button>
