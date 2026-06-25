@@ -1,0 +1,46 @@
+name: Deploy Notification
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Summarise deployment
+        run: |
+          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** main" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Pushed by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Changed files" >> $GITHUB_STEP_SUMMARY
+          git diff --name-only HEAD~1 HEAD >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Site" >> $GITHUB_STEP_SUMMARY
+          echo "[https://www.windrose.ai](https://www.windrose.ai) — Netlify auto-deploys on push to main." >> $GITHUB_STEP_SUMMARY
+
+      - name: Wait for Netlify and check site
+        run: |
+          echo "Waiting 90 seconds for Netlify deploy to complete..."
+          sleep 90
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://www.windrose.ai/)
+          echo "windrose.ai HTTP status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "::warning::windrose.ai returned HTTP $STATUS — check Netlify dashboard"
+          fi
+
+          # Spot-check a few manual pages
+          for path in owners-manual-eu owners-manual-us owners-manual-french owners-manual-korean; do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://www.windrose.ai/$path/")
+            echo "$path: HTTP $CODE"
+            if [ "$CODE" != "200" ]; then
+              echo "::warning::$path returned HTTP $CODE"
+            fi
+          done

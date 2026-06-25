@@ -1,0 +1,89 @@
+name: Validate Owner Manual Structure
+
+on:
+  push:
+    paths:
+      - 'owners-manual-*/index.html'
+  pull_request:
+    paths:
+      - 'owners-manual-*/index.html'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check HTML structure of all manuals
+        run: |
+          python3 << 'EOF'
+          import re, sys, os, glob
+
+          errors = []
+          warnings = []
+
+          files = sorted(glob.glob('owners-manual-*/index.html'))
+          print(f"Checking {len(files)} manual files...\n")
+
+          for path in files:
+              lang = path.split('/')[0]
+              with open(path, encoding='utf-8') as f:
+                  content = f.read()
+
+              doctype_count = content.count('<!DOCTYPE html>')
+              main_open    = content.count('<main class="main-content"')
+              main_close   = content.count('</main>')
+
+              ok = True
+
+              if doctype_count != 1:
+                  errors.append(f'{lang}: {doctype_count} DOCTYPE declarations (expected 1) — likely concatenated HTML files')
+                  ok = False
+
+              if main_open == 0:
+                  errors.append(f'{lang}: missing <main class="main-content"> wrapper — images will render outside layout container')
+                  ok = False
+              elif main_open > 1:
+                  errors.append(f'{lang}: {main_open} <main> opening tags (expected 1)')
+                  ok = False
+
+              if main_close == 0:
+                  errors.append(f'{lang}: missing </main> closing tag')
+                  ok = False
+              elif main_close != main_open:
+                  errors.append(f'{lang}: mismatched <main> tags — {main_open} open, {main_close} close')
+                  ok = False
+
+              # Check for English alt text in non-English manuals
+              ENGLISH_MANUALS = {'owners-manual-eu', 'owners-manual-uk', 'owners-manual-us',
+                                 'owners-manual-au', 'owners-manual-australia'}
+              ENGLISH_ALTS = {
+                  'A black car icon, symbolizing a vehicle, is depicted in a simple, minimalistic style. AI-generated content may be incorrect.',
+                  'ABS AI-generated content may be incorrect.',
+                  'do not disturb AI-generated content may be incorrect.',
+                  'The image depicts a yellow fuel pump symbol with a plug connected to it. AI-generated content may be incorrect.',
+              }
+              if lang not in ENGLISH_MANUALS:
+                  alts = set(re.findall(r'alt="([^"]*)"', content))
+                  en_remaining = alts & ENGLISH_ALTS
+                  if en_remaining:
+                      warnings.append(f'{lang}: {len(en_remaining)} image alt text(s) still in English')
+
+              if ok:
+                  print(f'  ✓ {lang}')
+
+          print()
+          if warnings:
+              print('Warnings:')
+              for w in warnings:
+                  print(f'  ⚠ {w}')
+              print()
+
+          if errors:
+              print('Errors:')
+              for e in errors:
+                  print(f'  ✗ {e}')
+              sys.exit(1)
+          else:
+              print('All manual files passed structural validation.')
+          EOF

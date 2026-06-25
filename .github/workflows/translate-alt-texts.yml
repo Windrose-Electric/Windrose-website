@@ -1,0 +1,151 @@
+name: Auto-Translate Image Alt Texts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'owners-manual-*/index.html'
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Translate missing alt texts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 << 'EOF'
+          import re, glob, anthropic, json
+
+          client = anthropic.Anthropic()
+
+          ENGLISH_ALTS = [
+              'A black car icon, symbolizing a vehicle, is depicted in a simple, minimalistic style. AI-generated content may be incorrect.',
+              'A diagram illustrating a door with a visible lock mechanism and a circular indicator. AI-generated content may be incorrect.',
+              'A green footprint or tire imprint on a surface. AI-generated content may be incorrect.',
+              'A green, simple character with a looped line and a small circle, likely a Japanese kanji symbol. AI-generated content may be incorrect.',
+              'A yellow, minimalistic representation of a wrench. AI-generated content may be incorrect.',
+              'A/C AI-generated content may be incorrect.',
+              'ABS AI-generated content may be incorrect.',
+              'AUTO AI-generated content may be incorrect.',
+              'ECO AI-generated content may be incorrect.',
+              'OFF. AI-generated content may be incorrect.',
+              'The diagram illustrates a mechanical assembly with various components such as left and right side support brackets, down shields, and horizontal and vertical bars, including specific model codes for reference. AI-generated content may be incorrect.',
+              'The diagram shows the side panel of a vehicle with two black plastic compartments, one for a phone and one for a tablet, both equipped with wireless charging pads. AI-generated content may be incorrect.',
+              "The image depicts a black, circular button with an icon of a car's speed control setting. AI-generated content may be incorrect.",
+              'The image depicts a bright green arrow pointing to the right, symbolizing direction or movement in that direction. AI-generated content may be incorrect.',
+              'The image depicts a detailed mechanical assembly with visible gears and pipes, likely part of an engine or machinery. AI-generated content may be incorrect.',
+              'The image depicts a simple, minimalist design with a yellow circle containing three vertical lines and a sound wave symbol. AI-generated content may be incorrect.',
+              'The image depicts a three-way switch configuration for an electrical circuit, with two switches controlling the power supply to a single light source. AI-generated content may be incorrect.',
+              'The image depicts a yellow fuel pump symbol with a plug connected to it. AI-generated content may be incorrect.',
+              'The image shows a red, cylindrical container with a spout. AI-generated content may be incorrect.',
+              'The image shows a single, large, green arrow pointing to the right. AI-generated content may be incorrect.',
+              'The image shows a small, circular button with a clear background. AI-generated content may be incorrect.',
+              'do not disturb AI-generated content may be incorrect.',
+          ]
+          ENGLISH_ALT_SET = set(ENGLISH_ALTS)
+
+          LANG_MAP = {
+              'owners-manual-german':             ('German', 'DE'),
+              'owners-manual-spanish':            ('Spanish', 'ES'),
+              'owners-manual-italian':            ('Italian', 'IT'),
+              'owners-manual-portuguese':         ('Portuguese', 'PT'),
+              'owners-manual-swedish':            ('Swedish', 'SV'),
+              'owners-manual-norsk':              ('Norwegian', 'NO'),
+              'owners-manual-danish':             ('Danish', 'DA'),
+              'owners-manual-finnish':            ('Finnish', 'FI'),
+              'owners-manual-polish':             ('Polish', 'PL'),
+              'owners-manual-icelandic':          ('Icelandic', 'IS'),
+              'owners-manual-chinese-traditional':('Traditional Chinese', 'ZH'),
+              'owners-manual-korean':             ('Korean', 'KO'),
+              'owners-manual-arabic':             ('Arabic', 'AR'),
+              'owners-manual-turkish':            ('Turkish', 'TR'),
+          }
+
+          changed = []
+
+          for folder, (lang_name, lang_code) in LANG_MAP.items():
+              path = f'{folder}/index.html'
+              try:
+                  with open(path, encoding='utf-8') as f:
+                      content = f.read()
+              except FileNotFoundError:
+                  continue
+
+              alts_in_file = set(re.findall(r'alt="([^"]*)"', content))
+              to_translate = sorted(alts_in_file & ENGLISH_ALT_SET)
+
+              if not to_translate:
+                  print(f'{lang_code}: no English alt texts to translate, skipping')
+                  continue
+
+              print(f'{lang_code}: translating {len(to_translate)} alt texts...')
+
+              prompt = f"""Translate these {len(to_translate)} image alt texts from English to {lang_name} for a vehicle owner's manual.
+
+Rules:
+- Keep acronyms A/C, ABS, AUTO, ECO, OFF as-is (universal automotive terms)
+- Translate "AI-generated content may be incorrect." naturally into {lang_name}
+- Return ONLY a JSON array of objects with "english" and "translated" keys, nothing else
+
+Alt texts to translate:
+{json.dumps(to_translate, ensure_ascii=False, indent=2)}"""
+
+              response = client.messages.create(
+                  model='claude-haiku-4-5-20251001',
+                  max_tokens=4096,
+                  messages=[{'role': 'user', 'content': prompt}]
+              )
+
+              raw = response.content[0].text.strip()
+              # Extract JSON array
+              json_match = re.search(r'\[.*\]', raw, re.DOTALL)
+              if not json_match:
+                  print(f'{lang_code}: failed to parse response, skipping')
+                  continue
+
+              translations = json.loads(json_match.group())
+              mapping = {t['english']: t['translated'] for t in translations}
+
+              new_content = content
+              for eng, translated in mapping.items():
+                  escaped_eng = eng.replace('"', '\\"')
+                  escaped_tr  = translated.replace('"', '\\"')
+                  new_content = new_content.replace(f'alt="{escaped_eng}"', f'alt="{escaped_tr}"')
+
+              if new_content != content:
+                  with open(path, 'w', encoding='utf-8') as f:
+                      f.write(new_content)
+                  changed.append(path)
+                  print(f'{lang_code}: updated {path}')
+
+          if changed:
+              print(f'\nFiles updated: {len(changed)}')
+              with open('/tmp/changed_files.txt', 'w') as f:
+                  f.write('\n'.join(changed))
+          else:
+              print('No files needed updating.')
+          EOF
+
+      - name: Commit translations
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add owners-manual-*/index.html
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "auto: translate image alt texts into local languages [skip ci]"
+            git push
+          fi
