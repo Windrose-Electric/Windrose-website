@@ -371,7 +371,7 @@ u { text-decoration: none; font-weight: 600; color: var(--text-muted); font-size
   .toc-page-img { page-break-after: always; }
 }
 
-/* ── HTML Table of Contents (replaces static TOC images) ──── */
+/* ── HTML Table of Contents (two-level collapsible) ──────── */
 .toc-html {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -380,14 +380,16 @@ u { text-decoration: none; font-weight: 600; color: var(--text-muted); font-size
   text-align: left;
 }
 [dir="rtl"] .toc-html { text-align: right; }
-.toc-group {
+
+/* ── Group card (layer 1) ─── */
+details.toc-group {
   background: var(--nav-bg);
   border: 1px solid var(--nav-border);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
-.toc-group-title {
+summary.toc-group-title {
   background: var(--hdr-bg);
   color: var(--hdr-fg);
   font-size: 11px;
@@ -395,17 +397,45 @@ u { text-decoration: none; font-weight: 600; color: var(--text-muted); font-size
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
+summary.toc-group-title::-webkit-details-marker { display: none; }
+summary.toc-group-title::after {
+  content: "▾";
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.7;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.toc-group:not([open]) > summary.toc-group-title::after {
+  transform: rotate(-90deg);
+}
+[dir="rtl"] summary.toc-group-title::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+[dir="rtl"] details.toc-group:not([open]) > summary.toc-group-title::after {
+  transform: rotate(90deg);
+}
+
+/* ── Chapter list ─── */
 .toc-chapters {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.toc-chapters li {
+.toc-chapters > li {
   border-bottom: 1px solid var(--nav-border);
 }
-.toc-chapters li:last-child { border-bottom: none; }
-.toc-chapters a {
+.toc-chapters > li:last-child { border-bottom: none; }
+
+/* Plain chapter (no subsections) */
+.toc-chapters > li > a {
   display: block;
   padding: 7px 14px;
   font-size: 13.5px;
@@ -413,7 +443,75 @@ u { text-decoration: none; font-weight: 600; color: var(--text-muted); font-size
   text-decoration: none;
   transition: background 0.12s, color 0.12s;
 }
-.toc-chapters a:hover {
+.toc-chapters > li > a:hover {
   background: var(--accent-light);
   color: var(--accent);
 }
+
+/* ── Chapter with subsections (layer 2) ─── */
+details.toc-chapter {
+  width: 100%;
+}
+summary.toc-chapter-title {
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  gap: 0;
+}
+summary.toc-chapter-title::-webkit-details-marker { display: none; }
+summary.toc-chapter-title > a {
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+summary.toc-chapter-title > a:hover { color: var(--accent); }
+summary.toc-chapter-title::after {
+  content: "▾";
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-left: 6px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.toc-chapter:not([open]) > summary.toc-chapter-title::after {
+  transform: rotate(-90deg);
+}
+[dir="rtl"] summary.toc-chapter-title::after {
+  margin-left: 0;
+  margin-right: 6px;
+}
+[dir="rtl"] details.toc-chapter:not([open]) > summary.toc-chapter-title::after {
+  transform: rotate(90deg);
+}
+summary.toc-chapter-title:hover { background: rgba(11,94,215,.04); }
+
+/* ── Subsection list ─── */
+.toc-subsections {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0,0,0,0.025);
+  border-top: 1px solid var(--nav-border);
+}
+.toc-subsections li {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.toc-subsections li:last-child { border-bottom: none; }
+.toc-subsections a {
+  display: block;
+  padding: 5px 14px 5px 28px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.toc-subsections a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+[dir="rtl"] .toc-subsections a { padding: 5px 28px 5px 14px; }
