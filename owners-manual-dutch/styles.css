@@ -407,3 +407,50 @@ li.nav-group-header span {
   color: var(--text-muted, #888);
 }
 /* ============================== */
+
+/* ── HTML Table of Contents (replaces static TOC images) ──── */
+.toc-html {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+  text-align: left;
+}
+[dir="rtl"] .toc-html { text-align: right; }
+.toc-group {
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.toc-group-title {
+  background: var(--hdr-bg);
+  color: var(--hdr-fg);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+}
+.toc-chapters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc-chapters li {
+  border-bottom: 1px solid var(--nav-border);
+}
+.toc-chapters li:last-child { border-bottom: none; }
+.toc-chapters a {
+  display: block;
+  padding: 7px 14px;
+  font-size: 13.5px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.toc-chapters a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
