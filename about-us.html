@@ -1776,13 +1776,13 @@ document.addEventListener("DOMContentLoaded", function() {
   <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:var(--muted); max-width:60rem; line-height:1.65; margin-bottom:2rem;" data-i18n="presentation.desc">A complete overview of Windrose Electric — our technology, deployment footprint, manufacturing strategy, and roadmap. Scroll through the deck below, or download the full PDF.</p>
 
   <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
-    <a href="https://drive.google.com/uc?export=download&id=1-saANxwrhQDm3Ymm8ctcAaJ-3CM2bv-7" target="_blank" rel="noopener"
+    <a href="assets/windrose-presentation.pdf" download
        style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 1.5rem; background:var(--accent); color:#fff; text-decoration:none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.08em; text-transform:uppercase; transition:opacity 0.2s;"
        onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       <span data-i18n="presentation.download">Download PDF</span>
     </a>
-    <a href="https://drive.google.com/file/d/1-saANxwrhQDm3Ymm8ctcAaJ-3CM2bv-7/view" target="_blank" rel="noopener"
+    <a href="assets/windrose-presentation.pdf" target="_blank" rel="noopener"
        style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 1.5rem; background:transparent; color:var(--off-white); text-decoration:none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.08em; text-transform:uppercase; border:1px solid var(--border); transition:border-color 0.2s, color 0.2s;"
        onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--off-white)'">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -1792,7 +1792,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <!-- PDF viewer -->
   <div style="position:relative; width:100%; background:#0a1a30; border:1px solid var(--border); aspect-ratio:16/10; max-height:680px; overflow:hidden;">
-    <iframe src="https://drive.google.com/file/d/1-saANxwrhQDm3Ymm8ctcAaJ-3CM2bv-7/preview" style="width:100%; height:100%; border:none; display:block;" title="Windrose Investor Presentation" allowfullscreen></iframe>
+    <object data="assets/windrose-presentation.pdf#view=FitH&toolbar=1&navpanes=0" type="application/pdf" style="width:100%; height:100%; display:block;">
+      <iframe src="assets/windrose-presentation.pdf#view=FitH&toolbar=1" style="width:100%; height:100%; border:none;" title="Windrose Investor Presentation">
+        <div style="padding:3rem; text-align:center; color:var(--muted);">
+          <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; margin-bottom:1rem;">Your browser cannot display PDFs inline.</p>
+          <a href="assets/windrose-presentation.pdf" style="color:var(--accent); text-decoration:underline;">Click here to download the presentation</a>
+        </div>
+      </iframe>
+    </object>
   </div>
 
   <p style="font-family:DM Mono, monospace; font-size: 0.875rem; color:var(--muted); margin-top:1rem; line-height:1.6;">
@@ -2059,8 +2066,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
       <!-- Curt Ferguson -->
       <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1.5rem; display:flex; flex-direction:column; align-items:center; text-align:center; gap:0; transition:border-color .15s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-        <div style="width:88px; height:88px; border-radius:50%; background:linear-gradient(135deg,#0d2a4a,#091828); border:2px solid rgba(74,158,255,0.2); display:flex; align-items:center; justify-content:center; margin-bottom:1rem; flex-shrink:0;">
-          <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; color:rgba(74,158,255,0.65); letter-spacing:0.05em;">CF</span>
+        <div style="width:88px; height:88px; border-radius:50%; overflow:hidden; border:2px solid rgba(74,158,255,0.2); margin-bottom:1rem; flex-shrink:0;">
+          <img src="/images/advisory-curt-ferguson.png" alt="Curt Ferguson" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
         </div>
         <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.05rem; letter-spacing:0.05em; color:var(--off-white); margin-bottom:0.25rem;">Curt Ferguson</div>
         <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent,#4a9eff); letter-spacing:0.04em; margin-bottom:0.6rem;">Advisor</div>
@@ -2836,52 +2843,47 @@ document.addEventListener("DOMContentLoaded", function() {
   <h2 style="font-size:clamp(1.0rem, 3vw, 1.25rem); line-height:1.15; margin-bottom:3rem;"><a href="/about-us" class="org-anchor" data-i18n="about.corp.h" onclick="event.preventDefault();window.wrScrollTo&&window.wrScrollTo('organisation');return false;">Group Organisation</a><a href="/about-us" class="org-anchor-hash" aria-label="Jump to the Group Organisation section" title="Link to this section" onclick="event.preventDefault();window.wrScrollTo&&window.wrScrollTo('organisation');return false;">#</a></h2>
 
     <style>
-    /* ── org node cards ── */
-    .org-card { overflow:hidden; background:var(--card-bg); border:1px solid var(--border); border-radius:var(--card-radius); display:flex; flex-direction:column; transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s; position:relative; z-index:1; }
-    .org-card:hover { border-color:var(--accent); transform:scale(1.06); box-shadow:0 8px 24px rgba(0,0,0,.5); z-index:6; }
-    .org-card.root { border-color:var(--accent); border-width:2px; }
-    .org-media { width:100%; height:96px; background:#060f1e; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; }
-    .org-media img { width:100%; height:100%; object-fit:contain; display:block; }
-    .org-media-flag { font-size:1.6rem; line-height:1; }
-    .org-body { padding:0.75rem 0.9rem; text-align:center; flex:1; }
-    .org-name { font-family:Barlow Condensed,sans-serif; font-size:0.825rem; letter-spacing:0.05em; color:var(--off-white); line-height:1.3; margin-bottom:0.2rem; }
+    /* ── node cards (visuals unchanged) ── */
+    .org-card { overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--card-radius); display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; position: relative; z-index: 1; height: 100%; }
+    .org-card:hover { border-color:var(--accent); transform:scale(1.09); box-shadow:0 12px 32px rgba(0,0,0,0.5); z-index:6; }
+    .org-card.root  { border-color:var(--accent); border-width:2px; }
+    .org-media { width:100%; height:120px; background:#060f1e; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; }
+    .org-media img   { width:100%; height:100%; object-fit:contain; display:block; }
+    .org-media-flag  { font-size: 1.75rem; line-height:1; }
+    .org-body  { padding:0.85rem 1.1rem; text-align:center; flex: 1; }
+    .org-name  { font-family:Barlow Condensed, sans-serif; font-size: 0.875rem; letter-spacing: 0.06em; color:var(--off-white); line-height:1.3; margin-bottom:0.2rem; text-align:center; }
     .org-card.root .org-name { color:var(--accent); }
-    .org-loc { font-size:0.8rem; color:var(--muted); }
-    .org-role { font-size:0.75rem; color:rgba(74,158,255,0.55); letter-spacing:0.07em; text-transform:uppercase; margin-top:0.3rem; }
-    /* ── horizontal left-anchored tree ── */
-    .orgx-wrap { width:100%; overflow-x:auto; padding:0.5rem 0 1rem; }
+    .org-loc   { font-size: 0.875rem; color:var(--muted); letter-spacing:0.04em; }
+    .org-role  { font-size: 0.875rem; color:rgba(74,158,255,0.55); letter-spacing:0.08em; text-transform:uppercase; margin-top: auto; }
+
+    /* ── branching tree scaffold ── */
+    .orgx-wrap { width:100%; overflow-x:auto; padding:0.25rem 0 0.5rem; }
     .orgx, .orgx ul { list-style:none; margin:0; padding:0; }
-    .orgx li { position:relative; display:flex; flex-direction:column; align-items:flex-start; }
-    /* fixed-width card wrapper; subtrees overflow naturally to the right */
-    .orgx .oc { display:block; width:210px; padding:0 14px; box-sizing:border-box; text-decoration:none; position:relative; flex-shrink:0; }
-    .orgx .org-card { width:100%; }
-    /* children row */
-    .orgx ul { display:flex; flex-direction:row; align-items:flex-start; position:relative; padding-top:28px; }
-    /* vertical drop from parent card centre (105px = 210px/2) to the horizontal bar */
-    .orgx ul::before { content:""; position:absolute; top:0; left:105px; width:0; height:28px; border-left:2px solid var(--border); }
-    /* left-half bar (.oc::before) and right-half bar + vertical drop (.oc::after) */
-    .orgx ul > li > .oc::before,
-    .orgx ul > li > .oc::after { content:""; position:absolute; top:-28px; height:28px; }
-    .orgx ul > li > .oc::before { left:0; width:105px; border-top:2px solid var(--border); }
-    .orgx ul > li > .oc::after  { left:105px; width:105px; border-top:2px solid var(--border); border-left:2px solid var(--border); }
-    /* extension bar: fills gap from .oc right edge to li right edge when li is wider than .oc */
-    .orgx ul > li::after { content:""; position:absolute; top:-28px; left:210px; right:0; height:28px; border-top:2px solid var(--border); }
-    /* first child: no left bar */
-    .orgx ul > li:first-child > .oc::before { display:none; }
-    /* last child: no right bar or extension */
-    .orgx ul > li:last-child > .oc::after { border-top:none; width:0; }
-    .orgx ul > li:last-child::after { display:none; }
-    /* only child: no horizontal bars, just the vertical drop */
-    .orgx ul > li:only-child > .oc::before { display:none; }
-    .orgx ul > li:only-child > .oc::after { border-top:none; width:0; }
-    .orgx ul > li:only-child::after { display:none; }
-    @media(max-width:700px){ .orgx .oc { width:160px; padding:0 8px; } .orgx ul::before { left:80px; } .orgx ul > li > .oc::before { width:80px; } .orgx ul > li > .oc::after { left:80px; width:80px; } .orgx ul > li::after { left:160px; } }
+    .orgx { width:max-content; margin:0 auto; min-width:100%; box-sizing:border-box; display:flex; justify-content:center; }
+    .orgx ul { position:relative; display:flex; justify-content:center; padding-top:28px; }
+    .orgx li { position:relative; display:flex; flex-direction:column; align-items:center; padding:28px 14px 0; }
+    .orgx .org-card, .orgx > li > a { width:210px; }
+    .orgx > li > a { text-decoration:none; display:block; }
+    /* horizontal connector across siblings + vertical drop into each */
+    .orgx li::before, .orgx li::after { content:""; position:absolute; top:0; width:50%; height:28px; border-top:2px solid var(--border); }
+    .orgx li::before { right:50%; }
+    .orgx li::after  { left:50%; border-left:2px solid var(--border); }
+    .orgx li:only-child { padding-top:0; }
+    .orgx li:only-child::before, .orgx li:only-child::after { display:none; }
+    .orgx li:first-child::before, .orgx li:last-child::after { border-top:0; }
+    .orgx li:last-child::before { border-right:2px solid var(--border); }
+    /* vertical drop from a parent node down to its children's row */
+    .orgx ul::before { content:""; position:absolute; top:0; left:50%; width:0; height:28px; border-left:2px solid var(--border); }
+    /* root has no parent above it */
+    .orgx > li { padding-top:0; }
+    .orgx > li::before, .orgx > li::after { display:none; }
+    @media(max-width:700px){ .orgx li { padding-left:8px; padding-right:8px; } .orgx .org-card, .orgx > li > a { width:180px; } }
   </style>
 
   <div class="orgx-wrap">
     <ul class="orgx">
       <li>
-        <a class="oc" href="https://www.companyweb.be/en/1017756464/windrose-holdings-limited" target="_blank" rel="noopener">
+        <a href="https://www.companyweb.be/en/1017756464/windrose-holdings-limited" target="_blank" rel="noopener">
           <div class="org-card root">
             <div class="org-media">
               <img loading="lazy" src="og/windrose-holdings-hq.jpg" alt="Windrose Holdings HQ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -2895,24 +2897,23 @@ document.addEventListener("DOMContentLoaded", function() {
           </div>
         </a>
         <ul>
+
+          <!-- US branch: Inc → Antwerp NV + Dutch + Australian trading + HK trading -->
           <li>
-            <div class="oc">
-              <div class="org-card">
-                <div class="org-media">
-                  <img loading="lazy" src="og/windrose-nyse.jpg" alt="Windrose Technology Inc — New York Stock Exchange" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <span class="org-media-flag" style="display:none;">🇺🇸</span>
-                </div>
-                <div class="org-body">
-                  <div class="org-name">Windrose Technology Inc</div>
-                  <div class="org-loc" data-i18n="about.corp.us.location">United States</div>
-                  <div class="org-role" data-i18n="about.corp.us.role">US Operations</div>
-                </div>
+            <div class="org-card">
+              <div class="org-media">
+                <img loading="lazy" src="og/windrose-nyse.jpg" alt="Windrose Technology Inc — New York Stock Exchange" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="org-media-flag" style="display:none;">🇺🇸</span>
+              </div>
+              <div class="org-body">
+                <div class="org-name">Windrose Technology Inc</div>
+                <div class="org-loc" data-i18n="about.corp.us.location">United States</div>
+                <div class="org-role" data-i18n="about.corp.us.role">US Operations</div>
               </div>
             </div>
             <ul>
               <li>
-                <div class="oc">
-                  <div class="org-card">
+                <div class="org-card">
                     <div class="org-media">
                       <img loading="lazy" src="og/windrose-antwerp.jpg" alt="Windrose Technology Antwerp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                       <span class="org-media-flag" style="display:none;">🇧🇪</span>
@@ -2923,109 +2924,94 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="org-role" data-i18n="about.corp.antwerp.role">European Operations</div>
                     </div>
                   </div>
-                </div>
               </li>
               <li>
-                <div class="oc">
-                  <div class="org-card">
-                    <div class="org-media"><span class="org-media-flag">🇳🇱</span></div>
-                    <div class="org-body">
-                      <div class="org-name" data-i18n="about.corp.nl.name">Dutch Entity</div>
-                      <div class="org-loc" data-i18n="about.corp.nl.location">Netherlands</div>
-                      <div class="org-role">&nbsp;</div>
-                    </div>
-                  </div>
+              <div class="org-card">
+                <div class="org-media"><span class="org-media-flag">🇳🇱</span></div>
+                <div class="org-body">
+                  <div class="org-name" data-i18n="about.corp.nl.name">Dutch Entity</div>
+                  <div class="org-loc" data-i18n="about.corp.nl.location">Netherlands</div>
+                  <div class="org-role">&nbsp;</div>
                 </div>
+              </div>
               </li>
               <li>
-                <div class="oc">
-                  <div class="org-card">
-                    <div class="org-media"><span class="org-media-flag">🇦🇺</span></div>
-                    <div class="org-body">
-                      <div class="org-name" data-i18n="about.corp.autr.name">Australian Trading Entity</div>
-                      <div class="org-loc" data-i18n="about.corp.autr.location">Australia</div>
-                      <div class="org-role">&nbsp;</div>
-                    </div>
-                  </div>
+              <div class="org-card">
+                <div class="org-media"><span class="org-media-flag">🇦🇺</span></div>
+                <div class="org-body">
+                  <div class="org-name" data-i18n="about.corp.autr.name">Australian Trading Entity</div>
+                  <div class="org-loc" data-i18n="about.corp.autr.location">Australia</div>
+                  <div class="org-role">&nbsp;</div>
                 </div>
+              </div>
               </li>
               <li>
-                <div class="oc">
-                  <div class="org-card">
-                    <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-                    <div class="org-body">
-                      <div class="org-name" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</div>
-                      <div class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</div>
-                      <div class="org-role">&nbsp;</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="oc">
-                  <div class="org-card">
-                    <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-                    <div class="org-body">
-                      <div class="org-name">Windrose Electric HK Limited</div>
-                      <div class="org-loc">Hong Kong, China</div>
-                      <div class="org-role">Chile Market Commerce</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="oc">
               <div class="org-card">
                 <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
                 <div class="org-body">
-                  <div class="org-name">Windrose HK Holdings Limited</div>
-                  <div class="org-loc" data-i18n="about.corp.hk.location">Hong Kong, China</div>
-                  <div class="org-role" data-i18n="about.corp.hk.role">Greater China Holdings</div>
+                  <div class="org-name" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</div>
+                  <div class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</div>
+                  <div class="org-role">&nbsp;</div>
                 </div>
+              </div>
+              </li>
+              <li>
+              <div class="org-card">
+                <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
+                <div class="org-body">
+                  <div class="org-name">Windrose Electric HK Limited</div>
+                  <div class="org-loc">Hong Kong, China</div>
+                  <div class="org-role">Chile Market Commerce</div>
+                </div>
+              </div>
+              </li>
+            </ul>
+          </li>
+
+          <!-- HK branch: HK → Shanghai → Anhui + Siwei -->
+          <li>
+            <div class="org-card">
+              <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
+              <div class="org-body">
+                <div class="org-name">Windrose HK Holdings Limited</div>
+                <div class="org-loc" data-i18n="about.corp.hk.location">Hong Kong, China</div>
+                <div class="org-role" data-i18n="about.corp.hk.role">Greater China Holdings</div>
               </div>
             </div>
             <ul>
               <li>
-                <div class="oc">
-                  <div class="org-card">
-                    <div class="org-media"><span class="org-media-flag">🇨🇳</span></div>
-                    <div class="org-body">
-                      <div class="org-name">Shanghai Windrose Automotive Technology</div>
-                      <div class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</div>
-                      <div class="org-role">&nbsp;</div>
-                    </div>
+                <div class="org-card">
+                  <div class="org-media"><span class="org-media-flag">🇨🇳</span></div>
+                  <div class="org-body">
+                    <div class="org-name">Shanghai Windrose Automotive Technology</div>
+                    <div class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</div>
+                    <div class="org-role">&nbsp;</div>
                   </div>
                 </div>
                 <ul>
                   <li>
-                    <div class="oc">
-                      <div class="org-card">
-                        <div class="org-media">
-                          <img loading="lazy" src="og/windrose-anhui.jpg" alt="Anhui Windrose Holdings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                          <span class="org-media-flag" style="display:none;">🇨🇳</span>
-                        </div>
-                        <div class="org-body">
-                          <div class="org-name">Anhui Windrose Holdings</div>
-                          <div class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</div>
-                          <div class="org-role">&nbsp;</div>
-                        </div>
+                    <div class="org-card">
+                      <div class="org-media">
+                        <img loading="lazy" src="og/windrose-anhui.jpg" alt="Anhui Windrose Holdings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <span class="org-media-flag" style="display:none;">🇨🇳</span>
+                      </div>
+                      <div class="org-body">
+                        <div class="org-name">Anhui Windrose Holdings</div>
+                        <div class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</div>
+                        <div class="org-role">&nbsp;</div>
                       </div>
                     </div>
                   </li>
                   <li>
-                    <div class="oc">
-                      <div class="org-card">
-                        <div class="org-media">
-                          <img loading="lazy" src="og/windrose-suzhou.jpg" alt="Jiangsu Siwei Industries" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                          <span class="org-media-flag" style="display:none;">🇨🇳</span>
-                        </div>
-                        <div class="org-body">
-                          <div class="org-name">Jiangsu Siwei Industries</div>
-                          <div class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</div>
-                          <div class="org-role">&nbsp;</div>
-                        </div>
+                    <div class="org-card">
+                      <div class="org-media">
+                        <img loading="lazy" src="og/windrose-suzhou.jpg" alt="Jiangsu Siwei Industries" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <span class="org-media-flag" style="display:none;">🇨🇳</span>
+                      </div>
+                      <div class="org-body">
+                        <div class="org-name">Jiangsu Siwei Industries</div>
+                        <div class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</div>
+                        <div class="org-role">&nbsp;</div>
                       </div>
                     </div>
                   </li>
@@ -3033,6 +3019,7 @@ document.addEventListener("DOMContentLoaded", function() {
               </li>
             </ul>
           </li>
+
         </ul>
       </li>
     </ul>
@@ -3044,7 +3031,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <div style="font-family:Barlow Condensed, sans-serif; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem;" data-i18n="news.eyebrow">In the News</div>
   
   <h2 style="font-family:Barlow Condensed, sans-serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--off-white); margin:0 0 2rem;" data-i18n="news.h2">News &amp; Media</h2>
-<style>.mx-wrap{overflow-x:auto;margin-top:1.5rem;padding-bottom:0.5rem;}.mx-grid{display:grid;grid-template-columns:150px repeat(4,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--card-radius);overflow:hidden;min-width:960px;}.mx-h{background:var(--dark);padding:0.8rem 0.7rem;font-family:Barlow Condensed, sans-serif;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-size:0.85rem;display:flex;align-items:center;border-top:2px solid rgba(74,158,255,0.4);position:sticky;top:48px;z-index:10;}.mx-hcol{justify-content:center;text-align:center;border-top:none !important;}.mx-grid>.mx-h:not([data-i18n]){border-top:none !important;}.mx-cell{background:var(--card-bg);padding:0.7rem;display:flex;flex-direction:column;gap:0.6rem;min-height:70px;border-top:2px solid rgba(74,158,255,0.4);}.mx-card{display:flex;flex-direction:column;height:208px;box-sizing:border-box;background:var(--dark);border:1px solid var(--border);border-radius:10px;text-decoration:none;overflow:hidden;transition:border-color .15s;}.mx-card:hover{border-color:var(--accent);}.mx-thumb{height:96px;flex:0 0 96px;overflow:hidden;background:#0a1628;}.mx-thumb img{width:100%;height:100%;object-fit:cover;display:block;}.mx-country{font-family:Barlow Condensed, sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0.55rem 0.7rem 0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;order:-1;}.mx-title{font-family:DM Sans, sans-serif;font-size:0.875rem;line-height:1.25;color:var(--off-white);padding:0.25rem 0.7rem 0.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1;}.mx-empty{color:var(--muted);opacity:0.22;margin:auto;font-size:1.3rem;}@media(max-width:700px){.mx-grid{grid-template-columns:118px repeat(4,minmax(165px,1fr));}}</style>
+<style>.mx-wrap{overflow-x:auto;margin-top:1.5rem;padding-bottom:0.5rem;}.mx-grid{display:grid;grid-template-columns:150px repeat(4,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--card-radius);overflow:hidden;min-width:960px;}.mx-h{background:var(--dark);padding:0.8rem 0.7rem;font-family:Barlow Condensed, sans-serif;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-size:0.85rem;display:flex;align-items:center;border-top:2px solid rgba(74,158,255,0.4);position:sticky;top:48px;z-index:10;}.mx-hcol{justify-content:center;text-align:center;border-top:none !important;}.mx-grid>.mx-h:not([data-i18n]){border-top:none !important;}.mx-cell{background:var(--card-bg);padding:0.7rem;display:flex;flex-direction:column;gap:0.6rem;min-height:70px;border-top:2px solid rgba(74,158,255,0.4);}.mx-card{display:flex;flex-direction:column;height:208px;box-sizing:border-box;background:var(--dark);border:1px solid var(--border);border-radius:10px;text-decoration:none;overflow:hidden;transition:border-color .15s;}.mx-card:hover{border-color:var(--accent);}.mx-thumb{height:96px;flex:0 0 96px;overflow:hidden;background:#0a1628;}.mx-thumb img{width:100%;height:100%;object-fit:cover;display:block;}.mx-country{font-family:Barlow Condensed, sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0.55rem 0.7rem 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.mx-title{font-family:DM Sans, sans-serif;font-size:0.875rem;line-height:1.25;color:var(--off-white);padding:0.25rem 0.7rem 0.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1;}.mx-empty{color:var(--muted);opacity:0.22;margin:auto;font-size:1.3rem;}@media(max-width:700px){.mx-grid{grid-template-columns:118px repeat(4,minmax(165px,1fr));}}</style>
 <div class="mx-wrap"><div class="mx-grid">
 <div class="mx-h"></div>
 <div class="mx-h mx-hcol" data-i18n="mx.region.na">North America</div>
@@ -3063,12 +3050,12 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="mx-cell"><a class="mx-card" href="https://www.tiempo21.cl/100-electrico-llega-a-chile-el-camion-de-largo-alcance-mas-moderno-del-mundo/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/1fhczNbcv0s/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇱 Chile</div><div class="mx-title">100% Eléctrico: Llega a Chile el Camión de Largo Alcance</div></a></div>
 <div class="mx-h" data-i18n="mx.topic.service">Service</div>
 <div class="mx-cell"><a class="mx-card" href="https://www.sustainabletruckvan.com/windrose-service-network-north-america/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.sustainabletruckvan.com/wp-content/uploads/2025/05/windrose.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Cox Automotive — Service Coverage</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="https://www.instagram.com/p/DOGIeLQikQ7/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOX595to_M0h0YCH3cnRvNxnkOwrjugbYbnlNoh8TGWQ&s" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇮 Finland · 🇸🇪 Sweden · 🇳🇴 Norway · 🇩🇰 Denmark</div><div class="mx-title">Relais Group (Raskone) — Nordic Service Network Now Active</div></a><a class="mx-card" href="how-to-service.html"><div class="mx-thumb"><img src="og/windrose-antwerp.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇷 France</div><div class="mx-title" data-i18n="hc.alliance.automotive.group.windroses">Alliance Automotive Group — Windrose’s French Service Partner</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://www.instagram.com/p/DOGIeLQikQ7/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.sustainabletruckvan.com/wp-content/uploads/2025/05/windrose.jpg" loading="lazy" onerror="this.onerror=null;this.src='\/images\/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇮 Finland · 🇸🇪 Sweden · 🇳🇴 Norway · 🇩🇰 Denmark</div><div class="mx-title">Relais Group (Raskone) — Nordic Service Network Now Active</div></a><a class="mx-card" href="how-to-service.html"><div class="mx-thumb"><img src="og/windrose-antwerp.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇷 France</div><div class="mx-title" data-i18n="hc.alliance.automotive.group.windroses">Alliance Automotive Group — Windrose’s French Service Partner</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-h" data-i18n="mx.topic.manufacturing">Manufacturing</div>
 <div class="mx-cell"><a class="mx-card" href="press/aertssen-assembly-usa.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Aertssen + Windrose — USA Assembly Sites</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="press/antwerp-port-assembly.html"><div class="mx-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇧🇪 Belgium</div><div class="mx-title">European assembly HQ · 2025</div></a><a class="mx-card" href="press/horiba-mira-uk.html"><div class="mx-thumb"><img src="press/images/mira.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">HORIBA MIRA UK — Validation Complete</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="press/antwerp-port-assembly.html"><div class="mx-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇧🇪 Belgium</div><div class="mx-title">European assembly HQ · 2025</div></a><a class="mx-card" href="press/horiba-mira-uk.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">HORIBA MIRA UK — Validation Complete</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="how-to-build.html#supplier-hande"><div class="mx-thumb"><img src="/images/drive-axle.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Shiyan</div><div class="mx-title">Hande — Electric Drive Axle</div></a><a class="mx-card" href="how-to-build.html#supplier-calb"><div class="mx-thumb"><img src="/images/battery-pack.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Hefei</div><div class="mx-title">CALB — Battery System</div></a><a class="mx-card" href="how-to-build.html#supplier-zhenghe"><div class="mx-thumb"><img src="og/windrose-antwerp.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Shanghai</div><div class="mx-title">Zhenghe — Truck Cab</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-h" data-i18n="mx.topic.customers">Customers</div>
