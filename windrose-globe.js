@@ -285,6 +285,7 @@
       el.style.position = 'relative';
       el.style.background = '#040c1a';
       el.style.overflow = 'hidden';
+      el.style.touchAction = 'none';
 
       // Fill viewport height minus nav bars (~130px for topbar+langrow+nav)
       var _initH = Math.max(320, window.innerHeight - 130);
@@ -304,7 +305,7 @@
       // SVG container
       var svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svgEl.setAttribute('width', '100%');
-      svgEl.style.cssText = 'display:block;cursor:grab;width:100%;height:100%;';
+      svgEl.style.cssText = 'display:block;cursor:grab;width:100%;height:100%;touch-action:none;';
       el.appendChild(svgEl);
 
       // Load world
