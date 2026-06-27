@@ -175,7 +175,7 @@
   /* Nav click-to-expand: overrides mobile hide, all sizes */
   .nav-links li.nav-open > .nav-dropdown { display: block !important; }
   /* ▾ indicator on items that have a dropdown */
-  .nav-links li:has(.nav-dropdown) > a::after { content: " ▾"; font-size: 0.65em; opacity: 0.55; vertical-align: middle; pointer-events: none; }
+  
 
 
   /* ── Responsive ────────────────────────────────────────────────────── */
@@ -1325,10 +1325,6 @@ function setLang(lang) {
   <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" data-i18n="chg.label">Charging Partners</p>
   <h2 style="font-size: 1.25rem; line-height: 1.15; margin-bottom: 1.5rem;" data-i18n="chg.h2">We charge with the world's best infrastructure providers</h2>
 
-  <div style="position:relative; width:100%; overflow:hidden; background:#060f1e; margin-bottom:3rem;">
-    <div id="chg-map" style="width:100%; height:clamp(480px,58vw,820px); position:relative; border-radius:8px; overflow:hidden;"></div>
-  </div>
-
   <!-- ── MCS — MEGAWATT CHARGING (6 cards) ──────────────────────── -->
   <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
     <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:var(--accent);">MCS — Megawatt Charging</span>
@@ -1665,31 +1661,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // Charging partners map
-  WindroseGlobe.init('chg-map', {
-    layers: ['mcs','ccs'],
-    defaultLayers: ['mcs','ccs'],
-    onDotClick: function(d) {
-      var opMap = {
-        'Milence':        'card-milence',
-        'Terawatt':       'card-terawatt',
-        'Greenlane':      'card-greenlane',
-        'Autel':          'card-autel',
-        'EV Realty':      'card-evrealty',
-        'ENGIE Vianeo':   'card-engie',
-        'BP Pulse':       'card-uk-charge'
-      };
-      var id = opMap[d.op];
-      if (!id) return;
-      var card = document.getElementById(id);
-      if (!card) return;
-      card.scrollIntoView({behavior:'smooth', block:'center'});
-      card.style.transition = 'box-shadow 0.15s, border-color 0.15s';
-      card.style.borderColor = 'var(--accent,#4a9eff)';
-      card.style.boxShadow = '0 0 0 2px rgba(74,158,255,0.4)';
-      setTimeout(function(){ card.style.borderColor = ''; card.style.boxShadow = ''; }, 1800);
-    }
-  });
 
   /* ── Update display ─────────────────────────────────────── */
   function update(fitToLocation){

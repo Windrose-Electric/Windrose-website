@@ -470,3 +470,251 @@ li.nav-group-header span {
   color: var(--text-muted, #888);
 }
 /* ============================== */
+
+/* ── HTML Table of Contents (two-level collapsible) ──────── */
+.toc-html {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+  text-align: left;
+}
+[dir="rtl"] .toc-html { text-align: right; }
+
+/* ── Group card (layer 1) ─── */
+details.toc-group {
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+summary.toc-group-title {
+  background: var(--hdr-bg);
+  color: var(--hdr-fg);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+summary.toc-group-title::-webkit-details-marker { display: none; }
+summary.toc-group-title::after {
+  content: "▾";
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.7;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.toc-group:not([open]) > summary.toc-group-title::after {
+  transform: rotate(-90deg);
+}
+[dir="rtl"] summary.toc-group-title::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+[dir="rtl"] details.toc-group:not([open]) > summary.toc-group-title::after {
+  transform: rotate(90deg);
+}
+
+/* ── Chapter list ─── */
+.toc-chapters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc-chapters > li {
+  border-bottom: 1px solid var(--nav-border);
+}
+.toc-chapters > li:last-child { border-bottom: none; }
+
+/* Plain chapter (no subsections) */
+.toc-chapters > li > a {
+  display: block;
+  padding: 7px 14px;
+  font-size: 13.5px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.toc-chapters > li > a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* ── Chapter with subsections (layer 2) ─── */
+details.toc-chapter {
+  width: 100%;
+}
+summary.toc-chapter-title {
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  gap: 0;
+}
+summary.toc-chapter-title::-webkit-details-marker { display: none; }
+summary.toc-chapter-title > a {
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+summary.toc-chapter-title > a:hover { color: var(--accent); }
+summary.toc-chapter-title::after {
+  content: "▾";
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-left: 6px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.toc-chapter:not([open]) > summary.toc-chapter-title::after {
+  transform: rotate(-90deg);
+}
+[dir="rtl"] summary.toc-chapter-title::after {
+  margin-left: 0;
+  margin-right: 6px;
+}
+[dir="rtl"] details.toc-chapter:not([open]) > summary.toc-chapter-title::after {
+  transform: rotate(90deg);
+}
+summary.toc-chapter-title:hover { background: rgba(11,94,215,.04); }
+
+/* ── Subsection list ─── */
+.toc-subsections {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0,0,0,0.025);
+  border-top: 1px solid var(--nav-border);
+}
+.toc-subsections li {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.toc-subsections li:last-child { border-bottom: none; }
+
+/* ── Subsection disclosure (toc-sub) ─── */
+details.toc-sub { width: 100%; }
+summary.toc-sub-title {
+  display: flex;
+  align-items: center;
+  padding: 5px 14px 5px 28px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+summary.toc-sub-title::-webkit-details-marker { display: none; }
+summary.toc-sub-title > a {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+summary.toc-sub-title > a:hover { color: var(--accent); }
+summary.toc-sub-title::after {
+  content: "▾";
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-left: 6px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.toc-sub:not([open]) > summary.toc-sub-title::after { transform: rotate(-90deg); }
+[dir="rtl"] summary.toc-sub-title { padding: 5px 28px 5px 14px; }
+[dir="rtl"] summary.toc-sub-title::after { margin-left: 0; margin-right: 6px; }
+[dir="rtl"] details.toc-sub:not([open]) > summary.toc-sub-title::after { transform: rotate(90deg); }
+summary.toc-sub-title:hover { background: rgba(11,94,215,.04); }
+
+/* ── Inline content slot ─── */
+.toc-content-slot {
+  padding: 10px 14px 14px 28px;
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.65;
+  border-top: 1px solid var(--nav-border);
+  background: rgba(0,0,0,0.015);
+}
+.toc-content-slot:empty { display: none; }
+.toc-content-slot img { max-width: 100%; height: auto; border-radius: 4px; margin: 4px 0; }
+.toc-content-slot table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin: 6px 0; }
+.toc-content-slot td, .toc-content-slot th {
+  padding: 4px 8px;
+  border: 1px solid var(--nav-border);
+  text-align: left;
+}
+.toc-content-slot h2, .toc-content-slot h3 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 10px 0 4px;
+  color: var(--text);
+}
+.toc-content-slot p { margin: 4px 0; }
+.toc-content-slot ul, .toc-content-slot ol { margin: 4px 0; padding-left: 18px; }
+.toc-content-slot .sec-toggle::after { display: none; }
+[dir="rtl"] .toc-content-slot { padding: 10px 28px 14px 14px; }
+[dir="rtl"] .toc-content-slot td, [dir="rtl"] .toc-content-slot th { text-align: right; }
+
+/* ── Chapter label badge (e.g. 1A, 3Z) ─── */
+.toc-chapter-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-right: 7px;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+[dir="rtl"] .toc-chapter-label {
+  margin-right: 0;
+  margin-left: 7px;
+}
+
+/* ── Section label badge in body headings ───────────────────── */
+.sec-label {
+  display: inline-block;
+  font-size: 0.52em;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+[dir="rtl"] .sec-label { margin-right: 0; margin-left: 10px; }
+
+/* ── Collapsible body sections ─────────────────────────────── */
+.sec-toggle { cursor: pointer; user-select: none; }
+.sec-toggle::after {
+  content: '▾';
+  font-size: 0.6em;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-left: 10px;
+  display: inline-block;
+  transition: transform 0.18s;
+  vertical-align: middle;
+}
+.sec-toggle:not(.is-open)::after { transform: rotate(-90deg); }
+.sec-toggle:hover { opacity: 0.8; }
+[dir="rtl"] .sec-toggle::after { margin-left: 0; margin-right: 10px; }
+[dir="rtl"] .sec-toggle:not(.is-open)::after { transform: rotate(90deg); }

@@ -190,7 +190,7 @@
   /* Nav click-to-expand: overrides mobile hide, all sizes */
   .nav-links li.nav-open > .nav-dropdown { display: block !important; }
   /* ▾ indicator on items that have a dropdown */
-  .nav-links li:has(.nav-dropdown) > a::after { content: " ▾"; font-size: 0.65em; opacity: 0.55; vertical-align: middle; pointer-events: none; }
+  
 
 
   /* ── Responsive ────────────────────────────────────────────────────── */
@@ -5436,9 +5436,9 @@ var HOMOLOG_NAMES = {
   <style>
     .mv-pair-tech { display:flex; gap:1rem; margin-top:2rem; margin-bottom:2rem; }
     .mv-item-tech { flex:1; min-width:0; display:flex; flex-direction:column; }
-    .mv-item-tech model-viewer { width:100%; flex:1; height:50vh; min-height:300px; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
+    .mv-item-tech model-viewer { width:100%; flex:1; height:72vh; min-height:400px; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
     .mv-label-tech { font-family:Barlow Condensed,sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-align:center; margin:0.4rem 0 0; }
-    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-item-tech model-viewer { height:60vw; min-height:260px; } }
+    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-item-tech model-viewer { height:75vw; min-height:300px; } }
   </style>
   <div class="mv-pair-tech">
     <div class="mv-item-tech">
