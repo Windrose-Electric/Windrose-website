@@ -1012,13 +1012,26 @@
     bar._setSvg(svgEl);
 
     var W = container.offsetWidth || 800;
-    var isMobile = window.innerWidth < 640;
-    var H = container.offsetHeight || (isMobile ? 320 : 520);
-    svgEl.setAttribute('height', H);
-    W = container.offsetWidth || W;
 
     var svg = d3.select(svgEl);
-    var proj = d3.geoNaturalEarth1().fitSize([W, H], {type: 'Sphere'});
+
+    // Fit by width so there's no dead space top/bottom; derive exact pixel height from bounds
+    function fitByWidth(w) {
+      var p = d3.geoNaturalEarth1().fitWidth(w, {type: 'Sphere'});
+      var b = d3.geoPath().projection(p).bounds({type: 'Sphere'});
+      var h = Math.ceil(b[1][1] - b[0][1]);
+      // Shift translate so map top is at y=0
+      var t = p.translate();
+      p.translate([t[0], t[1] - b[0][1]]);
+      return {proj: p, h: h};
+    }
+
+    var fit = fitByWidth(W);
+    var proj = fit.proj;
+    var H = fit.h;
+    svgEl.setAttribute('height', H);
+    container.style.height = H + 'px';
+
     var pathFn = d3.geoPath().projection(proj);
 
     // Root group — zoom/pan transforms are applied here
@@ -1279,11 +1292,15 @@
 
     // ── ResizeObserver ───────────────────────────────────────────────────────
     var _ro = window.ResizeObserver ? new ResizeObserver(function() {
-      var nW = container.offsetWidth, nH = container.offsetHeight;
-      if (Math.abs(nW - W) < 4 && Math.abs(nH - H) < 4) return;
-      W = nW; H = nH;
-      proj.fitSize([W, H], {type: 'Sphere'});
+      var nW = container.offsetWidth;
+      if (Math.abs(nW - W) < 4) return;
+      W = nW;
+      var reFit = fitByWidth(W);
+      var sc = reFit.proj.scale(), tr = reFit.proj.translate();
+      proj.scale(sc).translate(tr);
+      H = reFit.h;
       svgEl.setAttribute('height', H);
+      container.style.height = H + 'px';
       // Re-draw fixed paths
       root.selectAll('path').each(function(d) {
         if (d) d3.select(this).attr('d', pathFn(d) || '');
@@ -1294,11 +1311,6 @@
         var lon = d.lng != null ? d.lng : d.lon;
         var xy = proj([lon, d.lat]);
         if (xy) d3.select(this).attr('cx', xy[0]).attr('cy', xy[1]);
-      });
-      // Re-position country labels
-      countryNameLayer.selectAll('text').each(function() {
-        var x = +this.getAttribute('x'), y = +this.getAttribute('y');
-        // labels stored by position; recalc via centroid isn't available here — skip resize reposition for labels
       });
       // Reset zoom so map fills container again
       svg.call(zoomBehavior.transform, d3.zoomIdentity);
