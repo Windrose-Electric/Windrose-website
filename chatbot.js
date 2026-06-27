@@ -533,7 +533,41 @@ COMPETITION:
 
 IPO: S-1 filed with SEC for NYSE listing ticker \"WDRS\". Investor inquiries: investors@windrose.ai
 
-ADVISORY BOARD: Kevin Fong (GSR Ventures, ex-Mayfield), Mikael Karlsson (ex-Volvo Trucks VP Autonomy), Fredrik Allard (ex-Scania SVP E-Mobility), Curt Ferguson (Ventech China, ex-Coca-Cola Greater China President)";
+ADVISORY BOARD: Kevin Fong (GSR Ventures, ex-Mayfield), Mikael Karlsson (ex-Volvo Trucks VP Autonomy), Fredrik Allard (ex-Scania SVP E-Mobility), Curt Ferguson (Ventech China, ex-Coca-Cola Greater China President)
+
+OWNER'S MANUAL (Windrose E700 — operational reference):
+Eco Driving: Maintain steady speed, avoid harsh acceleration/braking. Never coast in neutral (damages E-axle lubrication). Use eco mode for max range.
+Winter Driving: Use high-quality coolant; freezing point below local minimum. Keep battery fully charged to prevent freezing. Use snow chains/tires on ice/snow.
+Use of Snow Chains: Install on drive axle tires only. Remove when road is clear. Max speed 50 km/h with chains.
+Ramp Driving: If vehicle rolls back on incline, press brake immediately, engage EPB, then restart. Use low steady speed on climbs. Downshift before descending.
+Driving in Tropical/High-Temperature Areas: Check coolant level before driving. Do not leave flammable items (lighters, aerosols) on dashboard. Monitor temperature warnings.
+Overview of Vehicle Interior: Brake pedal, cup holders, instrument panel buttons, steering wheel, infotainment screen, regenerative braking paddles (left/right), instrument cluster, car control screen, phone wireless charging.
+Electric Sliding Door: Right-side electric sliding door, operable by multiple methods (button, remote, auto).
+Seat Belt: Driver and front passenger equipped with seat belts. Replace any belt subjected to collision impact.
+Power Window: Controlled via switches on left instrument panel or sleeper panel. Auto-closes when vehicle locks.
+Interior Sleeper: Sleeper area for driver and passengers. Privacy curtains available on select models.
+Rearview Mirror: Adjust via instrument panel Control Center > Outside interface. Left/right and up/down adjustment available.
+USB Charging: USB-A and USB-C ports on left instrument panel and front passenger armrest. 15W charging.
+Phone Wireless Charging: 15W wireless charger on right instrument panel.
+Charging Port: Charging ports on both sides of vehicle. Supports MCS (870 kW), CCS1, CCS2, GB/T.
+Driving Preparation: Before driving: check all connections/fasteners, verify motor/E-axle silent, check coolant level, check tire pressure, inspect lights.
+Instrument Cluster: Shows trip info, driving mode, gear, power consumption per 100 mi, estimated range, battery capacity, energy recovery level, speed.
+Wiper Control: Windshield washer stops immediately on button release; auto wipe after washing.
+Power ON/OFF: Unlock vehicle, open door, swipe NFC card at right instrument panel to power on. Press brake pedal, release EPB, select drive mode to drive.
+Electronic Parking Brake (EPB): EPB switch on instrument panel. Apply when parked. Auto-applies in certain conditions.
+Regenerative Braking: Left paddle reduces regen intensity (coasting). Right paddle increases. 4 levels available. Regen recovers energy into battery.
+Around View Monitor (AVM): 360° cameras stitch surround view on screen. Activates automatically at low speed/when reversing.
+Adaptive Cruise Control (ACC): Maintains set speed; automatically decelerates for vehicle ahead using radar. Set speed with steering wheel controls.
+Lane Departure Warning (LDW): Alerts driver visually/audibly when vehicle unintentionally crosses lane markings.
+Tire Pressure Monitoring (TPMS): Displays all tire pressures on instrument cluster. Alerts on low pressure or puncture.
+Vehicle Recovery and Towing: If vehicle cannot drive due to breakdown/accident, contact Windrose authorized service center. Do not attempt self-towing without authorization.
+Rescue of Vehicle on Fire: Assess fire severity immediately. Small fire: use extinguisher. Large fire: evacuate occupants, move away from vehicle, call emergency services. High-voltage battery fires require specialized firefighting.
+Fire Extinguisher: Located in cab. Inspect monthly.
+Coolant: Use recommended coolant with appropriate freezing point. Check level in reservoir (MIN-MAX marks) after temperature drops. Drain and replace via auxiliary water tank drain.
+Tire Pressure Gauge: 295/80R22.5 tires. Check inflation pressure per specifications. Rotate tires per maintenance schedule.
+Lighting Inspection: Vehicle has self-test function for all driving lamps. Check daily.
+Horns/Wipers: Press steering wheel horn button to test. Check wiper blade condition regularly.
+Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single trailer) / 64,000 kg (double trailer). Max speed 120 km/h. Climbing 7.5% fully loaded.";
 
   window.wrChatToggle = function() {
     open = !open;
