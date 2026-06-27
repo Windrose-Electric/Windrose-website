@@ -312,11 +312,13 @@
       fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
         .then(function(r){ return r.json(); })
         .then(function(world) {
-          var api = buildGlobe(svgEl, el, world, availLayers, activeLayers, bar, tooltip, opts);
+          var api = opts.flat
+            ? buildFlatMap(svgEl, el, world, availLayers, activeLayers, bar, tooltip, opts)
+            : buildGlobe(svgEl, el, world, availLayers, activeLayers, bar, tooltip, opts);
           if (typeof opts.onReady === 'function') opts.onReady(api);
         })
         .catch(function() {
-          el.innerHTML += '<p style="color:rgba(255,255,255,0.3);text-align:center;padding:2rem;">Globe requires internet connection</p>';
+          el.innerHTML += '<p style="color:rgba(255,255,255,0.3);text-align:center;padding:2rem;">Map requires internet connection</p>';
         });
     }
   };
@@ -999,6 +1001,340 @@
         else activeLayers.delete(id);
         applyLayerVisibility();
         // Sync layer bar button if present
+        var btn = bar.querySelector('[data-layer="' + id + '"]');
+        if (btn) { btn.style.opacity = active ? '1' : '0.3'; btn.style.background = active ? 'rgba(255,255,255,0.06)' : 'none'; }
+      }
+    };
+  }
+
+  /* ─── Flat 2-D map (Natural Earth projection + d3.zoom) ──────────────── */
+  function buildFlatMap(svgEl, container, world, availLayers, activeLayers, bar, tooltip, opts) {
+    bar._setSvg(svgEl);
+
+    var W = container.offsetWidth || 800;
+    var isMobile = window.innerWidth < 640;
+    var H = container.offsetHeight || (isMobile ? 320 : 520);
+    svgEl.setAttribute('height', H);
+    W = container.offsetWidth || W;
+
+    var svg = d3.select(svgEl);
+    var proj = d3.geoNaturalEarth1().fitSize([W, H], {type: 'Sphere'});
+    var pathFn = d3.geoPath().projection(proj);
+
+    // Root group — zoom/pan transforms are applied here
+    var root = svg.append('g');
+
+    // Ocean background (oversized so it covers during pan)
+    root.append('rect')
+      .attr('x', -W * 3).attr('y', -H * 3)
+      .attr('width', W * 7).attr('height', H * 7)
+      .attr('fill', '#040c1a');
+
+    // Graticule
+    root.append('path')
+      .datum(d3.geoGraticule()())
+      .attr('fill', 'none')
+      .attr('stroke', 'rgba(74,158,255,0.06)')
+      .attr('stroke-width', 0.4)
+      .attr('d', pathFn);
+
+    // Land
+    root.append('path')
+      .datum(topojson.feature(world, world.objects.countries))
+      .attr('fill', '#0f2340').attr('stroke', '#1d4a6e').attr('stroke-width', 0.5)
+      .attr('d', pathFn);
+
+    // Country name labels
+    var countryNameLayer = root.append('g').attr('class', 'wg-country-names');
+    topojson.feature(world, world.objects.countries).features.forEach(function(feat) {
+      var name = COUNTRY_NAMES[+feat.id];
+      if (!name) return;
+      var c = d3.geoCentroid(feat);
+      if (!c || isNaN(c[0]) || isNaN(c[1])) return;
+      var xy = proj(c);
+      if (!xy) return;
+      countryNameLayer.append('text')
+        .attr('x', xy[0]).attr('y', xy[1])
+        .attr('text-anchor', 'middle')
+        .attr('fill', 'rgba(180,210,255,0.45)')
+        .attr('font-size', 7.5)
+        .attr('font-family', 'Barlow Condensed,sans-serif')
+        .attr('font-weight', 400)
+        .attr('letter-spacing', '0.06em')
+        .attr('pointer-events', 'none')
+        .text(name);
+    });
+
+    var ptLayer     = root.append('g').attr('class', 'wg-points');
+    var circleLayer = root.append('g').attr('class', 'wg-circle');
+
+    // ── Point layers ────────────────────────────────────────────────────────
+    var mcsDots = ptLayer.append('g').attr('class', 'wg-layer-mcs');
+    CHARGING.filter(function(s){ return s.con && s.con.indexOf('MCS') !== -1; }).forEach(function(s) {
+      var xy = proj([s.lng, s.lat]);
+      if (!xy) return;
+      mcsDots.append('circle')
+        .datum(s)
+        .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 5)
+        .attr('fill', '#f59e0b').attr('stroke', 'rgba(255,255,255,0.7)').attr('stroke-width', 0.8)
+        .style('cursor', 'pointer')
+        .on('mousemove', function(ev, d) { showTip(ev, buildChargingTip(d)); })
+        .on('mouseleave', function() { hideTip(); })
+        .on('click', function(ev, d) { hideTip(); showStationPanel(d); if (typeof opts.onDotClick === 'function') opts.onDotClick(d); });
+    });
+
+    var ccsDots = ptLayer.append('g').attr('class', 'wg-layer-ccs');
+    CHARGING.filter(function(s){ return s.con && s.con.indexOf('CCS') !== -1; }).forEach(function(s) {
+      var xy = proj([s.lng, s.lat]);
+      if (!xy) return;
+      ccsDots.append('circle')
+        .datum(s)
+        .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 4.5)
+        .attr('fill', '#60a5fa').attr('stroke', 'rgba(255,255,255,0.7)').attr('stroke-width', 0.8)
+        .style('cursor', 'pointer')
+        .on('mousemove', function(ev, d) { showTip(ev, buildChargingTip(d)); })
+        .on('mouseleave', function() { hideTip(); })
+        .on('click', function(ev, d) { hideTip(); showStationPanel(d); if (typeof opts.onDotClick === 'function') opts.onDotClick(d); });
+    });
+
+    var serviceDots = ptLayer.append('g').attr('class', 'wg-layer-service');
+    SERVICE.forEach(function(s) {
+      var xy = proj([s.lon, s.lat]);
+      if (!xy) return;
+      serviceDots.append('circle')
+        .datum(s)
+        .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 4)
+        .attr('fill', '#4affb0').attr('stroke', 'rgba(255,255,255,0.6)').attr('stroke-width', 0.7)
+        .style('cursor', 'pointer')
+        .on('mousemove', function(ev, d) { showTip(ev, buildSiteTip(d, '#4affb0')); })
+        .on('mouseleave', function() { hideTip(); })
+        .on('click', function(ev, d) { hideTip(); if (typeof opts.onDotClick === 'function') opts.onDotClick(d); });
+    });
+
+    var partsDots = ptLayer.append('g').attr('class', 'wg-layer-parts');
+    PARTS.forEach(function(s) {
+      var xy = proj([s.lon, s.lat]);
+      if (!xy) return;
+      partsDots.append('circle')
+        .datum(s)
+        .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 4)
+        .attr('fill', '#b07aff').attr('stroke', 'rgba(255,255,255,0.6)').attr('stroke-width', 0.7)
+        .style('cursor', 'pointer')
+        .on('mousemove', function(ev, d) { showTip(ev, buildSiteTip(d, '#b07aff')); })
+        .on('mouseleave', function() { hideTip(); })
+        .on('click', function(ev, d) { hideTip(); if (typeof opts.onDotClick === 'function') opts.onDotClick(d); });
+    });
+
+    // ── Location count badge ────────────────────────────────────────────────
+    var countEl;
+    if (opts.showLayerBar !== false) {
+      countEl = document.createElement('span');
+      countEl.style.cssText = 'font-family:"DM Sans",sans-serif;font-size:0.75rem;color:rgba(200,216,240,0.5);padding:0 2px 0 8px;white-space:nowrap;align-self:center;border-left:1px solid rgba(74,158,255,0.18);margin-left:4px;';
+      bar.appendChild(countEl);
+    } else {
+      countEl = document.createElement('div');
+      countEl.style.cssText = 'position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:10;padding:4px 14px;background:rgba(6,15,30,0.9);border:1px solid rgba(74,158,255,0.2);border-radius:20px;backdrop-filter:blur(6px);font-family:"DM Sans",sans-serif;font-size:0.75rem;color:rgba(200,216,240,0.65);white-space:nowrap;pointer-events:none;';
+      container.appendChild(countEl);
+    }
+    function updateLocationCount() {
+      var hasMcs = activeLayers.has('mcs'), hasCcs = activeLayers.has('ccs');
+      var hasSvc = activeLayers.has('service'), hasPrt = activeLayers.has('parts');
+      var n = 0;
+      if (hasMcs || hasCcs) n += CHARGING.filter(function(s){
+        return (hasMcs && s.con && s.con.indexOf('MCS') !== -1) ||
+               (hasCcs && s.con && s.con.indexOf('CCS') !== -1);
+      }).length;
+      if (hasSvc || hasPrt) n += SITES_ALL.filter(function(s){
+        return (hasSvc && (!s.c || s.dealer)) || (hasPrt && (!!s.c || s.dealer));
+      }).length;
+      countEl.textContent = n ? n + ' locations' : '';
+    }
+    updateLocationCount();
+    svgEl.addEventListener('layertoggle', updateLocationCount);
+
+    // ── Layer visibility ─────────────────────────────────────────────────────
+    function applyLayerVisibility() {
+      mcsDots.style('display',     activeLayers.has('mcs')     ? null : 'none');
+      ccsDots.style('display',     activeLayers.has('ccs')     ? null : 'none');
+      serviceDots.style('display', activeLayers.has('service') ? null : 'none');
+      partsDots.style('display',   activeLayers.has('parts')   ? null : 'none');
+    }
+    applyLayerVisibility();
+    svgEl.addEventListener('layertoggle', function() { applyLayerVisibility(); });
+
+    // ── Tooltip helpers ──────────────────────────────────────────────────────
+    function showTip(ev, html) {
+      tooltip.innerHTML = html;
+      tooltip.style.display = 'block';
+      moveTip(ev);
+    }
+    function moveTip(ev) {
+      var x = ev.clientX + 14, y = ev.clientY - 10;
+      var tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+      if (x + tw > window.innerWidth - 8) x = ev.clientX - tw - 14;
+      if (y + th > window.innerHeight - 8) y = ev.clientY - th - 4;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    }
+    function hideTip() { tooltip.style.display = 'none'; }
+    svgEl.addEventListener('mouseleave', hideTip);
+
+    // ── Station info panel (Google Maps data on click) ───────────────────────
+    var stationPanel = document.createElement('div');
+    stationPanel.style.cssText = 'position:absolute;bottom:48px;left:8px;width:230px;background:rgba(4,10,22,0.97);border:1px solid rgba(74,158,255,0.35);border-radius:8px;overflow:hidden;z-index:30;display:none;font-family:"DM Sans",sans-serif;box-shadow:0 4px 24px rgba(0,0,0,0.7);';
+    container.appendChild(stationPanel);
+
+    function renderPanel(s, gmaps) {
+      var photoHtml = '';
+      if (gmaps && gmaps.found && gmaps.photoRef) {
+        var proxyUrl = '/.netlify/functions/places?photo=' + encodeURIComponent(gmaps.photoRef);
+        photoHtml = '<div style="height:120px;background:#050e1e;overflow:hidden;position:relative;">'
+          + '<img src="' + proxyUrl + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.parentNode.style.display=\'none\'">'
+          + '</div>';
+      }
+      var ratingHtml = '';
+      if (gmaps && gmaps.found && gmaps.rating) {
+        ratingHtml = '<div style="display:flex;align-items:center;gap:6px;margin-top:7px;flex-wrap:wrap;">'
+          + '<span style="color:#fbbf24;font-size:0.8rem;letter-spacing:-0.5px;">' + _stars(gmaps.rating) + '</span>'
+          + '<span style="color:rgba(200,220,255,0.7);font-size:0.78rem;">' + gmaps.rating.toFixed(1) + '</span>'
+          + '<span style="color:rgba(160,190,230,0.4);font-size:0.75rem;">· ' + (gmaps.reviewCount || 0).toLocaleString() + ' reviews</span>'
+          + '</div>';
+      }
+      var lastReviewHtml = '';
+      if (gmaps && gmaps.found && gmaps.lastReviewDate) {
+        var ago = _timeAgo(gmaps.lastReviewDate);
+        if (ago) lastReviewHtml = '<div style="color:rgba(150,180,220,0.45);font-size:0.72rem;margin-top:3px;">Last reviewed ' + ago + '</div>';
+      }
+      var showerHtml = '';
+      if (gmaps && gmaps.found && gmaps.hasShower === true) {
+        showerHtml = '<div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(0,180,120,0.12);border:1px solid rgba(0,200,120,0.2);border-radius:4px;padding:2px 7px;font-size:0.72rem;color:#4ade80;">🚿 Showers</div>';
+      }
+      var loadingHtml = (!gmaps) ? '<div style="color:rgba(150,180,220,0.4);font-size:0.72rem;margin-top:6px;">Loading Google Maps data…</div>' : '';
+      var noDataHtml  = (gmaps && !gmaps.found) ? '<div style="color:rgba(150,180,220,0.3);font-size:0.72rem;margin-top:6px;">No Google Maps listing found</div>' : '';
+      stationPanel.innerHTML = photoHtml
+        + '<div style="padding:10px 12px 12px;">'
+        + '<div style="display:flex;align-items:flex-start;justify-content:space-between;">'
+        +   '<div><div style="font-family:\'Barlow Condensed\',sans-serif;font-size:1rem;font-weight:700;color:' + s.color + ';line-height:1.2;">' + s.name + '</div>'
+        +   '<div style="color:rgba(180,200,255,0.45);font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;margin-top:2px;">' + s.op + '</div></div>'
+        +   '<button onclick="this.closest(\'[style*=z-index:30]\').style.display=\'none\'" style="background:none;border:none;color:rgba(140,170,210,0.5);font-size:1rem;cursor:pointer;padding:0 0 0 6px;line-height:1;margin-top:-2px;" title="Close">✕</button>'
+        + '</div>'
+        + '<div style="color:rgba(200,220,255,0.55);font-size:0.78rem;margin-top:5px;">' + s.kw + ' kW · ' + s.units + ' units · ' + s.con + '</div>'
+        + ratingHtml + lastReviewHtml + showerHtml + loadingHtml + noDataHtml
+        + '</div>';
+    }
+
+    function showStationPanel(s) {
+      renderPanel(s, null);
+      stationPanel.style.display = 'block';
+      var cacheKey = s.lat + ',' + s.lng;
+      if (_placesCache[cacheKey]) { renderPanel(s, _placesCache[cacheKey]); return; }
+      var url = '/.netlify/functions/places?lat=' + s.lat + '&lng=' + s.lng + '&name=' + encodeURIComponent(s.name);
+      fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(data) { _placesCache[cacheKey] = data; if (stationPanel.style.display !== 'none') renderPanel(s, data); })
+        .catch(function() { _placesCache[cacheKey] = {found:false}; if (stationPanel.style.display !== 'none') renderPanel(s, {found:false}); });
+    }
+
+    function buildChargingTip(s) {
+      return '<div style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;color:' + s.color + ';margin-bottom:3px;">' + s.name + '</div>'
+        + '<div style="color:rgba(180,200,255,0.55);font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px;">' + s.op + '</div>'
+        + '<div style="color:rgba(200,220,255,0.8);font-size:0.85rem;">' + s.kw + ' kW · ' + s.units + ' units · ' + s.con + '</div>'
+        + (s.note ? '<div style="color:rgba(200,220,255,0.5);font-size:0.8rem;margin-top:3px;">' + s.note + '</div>' : '')
+        + '<div style="color:rgba(74,158,255,0.55);font-size:0.75rem;margin-top:4px;">Click for photos &amp; reviews ↓</div>';
+    }
+    function buildSiteTip(s, col) {
+      return '<div style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;color:' + col + ';margin-bottom:3px;">' + s.n + '</div>'
+        + '<div style="color:rgba(180,200,255,0.55);font-size:0.78rem;margin-bottom:4px;">' + s.r + '</div>'
+        + (s.a ? '<div style="font-size:0.82rem;color:rgba(200,220,255,0.7);">📍 ' + s.a + '</div>' : '')
+        + (s.p ? '<div style="font-size:0.82rem;color:rgba(200,220,255,0.7);">📞 ' + s.p + '</div>' : '')
+        + (s.h ? '<div style="font-size:0.82rem;color:rgba(180,200,255,0.45);margin-top:2px;">🕐 ' + s.h + '</div>' : '')
+        + (opts.onDotClick ? '<div style="color:rgba(74,158,255,0.55);font-size:0.75rem;margin-top:4px;">Click to view ↓</div>' : '');
+    }
+
+    // ── d3.zoom (pan + scroll zoom + pinch) ──────────────────────────────────
+    var zoomBehavior = d3.zoom()
+      .scaleExtent([0.5, 20])
+      .on('start', function() { svg.style('cursor', 'grabbing'); hideTip(); })
+      .on('zoom', function(ev) { root.attr('transform', ev.transform); })
+      .on('end', function() { svg.style('cursor', 'grab'); });
+    svg.call(zoomBehavior);
+
+    // ── Zoom buttons (+/−/reset) ─────────────────────────────────────────────
+    var zoomBtnStyle = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(6,15,30,0.88);border:1px solid rgba(74,158,255,0.25);color:#c8d8f0;font-size:1rem;cursor:pointer;transition:background 0.15s,border-color 0.15s;font-family:sans-serif;line-height:1;padding:0;';
+    var zoomWrap = document.createElement('div');
+    zoomWrap.style.cssText = 'position:absolute;bottom:10px;right:10px;z-index:12;display:flex;flex-direction:column;gap:3px;';
+    function makeZBtn(label, fn) {
+      var b = document.createElement('button');
+      b.textContent = label; b.style.cssText = zoomBtnStyle;
+      b.title = label === '+' ? 'Zoom in' : label === '−' ? 'Zoom out' : 'Reset view';
+      b.addEventListener('mouseover', function(){ this.style.background='rgba(74,158,255,0.18)'; this.style.borderColor='rgba(74,158,255,0.5)'; });
+      b.addEventListener('mouseout',  function(){ this.style.background='rgba(6,15,30,0.88)';    this.style.borderColor='rgba(74,158,255,0.25)'; });
+      b.addEventListener('click', fn);
+      return b;
+    }
+    zoomWrap.appendChild(makeZBtn('+', function(){ svg.transition().duration(250).call(zoomBehavior.scaleBy, 1.4); }));
+    zoomWrap.appendChild(makeZBtn('−', function(){ svg.transition().duration(250).call(zoomBehavior.scaleBy, 1/1.4); }));
+    zoomWrap.appendChild(makeZBtn('⊙', function(){ svg.transition().duration(350).call(zoomBehavior.transform, d3.zoomIdentity); }));
+    container.appendChild(zoomWrap);
+
+    // ── ResizeObserver ───────────────────────────────────────────────────────
+    var _ro = window.ResizeObserver ? new ResizeObserver(function() {
+      var nW = container.offsetWidth, nH = container.offsetHeight;
+      if (Math.abs(nW - W) < 4 && Math.abs(nH - H) < 4) return;
+      W = nW; H = nH;
+      proj.fitSize([W, H], {type: 'Sphere'});
+      svgEl.setAttribute('height', H);
+      // Re-draw fixed paths
+      root.selectAll('path').each(function(d) {
+        if (d) d3.select(this).attr('d', pathFn(d) || '');
+      });
+      // Re-position dots
+      ptLayer.selectAll('circle').each(function(d) {
+        if (!d) return;
+        var lon = d.lng != null ? d.lng : d.lon;
+        var xy = proj([lon, d.lat]);
+        if (xy) d3.select(this).attr('cx', xy[0]).attr('cy', xy[1]);
+      });
+      // Re-position country labels
+      countryNameLayer.selectAll('text').each(function() {
+        var x = +this.getAttribute('x'), y = +this.getAttribute('y');
+        // labels stored by position; recalc via centroid isn't available here — skip resize reposition for labels
+      });
+      // Reset zoom so map fills container again
+      svg.call(zoomBehavior.transform, d3.zoomIdentity);
+    }) : null;
+    if (_ro) _ro.observe(container);
+
+    // ── Public API ───────────────────────────────────────────────────────────
+    return {
+      drawCircle: function(lat, lng, radiusKm, color) {
+        circleLayer.selectAll('*').remove();
+        var deg = radiusKm / 111.32;
+        var circlePoly = d3.geoCircle().center([lng, lat]).radius(deg)();
+        var strokeColor = color ? color.replace('0.15)', '0.8)').replace('0.12)', '0.8)') : '#4a9eff';
+        circleLayer.append('path')
+          .datum(circlePoly)
+          .attr('fill', color || 'rgba(74,158,255,0.15)')
+          .attr('stroke', strokeColor)
+          .attr('stroke-width', 1.5)
+          .attr('stroke-dasharray', '6 4')
+          .attr('d', pathFn);
+      },
+      clearCircle: function() { circleLayer.selectAll('*').remove(); },
+      rotateTo: function(lat, lng, duration) {
+        var xy = proj([lng, lat]);
+        if (!xy) return;
+        var tx = W / 2 - xy[0];
+        var ty = H / 2 - xy[1];
+        svg.transition().duration(duration || 700)
+          .call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty));
+      },
+      drawRoute: function() {},
+      clearRoute: function() {},
+      toggleLayer: function(id, active) {
+        if (active) activeLayers.add(id);
+        else activeLayers.delete(id);
+        applyLayerVisibility();
         var btn = bar.querySelector('[data-layer="' + id + '"]');
         if (btn) { btn.style.opacity = active ? '1' : '0.3'; btn.style.background = active ? 'rgba(255,255,255,0.06)' : 'none'; }
       }

@@ -1655,6 +1655,7 @@ document.addEventListener('DOMContentLoaded', function(){
   /* ── Globe init ─────────────────────────────────────────── */
   var globeApi = null;
   WindroseGlobe.init('rc-map', {
+    flat: true,
     layers: ['mcs','ccs'],
     defaultLayers: ['mcs','ccs'],
     onReady: function(api) {
@@ -1667,6 +1668,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Charging partners map
   WindroseGlobe.init('chg-map', {
+    flat: true,
     layers: ['mcs','ccs'],
     defaultLayers: ['mcs','ccs'],
     onDotClick: function(d) {
