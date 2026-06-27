@@ -1082,7 +1082,10 @@
     var ptLayer     = root.append('g').attr('class', 'wg-points');
     var circleLayer = root.append('g').attr('class', 'wg-circle');
 
-    // ── Point layers ────────────────────────────────────────────────────────
+    // Cluster overlay — sibling of root, positioned in SVG screen-coords (not zoom-transformed)
+    var clusterG = svg.append('g').attr('class', 'wg-clusters');
+
+    // ── Point layers ─────────────────────────────────────────────────────────
     var mcsDots = ptLayer.append('g').attr('class', 'wg-layer-mcs');
     CHARGING.filter(function(s){ return s.con && s.con.indexOf('MCS') !== -1; }).forEach(function(s) {
       var xy = proj([s.lng, s.lat]);
@@ -1139,7 +1142,7 @@
         .on('click', function(ev, d) { hideTip(); if (typeof opts.onDotClick === 'function') opts.onDotClick(d); });
     });
 
-    // ── Location count badge ────────────────────────────────────────────────
+    // ── Location count badge ──────────────────────────────────────────────────
     var countEl;
     if (opts.showLayerBar !== false) {
       countEl = document.createElement('span');
@@ -1166,17 +1169,244 @@
     updateLocationCount();
     svgEl.addEventListener('layertoggle', updateLocationCount);
 
-    // ── Layer visibility ─────────────────────────────────────────────────────
+    // ── Clustering (screen-space greedy; bubbles live in clusterG, not root) ──
+    var CLUSTER_K  = 2.5;  // zoom scale below which dots collapse into bubbles
+    var CLUSTER_PX = 40;   // screen-pixel proximity threshold
+    var searchFilter = '';
+
+    function _chargingForLayers() {
+      return CHARGING.filter(function(s) {
+        return (activeLayers.has('mcs') && s.con && s.con.indexOf('MCS') !== -1) ||
+               (activeLayers.has('ccs') && s.con && s.con.indexOf('CCS') !== -1);
+      });
+    }
+
+    function computeClusters(sites, transform) {
+      var pts = sites.map(function(s) {
+        var xy = proj([s.lng, s.lat]);
+        if (!xy) return null;
+        return {s: s, sx: transform.applyX(xy[0]), sy: transform.applyY(xy[1])};
+      }).filter(Boolean);
+      var used = new Array(pts.length).fill(false);
+      var clusters = [];
+      pts.forEach(function(pt, i) {
+        if (used[i]) return;
+        var cl = {pts: [pt], sumSx: pt.sx, sumSy: pt.sy,
+                  hasMcs: !!(pt.s.con && pt.s.con.indexOf('MCS') !== -1)};
+        pts.forEach(function(pt2, j) {
+          if (i === j || used[j]) return;
+          var dx = pt2.sx - pt.sx, dy = pt2.sy - pt.sy;
+          if (dx * dx + dy * dy < CLUSTER_PX * CLUSTER_PX) {
+            cl.pts.push(pt2); cl.sumSx += pt2.sx; cl.sumSy += pt2.sy;
+            if (pt2.s.con && pt2.s.con.indexOf('MCS') !== -1) cl.hasMcs = true;
+            used[j] = true;
+          }
+        });
+        used[i] = true;
+        cl.sx = cl.sumSx / cl.pts.length;
+        cl.sy = cl.sumSy / cl.pts.length;
+        clusters.push(cl);
+      });
+      return clusters;
+    }
+
+    function updateClusters(transform) {
+      if (!opts.cluster) return;
+      var k = transform.k;
+      if (k >= CLUSTER_K) {
+        // Reveal individual dots with per-layer visibility
+        ptLayer.style('display', null);
+        mcsDots.style('display',     activeLayers.has('mcs')     ? null : 'none');
+        ccsDots.style('display',     activeLayers.has('ccs')     ? null : 'none');
+        serviceDots.style('display', activeLayers.has('service') ? null : 'none');
+        partsDots.style('display',   activeLayers.has('parts')   ? null : 'none');
+        clusterG.selectAll('*').remove();
+        return;
+      }
+      // Cluster mode: hide individual dots, show bubbles
+      ptLayer.style('display', 'none');
+      var sites = _chargingForLayers();
+      if (searchFilter) {
+        var ql = searchFilter.toLowerCase();
+        sites = sites.filter(function(s) {
+          return (s.name || '').toLowerCase().indexOf(ql) !== -1 ||
+                 (s.op   || '').toLowerCase().indexOf(ql) !== -1 ||
+                 (s.note || '').toLowerCase().indexOf(ql) !== -1;
+        });
+      }
+      var cls = computeClusters(sites, transform);
+      clusterG.selectAll('g.wg-cl').remove();
+      var grps = clusterG.selectAll('g.wg-cl').data(cls).enter()
+        .append('g').attr('class', 'wg-cl')
+        .attr('transform', function(d) { return 'translate(' + d.sx + ',' + d.sy + ')'; })
+        .style('cursor', 'pointer');
+
+      // Outer glow ring
+      grps.append('circle').attr('class', 'cl-ring')
+        .attr('r', function(d) { return d.pts.length === 1 ? 11 : 18; })
+        .attr('fill', 'none')
+        .attr('stroke', function(d) { return d.hasMcs ? 'rgba(245,158,11,0.28)' : 'rgba(96,165,250,0.28)'; })
+        .attr('stroke-width', 2);
+      // Core circle
+      grps.append('circle').attr('class', 'cl-core')
+        .attr('r', function(d) { return d.pts.length === 1 ? 7 : 13; })
+        .attr('fill', function(d) { return d.hasMcs ? '#f59e0b' : '#60a5fa'; })
+        .attr('stroke', 'rgba(255,255,255,0.85)').attr('stroke-width', 1.5);
+      // Count label
+      grps.append('text')
+        .attr('text-anchor', 'middle').attr('dominant-baseline', 'central')
+        .attr('font-family', '"DM Sans",sans-serif').attr('font-weight', '700')
+        .attr('fill', '#fff').attr('pointer-events', 'none')
+        .attr('font-size', function(d) { return d.pts.length > 1 ? 9 : 0; })
+        .text(function(d) { return d.pts.length > 1 ? d.pts.length : ''; });
+
+      grps.on('click', function(ev, cl) {
+        ev.stopPropagation(); hideTip();
+        var currentT = d3.zoomTransform(svgEl);
+        var px = (cl.sx - currentT.x) / currentT.k;
+        var py = (cl.sy - currentT.y) / currentT.k;
+        // Single bubble at near-threshold zoom → open station panel
+        if (cl.pts.length === 1 && currentT.k >= CLUSTER_K - 0.5) {
+          showStationPanel(cl.pts[0].s);
+          if (typeof opts.onDotClick === 'function') opts.onDotClick(cl.pts[0].s);
+          return;
+        }
+        var newK = cl.pts.length === 1 ? CLUSTER_K + 0.5 : Math.min(currentT.k * 3, 20);
+        if (newK < CLUSTER_K + 0.1) newK = CLUSTER_K + 0.5;
+        svg.transition().duration(600)
+          .call(zoomBehavior.transform,
+                d3.zoomIdentity.translate(W/2 - newK*px, H/2 - newK*py).scale(newK));
+      });
+      grps.on('mouseover', function(ev, cl) {
+        d3.select(this).select('.cl-core')
+          .attr('fill', function(d) { return d.hasMcs ? '#fbbf24' : '#93c5fd'; });
+        if (cl.pts.length === 1) showTip(ev, buildChargingTip(cl.pts[0].s));
+      });
+      grps.on('mousemove', function(ev, cl) { if (cl.pts.length === 1) moveTip(ev); });
+      grps.on('mouseout', function(ev, cl) {
+        d3.select(this).select('.cl-core')
+          .attr('fill', function(d) { return d.hasMcs ? '#f59e0b' : '#60a5fa'; });
+        hideTip();
+      });
+    }
+
+    // ── Search bar overlay ────────────────────────────────────────────────────
+    if (opts.searchable) {
+      var searchWrap = document.createElement('div');
+      searchWrap.style.cssText = 'position:absolute;top:10px;right:10px;z-index:20;display:flex;align-items:center;gap:7px;background:rgba(4,10,22,0.85);border:1px solid rgba(74,158,255,0.28);border-radius:22px;padding:5px 12px 5px 10px;backdrop-filter:blur(10px);box-shadow:0 2px 12px rgba(0,0,0,0.4);';
+      searchWrap.innerHTML = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.5;">'
+        + '<circle cx="6.5" cy="6.5" r="5" stroke="#c8d8f0" stroke-width="1.6"/>'
+        + '<line x1="10.5" y1="10.5" x2="14.5" y2="14.5" stroke="#c8d8f0" stroke-width="1.6" stroke-linecap="round"/>'
+        + '</svg>'
+        + '<input type="text" placeholder="Search locations…" autocomplete="off" style="background:none;border:none;outline:none;color:#c8d8f0;font-family:\'DM Sans\',sans-serif;font-size:0.78rem;width:150px;caret-color:#4a9eff;">'
+        + '<span style="color:rgba(200,216,240,0.4);font-size:0.72rem;white-space:nowrap;min-width:5ch;text-align:right;"></span>';
+      container.appendChild(searchWrap);
+      var _sInput = searchWrap.querySelector('input');
+      var _sCount = searchWrap.querySelector('span');
+
+      function _applySearch(q) {
+        searchFilter = q.trim();
+        var currentT = d3.zoomTransform(svgEl);
+        if (opts.cluster && currentT.k < CLUSTER_K) {
+          updateClusters(currentT);
+        } else {
+          var lq = searchFilter.toLowerCase();
+          ptLayer.selectAll('circle').each(function(d) {
+            if (!d || d.n) return; // skip service/parts (have .n not .name)
+            var match = !searchFilter ||
+                        (d.name || '').toLowerCase().indexOf(lq) !== -1 ||
+                        (d.op   || '').toLowerCase().indexOf(lq) !== -1 ||
+                        (d.note || '').toLowerCase().indexOf(lq) !== -1;
+            d3.select(this).style('opacity', match ? null : '0.06');
+          });
+        }
+        if (searchFilter) {
+          var matches = _chargingForLayers().filter(function(s) {
+            var lq2 = searchFilter.toLowerCase();
+            return (s.name || '').toLowerCase().indexOf(lq2) !== -1 ||
+                   (s.op   || '').toLowerCase().indexOf(lq2) !== -1 ||
+                   (s.note || '').toLowerCase().indexOf(lq2) !== -1;
+          });
+          _sCount.textContent = matches.length ? matches.length + ' found' : 'none';
+          if (matches.length > 0) {
+            var first = matches[0];
+            var fxy = proj([first.lng, first.lat]);
+            if (fxy) {
+              var nk = Math.max(currentT.k, CLUSTER_K + 0.5);
+              svg.transition().duration(500)
+                .call(zoomBehavior.transform,
+                      d3.zoomIdentity.translate(W/2 - nk*fxy[0], H/2 - nk*fxy[1]).scale(nk));
+            }
+          }
+        } else {
+          _sCount.textContent = '';
+          ptLayer.selectAll('circle').style('opacity', null);
+        }
+      }
+
+      _sInput.addEventListener('input', function() { _applySearch(this.value); });
+      _sInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { this.value = ''; _applySearch(''); }
+      });
+    }
+
+    // ── Region jump chips ─────────────────────────────────────────────────────
+    if (opts.regions) {
+      var REGIONS = [
+        {label: 'World',    lng: null},
+        {label: 'Europe',   lng: 15,   lat: 52,  k: 3.0},
+        {label: 'Norway',   lng: 10,   lat: 63,  k: 5.5},
+        {label: 'Americas', lng: -88,  lat: 22,  k: 2.2},
+        {label: 'Chile',    lng: -70,  lat: -31, k: 5.5},
+      ];
+      var chipWrap = document.createElement('div');
+      chipWrap.style.cssText = 'position:absolute;bottom:10px;left:10px;z-index:20;display:flex;gap:5px;flex-wrap:wrap;max-width:calc(100% - 60px);';
+      var _chipBase = 'background:rgba(4,10,22,0.82);border:1px solid rgba(74,158,255,0.22);border-radius:14px;padding:4px 11px;font-family:"DM Sans",sans-serif;font-size:0.74rem;color:rgba(180,210,255,0.75);cursor:pointer;white-space:nowrap;backdrop-filter:blur(6px);line-height:1.4;';
+      var _chipOn   = 'background:rgba(74,158,255,0.18);border-color:rgba(74,158,255,0.52);color:#c8e0ff;';
+      var _activeChip = null;
+
+      REGIONS.forEach(function(r) {
+        var btn = document.createElement('button');
+        btn.textContent = r.label;
+        var isWorld = !r.lng;
+        btn.style.cssText = _chipBase + (isWorld ? _chipOn : '');
+        if (isWorld) _activeChip = btn;
+        btn.addEventListener('click', function() {
+          if (_activeChip) _activeChip.style.cssText = _chipBase;
+          btn.style.cssText = _chipBase + _chipOn;
+          _activeChip = btn;
+          if (!r.lng) {
+            svg.transition().duration(650).call(zoomBehavior.transform, d3.zoomIdentity);
+          } else {
+            var rxy = proj([r.lng, r.lat]);
+            svg.transition().duration(650)
+              .call(zoomBehavior.transform,
+                    d3.zoomIdentity.translate(W/2 - r.k*rxy[0], H/2 - r.k*rxy[1]).scale(r.k));
+          }
+        });
+        chipWrap.appendChild(btn);
+      });
+      container.appendChild(chipWrap);
+    }
+
+    // ── Layer visibility ──────────────────────────────────────────────────────
     function applyLayerVisibility() {
-      mcsDots.style('display',     activeLayers.has('mcs')     ? null : 'none');
-      ccsDots.style('display',     activeLayers.has('ccs')     ? null : 'none');
-      serviceDots.style('display', activeLayers.has('service') ? null : 'none');
-      partsDots.style('display',   activeLayers.has('parts')   ? null : 'none');
+      var currentT = d3.zoomTransform(svgEl);
+      if (opts.cluster && currentT.k < CLUSTER_K) {
+        ptLayer.style('display', 'none');
+        updateClusters(currentT);
+      } else {
+        ptLayer.style('display', null);
+        mcsDots.style('display',     activeLayers.has('mcs')     ? null : 'none');
+        ccsDots.style('display',     activeLayers.has('ccs')     ? null : 'none');
+        serviceDots.style('display', activeLayers.has('service') ? null : 'none');
+        partsDots.style('display',   activeLayers.has('parts')   ? null : 'none');
+      }
     }
     applyLayerVisibility();
     svgEl.addEventListener('layertoggle', function() { applyLayerVisibility(); });
 
-    // ── Tooltip helpers ──────────────────────────────────────────────────────
+    // ── Tooltip helpers ───────────────────────────────────────────────────────
     function showTip(ev, html) {
       tooltip.innerHTML = html;
       tooltip.style.display = 'block';
@@ -1193,7 +1423,7 @@
     function hideTip() { tooltip.style.display = 'none'; }
     svgEl.addEventListener('mouseleave', hideTip);
 
-    // ── Station info panel (Google Maps data on click) ───────────────────────
+    // ── Station info panel (Google Maps data on click) ────────────────────────
     var stationPanel = document.createElement('div');
     stationPanel.style.cssText = 'position:absolute;bottom:48px;left:8px;width:230px;background:rgba(4,10,22,0.97);border:1px solid rgba(74,158,255,0.35);border-radius:8px;overflow:hidden;z-index:30;display:none;font-family:"DM Sans",sans-serif;box-shadow:0 4px 24px rgba(0,0,0,0.7);';
     container.appendChild(stationPanel);
@@ -1221,7 +1451,7 @@
       }
       var showerHtml = '';
       if (gmaps && gmaps.found && gmaps.hasShower === true) {
-        showerHtml = '<div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(0,180,120,0.12);border:1px solid rgba(0,200,120,0.2);border-radius:4px;padding:2px 7px;font-size:0.72rem;color:#4ade80;">🚿 Showers</div>';
+        showerHtml = '<div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(0,180,120,0.12);border:1px solid rgba(0,200,120,0.2);border-radius:4px;padding:2px 7px;font-size:0.72rem;color:#4ade80;">🚶 Showers</div>';
       }
       var loadingHtml = (!gmaps) ? '<div style="color:rgba(150,180,220,0.4);font-size:0.72rem;margin-top:6px;">Loading Google Maps data…</div>' : '';
       var noDataHtml  = (gmaps && !gmaps.found) ? '<div style="color:rgba(150,180,220,0.3);font-size:0.72rem;margin-top:6px;">No Google Maps listing found</div>' : '';
@@ -1265,8 +1495,8 @@
         + (opts.onDotClick ? '<div style="color:rgba(74,158,255,0.55);font-size:0.75rem;margin-top:4px;">Click to view ↓</div>' : '');
     }
 
-    // ── d3.zoom (pan + scroll zoom + pinch) ──────────────────────────────────
-    // Store base radius and stroke-width on each dot so we can scale inversely with zoom
+    // ── d3.zoom (pan + scroll zoom + pinch) ───────────────────────────────────
+    // Store base radius/stroke-width so scaleDots can divide by current zoom k
     ptLayer.selectAll('circle').each(function() {
       var sel = d3.select(this);
       this.__baseR  = +sel.attr('r');
@@ -1280,11 +1510,18 @@
     var zoomBehavior = d3.zoom()
       .scaleExtent([0.5, 20])
       .on('start', function() { svg.style('cursor', 'grabbing'); hideTip(); })
-      .on('zoom', function(ev) { root.attr('transform', ev.transform); scaleDots(ev.transform.k); })
+      .on('zoom', function(ev) {
+        root.attr('transform', ev.transform);
+        scaleDots(ev.transform.k);
+        updateClusters(ev.transform);
+      })
       .on('end', function() { svg.style('cursor', 'grab'); });
     svg.call(zoomBehavior);
 
-    // ── Zoom buttons (+/−/reset) ─────────────────────────────────────────────
+    // Draw initial clusters (zoom is identity = k:1, which is < CLUSTER_K)
+    updateClusters(d3.zoomIdentity);
+
+    // ── Zoom buttons (+/−/reset) ──────────────────────────────────────────────
     var zoomBtnStyle = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(6,15,30,0.88);border:1px solid rgba(74,158,255,0.25);color:#c8d8f0;font-size:1rem;cursor:pointer;transition:background 0.15s,border-color 0.15s;font-family:sans-serif;line-height:1;padding:0;';
     var zoomWrap = document.createElement('div');
     zoomWrap.style.cssText = 'position:absolute;bottom:10px;right:10px;z-index:12;display:flex;flex-direction:column;gap:3px;';
@@ -1302,7 +1539,7 @@
     zoomWrap.appendChild(makeZBtn('⊙', function(){ svg.transition().duration(350).call(zoomBehavior.transform, d3.zoomIdentity); }));
     container.appendChild(zoomWrap);
 
-    // ── ResizeObserver ───────────────────────────────────────────────────────
+    // ── ResizeObserver ────────────────────────────────────────────────────────
     var _ro = window.ResizeObserver ? new ResizeObserver(function() {
       var nW = container.offsetWidth;
       if (Math.abs(nW - W) < 4) return;
@@ -1313,23 +1550,21 @@
       H = reFit.h;
       svgEl.setAttribute('height', H);
       container.style.height = H + 'px';
-      // Re-draw fixed paths
       root.selectAll('path').each(function(d) {
         if (d) d3.select(this).attr('d', pathFn(d) || '');
       });
-      // Re-position dots
       ptLayer.selectAll('circle').each(function(d) {
         if (!d) return;
         var lon = d.lng != null ? d.lng : d.lon;
         var xy = proj([lon, d.lat]);
         if (xy) d3.select(this).attr('cx', xy[0]).attr('cy', xy[1]);
       });
-      // Reset zoom so map fills container again
       svg.call(zoomBehavior.transform, d3.zoomIdentity);
+      updateClusters(d3.zoomIdentity);
     }) : null;
     if (_ro) _ro.observe(container);
 
-    // ── Public API ───────────────────────────────────────────────────────────
+    // ── Public API ────────────────────────────────────────────────────────────
     return {
       drawCircle: function(lat, lng, radiusKm, color) {
         circleLayer.selectAll('*').remove();
