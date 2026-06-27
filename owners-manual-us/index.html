@@ -26,11 +26,6 @@
   #wr-chat-input { flex: 1 !important; background: #06122a !important; border: 1px solid rgba(0,180,255,0.3) !important; border-radius: 6px !important; color: #fff !important; font-size: 0.875rem !important; padding: 0.55rem 0.75rem !important; outline: none !important; }
   #wr-chat-input:focus { border-color: rgba(0,180,255,0.6) !important; }
   #wr-chat-form button[type=submit] { background: #0078ff !important; border: none !important; border-radius: 6px !important; color: #fff !important; padding: 0 0.85rem !important; cursor: pointer !important; font-size: 0.875rem !important; }
-  .manual-ai-bar { display: flex; align-items: center; gap: 0.75rem; background: rgba(0,120,255,0.08); border: 1px solid rgba(0,180,255,0.2); border-radius: 8px; padding: 0.65rem 1rem; margin: 0 0 1.25rem; }
-  .manual-ai-bar p { margin: 0; font-size: 0.85rem; color: var(--text, #d0e0f0); flex: 1; }
-  .manual-ai-bar button { background: #0078ff; border: none; border-radius: 6px; color: #fff; font-size: 0.8rem; padding: 0.4rem 0.85rem; cursor: pointer; white-space: nowrap; }
-  .manual-ai-bar button:hover { background: #0060cc; }
-  #wr-chat-btn { display: none !important; }
 </style>
 </head>
 <body>
@@ -537,11 +532,6 @@
 </nav>
 <main class="main-content" id="mainContent">
 <div class="manual-updated" style="font-size:11px;color:var(--text-muted,#888);text-align:right;padding:0 0 10px;">Last updated: <time datetime="2026-06-27">June 27, 2026</time></div>
-<div class="manual-ai-bar">
-  <p>⚡ Have a question? The Windrose AI assistant knows this manual.</p>
-  <button onclick="if(typeof wrChatToggle==='function'){wrChatToggle();}else{var iv=setInterval(function(){if(typeof wrChatToggle==='function'){wrChatToggle();clearInterval(iv);}},100);}">Ask AI</button>
-</div>
-
 <section class="manual-section preamble-section" id="preamble">
 <blockquote>
 <p>Dear Customer,</p>
@@ -11052,9 +11042,8 @@ searchInput.addEventListener('input', function() {
  .sort((a, b) => b.score - a.score)
  .slice(0, 15);
 
- var aiFooter = '<div class="sr-ai-footer" onclick="(function(){var q=document.getElementById(\'searchInput\').value.trim();document.getElementById(\'searchResults\').style.display=\'none\';var inp=document.getElementById(\'wr-chat-input\');if(inp&&q)inp.value=q;if(typeof wrChatToggle===\'function\')wrChatToggle();})()">⚡ Ask AI about this</div>';
  if (matches.length === 0) {
- searchResults.innerHTML = '<div class="sr-empty">No results found</div>' + aiFooter;
+ searchResults.innerHTML = '<div class="sr-empty">No results found</div>';
  } else {
  searchResults.innerHTML = matches.map(m =>
  `<a class="sr-item" href="${m.html_anchor}">
@@ -11062,7 +11051,7 @@ searchInput.addEventListener('input', function() {
  <span class="sr-section">${m.section}</span>
  <span class="sr-cat badge-${m.category}">${m.category}</span>
  </a>`
- ).join('') + aiFooter;
+ ).join('');
  }
  searchResults.style.display = 'block';
 });

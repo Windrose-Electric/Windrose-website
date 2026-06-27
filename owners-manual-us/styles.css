@@ -52,10 +52,11 @@ body {
   height: var(--header-h);
   background: var(--hdr-bg);
   color: var(--hdr-fg);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; gap: 16px;
   padding: 0 20px;
   box-shadow: var(--shadow-md);
 }
+.header-search { margin-left: auto; }
 .header-left { display: flex; align-items: center; gap: 12px; }
 .header-left h1 { font-size: 17px; font-weight: 600; white-space: nowrap; }
 .nav-toggle {
@@ -135,7 +136,7 @@ body {
 }
 .nav-toc-link a:hover { background: #d0e3ff; }
 
-.nav-filter { padding: 8px 14px; }
+.nav-filter { padding: 4px 14px 8px; }
 .nav-filter input {
   width: 100%; padding: 6px 10px; border: 1px solid var(--nav-border);
   border-radius: 4px; font-size: 13px; background: #fff;
@@ -715,19 +716,3 @@ summary.toc-sub-title:hover { background: rgba(11,94,215,.04); }
 details.toc-chapter { width: 100%; }
 summary.toc-chapter-title { padding: 8px 10px; }
 
-/* ── Search → AI footer ─────────────────────────────────────── */
-.sr-ai-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: rgba(11,94,215,.04);
-  border-top: 2px solid var(--accent-light);
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.15s;
-}
-.sr-ai-footer:hover { background: var(--accent-light); }
