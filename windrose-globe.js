@@ -1266,10 +1266,21 @@
     }
 
     // ── d3.zoom (pan + scroll zoom + pinch) ──────────────────────────────────
+    // Store base radius and stroke-width on each dot so we can scale inversely with zoom
+    ptLayer.selectAll('circle').each(function() {
+      var sel = d3.select(this);
+      this.__baseR  = +sel.attr('r');
+      this.__baseSW = +(sel.attr('stroke-width') || 0.7);
+    });
+    function scaleDots(k) {
+      ptLayer.selectAll('circle')
+        .attr('r', function() { return this.__baseR / k; })
+        .attr('stroke-width', function() { return this.__baseSW / k; });
+    }
     var zoomBehavior = d3.zoom()
       .scaleExtent([0.5, 20])
       .on('start', function() { svg.style('cursor', 'grabbing'); hideTip(); })
-      .on('zoom', function(ev) { root.attr('transform', ev.transform); })
+      .on('zoom', function(ev) { root.attr('transform', ev.transform); scaleDots(ev.transform.k); })
       .on('end', function() { svg.style('cursor', 'grab'); });
     svg.call(zoomBehavior);
 
