@@ -60,18 +60,46 @@ for (const { dir, locale } of EDITIONS) {
   }
 }
 
-// ── index.html ──────────────────────────────────────────────────────────────
-const indexFile = path.join(root, 'index.html');
-if (fs.existsSync(indexFile)) {
-  const localDate = new Intl.DateTimeFormat('en-GB', opts).format(now);
-  let html = fs.readFileSync(indexFile, 'utf8');
-  const updated = html.replace(
-    /<!--UPDATED-->[\s\S]*?<!--\/UPDATED-->/,
-    `<!--UPDATED-->${localDate}<!--/UPDATED-->`
-  );
-  if (updated !== html) {
-    fs.writeFileSync(indexFile, updated, 'utf8');
-    console.log(`Updated index.html: ${localDate}`);
+// ── Main site pages (topbar version-timestamp + UPDATED marker) ─────────────
+const SITE_PAGES = [
+  'index.html', 'technology.html', 'how-to-buy.html', 'how-to-use.html',
+  'how-to-service.html', 'how-to-build.html', 'about-us.html',
+  'windrose-user-manual-zh.html',
+  // -edit variants
+  'index-edit.html', 'technology-edit.html', 'how-to-buy-edit.html',
+  'how-to-use-edit.html', 'how-to-service-edit.html', 'how-to-build-edit.html',
+  'about-us-edit.html',
+];
+
+const localDate = new Intl.DateTimeFormat('en-GB', opts).format(now);
+
+// Two formats exist across pages:
+//   With inner span:    <span class="version-timestamp" ...><span ...>Updated:</span> DATE</span>
+//   Without inner span: <span class="version-timestamp" ...>Updated: DATE</span>
+const versionTimestampRe  = /(class="version-timestamp"[^>]*><span[^>]*>[^<]*<\/span>)[^<]*(<\/span>)/;
+const versionTimestampRe2 = /(class="version-timestamp"[^>]*>Updated:)[^<]*(<\/span>)/;
+
+for (const page of SITE_PAGES) {
+  const file = path.join(root, page);
+  if (!fs.existsSync(file)) continue;
+
+  let html = fs.readFileSync(file, 'utf8');
+  let changed = false;
+
+  // Update topbar version-timestamp (try both formats)
+  let r1 = html.replace(versionTimestampRe, `$1 ${localDate}$2`);
+  if (r1 === html) r1 = html.replace(versionTimestampRe2, `$1 ${localDate}$2`);
+  if (r1 !== html) { html = r1; changed = true; }
+
+  // Update inline <!--UPDATED--> marker (index.html body section)
+  const r2 = html.replace(/<!--UPDATED-->[\s\S]*?<!--\/UPDATED-->/, `<!--UPDATED-->${localDate}<!--/UPDATED-->`);
+  if (r2 !== html) { html = r2; changed = true; }
+
+  if (changed) {
+    fs.writeFileSync(file, html, 'utf8');
+    console.log(`Updated ${page}: ${localDate}`);
+  } else {
+    console.log(`No change: ${page}`);
   }
 }
 
