@@ -18,7 +18,13 @@
     '.nav-chapters{counter-reset:grp-ctr;}',
     'li.nav-group-header{counter-increment:grp-ctr;counter-reset:chap-ctr;}',
     'li.nav-chapter{counter-increment:chap-ctr;}',
-    '.nav-chapter-title::before{content:counter(grp-ctr) "." counter(chap-ctr) " " !important;font-size:11px;display:inline!important;}',
+    '.nav-chapter-title::before{content:counter(grp-ctr) "." counter(chap-ctr) " ▸"!important;font-size:11px;display:inline!important;}',
+    '.nav-chapter-title:has(+.nav-sections.expanded)::before{content:counter(grp-ctr) "." counter(chap-ctr) " ▾"!important;transform:none!important;}',
+    /* Collapsible body sections */
+    'h1.sec-toggle,h2.sec-toggle{cursor:pointer;user-select:none;}',
+    'h1.sec-toggle:hover,h2.sec-toggle:hover{color:var(--accent);}',
+    'h1.sec-toggle::after,h2.sec-toggle::after{content:" ▸";font-size:11px;opacity:.5;font-weight:400;}',
+    'h1.sec-toggle.is-open::after,h2.sec-toggle.is-open::after{content:" ▾";}',
     /* ── Content group accordion ───────────────────────────── */
     '.acc-grp{margin:20px 0 0;}',
     '.acc-grp:first-of-type{margin-top:8px;}',
@@ -107,7 +113,62 @@
   wrapper.className = 'header-lang';
   wrapper.appendChild(sel);
 
+  function initSections() {
+    document.querySelectorAll('.manual-section.level-1, .manual-section.level-2').forEach(function (sec) {
+      var hd = sec.querySelector('h1, h2');
+      if (!hd) return;
+      var others = Array.from(sec.children).filter(function (el) { return el !== hd; });
+      if (!others.length) return;
+      var body = document.createElement('div');
+      body.className = 'sec-body';
+      body.hidden = true;
+      others.forEach(function (el) { body.appendChild(el); });
+      sec.appendChild(body);
+      hd.classList.add('sec-toggle');
+      hd.addEventListener('click', function () {
+        body.hidden = !body.hidden;
+        hd.classList.toggle('is-open', !body.hidden);
+      });
+    });
+  }
+
+  function expandForHash(hash) {
+    if (!hash) return;
+    var el = document.getElementById(hash.slice(1));
+    if (!el) return;
+    var sec = el.closest('.manual-section') || (el.classList.contains('manual-section') ? el : null);
+    if (!sec) return;
+    var body = sec.querySelector('.sec-body');
+    if (body) {
+      body.hidden = false;
+      var hd = sec.querySelector('.sec-toggle');
+      if (hd) hd.classList.add('is-open');
+    }
+    // Also expand parent level-1 section if this is a level-2
+    var parent = sec.parentElement && sec.parentElement.closest('.manual-section.level-1');
+    if (parent) {
+      var pbody = parent.querySelector(':scope > .sec-body');
+      if (pbody) {
+        pbody.hidden = false;
+        var phd = parent.querySelector('.sec-toggle');
+        if (phd) phd.classList.add('is-open');
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', function () { expandForHash(location.hash); });
+
+  // Auto-expand the target section when any anchor link is clicked
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (href && href.length > 1) expandForHash(href);
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
+    initSections();
+
     // Inject language selector into header
     var header = document.querySelector('.site-header');
     var searchDiv = document.querySelector('.header-search');
@@ -117,7 +178,7 @@
       header.appendChild(wrapper);
     }
 
-    // Make nav-group-headers collapsible
+    // Make nav-group-headers collapsible and collapse all by default
     var chapList = document.querySelector('.nav-chapters');
     if (chapList) {
       var headers = chapList.querySelectorAll('li.nav-group-header');
@@ -130,6 +191,13 @@
             sib = sib.nextElementSibling;
           }
         });
+        // Collapse this group immediately
+        hdr.classList.add('collapsed');
+        var sib = hdr.nextElementSibling;
+        while (sib && !sib.classList.contains('nav-group-header')) {
+          sib.classList.add('grp-hidden');
+          sib = sib.nextElementSibling;
+        }
       });
     }
 

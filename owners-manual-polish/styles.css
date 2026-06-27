@@ -211,21 +211,6 @@ body {
   margin: 12px 0;
 }
 
-/* ── TOC Page Images ───────────────────────────────────────── */
-.toc-section {
-  text-align: center;
-  padding-bottom: 24px;
-}
-.toc-section h1 { text-align: left; }
-.toc-page-img {
-  max-width: 100% !important;
-  max-height: none !important;
-  width: 100%;
-  border: 1px solid var(--table-border);
-  border-radius: var(--radius);
-  margin: 8px 0;
-  box-shadow: var(--shadow-sm);
-}
 
 /* ── Typography ──────────────────────────────────────────── */
 h1 { font-size: 24px; font-weight: 700; color: var(--hdr-bg); margin: 8px 0 12px; padding-bottom: 8px; border-bottom: 3px solid var(--accent); }
