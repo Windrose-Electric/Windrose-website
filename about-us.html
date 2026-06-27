@@ -3662,9 +3662,23 @@ function openStripeModal() { openReserveModal(); }
   }
 
   // Click or Escape to skip
-  splash.addEventListener('click', function(){
+  splash.addEventListener('click', function(e){
     document.body.style.overflow = '';
     dismiss();
+    // Pass through to a link underneath if the user clicked on one
+    splash.style.pointerEvents = 'none';
+    var el = document.elementFromPoint(e.clientX, e.clientY);
+    splash.style.pointerEvents = '';
+    if (el) {
+      var a = el.closest ? el.closest('a[href]') : null;
+      if (!a && el.tagName === 'A' && el.href) a = el;
+      if (a && a.href) {
+        var dest = a.getAttribute('href');
+        if (dest && dest !== '#' && !dest.startsWith('#')) {
+          window.location.href = a.href;
+        }
+      }
+    }
   });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){ document.body.style.overflow = ''; dismiss(); }
