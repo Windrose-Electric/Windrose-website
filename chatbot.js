@@ -777,4 +777,105 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
     msgs.scrollTop = msgs.scrollHeight;
     return div;
   }
+
+  // ── Global UI injection ──────────────────────────────────────────────
+  // Injects chat panel + floating button (if not already in page HTML),
+  // and adds an "Ask AI" button into whichever fixed header the page has.
+  (function injectChatUI() {
+    // Shared CSS — only inject once
+    if (!document.getElementById('wr-chat-css')) {
+      var css = document.createElement('style');
+      css.id = 'wr-chat-css';
+      css.textContent =
+        '#wr-chat-btn{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:auto!important;height:48px!important;z-index:9999!important;background:#0a1f44!important;border:2px solid rgba(0,180,255,.5)!important;border-radius:24px!important;cursor:pointer!important;box-shadow:0 4px 16px rgba(0,120,255,.5)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:0 20px 0 16px!important;color:#fff!important;font-size:15px!important;font-weight:600!important;letter-spacing:.01em!important;white-space:nowrap!important;}' +
+        '#wr-chat-btn:hover{background:#0d2a5e!important;border-color:rgba(0,180,255,.8)!important;}' +
+        '#wr-chat-panel{position:fixed!important;bottom:5.5rem!important;right:1.5rem!important;z-index:9998!important;width:360px!important;max-width:calc(100vw - 3rem)!important;max-height:70vh!important;background:#0a1a30!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:12px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;flex-direction:column!important;overflow:hidden!important;font-family:DM Sans,sans-serif!important;}' +
+        '#wr-chat-header{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:.75rem 1rem!important;background:#061525!important;border-bottom:1px solid rgba(0,180,255,.2)!important;font-size:.875rem!important;font-weight:600!important;color:#a0c8ff!important;}' +
+        '#wr-chat-close{background:none!important;border:none!important;color:#7a9abf!important;cursor:pointer!important;font-size:1rem!important;padding:0!important;}' +
+        '#wr-chat-msgs{flex:1!important;overflow-y:auto!important;padding:1rem!important;background:#0a1a30!important;display:flex!important;flex-direction:column!important;gap:.65rem!important;min-height:200px!important;max-height:50vh!important;}' +
+        '#wr-chat-msgs .wr-msg{padding:.65rem .9rem!important;border-radius:10px!important;font-size:.875rem!important;line-height:1.5!important;max-width:85%!important;word-wrap:break-word!important;}' +
+        '#wr-chat-msgs .wr-msg.bot{background:rgba(0,120,255,.12)!important;color:#d8e8ff!important;border:1px solid rgba(0,180,255,.15)!important;align-self:flex-start!important;}' +
+        '#wr-chat-msgs .wr-msg.user{background:rgba(0,180,255,.25)!important;color:#fff!important;align-self:flex-end!important;}' +
+        '#wr-chat-suggestions{display:flex!important;flex-wrap:wrap!important;gap:.4rem!important;padding:.5rem 1rem .75rem!important;background:#0a1a30!important;}' +
+        '#wr-chat-suggestions .wr-chip{font-size:.875rem!important;padding:.35rem .7rem!important;background:rgba(0,180,255,.1)!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:4px!important;color:#a0c8ff!important;cursor:pointer!important;transition:all .15s!important;}' +
+        '#wr-chat-suggestions .wr-chip:hover{background:rgba(0,180,255,.2)!important;color:#fff!important;}' +
+        '#wr-chat-form{display:flex!important;gap:.5rem!important;padding:.75rem 1rem 1rem!important;background:#0a1a30!important;border-top:1px solid rgba(0,180,255,.15)!important;}' +
+        '#wr-chat-input{flex:1!important;background:#06122a!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:6px!important;color:#fff!important;font-size:.875rem!important;padding:.55rem .75rem!important;outline:none!important;}' +
+        '#wr-chat-input:focus{border-color:rgba(0,180,255,.6)!important;}' +
+        '#wr-chat-form button[type=submit]{background:#0078ff!important;border:none!important;border-radius:6px!important;color:#fff!important;padding:0 .85rem!important;cursor:pointer!important;font-size:.875rem!important;}' +
+        /* Topbar "Ask AI" — main site pages */
+        '#wr-topbar-chat{background:#fff!important;color:#060f1e!important;border:none!important;font-family:Barlow Condensed,sans-serif!important;font-size:.875rem!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:.3rem 1.1rem!important;cursor:pointer!important;white-space:nowrap!important;flex-shrink:0!important;line-height:1!important;}' +
+        '#wr-topbar-chat:hover{opacity:.85!important;}' +
+        /* Header "Ask AI" — owner's manual pages */
+        '#wr-header-chat{background:rgba(0,180,255,.15)!important;border:1px solid rgba(0,180,255,.4)!important;border-radius:4px!important;color:#a0c8ff!important;font-size:13px!important;font-weight:600!important;padding:5px 12px!important;cursor:pointer!important;white-space:nowrap!important;flex-shrink:0!important;}' +
+        '#wr-header-chat:hover{background:rgba(0,180,255,.28)!important;color:#fff!important;}';
+      document.head.appendChild(css);
+    }
+
+    function injectPanelHTML() {
+      if (document.getElementById('wr-chat-panel')) return;
+      var panel = document.createElement('div');
+      panel.id = 'wr-chat-panel';
+      panel.style.display = 'none';
+      panel.innerHTML =
+        '<div id="wr-chat-header"><span>⚡ Windrose Assistant</span><button id="wr-chat-close" onclick="wrChatToggle()">✕</button></div>' +
+        '<div id="wr-chat-msgs"><div class="wr-msg bot">Hi! I\'m the Windrose AI assistant. Ask me anything about your E700 — charging, driving, specs, maintenance, or troubleshooting.</div></div>' +
+        '<div id="wr-chat-suggestions">' +
+          '<span class="wr-chip" onclick="wrAskChip(\'charge\')">Charging?</span>' +
+          '<span class="wr-chip" onclick="wrAsk(\'How do I start the vehicle?\')">Start up?</span>' +
+          '<span class="wr-chip" onclick="wrAsk(\'How does regenerative braking work?\')">Regen braking?</span>' +
+          '<span class="wr-chip" onclick="wrAsk(\'What maintenance is required?\')">Maintenance?</span>' +
+        '</div>' +
+        '<form id="wr-chat-form" onsubmit="wrSend(event)"><input id="wr-chat-input" type="text" placeholder="Ask a question about your truck…" autocomplete="off"><button type="submit">➤</button></form>';
+      document.body.appendChild(panel);
+    }
+
+    function injectFloatingBtn() {
+      if (document.getElementById('wr-chat-btn')) return;
+      var btn = document.createElement('button');
+      btn.id = 'wr-chat-btn';
+      btn.title = 'Ask the Windrose AI assistant';
+      btn.setAttribute('onclick', 'wrChatToggle()');
+      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask AI';
+      document.body.appendChild(btn);
+    }
+
+    function injectTopbarBtn() {
+      if (document.getElementById('wr-topbar-chat')) return;
+      var topbar = document.getElementById('topbar');
+      if (!topbar) return;
+      var btn = document.createElement('button');
+      btn.id = 'wr-topbar-chat';
+      btn.textContent = '⚡ Ask AI';
+      btn.setAttribute('onclick', 'wrChatToggle()');
+      // Insert before the last child (Reserve button) so it sits beside it
+      var last = topbar.lastElementChild;
+      last ? topbar.insertBefore(btn, last) : topbar.appendChild(btn);
+    }
+
+    function injectHeaderBtn() {
+      if (document.getElementById('wr-header-chat')) return;
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      var searchDiv = header.querySelector('.header-search');
+      var btn = document.createElement('button');
+      btn.id = 'wr-header-chat';
+      btn.textContent = '⚡ Ask AI';
+      btn.setAttribute('onclick', 'wrChatToggle()');
+      searchDiv ? header.insertBefore(btn, searchDiv) : header.appendChild(btn);
+    }
+
+    function run() {
+      injectPanelHTML();
+      injectFloatingBtn();
+      injectTopbarBtn();
+      injectHeaderBtn();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  })();
 })();
