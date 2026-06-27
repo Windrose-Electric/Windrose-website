@@ -3,6 +3,77 @@
   var convHistory = [];
   var open = false;
 
+  // Inject related-link styles once
+  (function() {
+    var s = document.createElement('style');
+    s.textContent = '.wr-related{font-size:0.78rem!important;padding:0.5rem 0.8rem!important;background:rgba(0,80,180,0.08)!important;border:1px solid rgba(0,150,255,0.15)!important;border-radius:8px!important;color:#8ab0d8!important;line-height:1.7!important;}.wr-related a{color:#60aaff!important;text-decoration:none!important;display:block!important;}.wr-related a:hover{color:#90ccff!important;text-decoration:underline!important;}.wr-related strong{color:#7ab!important;font-size:0.72rem!important;letter-spacing:0.05em!important;}';
+    document.head.appendChild(s);
+  })();
+
+  // Curated keyword search index for related-link feature
+  var SEARCH_INDEX = [
+    // Buying & pricing
+    { t: 'How to Buy — Pricing & Ordering', u: '/how-to-buy.html', k: ['price', 'cost', 'buy', 'order', 'purchase', 'reserv', 'deposit', 'payment', 'lease', 'finance', 'fund', 'grant', 'hvip', 'subsid', 'incentiv'] },
+    { t: 'European Pricing & Grant Info', u: '/how-to-buy.html#eu-price', k: ['eur', 'europe', '€', 'euro', 'eu grant', 'eu subsid'] },
+    { t: 'US Pricing & HVIP', u: '/how-to-buy.html#us-price', k: ['usd', 'usa', 'us price', 'america', 'hvip', '$285', '$285,000', 'carb', 'california'] },
+    { t: 'UK Pricing & ZEV Grant', u: '/how-to-buy.html#uk-price', k: ['uk', 'britain', 'gbp', '£', 'zev grant', 'united kingdom', 'british'] },
+    { t: 'Australia Pricing', u: '/how-to-buy.html#au-price', k: ['australia', 'aud', 'a$', 'adr'] },
+    // Charging
+    { t: 'How to Charge Your E700', u: '/how-to-use.html#charging', k: ['charg', 'plug', 'mcs', 'ccs', 'ccs1', 'ccs2', 'connector', 'charge time', 'charg speed', 'megawatt', '870', 'kw', 'outlet', 'station'] },
+    { t: 'Charging Partners & Networks', u: '/how-to-use.html#charging-partners', k: ['milence', 'kempower', 'ev realty', 'greenlane', 'terawatt', 'hubject', 'sinexcel', 'partner', 'network', 'charg point', 'charg station'] },
+    { t: 'Plug & Charge (ISO 15118)', u: '/how-to-use.html#plug-charge', k: ['plug and charge', 'plug&charge', 'iso 15118', 'autocharge', 'no card', 'no app'] },
+    { t: 'Owner\'s Manual — Charging Port & Procedure', u: '/owners-manual-us/#charging-port', k: ['charg port', 'charg procedure', 'how to charge', 'charg step'] },
+    // Range & performance
+    { t: 'Range & Performance — Technology', u: '/technology.html#range', k: ['range', 'km', 'mile', '700', '500', 'distance', 'endurance', 'how far', 'range drop', 'range cold', 'payload'] },
+    { t: 'Battery & Motor Specs', u: '/technology.html#specs', k: ['battery', 'kwh', '705', 'lfp', 'motor', 'hp', 'horsepower', '1400', 'torque', 'kw', '1045', '800v', 'voltage'] },
+    { t: 'Owner\'s Manual — Technical Specs', u: '/owners-manual-us/#curb-weight-gvw-axle-load-drive-mode', k: ['weight', 'dimension', 'gcw', 'gvw', 'axle', 'curb weight', 'length', 'width', 'height', 'technical data', 'spec'] },
+    // Driving & operation
+    { t: 'How to Use Your E700 — Driving Guide', u: '/how-to-use.html', k: ['how to driv', 'driv guide', 'how to start', 'how to stop', 'how to use', 'operat'] },
+    { t: 'Owner\'s Manual — Power ON/OFF & Starting', u: '/owners-manual-us/#power-on-off', k: ['start', 'power on', 'power off', 'turn on', 'turn off', 'nfc', 'key card', 'ignition', 'boot'] },
+    { t: 'Owner\'s Manual — Driving Controls & Gear', u: '/owners-manual-us/#gear-selector', k: ['gear', 'drive mode', 'park', 'reverse', 'neutral', 'forward', 'd mode', 'r mode', 'p mode'] },
+    { t: 'Owner\'s Manual — Regenerative Braking', u: '/owners-manual-us/#regenerative-braking', k: ['regen', 'regenerat', 'kers', 'kinetic', 'paddle', 'recuperat', 'energy recovery'] },
+    { t: 'Owner\'s Manual — Eco Driving Tips', u: '/owners-manual-us/#eco-driving', k: ['eco', 'efficien', 'save energy', 'maximize range', 'tip', 'fuel sav'] },
+    // ADAS & safety
+    { t: 'ADAS & Driver Assistance — Technology', u: '/technology.html#adas', k: ['adas', 'driver assist', 'safety feature', 'autonomous', 'level 2', 'semi-auto'] },
+    { t: 'Owner\'s Manual — Adaptive Cruise Control', u: '/owners-manual-us/#adaptive-cruise-control-acc', k: ['acc', 'adaptive cruise', 'cruise control', 'auto speed'] },
+    { t: 'Owner\'s Manual — Lane Departure Warning', u: '/owners-manual-us/#lane-departure-warning-ldw', k: ['lane', 'ldw', 'lane keep', 'lane depart', 'lane warning'] },
+    { t: 'Owner\'s Manual — Auto Emergency Braking (AEB)', u: '/owners-manual-us/#auto-emergency-braking', k: ['aeb', 'auto brake', 'emergency brake', 'collision', 'fcw', 'forward collision'] },
+    { t: 'Owner\'s Manual — Around View Monitor', u: '/owners-manual-us/#around-view-monitor-avm', k: ['avm', 'around view', 'surround', 'camera', '360', 'bird eye', 'parking camera'] },
+    { t: 'Owner\'s Manual — Blind Spot Monitoring', u: '/owners-manual-us/#blind-spot', k: ['blind spot', 'bsd', 'side assist', 'lane change assist'] },
+    // Maintenance & service
+    { t: 'How to Service Your E700', u: '/how-to-service.html', k: ['service', 'mainten', 'repair', 'workshop', 'service center', 'scheduled mainten', 'annual', 'inspect'] },
+    { t: 'Owner\'s Manual — Maintenance Schedule', u: '/owners-manual-us/#maintenance-schedule', k: ['mainten schedule', 'service interval', 'when to service', '10,000', '20,000', 'km interval'] },
+    { t: 'Owner\'s Manual — Coolant', u: '/owners-manual-us/#coolant', k: ['coolant', 'antifreeze', 'fluid', 'radiator', 'overheat', 'temp'] },
+    { t: 'Owner\'s Manual — Tire Pressure (TPMS)', u: '/owners-manual-us/#tire-pressure-monitoring', k: ['tire', 'tyre', 'tpms', 'pressure', 'flat', 'puncture', 'psi', 'inflation'] },
+    // Emergency
+    { t: 'Owner\'s Manual — Emergency Procedures', u: '/owners-manual-us/#vehicle-recovery-and-towing', k: ['emergency', 'breakdown', 'tow', 'stuck', 'recover', 'call', 'help'] },
+    { t: 'Owner\'s Manual — Vehicle Fire', u: '/owners-manual-us/#rescue-of-vehicle-on-fire', k: ['fire', 'smoke', 'burn', 'extinguish', 'evacuate', 'hazard'] },
+    // Company & ordering
+    { t: 'About Windrose Electric', u: '/about-us.html', k: ['about', 'company', 'founded', 'headquarter', 'team', 'investor', 'mission', 'history', 'founder', 'wen han', 'antwerp', 'belgium'] },
+    { t: 'Technology Overview', u: '/technology.html', k: ['technolog', 'innovation', 'design', 'engineer', 'how it work', 'platform', 'architecture'] },
+    { t: 'Certifications & Markets', u: '/technology.html#certifications', k: ['certif', 'approv', 'regulation', 'fmvss', 'wvta', 'adr', 'nzta', 'homolog', 'compliance', 'market'] },
+    { t: 'IPO / Investor Relations', u: '/about-us.html#ipo', k: ['ipo', 'stock', 'share', 'invest', 'nyse', 'wdrs', 's-1', 'sec', 'public', 'equity'] },
+    // Warranties & delivery
+    { t: 'Delivery Timeline', u: '/how-to-buy.html#delivery', k: ['deliver', 'when', 'q3 2026', 'q4 2026', 'lead time', 'wait', 'ship', 'arrival'] },
+    { t: 'Winter & Special Conditions Driving', u: '/owners-manual-us/#winter-driving', k: ['winter', 'cold', 'snow', 'ice', 'freeze', 'chain', 'low temp', 'artic'] },
+  ];
+
+  function findRelated(q) {
+    var ql = q.toLowerCase();
+    var scored = SEARCH_INDEX.map(function(e) {
+      var score = e.k.reduce(function(s, kw) { return s + (ql.indexOf(kw) >= 0 ? 1 : 0); }, 0);
+      return { e: e, s: score };
+    }).filter(function(x) { return x.s > 0; }).sort(function(a, b) { return b.s - a.s; });
+    return scored.slice(0, 3).map(function(x) { return x.e; });
+  }
+
+  function addRelated(q) {
+    var results = findRelated(q);
+    if (!results.length) return;
+    var links = results.map(function(r) { return '<a href="' + r.u + '">📖 ' + r.t + '</a>'; }).join('');
+    addMsg('<strong>Related pages</strong>' + links, 'bot related', true);
+  }
+
   var LANG_NAMES = {
     'en':'English\',\'es\':\'Spanish\',\'fr\':\'French\',\'de\':\'German\',\'zh\':\'Chinese (Simplified)',
     'nl':'Dutch\',\'no\':\'Norwegian\',\'sv\':\'Swedish\',\'fi\':\'Finnish',
@@ -650,6 +721,7 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       typing.remove();
       addMsg(instantReply, 'bot', false);
       convHistory.push({ role: 'assistant', content: instantReply });
+      addRelated(q);
       return;
     }
 
@@ -676,6 +748,7 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       typing.remove();
       addMsg(reply, 'bot', false);
       convHistory.push({ role: 'assistant', content: reply });
+      addRelated(q);
 
     } catch(err) {
       typing.remove();
@@ -691,6 +764,7 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
         addMsg(fallback, 'bot', false);
         convHistory.push({ role: 'assistant', content: fallback });
       }
+      addRelated(q);
     }
   };
 
