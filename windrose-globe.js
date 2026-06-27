@@ -677,6 +677,7 @@
 
     /* ── Drag ────────────────────────────────────────────────────────────── */
     svg.call(d3.drag()
+      .clickDistance(4)
       .on('start', function(){ svg.style('cursor','grabbing'); hideTip(); })
       .on('drag', function(ev) {
         rot[0] += ev.dx * 0.4;
