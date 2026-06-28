@@ -825,14 +825,15 @@ function setLang(lang) {
 <!-- TOPBAR -->
 <div id="topbar">
   <span class="version-timestamp" style="font-size: 0.875rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;" data-i18n="label.updated"><span data-i18n="label.updated">Updated:</span> 27 June 2026</span>
-  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:340px;min-width:120px;">
+  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:460px;min-width:160px;display:flex;align-items:center;">
     <input id="gs-input" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search or ask anything…"
-      style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size: 0.875rem;letter-spacing:0.05em;padding:0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s;"
+      placeholder="Search or ask AI anything…"
+      style="width:100%;background:rgba(255,255,255,0.09);border:1px solid rgba(74,158,255,0.42);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size:0.875rem;letter-spacing:0.05em;padding:0.28rem 2.7rem 0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;"
       oninput="gsSearch(this.value)"
       onkeydown="gsKey(event)"
-      onfocus="this.style.borderColor='rgba(74,158,255,0.7)';this.style.background='rgba(255,255,255,0.11)'"
-      onblur="this.style.borderColor='rgba(74,158,255,0.25)';this.style.background='rgba(255,255,255,0.07)'">
+      onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
+      onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
   <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
