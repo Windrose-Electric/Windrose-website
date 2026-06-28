@@ -1379,6 +1379,55 @@ p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
   .sm-chip { font-size: 0.72rem; }
 }
 
+/* Two-level service manual picker (country → language) */
+.sm-picker { grid-column: 1 / -1; max-width: 720px; }
+.sm-picker-steps { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.sm-step { flex: 1 1 280px; display: flex; flex-direction: column; gap: 0.5rem; }
+.sm-step-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 0.5rem;
+}
+.sm-step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(74,158,255,0.12); border: 1px solid rgba(74,158,255,0.35);
+  color: var(--accent); font-size: 0.72rem; font-weight: 600;
+}
+.sm-select {
+  background: #0d1f38; border: 1px solid rgba(74,158,255,0.25);
+  border-radius: 6px; color: #f0f4ff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  padding: 9px 12px; cursor: pointer; width: 100%; outline: none; appearance: auto;
+}
+.sm-select:disabled { opacity: 0.45; cursor: not-allowed; }
+.sm-select:focus { border-color: var(--accent); }
+.sm-picker-result { margin-top: 1.25rem; min-height: 1px; }
+.sm-result-open {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(74,158,255,0.12); border: 1px solid rgba(74,158,255,0.4);
+  color: var(--accent); padding: 0.6rem 1.1rem; border-radius: 6px;
+  text-decoration: none; transition: background 0.18s, transform 0.18s;
+}
+.sm-result-open:hover { background: rgba(74,158,255,0.2); transform: translateY(-1px); }
+.sm-result-open svg { width: 14px; height: 14px; stroke: currentColor; }
+.sm-result-soon {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(74,158,255,0.04); border: 1px dashed var(--border);
+  border-radius: 6px; padding: 0.6rem 1rem;
+}
+.sm-result-soon .sm-soon-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px;
+  background: #d8a23a; box-shadow: 0 0 8px rgba(216,162,58,0.6);
+}
+@media (max-width: 600px) {
+  .sm-picker-steps { flex-direction: column; gap: 1.1rem; }
+}
+
 /* Language-matched card highlight */
 .om-card.om-match {
   border-color: var(--accent);
@@ -2634,61 +2683,143 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="om-nav-header">
   <div class="eyebrow">Service Manual</div>
   <h2>Choose Your Market</h2>
-  <p>Each edition covers the homologated vehicle model for that market. Regulations, units, and component specifications vary by region.</p>
+  <p>Select your country, then your language. Each edition covers the homologated vehicle model for that market — regulations, units, and component specifications vary by region.</p>
 </div>
 <div class="om-nav-grid" id="sm-nav-grid">
 
-  <!-- ── Live edition ───────────────────────────────────── -->
-  <a class="om-card sm-featured" data-edition="en-us" href="/service-manual-us/" target="_blank" rel="noopener">
-    <div class="om-card-flag">🇺🇸</div>
-    <div class="om-card-badge badge-us">US Homologated · Available Now</div>
-    <div class="om-card-title">United States</div>
-    <div class="om-card-sub">English · Imperial units · EPA &amp; CARB · NHTSA / FMVSS</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <!-- ── Coming soon block ───────────────────────────────── -->
-  <div class="sm-soon-block">
-    <div class="sm-soon-block-header">More markets coming soon</div>
-    <div class="sm-soon-row">
-      <span class="sm-soon-region">North America</span>
-      <span class="sm-soon-markets">
-        <span class="sm-chip">🇨🇦 Canada</span>
-        <span class="sm-chip">🇲🇽 Mexico</span>
-      </span>
+  <!-- ── Two-level picker: country → language ───────────── -->
+  <div class="sm-picker" id="sm-picker">
+    <div class="sm-picker-steps">
+      <div class="sm-step">
+        <label class="sm-step-label" for="sm-country-select"><span class="sm-step-num">1</span> Country / Region</label>
+        <select id="sm-country-select" class="sm-select" aria-label="Select country or region">
+          <option value="">Select a country…</option>
+        </select>
+      </div>
+      <div class="sm-step">
+        <label class="sm-step-label" for="sm-lang-select"><span class="sm-step-num">2</span> Language</label>
+        <select id="sm-lang-select" class="sm-select" aria-label="Select language" disabled>
+          <option value="">Choose a country first</option>
+        </select>
+      </div>
     </div>
-    <div class="sm-soon-row">
-      <span class="sm-soon-region">South America</span>
-      <span class="sm-soon-markets">
-        <span class="sm-chip">🇨🇱 Chile</span>
-      </span>
-    </div>
-    <div class="sm-soon-row">
-      <span class="sm-soon-region">Europe</span>
-      <span class="sm-soon-markets">
-        <span class="sm-chip">🌍 EU</span>
-        <span class="sm-chip">🇬🇧 UK</span>
-      </span>
-    </div>
-    <div class="sm-soon-row">
-      <span class="sm-soon-region">Asia Pacific</span>
-      <span class="sm-soon-markets">
-        <span class="sm-chip">🇦🇺 Australia</span>
-        <span class="sm-chip">🇳🇿 New Zealand</span>
-        <span class="sm-chip">🇨🇳 China</span>
-      </span>
-    </div>
-    <div class="sm-soon-row">
-      <span class="sm-soon-region">Middle East</span>
-      <span class="sm-soon-markets">
-        <span class="sm-chip">🇦🇪 GCC / UAE</span>
-        <span class="sm-chip">🇮🇱 Israel</span>
-      </span>
-    </div>
+    <div class="sm-picker-result" id="sm-picker-result"></div>
   </div>
 
 </div>
 </section>
+
+<script>
+/* Service Manual — two-level country → language picker */
+(function(){
+  var SM_MARKETS = [
+    { region: "North America", countries: [
+      { flag:"🇺🇸", name:"United States", langs:[ {label:"English (US)", url:"/service-manual-us/"} ] },
+      { flag:"🇨🇦", name:"Canada", langs:[ {label:"English"}, {label:"Français"} ] },
+      { flag:"🇲🇽", name:"Mexico", langs:[ {label:"Español"}, {label:"English"} ] }
+    ]},
+    { region: "South America", countries: [
+      { flag:"🇨🇱", name:"Chile", langs:[ {label:"Español"} ] }
+    ]},
+    { region: "Europe", countries: [
+      { flag:"🇪🇺", name:"European Union", langs:[ {label:"English"},{label:"Deutsch"},{label:"Français"},{label:"Italiano"},{label:"Español"},{label:"Português"},{label:"Nederlands"},{label:"Polski"},{label:"Svenska"},{label:"Norsk"},{label:"Dansk"},{label:"Suomi"},{label:"Íslenska"} ] },
+      { flag:"🇬🇧", name:"United Kingdom", langs:[ {label:"English (UK)"} ] }
+    ]},
+    { region: "Asia Pacific", countries: [
+      { flag:"🇦🇺", name:"Australia", langs:[ {label:"English (AU)"} ] },
+      { flag:"🇳🇿", name:"New Zealand", langs:[ {label:"English"} ] },
+      { flag:"🇨🇳", name:"China", langs:[ {label:"中文（简体）"} ] }
+    ]},
+    { region: "Middle East and Africa", countries: [
+      { flag:"🇦🇪", name:"GCC / UAE", langs:[ {label:"العربية"},{label:"English"} ] },
+      { flag:"🇮🇱", name:"Israel", langs:[ {label:"עברית"},{label:"English"} ] }
+    ]}
+  ];
+
+  var countrySel = document.getElementById('sm-country-select');
+  var langSel = document.getElementById('sm-lang-select');
+  var result = document.getElementById('sm-picker-result');
+  if (!countrySel || !langSel || !result) return;
+
+  // Step 1 — build region-grouped country options
+  SM_MARKETS.forEach(function(grp, ri){
+    var og = document.createElement('optgroup');
+    og.label = grp.region;
+    grp.countries.forEach(function(c, ci){
+      var opt = document.createElement('option');
+      opt.value = ri + '-' + ci;
+      opt.textContent = c.flag + '  ' + c.name;
+      og.appendChild(opt);
+    });
+    countrySel.appendChild(og);
+  });
+
+  function getCountry(val){
+    if (!val) return null;
+    var p = val.split('-');
+    return SM_MARKETS[+p[0]].countries[+p[1]];
+  }
+
+  function renderResult(country, lang){
+    result.innerHTML = '';
+    if (!country || !lang) return;
+    if (lang.url){
+      var a = document.createElement('a');
+      a.className = 'sm-result-open';
+      a.href = lang.url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = 'Open ' + country.name + ' · ' + lang.label +
+        ' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>';
+      result.appendChild(a);
+    } else {
+      var d = document.createElement('div');
+      d.className = 'sm-result-soon';
+      d.innerHTML = '<span class="sm-soon-dot"></span><span>' + country.name + ' · ' + lang.label + ' — coming soon</span>';
+      result.appendChild(d);
+    }
+  }
+
+  // Step 2 — populate languages for the chosen country
+  function populateLangs(country){
+    langSel.innerHTML = '';
+    if (!country){
+      langSel.disabled = true;
+      var o0 = document.createElement('option');
+      o0.value = ''; o0.textContent = 'Choose a country first';
+      langSel.appendChild(o0);
+      return;
+    }
+    langSel.disabled = false;
+    if (country.langs.length > 1){
+      var ph = document.createElement('option');
+      ph.value = ''; ph.textContent = 'Select a language…';
+      langSel.appendChild(ph);
+    }
+    country.langs.forEach(function(l, li){
+      var o = document.createElement('option');
+      o.value = String(li);
+      o.textContent = l.label + (l.url ? '  ✓ Available now' : '  · Coming soon');
+      langSel.appendChild(o);
+    });
+  }
+
+  countrySel.addEventListener('change', function(){
+    var country = getCountry(this.value);
+    populateLangs(country);
+    result.innerHTML = '';
+    // Single-language markets: auto-select to save a click
+    if (country && country.langs.length === 1){
+      langSel.selectedIndex = 0;
+      renderResult(country, country.langs[0]);
+    }
+  });
+
+  langSel.addEventListener('change', function(){
+    var country = getCountry(countrySel.value);
+    if (!country || this.value === ''){ result.innerHTML = ''; return; }
+    renderResult(country, country.langs[+this.value]);
+  });
+})();
+</script>
 
 <script>
 (function(){
