@@ -60,7 +60,7 @@
   .cert-back:hover{color:var(--accent);}
 
   .cert-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:3px;margin-bottom:0.75rem;background:rgba(74,158,255,0.12);color:var(--accent);border:1px solid rgba(74,158,255,0.3);}
-  .cert-headline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:0.02em;line-height:1.1;color:#fff;margin-bottom:0.75rem;}
+  .cert-headline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:0.02em;line-height:1.1;color:#fff;margin-bottom:0.25rem;}
   .cert-subline{font-family:'DM Sans',sans-serif;font-size:clamp(0.95rem,2vw,1.05rem);line-height:1.65;color:var(--muted);margin-bottom:2rem;border-left:3px solid var(--accent);padding-left:1rem;}
 
   .cert-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:var(--card-radius);padding:1.75rem 2rem;margin-bottom:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;}
@@ -99,8 +99,8 @@
   .forms-section{margin-top:2rem;}
   .forms-title{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
   .forms-grid{display:flex;flex-direction:column;gap:0.4rem;}
-  .form-row{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.9rem;background:rgba(74,158,255,0.04);border:1px solid var(--border);border-radius:6px;}
-  .form-icon{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);flex-shrink:0;background:rgba(74,158,255,0.1);border-radius:3px;padding:0.1rem 0.4rem;}
+  .form-row{display:flex;align-items:flex-start;gap:0.75rem;padding:0.6rem 0.9rem;background:rgba(74,158,255,0.04);border:1px solid var(--border);border-radius:6px;}
+  .form-icon{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);flex-shrink:0;background:rgba(74,158,255,0.1);border-radius:3px;padding:0.1rem 0.4rem;margin-top:1px;}
   .form-name{font-family:'DM Sans',sans-serif;font-size:0.875rem;color:var(--muted);}
 
   .related-cert{margin-top:2.5rem;padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--card-radius);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
@@ -112,6 +112,17 @@
   footer{background:#040b14;border-top:1px solid var(--border);padding:clamp(1.5rem,5vw,3rem) clamp(1.5rem,5vw,3rem) 1.5rem;margin-top:4rem;}
   .footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:0.08em;color:#fff;text-decoration:none;display:block;margin-bottom:0.5rem;}
   .footer-copy{font-family:'DM Sans',sans-serif;font-size:0.875rem;color:var(--muted);}
+
+  /* ── BILINGUAL ── */
+  .zh{display:block;font-size:11px;color:#94A3B8;margin-top:2px;line-height:1.4;font-style:normal;font-family:'DM Sans',system-ui,sans-serif;font-weight:400;letter-spacing:0;text-transform:none;}
+  .cert-field-label .zh{font-size:10px;}
+  .chapter-col-head .zh{font-size:10px;font-weight:400;}
+  .doc-list li .zh{font-size:11px;margin-top:1px;}
+  .flow-list li .zh{font-size:11px;margin-top:1px;}
+  .rxswin-label .zh{font-size:10px;font-weight:400;letter-spacing:0;}
+  .rxswin-note .zh{font-size:10px;margin-top:3px;}
+  .forms-title .zh{font-size:10px;font-weight:400;letter-spacing:0;}
+  .form-name .zh{font-size:11px;margin-top:1px;}
 
   @media(max-width:600px){
     body{padding-top:116px;}
@@ -195,32 +206,35 @@ function setLang(lang){
   <a href="../about-us.html" class="cert-back" data-i18n="cert.back">← Back to About Us</a>
 
   <div class="cert-badge" data-i18n="cert.r156.badge">Type Approval · UN R156</div>
+  <span class="zh" style="font-size:10px;color:#94A3B8;display:block;margin-bottom:0.5rem;letter-spacing:0;">型式认证 · UN R156</span>
   <h1 class="cert-headline" data-i18n="cert.r156.title">Software Update Management System</h1>
+  <span class="zh" style="font-size:clamp(1rem,2.5vw,1.3rem);color:#94A3B8;display:block;margin-bottom:0.5rem;font-family:'DM Sans',sans-serif;">软件升级管理体系</span>
   <p class="cert-subline" data-i18n="cert.r156.sub">Windrose holds UN Regulation No. 156 type approval, confirming that its Software Update Management System (SUMS) meets the requirements of WP.29 for managing vehicle software updates across OTA, diagnostic tool, USB, and EOL delivery methods throughout the vehicle fleet lifecycle.</p>
+  <p class="cert-subline zh" style="margin-top:-1.5rem;margin-bottom:2rem;">温德罗斯持有联合国第156号法规型式认证，确认其软件升级管理体系（SUMS）满足WP.29对整车软件升级（OTA、诊断仪、U盘及EOL方式）全生命周期管理的要求。</p>
 
   <div class="cert-card">
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.certno">Certificate No.</span>
+      <span class="cert-field-label" data-i18n="cert.label.certno">Certificate No.<span class="zh">证书编号</span></span>
       <span class="cert-field-value accent">CYPRUS·CERT·1021·00</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.regulation">Regulation</span>
+      <span class="cert-field-label" data-i18n="cert.label.regulation">Regulation<span class="zh">法规</span></span>
       <span class="cert-field-value">UN R156 (WP.29)</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.system">System</span>
+      <span class="cert-field-label" data-i18n="cert.label.system">System<span class="zh">体系</span></span>
       <span class="cert-field-value">SUMS — WR-SUM-04</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.issued">Issue Date</span>
+      <span class="cert-field-label" data-i18n="cert.label.issued">Issue Date<span class="zh">签发日期</span></span>
       <span class="cert-field-value">17 April 2025</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.docref">Document Ref.</span>
+      <span class="cert-field-label" data-i18n="cert.label.docref">Document Ref.<span class="zh">文件参考</span></span>
       <span class="cert-field-value">R156体系证书20250417</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.pages">Total Pages</span>
+      <span class="cert-field-label" data-i18n="cert.label.pages">Total Pages<span class="zh">总页数</span></span>
       <span class="cert-field-value">36</span>
     </div>
   </div>
@@ -229,26 +243,35 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">01</span>
-      <span class="chapter-title" data-i18n="cert.r156.ch1.title">Management System Scope</span>
+      <span class="chapter-title" data-i18n="cert.r156.ch1.title">Management System Scope<span class="zh">体系范围</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Vehicle Software Update Management System Manual <em>Tier 1 — overarching policy</em></li>
-          <li>Project Management / Process Management / Information Management / System Management Control Procedures <em>Tier 2</em></li>
-          <li>Document &amp; Records / Audit / Management Review / Corrective Improvement / Human Resources / Procurement Control Procedures <em>Tier 2</em></li>
-          <li>Impact Assessment / Development &amp; Testing / Release &amp; Rollout / User Notification Management Measures <em>Tier 3</em></li>
-          <li>Monitoring &amp; Emergency Response / Process Safety / Network Security Management Measures <em>Tier 3</em></li>
-          <li>Configuration Information / Compliance Information / Records Management Measures <em>Tier 3</em></li>
+          <li>Vehicle Software Update Management System Manual <em>Tier 1 — overarching policy</em>
+            <span class="zh">整车软件升级管理体系手册 <em style="color:#94A3B8;font-size:10px;">第1层——总体方针</em></span></li>
+          <li>Project Management / Process Management / Information Management / System Management Control Procedures <em>Tier 2</em>
+            <span class="zh">项目管理/过程管理/信息管理/体系管理控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Document &amp; Records / Audit / Management Review / Corrective Improvement / Human Resources / Procurement Control Procedures <em>Tier 2</em>
+            <span class="zh">文件与记录/审核/管理评审/纠正改进/人力资源/采购控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Impact Assessment / Development &amp; Testing / Release &amp; Rollout / User Notification Management Measures <em>Tier 3</em>
+            <span class="zh">影响评估/开发与测试/发布与推送/用户通知管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Monitoring &amp; Emergency Response / Process Safety / Network Security Management Measures <em>Tier 3</em>
+            <span class="zh">监控与应急响应/过程安全/网络安全管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Configuration Information / Compliance Information / Records Management Measures <em>Tier 3</em>
+            <span class="zh">配置信息/合规信息/记录管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Internal audit cycle</li>
-          <li>Management review</li>
-          <li>Information sharing — shared procedure with CSMS (R155)</li>
+          <li>Internal audit cycle
+            <span class="zh">内审周期</span></li>
+          <li>Management review
+            <span class="zh">管理评审</span></li>
+          <li>Information sharing — shared procedure with CSMS (R155)
+            <span class="zh">信息共享——与CSMS（R155）共用程序</span></li>
         </ul>
       </div>
     </div>
@@ -258,29 +281,41 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">02</span>
-      <span class="chapter-title" data-i18n="cert.r156.ch2.title">Software Update Project Management</span>
+      <span class="chapter-title" data-i18n="cert.r156.ch2.title">Software Update Project Management<span class="zh">软件升级项目管理</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Vehicle Software Update Project Management Control Procedure</li>
-          <li>Impact Assessment Management Measures</li>
-          <li>Development and Testing Management Measures</li>
-          <li>Release and Rollout Management Measures</li>
-          <li>Monitoring and Emergency Response Management Measures</li>
+          <li>Vehicle Software Update Project Management Control Procedure
+            <span class="zh">整车软件升级项目管理控制程序</span></li>
+          <li>Impact Assessment Management Measures
+            <span class="zh">影响评估管理措施</span></li>
+          <li>Development and Testing Management Measures
+            <span class="zh">开发与测试管理措施</span></li>
+          <li>Release and Rollout Management Measures
+            <span class="zh">发布与推送管理措施</span></li>
+          <li>Monitoring and Emergency Response Management Measures
+            <span class="zh">监控与应急响应管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Requirements planning → Impact assessment (EE + After-sales + Technical Management joint review)</li>
-          <li>Development and testing (functional + link + network security)</li>
-          <li>Small-scale pilot rollout</li>
-          <li>Full fleet release</li>
-          <li>After-sales monitoring</li>
-          <li>OTA push process</li>
-          <li>Offline update process (diagnostic tool / USB / EOL)</li>
+          <li>Requirements planning → Impact assessment (EE + After-sales + Technical Management joint review)
+            <span class="zh">需求规划→影响评估（EE+售后+技术管理联合评审）</span></li>
+          <li>Development and testing (functional + link + network security)
+            <span class="zh">开发与测试（功能+链路+网络安全）</span></li>
+          <li>Small-scale pilot rollout
+            <span class="zh">小批量试推</span></li>
+          <li>Full fleet release
+            <span class="zh">全量发布</span></li>
+          <li>After-sales monitoring
+            <span class="zh">售后监控</span></li>
+          <li>OTA push process
+            <span class="zh">OTA推送流程</span></li>
+          <li>Offline update process (diagnostic tool / USB / EOL)
+            <span class="zh">离线升级流程（诊断仪/U盘/EOL）</span></li>
         </ul>
       </div>
     </div>
@@ -290,25 +325,33 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">03</span>
-      <span class="chapter-title" data-i18n="cert.r156.ch3.title">Software Update Process Management</span>
+      <span class="chapter-title" data-i18n="cert.r156.ch3.title">Software Update Process Management<span class="zh">软件升级过程管理</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Process Management Control Procedure</li>
-          <li>Process Safety Management Measures</li>
-          <li>Network Security Management Measures</li>
+          <li>Process Management Control Procedure
+            <span class="zh">过程管理控制程序</span></li>
+          <li>Process Safety Management Measures
+            <span class="zh">过程安全管理措施</span></li>
+          <li>Network Security Management Measures
+            <span class="zh">网络安全管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Four update delivery modes: OTA / Diagnostic tool / USB / EOL</li>
-          <li>Target vehicle identification and export</li>
-          <li>User notification workflow</li>
-          <li>A/B partition rollback safety mechanism</li>
-          <li>OTA platform infrastructure security (username + password + SMS verification + HTTPS)</li>
+          <li>Four update delivery modes: OTA / Diagnostic tool / USB / EOL
+            <span class="zh">四种升级交付方式：OTA/诊断仪/U盘/EOL</span></li>
+          <li>Target vehicle identification and export
+            <span class="zh">目标车辆识别与导出</span></li>
+          <li>User notification workflow
+            <span class="zh">用户通知流程</span></li>
+          <li>A/B partition rollback safety mechanism
+            <span class="zh">A/B分区回滚安全机制</span></li>
+          <li>OTA platform infrastructure security (username + password + SMS verification + HTTPS)
+            <span class="zh">OTA平台基础设施安全（用户名+密码+短信验证+HTTPS）</span></li>
         </ul>
       </div>
     </div>
@@ -318,28 +361,34 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">04</span>
-      <span class="chapter-title" data-i18n="cert.r156.ch4.title">Software Update Information Management</span>
+      <span class="chapter-title" data-i18n="cert.r156.ch4.title">Software Update Information Management<span class="zh">软件升级信息管理</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Configuration Information Management Measures</li>
-          <li>Compliance Information Management Measures</li>
-          <li>Records Management Measures</li>
+          <li>Configuration Information Management Measures
+            <span class="zh">配置信息管理措施</span></li>
+          <li>Compliance Information Management Measures
+            <span class="zh">合规信息管理措施</span></li>
+          <li>Records Management Measures
+            <span class="zh">记录管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Software and hardware version coding and uniqueness management</li>
-          <li>RXSWIN coding and ledger management</li>
-          <li>Type approval ledger generation and maintenance</li>
+          <li>Software and hardware version coding and uniqueness management
+            <span class="zh">软硬件版本编码与唯一性管理</span></li>
+          <li>RXSWIN coding and ledger management
+            <span class="zh">RXSWIN编码与台账管理</span></li>
+          <li>Type approval ledger generation and maintenance
+            <span class="zh">型式认证台账生成与维护</span></li>
         </ul>
         <div class="rxswin-box">
-          <div class="rxswin-label" data-i18n="cert.r156.rxswin.label">RXSWIN Format</div>
+          <div class="rxswin-label" data-i18n="cert.r156.rxswin.label">RXSWIN Format<span class="zh">RXSWIN编码格式</span></div>
           <div class="rxswin-code">WH13-R141-RN000-EXT000</div>
-          <div class="rxswin-note" data-i18n="cert.r156.rxswin.note">Regulatory extension of software identification number — uniquely identifies each certified software version per type approval record.</div>
+          <div class="rxswin-note" data-i18n="cert.r156.rxswin.note">Regulatory extension of software identification number — uniquely identifies each certified software version per type approval record.<span class="zh">软件标识码的法规扩展编码——唯一标识每个经型式认证的软件版本。</span></div>
         </div>
       </div>
     </div>
@@ -349,25 +398,33 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">05</span>
-      <span class="chapter-title" data-i18n="cert.r156.ch5.title">Supplier Management</span>
+      <span class="chapter-title" data-i18n="cert.r156.ch5.title">Supplier Management<span class="zh">供应商管理</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Supplier Management Measures</li>
+          <li>Supplier Management Measures
+            <span class="zh">供应商管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Supplier qualification and onboarding — shared process with R155</li>
-          <li>SOR and CIA agreement execution</li>
-          <li>Delivery inspection and quality control</li>
-          <li>Ongoing supplier performance evaluation</li>
-          <li>Software package security coding requirements</li>
-          <li>Code scanning report submission</li>
-          <li>Encrypted transmission requirements</li>
+          <li>Supplier qualification and onboarding — shared process with R155
+            <span class="zh">供应商资质审查与导入——与R155共用流程</span></li>
+          <li>SOR and CIA agreement execution
+            <span class="zh">SOR与CIA协议签署</span></li>
+          <li>Delivery inspection and quality control
+            <span class="zh">交付检验与质量控制</span></li>
+          <li>Ongoing supplier performance evaluation
+            <span class="zh">供应商持续绩效评估</span></li>
+          <li>Software package security coding requirements
+            <span class="zh">软件包安全编码要求</span></li>
+          <li>Code scanning report submission
+            <span class="zh">代码扫描报告提交</span></li>
+          <li>Encrypted transmission requirements
+            <span class="zh">加密传输要求</span></li>
         </ul>
       </div>
     </div>
@@ -375,20 +432,36 @@ function setLang(lang){
 
   <!-- Key output forms -->
   <div class="forms-section">
-    <div class="forms-title" data-i18n="cert.r156.forms.title">Key Output Forms</div>
+    <div class="forms-title" data-i18n="cert.r156.forms.title">Key Output Forms<span class="zh">关键输出表单</span></div>
     <div class="forms-grid">
-      <div class="form-row"><span class="form-icon">F-01</span><span class="form-name">Vehicle Software Update Impact Assessment Form</span></div>
-      <div class="form-row"><span class="form-icon">F-02</span><span class="form-name">Special Update Application Form</span></div>
-      <div class="form-row"><span class="form-icon">F-03</span><span class="form-name">RXSWIN / Software Identification Code Ledger</span></div>
-      <div class="form-row"><span class="form-icon">F-04</span><span class="form-name">Vehicle Type Approval Ledger</span></div>
-      <div class="form-row"><span class="form-icon">F-05</span><span class="form-name">Vehicle Software and Hardware Version Information Management Form</span></div>
+      <div class="form-row">
+        <span class="form-icon">F-01</span>
+        <span class="form-name">Vehicle Software Update Impact Assessment Form<span class="zh">整车软件升级影响评估表</span></span>
+      </div>
+      <div class="form-row">
+        <span class="form-icon">F-02</span>
+        <span class="form-name">Special Update Application Form<span class="zh">特殊升级申请表</span></span>
+      </div>
+      <div class="form-row">
+        <span class="form-icon">F-03</span>
+        <span class="form-name">RXSWIN / Software Identification Code Ledger<span class="zh">RXSWIN/软件标识码台账</span></span>
+      </div>
+      <div class="form-row">
+        <span class="form-icon">F-04</span>
+        <span class="form-name">Vehicle Type Approval Ledger<span class="zh">整车型式认证台账</span></span>
+      </div>
+      <div class="form-row">
+        <span class="form-icon">F-05</span>
+        <span class="form-name">Vehicle Software and Hardware Version Information Management Form<span class="zh">整车软硬件版本信息管理表</span></span>
+      </div>
     </div>
   </div>
 
   <div class="related-cert">
     <div>
-      <div class="related-cert-label" data-i18n="cert.seealso">See also</div>
+      <div class="related-cert-label" data-i18n="cert.seealso">See also<span class="zh" style="font-size:10px;color:#94A3B8;display:block;margin-top:1px;text-transform:none;letter-spacing:0;">另见</span></div>
       <div class="related-cert-title" data-i18n="cert.r156.related.title">UN R155 — Cybersecurity Management System</div>
+      <div class="zh" style="font-size:12px;color:#94A3B8;margin-top:2px;">UN R155 — 网络安全管理体系</div>
     </div>
     <a href="r155.html" data-i18n="cert.r156.related.link">View R155 Certificate →</a>
   </div>
@@ -397,6 +470,7 @@ function setLang(lang){
 <footer>
   <a href="../index.html" class="footer-logo">Windrose</a>
   <p class="footer-copy" data-i18n="footer.copy">© 2026 Windrose Electric. All rights reserved.</p>
+  <p class="footer-copy zh" style="margin-top:2px;">© 2026 温德罗斯电动。保留所有权利。</p>
 </footer>
 
 <script src="../unified-search.js" defer></script>

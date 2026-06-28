@@ -60,7 +60,7 @@
   .cert-back:hover{color:var(--accent);}
 
   .cert-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:3px;margin-bottom:0.75rem;background:rgba(74,158,255,0.12);color:var(--accent);border:1px solid rgba(74,158,255,0.3);}
-  .cert-headline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:0.02em;line-height:1.1;color:#fff;margin-bottom:0.75rem;}
+  .cert-headline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:0.02em;line-height:1.1;color:#fff;margin-bottom:0.25rem;}
   .cert-subline{font-family:'DM Sans',sans-serif;font-size:clamp(0.95rem,2vw,1.05rem);line-height:1.65;color:var(--muted);margin-bottom:2rem;border-left:3px solid var(--accent);padding-left:1rem;}
 
   .cert-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:var(--card-radius);padding:1.75rem 2rem;margin-bottom:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;}
@@ -99,6 +99,13 @@
   footer{background:#040b14;border-top:1px solid var(--border);padding:clamp(1.5rem,5vw,3rem) clamp(1.5rem,5vw,3rem) 1.5rem;margin-top:4rem;}
   .footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:0.08em;color:#fff;text-decoration:none;display:block;margin-bottom:0.5rem;}
   .footer-copy{font-family:'DM Sans',sans-serif;font-size:0.875rem;color:var(--muted);}
+
+  /* ── BILINGUAL ── */
+  .zh{display:block;font-size:11px;color:#94A3B8;margin-top:2px;line-height:1.4;font-style:normal;font-family:'DM Sans',system-ui,sans-serif;font-weight:400;letter-spacing:0;text-transform:none;}
+  .cert-field-label .zh{font-size:10px;}
+  .chapter-col-head .zh{font-size:10px;font-weight:400;}
+  .doc-list li .zh{font-size:11px;margin-top:1px;}
+  .flow-list li .zh{font-size:11px;margin-top:1px;}
 
   @media(max-width:600px){
     body{padding-top:116px;}
@@ -182,32 +189,35 @@ function setLang(lang){
   <a href="../about-us.html" class="cert-back" data-i18n="cert.back">← Back to About Us</a>
 
   <div class="cert-badge" data-i18n="cert.r155.badge">Type Approval · UN R155</div>
+  <span class="zh" style="font-size:10px;color:#94A3B8;display:block;margin-bottom:0.5rem;letter-spacing:0;">型式认证 · UN R155</span>
   <h1 class="cert-headline" data-i18n="cert.r155.title">Cybersecurity Management System</h1>
+  <span class="zh" style="font-size:clamp(1rem,2.5vw,1.3rem);color:#94A3B8;display:block;margin-bottom:0.5rem;font-family:'DM Sans',sans-serif;">网络安全管理体系</span>
   <p class="cert-subline" data-i18n="cert.r155.sub">Windrose holds UN Regulation No. 155 type approval, confirming that its Cybersecurity Management System (CSMS) meets the requirements of WP.29 for the full vehicle cybersecurity lifecycle — from concept and design through production, operation, and decommissioning.</p>
+  <p class="cert-subline zh" style="margin-top:-1.5rem;margin-bottom:2rem;">温德罗斯持有联合国第155号法规型式认证，确认其网络安全管理体系（CSMS）满足WP.29对整车网络安全全生命周期的要求——从概念设计到量产、运营直至报废。</p>
 
   <div class="cert-card">
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.certno">Certificate No.</span>
+      <span class="cert-field-label" data-i18n="cert.label.certno">Certificate No.<span class="zh">证书编号</span></span>
       <span class="cert-field-value accent">CYPRUS·CERT·1032·00</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.regulation">Regulation</span>
+      <span class="cert-field-label" data-i18n="cert.label.regulation">Regulation<span class="zh">法规</span></span>
       <span class="cert-field-value">UN R155 (WP.29)</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.system">System</span>
+      <span class="cert-field-label" data-i18n="cert.label.system">System<span class="zh">体系</span></span>
       <span class="cert-field-value">CSMS — WR-CMS-04</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.issued">Issue Date</span>
+      <span class="cert-field-label" data-i18n="cert.label.issued">Issue Date<span class="zh">签发日期</span></span>
       <span class="cert-field-value">17 April 2025</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.docref">Document Ref.</span>
+      <span class="cert-field-label" data-i18n="cert.label.docref">Document Ref.<span class="zh">文件参考</span></span>
       <span class="cert-field-value">R155体系证书20250417</span>
     </div>
     <div class="cert-field">
-      <span class="cert-field-label" data-i18n="cert.label.pages">Total Pages</span>
+      <span class="cert-field-label" data-i18n="cert.label.pages">Total Pages<span class="zh">总页数</span></span>
       <span class="cert-field-value">29</span>
     </div>
   </div>
@@ -216,33 +226,49 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">01</span>
-      <span class="chapter-title" data-i18n="cert.r155.ch1.title">Management System Scope</span>
+      <span class="chapter-title" data-i18n="cert.r155.ch1.title">Management System Scope<span class="zh">体系范围</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Vehicle Cybersecurity Management Manual <em>Tier 1 — overarching policy</em></li>
-          <li>Document &amp; Records Control Procedure <em>Tier 2</em></li>
-          <li>Human Resources Control Procedure <em>Tier 2</em></li>
-          <li>Engineering Change Control Procedure <em>Tier 2</em></li>
-          <li>Internal Audit Control Procedure <em>Tier 2</em></li>
-          <li>Management Review Control Procedure <em>Tier 2</em></li>
-          <li>Corrective Improvement Control Procedure <em>Tier 2</em></li>
-          <li>Lifecycle / Procurement / After-sales Control Procedures <em>Tier 2</em></li>
-          <li>Information Security / Information Sharing Management Measures <em>Tier 3</em></li>
-          <li>Change / Requirements / Configuration / Tool Management Measures <em>Tier 3</em></li>
-          <li>Milestone Review / Product Consistency / Computer Network Security Measures <em>Tier 3</em></li>
-          <li>Information Monitoring / Vulnerability / Emergency Response / Recall Measures <em>Tier 3</em></li>
-          <li>Supplier / TARA Management Measures <em>Tier 3</em></li>
+          <li>Vehicle Cybersecurity Management Manual <em>Tier 1 — overarching policy</em>
+            <span class="zh">车辆网络安全管理手册 <em style="color:#94A3B8;font-size:10px;">第1层——总体方针</em></span></li>
+          <li>Document &amp; Records Control Procedure <em>Tier 2</em>
+            <span class="zh">文件与记录控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Human Resources Control Procedure <em>Tier 2</em>
+            <span class="zh">人力资源控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Engineering Change Control Procedure <em>Tier 2</em>
+            <span class="zh">工程变更控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Internal Audit Control Procedure <em>Tier 2</em>
+            <span class="zh">内审控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Management Review Control Procedure <em>Tier 2</em>
+            <span class="zh">管理评审控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Corrective Improvement Control Procedure <em>Tier 2</em>
+            <span class="zh">纠正改进控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Lifecycle / Procurement / After-sales Control Procedures <em>Tier 2</em>
+            <span class="zh">生命周期/采购/售后控制程序 <em style="color:#94A3B8;font-size:10px;">第2层</em></span></li>
+          <li>Information Security / Information Sharing Management Measures <em>Tier 3</em>
+            <span class="zh">信息安全/信息共享管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Change / Requirements / Configuration / Tool Management Measures <em>Tier 3</em>
+            <span class="zh">变更/需求/配置/工具管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Milestone Review / Product Consistency / Computer Network Security Measures <em>Tier 3</em>
+            <span class="zh">里程碑评审/产品一致性/计算机网络安全措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Information Monitoring / Vulnerability / Emergency Response / Recall Measures <em>Tier 3</em>
+            <span class="zh">信息监测/漏洞/应急响应/召回措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
+          <li>Supplier / TARA Management Measures <em>Tier 3</em>
+            <span class="zh">供应商/TARA管理措施 <em style="color:#94A3B8;font-size:10px;">第3层</em></span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Internal audit cycle — 1–2 times per year</li>
-          <li>Management review — once per year</li>
-          <li>Personnel training and competency review</li>
+          <li>Internal audit cycle — 1–2 times per year
+            <span class="zh">内审周期——每年1至2次</span></li>
+          <li>Management review — once per year
+            <span class="zh">管理评审——每年一次</span></li>
+          <li>Personnel training and competency review
+            <span class="zh">人员培训与能力评审</span></li>
         </ul>
       </div>
     </div>
@@ -252,29 +278,41 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">02</span>
-      <span class="chapter-title" data-i18n="cert.r155.ch2.title">Vehicle Cybersecurity Lifecycle</span>
+      <span class="chapter-title" data-i18n="cert.r155.ch2.title">Vehicle Cybersecurity Lifecycle<span class="zh">整车网络安全生命周期</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Vehicle Cybersecurity Lifecycle Management Procedure</li>
-          <li>TARA Management Measures</li>
-          <li>Change Management Measures</li>
-          <li>Requirements Management Measures</li>
-          <li>Configuration Management Measures</li>
-          <li>Tool Management Measures</li>
-          <li>Vehicle Development Project Initiation Process</li>
-          <li>Test Management Measures</li>
+          <li>Vehicle Cybersecurity Lifecycle Management Procedure
+            <span class="zh">车辆网络安全生命周期管理程序</span></li>
+          <li>TARA Management Measures
+            <span class="zh">TARA管理措施</span></li>
+          <li>Change Management Measures
+            <span class="zh">变更管理措施</span></li>
+          <li>Requirements Management Measures
+            <span class="zh">需求管理措施</span></li>
+          <li>Configuration Management Measures
+            <span class="zh">配置管理措施</span></li>
+          <li>Tool Management Measures
+            <span class="zh">工具管理措施</span></li>
+          <li>Vehicle Development Project Initiation Process
+            <span class="zh">整车开发项目立项流程</span></li>
+          <li>Test Management Measures
+            <span class="zh">测试管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Full lifecycle flow: Concept → Design → Mass Production → Operation → End-of-Life</li>
-          <li>TARA 5-step threat and risk assessment</li>
-          <li>G1–G8 milestone gate reviews (G7/G8 gates yield VTA certificate)</li>
-          <li>Cybersecurity requirements verification and security confirmation testing</li>
+          <li>Full lifecycle flow: Concept → Design → Mass Production → Operation → End-of-Life
+            <span class="zh">全生命周期流程：概念→设计→量产→运营→报废</span></li>
+          <li>TARA 5-step threat and risk assessment
+            <span class="zh">TARA五步威胁与风险评估</span></li>
+          <li>G1–G8 milestone gate reviews (G7/G8 gates yield VTA certificate)
+            <span class="zh">G1至G8里程碑门评审（G7/G8门产出整车型式认证证书）</span></li>
+          <li>Cybersecurity requirements verification and security confirmation testing
+            <span class="zh">网络安全需求验证与安全确认测试</span></li>
         </ul>
       </div>
     </div>
@@ -284,23 +322,29 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">03</span>
-      <span class="chapter-title" data-i18n="cert.r155.ch3.title">Post-Production Security</span>
+      <span class="chapter-title" data-i18n="cert.r155.ch3.title">Post-Production Security<span class="zh">量产后安全</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Information Monitoring and Management Measures</li>
-          <li>Emergency Response Management Measures</li>
-          <li>Vulnerability Management Measures</li>
+          <li>Information Monitoring and Management Measures
+            <span class="zh">信息监测与管理措施</span></li>
+          <li>Emergency Response Management Measures
+            <span class="zh">应急响应管理措施</span></li>
+          <li>Vulnerability Management Measures
+            <span class="zh">漏洞管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Cybersecurity information monitoring → incident determination</li>
-          <li>Three-tier emergency response: Daily Operations Group → Implementation Group → Leadership Group</li>
-          <li>Vulnerability lifecycle: Discovery → Recognition → Assessment → Remediation → Verification → Closure</li>
+          <li>Cybersecurity information monitoring → incident determination
+            <span class="zh">网络安全信息监测→事件判定</span></li>
+          <li>Three-tier emergency response: Daily Operations Group → Implementation Group → Leadership Group
+            <span class="zh">三级应急响应：日常运营组→实施组→领导组</span></li>
+          <li>Vulnerability lifecycle: Discovery → Recognition → Assessment → Remediation → Verification → Closure
+            <span class="zh">漏洞生命周期：发现→识别→评估→修复→验证→关闭</span></li>
         </ul>
       </div>
     </div>
@@ -310,23 +354,29 @@ function setLang(lang){
   <details class="chapter" open>
     <summary>
       <span class="chapter-num">04</span>
-      <span class="chapter-title" data-i18n="cert.r155.ch4.title">Supplier Management</span>
+      <span class="chapter-title" data-i18n="cert.r155.ch4.title">Supplier Management<span class="zh">供应商管理</span></span>
     </summary>
     <div class="chapter-body">
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents</div>
+        <div class="chapter-col-head" data-i18n="cert.label.docs">Governing Documents<span class="zh">管理文件</span></div>
         <ul class="doc-list">
-          <li>Procurement Control Procedure</li>
-          <li>Supplier Management Measures</li>
+          <li>Procurement Control Procedure
+            <span class="zh">采购控制程序</span></li>
+          <li>Supplier Management Measures
+            <span class="zh">供应商管理措施</span></li>
         </ul>
       </div>
       <div>
-        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes</div>
+        <div class="chapter-col-head" data-i18n="cert.label.processes">Key Processes<span class="zh">关键流程</span></div>
         <ul class="flow-list">
-          <li>Supplier qualification and onboarding</li>
-          <li>SOR and CIA agreement execution</li>
-          <li>Delivery inspection and quality control</li>
-          <li>Ongoing supplier performance evaluation</li>
+          <li>Supplier qualification and onboarding
+            <span class="zh">供应商资质审查与导入</span></li>
+          <li>SOR and CIA agreement execution
+            <span class="zh">SOR与CIA协议签署</span></li>
+          <li>Delivery inspection and quality control
+            <span class="zh">交付检验与质量控制</span></li>
+          <li>Ongoing supplier performance evaluation
+            <span class="zh">供应商持续绩效评估</span></li>
         </ul>
       </div>
     </div>
@@ -334,8 +384,9 @@ function setLang(lang){
 
   <div class="related-cert">
     <div>
-      <div class="related-cert-label" data-i18n="cert.seealso">See also</div>
+      <div class="related-cert-label" data-i18n="cert.seealso">See also<span class="zh" style="font-size:10px;color:#94A3B8;display:block;margin-top:1px;text-transform:none;letter-spacing:0;">另见</span></div>
       <div class="related-cert-title" data-i18n="cert.r155.related.title">UN R156 — Software Update Management System</div>
+      <div class="zh" style="font-size:12px;color:#94A3B8;margin-top:2px;">UN R156 — 软件升级管理体系</div>
     </div>
     <a href="r156.html" data-i18n="cert.r155.related.link">View R156 Certificate →</a>
   </div>
@@ -344,6 +395,7 @@ function setLang(lang){
 <footer>
   <a href="../index.html" class="footer-logo">Windrose</a>
   <p class="footer-copy" data-i18n="footer.copy">© 2026 Windrose Electric. All rights reserved.</p>
+  <p class="footer-copy zh" style="margin-top:2px;">© 2026 温德罗斯电动。保留所有权利。</p>
 </footer>
 
 <script src="../unified-search.js" defer></script>
