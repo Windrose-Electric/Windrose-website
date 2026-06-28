@@ -60,6 +60,16 @@
     /* sec-toggle (h1) already has styles; tighten inside groups */
     '.acc-grp-body h1.sec-toggle{margin:0;padding:14px 0 14px 4px;border-bottom:none;}',
     '.acc-grp-body .manual-section.level-1 .sec-body{padding-left:4px;}',
+    /* ── Manual stats bar ── */
+    '.manual-stats-bar{display:flex;align-items:center;gap:0;margin:0 0 20px;border-radius:8px;',
+      'background:#111c2d;border:1px solid rgba(74,158,255,.15);overflow:hidden;}',
+    '.manual-stat{flex:1;display:flex;flex-direction:column;align-items:center;',
+      'padding:14px 10px;gap:2px;border-right:1px solid rgba(74,158,255,.12);}',
+    '.manual-stat:last-child{border-right:none;}',
+    '.manual-stat-value{font-size:1.45rem;font-weight:700;font-family:ui-monospace,monospace;',
+      'color:#5aaeff;letter-spacing:-.01em;line-height:1;}',
+    '.manual-stat-label{font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;',
+      'color:rgba(160,200,255,.55);margin-top:2px;}',
   ].join('');
   document.head.appendChild(style);
 
@@ -132,25 +142,52 @@
     });
   }
 
+  function injectStats() {
+    var main = document.getElementById('mainContent');
+    if (!main || document.getElementById('wr-manual-stats')) return;
+    var sections = main.querySelectorAll('.manual-section.level-1:not(.preamble-section):not(.toc-section)').length;
+    var photos   = main.querySelectorAll('img').length;
+    var sizeKB   = Math.round(document.documentElement.outerHTML.length / 1024);
+    var bar = document.createElement('div');
+    bar.id = 'wr-manual-stats';
+    bar.className = 'manual-stats-bar';
+    bar.innerHTML =
+      '<div class="manual-stat"><span class="manual-stat-value">' + sections + '</span><span class="manual-stat-label">sections</span></div>' +
+      '<div class="manual-stat"><span class="manual-stat-value">' + photos + '</span><span class="manual-stat-label">photos</span></div>' +
+      '<div class="manual-stat"><span class="manual-stat-value">' + sizeKB + ' KB</span><span class="manual-stat-label">document size</span></div>';
+    main.insertBefore(bar, main.firstChild);
+  }
+
   function expandForHash(hash) {
     if (!hash) return;
     var el = document.getElementById(hash.slice(1));
     if (!el) return;
+    // Open containing acc-grp
+    var grpBody = el.closest('.acc-grp-body');
+    if (grpBody) {
+      var grp = grpBody.closest('.acc-grp');
+      if (grp && !grp.classList.contains('open')) {
+        grp.classList.add('open');
+        var hdr = grp.querySelector('.acc-grp-hdr');
+        if (hdr) hdr.setAttribute('aria-expanded', 'true');
+      }
+    }
     var sec = el.closest('.manual-section') || (el.classList.contains('manual-section') ? el : null);
     if (!sec) return;
-    var body = sec.querySelector('.sec-body');
+    // Open the section's own sec-body
+    var body = sec.querySelector(':scope > .sec-body');
     if (body) {
       body.hidden = false;
-      var hd = sec.querySelector('.sec-toggle');
+      var hd = sec.querySelector(':scope > .sec-toggle');
       if (hd) hd.classList.add('is-open');
     }
     // Also expand parent level-1 section if this is a level-2
-    var parent = sec.parentElement && sec.parentElement.closest('.manual-section.level-1');
-    if (parent) {
+    var parent = sec.closest('.manual-section.level-1');
+    if (parent && parent !== sec) {
       var pbody = parent.querySelector(':scope > .sec-body');
       if (pbody) {
         pbody.hidden = false;
-        var phd = parent.querySelector('.sec-toggle');
+        var phd = parent.querySelector(':scope > .sec-toggle');
         if (phd) phd.classList.add('is-open');
       }
     }
@@ -167,7 +204,7 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-    initSections();
+    injectStats();
 
     // Inject edition selector into #manual-lang-row
     var wrap = document.getElementById('manual-edition-select-wrap');
@@ -287,7 +324,7 @@
       // Expand the group (and optionally chapter) that contains a given element
       function expandToEl(el) {
         if (!el) return;
-        // Find and open the containing group
+        // Open the containing acc-grp
         var grpBody = el.closest('.acc-grp-body');
         if (grpBody) {
           var grp = grpBody.closest('.acc-grp');
@@ -295,16 +332,24 @@
             grp.querySelector('.acc-grp-hdr').click();
           }
         }
-        // Find and open the containing chapter (level-1 sec-body)
-        var secBody = el.closest('.sec-body');
-        if (!secBody) {
-          // el might be the h1 itself or inside a level-1 section
-          var sec = el.closest('.manual-section.level-1');
-          if (sec) secBody = sec.querySelector(':scope > .sec-body');
+        // Open the level-1 sec-body that contains this element
+        var l1sec = el.closest('.manual-section.level-1');
+        if (l1sec) {
+          var l1body = l1sec.querySelector(':scope > .sec-body');
+          if (l1body && l1body.hidden) {
+            var l1toggle = l1sec.querySelector(':scope > .sec-toggle');
+            if (l1toggle) l1toggle.click();
+          }
         }
-        if (secBody && secBody.hidden) {
-          var toggle = secBody.closest('.manual-section').querySelector('.sec-toggle');
-          if (toggle) toggle.click();
+        // If the target is a level-2 section (or inside one), also open its sec-body
+        var isSelf = el.classList && el.classList.contains('manual-section') && el.classList.contains('level-2');
+        var l2sec = isSelf ? el : el.closest('.manual-section.level-2');
+        if (l2sec) {
+          var l2body = l2sec.querySelector(':scope > .sec-body');
+          if (l2body && l2body.hidden) {
+            var l2toggle = l2sec.querySelector(':scope > .sec-toggle');
+            if (l2toggle) l2toggle.click();
+          }
         }
       }
 
@@ -339,15 +384,20 @@
         });
       });
 
-      // Hash on page load
-      if (location.hash) {
-        expandToEl(document.getElementById(location.hash.slice(1)));
-      }
-
       // Hash changes (search results, direct links)
       window.addEventListener('hashchange', function () {
         expandToEl(document.getElementById(location.hash.slice(1)));
       });
+
+      // initSections runs AFTER initGroupAccordion so level-2 sections have
+      // already been moved inside their level-1 parents. This means collapsing
+      // a level-1 section also hides its nested sub-sections.
+      initSections();
+
+      // Hash on page load — runs after initSections so collapsed sections open correctly
+      if (location.hash) {
+        expandToEl(document.getElementById(location.hash.slice(1)));
+      }
     }());
   });
 })();
