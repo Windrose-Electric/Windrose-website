@@ -5824,194 +5824,160 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 
 
-  <!-- Netherlands -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇳🇱</span>
-      <span class="chg-country-name">Netherlands</span>
-      <span class="chg-country-meta">2 partners</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" id="card-milence" href="https://www.youtube.com/watch?v=8Qz1ONNHJno" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.nl.milence">🇳🇱 Netherlands · Milence · MCS</div>
-          <div class="news-thumb"><img loading="lazy" src="/images/milence-charging.jpg" alt="Windrose and Milence MCS" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.milence.title">Windrose and Milence Partner for MCS Megawatt Charging Across Europe</h3>
-          </div>
-        </a>
-        <a class="news-card" id="card-autel" href="https://www.businesswire.com/news/home/20260313298350/en/Windrose-and-Autel-Validate-Real-World-Megawatt-Charging-Under-MCS-Standard-in-the-Netherlands" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge">🇳🇱 Netherlands · Autel · MCS</div>
-          <div class="news-thumb"><img loading="lazy" src="https://mms.businesswire.com/media/20260313298350/en/2746647/4/Image_20260313144722_4558_12.jpg" alt="Windrose and Autel MCS Roosendaal Netherlands" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.windrose.and.autel.validate.real.wo">Windrose and Autel Validate Real-World Megawatt Charging Under MCS Standard in the Netherlands</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-  </details>
+  <!-- Partner grid by company -->
+  <style>
+    .chg-partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:600px){ .chg-partners-grid { grid-template-columns: 1fr; } }
+    .chg-partner-card {
+      display: flex; flex-direction: column; gap: 0.6rem;
+      padding: 1.25rem 1.35rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .chg-partner-card:hover { border-color: rgba(74,158,255,0.4); background: rgba(74,158,255,0.04); }
+    .chg-partner-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.15rem; letter-spacing: 0.03em;
+      color: var(--off-white);
+    }
+    .chg-partner-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .chg-partner-country { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.07em; color: var(--muted); }
+    .chg-partner-tag {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1px 7px; border-radius: 3px;
+    }
+    .chg-partner-tag.mcs { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .chg-partner-tag.plug { background: rgba(74,158,255,0.12); color: #60a5fa; border: 1px solid rgba(74,158,255,0.25); }
+    .chg-partner-tag.hpc  { background: rgba(52,211,153,0.1);  color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
+    .chg-partner-desc { font-size: 0.85rem; color: rgba(180,200,240,0.65); line-height: 1.45; }
+    .chg-partner-link { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: auto; padding-top: 0.25rem; }
+  </style>
 
-  <!-- United States -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇺🇸</span>
-      <span class="chg-country-name">United States</span>
-      <span class="chg-country-meta">3 partners</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" id="card-evrealty" href="https://kempower.com/news/first-kempower-mega-satellite-mcs-in-north-america-charged-successfully-under-real-world-conditions-at-ev-realtys-san-bernardino-hub-in-california/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.us.evrealty">🇺🇸 United States · EV Realty · Kempower</div>
-          <div class="news-thumb"><img loading="lazy" src="https://earj6jxwkhd.exactdn.com/wp-content/uploads/2026/03/windrose-mcs-charge-evrealty_1.jpg?strip=all" alt="EV Realty MCS validation" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.evrealty.title">Kempower, Windrose, and EV Realty Validate MCS Interoperability Under Real-World Conditions</h3>
-          </div>
-        </a>
-        <a class="news-card" id="card-terawatt" href="https://www.terawattinfrastructure.com/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.us.terawatt">🇺🇸 United States · Terawatt</div>
-          <div class="news-thumb"><img loading="lazy" src="https://cdn.prod.website-files.com/659e849830d60c075b939085/683f331f7ad6644fa1831afe_Terawatt_Infrastructure_and_Windrose_Technology.avif" alt="Windrose and Terawatt" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.terawatt.title">Windrose and Terawatt Strengthen Strategic Partnership Through High-Power Charging and Software Integration</h3>
-          </div>
-        </a>
-        <a class="news-card" id="card-greenlane" href="https://www.drivegreenlane.com/news/windrose-to-offer-3-months-of-complementary-charging-on-the-greenlane-network-with-every-electric-truck-purchase/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.us.greenlane">🇺🇸 United States · Greenlane</div>
-          <div class="news-thumb"><img loading="lazy" src="https://www.drivegreenlane.com/wp-content/uploads/2026/01/image-63-680x510.jpeg" alt="Windrose and Greenlane" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.greenlane.title">3 Months of Complementary Charging on the Greenlane Network with Every Windrose Purchase</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-  </details>
+  <div class="chg-partners-grid">
 
-  <!-- Germany -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇩🇪</span>
-      <span class="chg-country-name">Germany</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" href="https://www.hubject.com/blog-posts/hubject-and-windrose-partner-to-enable-plug-charge-for-next-generation-electric-trucks" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.de.hubject">🇩🇪 Germany · Hubject · Plug&amp;Charge</div>
-          <div class="news-thumb"><img loading="lazy" src="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.png" alt="Hubject and Windrose Plug&amp;Charge" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="hc.hubject.and.windrose.partner">Hubject and Windrose Partner to Enable Plug&amp;Charge and MCS for Electric Trucks</h3>
-          </div>
-        </a>
+    <a id="card-milence" class="chg-partner-card" href="https://www.youtube.com/watch?v=8Qz1ONNHJno" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Milence</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇳🇱 Netherlands</span>
+        <span class="chg-partner-tag mcs">MCS</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">MCS megawatt charging across Europe's heavy-duty corridor network.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
 
-  <!-- Finland -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇫🇮</span>
-      <span class="chg-country-name">Finland</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" href="https://www.linkedin.com/posts/windrosetrucks_mcs-heavydutyev-charginginfrastructure-activity-7419638038714265600--tpG/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.fi.mcs">🇫🇮 Finland · MCS · Kempower</div>
-          <div class="news-thumb"><img loading="lazy" src="https://media.licdn.com/dms/image/v2/D4D22AQErp479AUsBiQ/feedshare-shrink_800/B4DZvfZeiAKEAg-/0/1768979557659?e=1783555200&v=beta&t=Eok8nluaIhHF9Wyh3-eNS5fCHsXtrriX0hJARtQJR0w" alt="Windrose MCS Finland Kempower" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="hc.windrose.completes.mcs.charging">Windrose Completes MCS Charging Test at Kempower HQ in Finland</h3>
-          </div>
-        </a>
+    <a id="card-autel" class="chg-partner-card" href="https://www.businesswire.com/news/home/20260313298350/en/Windrose-and-Autel-Validate-Real-World-Megawatt-Charging-Under-MCS-Standard-in-the-Netherlands" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Autel Energy</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇳🇱 Netherlands</span>
+        <span class="chg-partner-tag mcs">MCS</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">Real-world megawatt charging validation under the MCS standard in Roosendaal.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
 
-  <!-- France -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇫🇷</span>
-      <span class="chg-country-name">France</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" id="card-engie" href="https://www.engie-vianeo.com/en/news/engie-vianeo-and-windrose-join-forces-to-accelerate-the-electrification-of-heavy-duty-transport/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.fr.engie">🇫🇷 France · ENGIE Vianeo</div>
-          <div class="news-thumb"><img src="https://www.engie-vianeo.com/wp-content/uploads/2026/03/ENGIEVianeo_windrose2.webp" alt="ENGIE Vianeo and Windrose" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.engie.title">ENGIE Vianeo and Windrose Join Forces to Accelerate Electrification of Heavy-Duty Transport</h3>
-          </div>
-        </a>
+    <a class="chg-partner-card" href="https://www.terawattinfrastructure.com/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Terawatt Infrastructure</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇺🇸 United States</span>
+        <span class="chg-partner-tag mcs">MCS</span>
+        <span class="chg-partner-tag hpc">Software</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">Strategic partnership covering high-power charging and software integration for fleet operations.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
 
-  <!-- United Kingdom -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇬🇧</span>
-      <span class="chg-country-name">United Kingdom</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" id="card-uk-charge" href="https://transportandenergy.com/2026/03/24/windrose-records-its-fastest-charging-session-in-uk/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.uk.charge">🇬🇧 United Kingdom · Fastest Charge</div>
-          <div class="news-thumb"><img loading="lazy" src="https://transportandenergy.com/wp-content/uploads/2026/03/img-b48a1d24-7aa5-4853-ad4f-43166ff9aa78.jpg" alt="Windrose fastest charging session UK" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.uk.charge.title">Windrose Records Its Fastest Charging Session in the UK</h3>
-          </div>
-        </a>
+    <a id="card-evrealty" class="chg-partner-card" href="https://kempower.com/news/first-kempower-mega-satellite-mcs-in-north-america-charged-successfully-under-real-world-conditions-at-ev-realtys-san-bernardino-hub-in-california/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">EV Realty + Kempower</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇺🇸 United States</span>
+        <span class="chg-partner-tag mcs">MCS</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">First MCS interoperability validation in North America at EV Realty's San Bernardino hub.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
 
-  <!-- Chile -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇨🇱</span>
-      <span class="chg-country-name">Chile</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" href="https://www.enelxway.com/cl/" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge">🇨🇱 Chile · Enel X Way</div>
-          <div class="news-thumb"><img loading="lazy" src="/images/enel-chile-carretera.jpg" alt="Enel — Primera Carretera Eléctrica de Alta Potencia de Chile" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title">Enel — Primera Carretera Eléctrica de Alta Potencia de Chile</h3>
-          </div>
-        </a>
+    <a id="card-greenlane" class="chg-partner-card" href="https://www.drivegreenlane.com/news/windrose-to-offer-3-months-of-complementary-charging-on-the-greenlane-network-with-every-electric-truck-purchase/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Greenlane</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇺🇸 United States</span>
+        <span class="chg-partner-tag hpc">Included Charging</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">3 months of complementary charging on the Greenlane network included with every truck purchase.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
 
-  <!-- Australia -->
-  <details class="chg-country">
-    <summary>
-      <span class="chg-country-flag">🇦🇺</span>
-      <span class="chg-country-name">Australia</span>
-      <span class="chg-country-meta">1 partner</span>
-      <span class="chg-country-chevron">▼</span>
-    </summary>
-    <div class="chg-country-body">
-      <div class="news-grid">
-        <a class="news-card" href="https://en.sinexcel.com/about/detail.php?id=5&amp;bid=5250&amp;cid=315" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="card-country-badge" data-i18n="badge.au.sinexcel">🇦🇺 Australia · Sinexcel</div>
-          <div class="news-thumb"><img loading="lazy" src="https://en.sinexcel.com/uploads/image/20241031/1730366988.jpg" alt="Sinexcel and Windrose charging Australia" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-          <div class="news-body">
-            <h3 class="news-title" data-i18n="card.au.sinexcel.title">Sinexcel and Windrose Partner to Advance High-Power Charging in Australia</h3>
-          </div>
-        </a>
+    <a class="chg-partner-card" href="https://www.hubject.com/blog-posts/hubject-and-windrose-partner-to-enable-plug-charge-for-next-generation-electric-trucks" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Hubject</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇩🇪 Germany</span>
+        <span class="chg-partner-tag plug">Plug&amp;Charge</span>
+        <span class="chg-partner-tag mcs">MCS</span>
       </div>
-    </div>
-  </details>
+      <p class="chg-partner-desc">Enabling ISO 15118 Plug&amp;Charge and MCS interoperability for next-generation electric trucks.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+    <a class="chg-partner-card" href="https://www.linkedin.com/posts/windrosetrucks_mcs-heavydutyev-charginginfrastructure-activity-7419638038714265600--tpG/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Kempower</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇫🇮 Finland</span>
+        <span class="chg-partner-tag mcs">MCS</span>
+      </div>
+      <p class="chg-partner-desc">MCS charging test completed at Kempower HQ — validating megawatt-level interoperability.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+    <a id="card-engie" class="chg-partner-card" href="https://www.engie-vianeo.com/en/news/engie-vianeo-and-windrose-join-forces-to-accelerate-the-electrification-of-heavy-duty-transport/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">ENGIE Vianeo</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇫🇷 France</span>
+        <span class="chg-partner-tag hpc">High-Power</span>
+      </div>
+      <p class="chg-partner-desc">Accelerating electrification of heavy-duty transport across France and Europe.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+    <a id="card-uk-charge" class="chg-partner-card" href="https://transportandenergy.com/2026/03/24/windrose-records-its-fastest-charging-session-in-uk/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Transport &amp; Energy</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇬🇧 United Kingdom</span>
+        <span class="chg-partner-tag mcs">MCS</span>
+      </div>
+      <p class="chg-partner-desc">Fastest charging session ever recorded for a Windrose truck, completed in the UK.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+    <a class="chg-partner-card" href="https://www.enelxway.com/cl/" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Enel X Way</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇨🇱 Chile</span>
+        <span class="chg-partner-tag hpc">High-Power</span>
+      </div>
+      <p class="chg-partner-desc">Primera Carretera Eléctrica de Alta Potencia de Chile — Chile's first high-power electric highway.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+    <a class="chg-partner-card" href="https://en.sinexcel.com/about/detail.php?id=5&amp;bid=5250&amp;cid=315" target="_blank" rel="noopener">
+      <div class="chg-partner-name">Sinexcel</div>
+      <div class="chg-partner-row">
+        <span class="chg-partner-country">🇦🇺 Australia</span>
+        <span class="chg-partner-tag hpc">High-Power</span>
+      </div>
+      <p class="chg-partner-desc">Advancing high-power charging infrastructure for electric trucks across Australia.</p>
+      <span class="chg-partner-link">View partnership →</span>
+    </a>
+
+  </div>
 </section>
 
 <script>
