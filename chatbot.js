@@ -950,11 +950,14 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
         '#wr-chat-input{flex:1!important;background:#06122a!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:6px!important;color:#fff!important;font-size:.875rem!important;padding:.55rem .75rem!important;outline:none!important;}' +
         '#wr-chat-input:focus{border-color:rgba(0,180,255,.6)!important;}' +
         '#wr-chat-form button[type=submit]{background:#0078ff!important;border:none!important;border-radius:6px!important;color:#fff!important;padding:0 .85rem!important;cursor:pointer!important;font-size:.875rem!important;}' +
-        /* Topbar / header "Ask AI" buttons — hidden; floating pill is the single entry point */
-        '#wr-topbar-chat{display:none!important;}' +
+        /* Floating pill hidden — topbar button is the single entry point */
+        '#wr-chat-btn{display:none!important;}' +
         '#wr-header-chat{display:none!important;}' +
         /* Hide the search-bar "AI" button (same chat action, creates duplicate entry point) */
         '#topbar #gs-wrap button{display:none!important;}' +
+        /* Topbar Ask AI button style — shown in blue topbar on all pages */
+        '#wr-topbar-chat{display:flex!important;align-items:center!important;gap:5px!important;background:rgba(255,255,255,0.12)!important;border:1px solid rgba(255,255,255,0.28)!important;border-radius:4px!important;color:#fff!important;font-family:Barlow Condensed,Arial Narrow,Arial,sans-serif!important;font-size:0.85rem!important;font-weight:700!important;letter-spacing:0.07em!important;padding:3px 12px!important;cursor:pointer!important;white-space:nowrap!important;transition:background .15s,border-color .15s!important;}' +
+        '#wr-topbar-chat:hover{background:rgba(255,255,255,0.22)!important;border-color:rgba(255,255,255,0.5)!important;}' +
         /* ── Mobile: full-screen chat experience ── */
         '@media(max-width:960px){' +
           /* Lock scroll behind the full-screen panel */
@@ -1003,13 +1006,14 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
 
     function injectTopbarBtn() {
       if (document.getElementById('wr-topbar-chat')) return;
-      var topbar = document.getElementById('topbar');
+      var topbar = document.getElementById('topbar') || document.getElementById('manual-topbar');
       if (!topbar) return;
       var btn = document.createElement('button');
       btn.id = 'wr-topbar-chat';
-      btn.innerHTML = '⚡ Ask AI <span style="font-size:.75em;opacity:.65;font-weight:400;letter-spacing:.02em;">· Powered by Claude</span>';
+      btn.title = 'Ask the Windrose AI assistant';
       btn.setAttribute('onclick', 'wrChatToggle()');
-      // Insert before the last child (Reserve button) so it sits beside it
+      btn.innerHTML = '⚡ Ask AI';
+      // Insert before the last child (Reserve / windrose.ai link) so it sits beside it
       var last = topbar.lastElementChild;
       last ? topbar.insertBefore(btn, last) : topbar.appendChild(btn);
     }
