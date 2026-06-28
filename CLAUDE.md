@@ -82,6 +82,10 @@ An interactive supplier map artifact (HTML, self-contained) lives in the scratch
 
 Published artifact URL: `https://claude.ai/code/artifact/98a10ab4-012f-4cec-80a1-b1977bcd91b3`
 
+### Artifact features (as of June 2026)
+- **By Taxonomy** tab: 3-level QC/T 25 accordion (系 → 总成 → parts), collapsible, with system filter tally cards
+- **By Supplier** tab: pivot view — one collapsible card per supplier sorted by part count descending, "No Supplier Assigned" group at bottom; all cards collapsed by default; search works across both views
+
 ### BOM data notes (as of June 2026)
 - Source JS: `tparts_slim.js` — 644 part entries (QC/T 25-2014 taxonomy)
 - NMC/NCM battery entries removed: 2101001, 2101500, 2101600 — Windrose uses LFP only
@@ -89,6 +93,11 @@ Published artifact URL: `https://claude.ai/code/artifact/98a10ab4-012f-4cec-80a1
 - No-supplier breakdown by 系: 系1:1, 系2:24, 系3:69, 系4:9, 系5:15, 系6:3, 系7:15, 系8:18
 - Notable unsourced parts: 3506800 (relay valve), 3512020 (safety valve), 3600200 (lighting controller), 3703500 (DC converter), 7900500 (AR-HUD), 2107110 (CCS1 charging cable — US market), 8210101/8210201 (physical exterior mirrors — US market)
 - Quantities and full pricing require the Google Sheet above — TPARTS data has prices for ~30% of entries only
+
+### Pending data to add to artifact
+Google Sheets is inaccessible from the remote execution environment (datacenter IP blocked by Google — 403 on all export URLs regardless of sharing settings). To add the following, the user must export the relevant sheet tab as CSV and paste it into chat:
+- **Unit price per supplier × part** (单价) — to replace/supplement TPARTS partial pricing
+- **开发费 + 模具费 per supplier** (development fee + tooling/mold fee) — lump-sum figures negotiated per supplier deal; not in TPARTS data at all
 
 ## Past structural issues (fixed June 2026)
 These were repaired — do not reintroduce:
