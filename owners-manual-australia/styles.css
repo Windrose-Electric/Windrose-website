@@ -213,10 +213,10 @@ body {
 
 
 /* ── Typography ────────────────────────────────────────────── */
-h1 { font-size: 24px; font-weight: 700; color: var(--hdr-bg); margin: 8px 0 12px; padding-bottom: 8px; border-bottom: 3px solid var(--accent); }
-h2 { font-size: 20px; font-weight: 600; color: #2c3e50; margin: 6px 0 10px; }
-h3 { font-size: 17px; font-weight: 600; color: #34495e; margin: 4px 0 8px; }
-h4 { font-size: 15px; font-weight: 600; color: #4a5568; margin: 4px 0 6px; }
+h1 { font-size: 28px; font-weight: 700; color: var(--hdr-bg); margin: 8px 0 12px; padding-bottom: 8px; border-bottom: 3px solid var(--accent); }
+h2 { font-size: 18px; font-weight: 600; color: #2c3e50; margin: 6px 0 10px; }
+h3 { font-size: 15px; font-weight: 600; color: #34495e; margin: 4px 0 8px; }
+h4 { font-size: 13px; font-weight: 600; color: #4a5568; margin: 4px 0 6px; }
 p  { margin: 6px 0; }
 blockquote {
   margin: 6px 0; padding: 0;
@@ -341,8 +341,9 @@ u { text-decoration: none; font-weight: 600; color: var(--text-muted); font-size
   .header-search { flex: 0 1 160px; }
   .header-search input { font-size: 13px; padding: 6px 10px; }
   .main-content { padding: 12px 12px 30px; }
-  h1 { font-size: 20px; }
-  h2 { font-size: 17px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 15px; }
+  h3 { font-size: 13px; }
 }
 
 /* ── Print ─────────────────────────────────────────────────── */
