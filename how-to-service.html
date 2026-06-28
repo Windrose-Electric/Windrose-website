@@ -1424,6 +1424,11 @@ p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
   width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px;
   background: #d8a23a; box-shadow: 0 0 8px rgba(216,162,58,0.6);
 }
+.sm-result-note {
+  margin-top: 0.55rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+  color: var(--muted); line-height: 1.5;
+}
 @media (max-width: 600px) {
   .sm-picker-steps { flex-direction: column; gap: 1.1rem; }
 }
@@ -2425,255 +2430,27 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="om-nav-header">
   <div class="eyebrow">Owner's Manual</div>
   <h2>Choose Your Edition</h2>
-  <p>Full vehicle handbook in your local language, units, and regulations. Each edition opens in a new tab.</p>
-  <div style="margin-top:1rem;">
-    <select id="om-lang-select" aria-label="Filter by language edition"
-      style="background:#0d1f38;border:1px solid rgba(74,158,255,0.25);border-radius:6px;color:#f0f4ff;font-family:DM Sans,sans-serif;font-size:0.875rem;padding:6px 12px;cursor:pointer;min-width:200px;outline:none;appearance:auto;">
-      <option value="">🌐 All editions</option>
-      <option value="en">🌍 English (Global)</option>
-      <option value="en_us">🇺🇸 English</option>
-      <option value="en_uk">🇬🇧 English</option>
-      <option value="en_au">🇦🇺 English</option>
-      <option value="de">🇩🇪 Deutsch</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="nl">🇳🇱 Nederlands</option>
-      <option value="no">🇳🇴 Norsk</option>
-      <option value="is">🇮🇸 Íslenska</option>
-      <option value="sv">🇸🇪 Svenska</option>
-      <option value="fi">🇫🇮 Suomi</option>
-      <option value="da">🇩🇰 Dansk</option>
-      <option value="pl">🇵🇱 Polski</option>
-      <option value="it">🇮🇹 Italiano</option>
-      <option value="es">🇪🇸 Español</option>
-      <option value="pt">🇵🇹 Português</option>
-      <option value="zh">🇨🇳 简体中文</option>
-      <option value="zh_tw">🇭🇰 繁體中文</option>
-      <option value="ja">🇯🇵 日本語</option>
-      <option value="ko">🇰🇷 한국어</option>
-      <option value="tr">🇹🇷 Türkçe</option>
-      <option value="he">🇮🇱 עברית</option>
-      <option value="ar">🇸🇦 العربية</option>
-    </select>
-  </div>
+  <p>Select your country, then your language. Each edition is localised for that market’s units, regulations, and emergency numbers — and opens in a new tab.</p>
 </div>
 <div class="om-nav-grid" id="om-nav-grid">
 
-  <div class="om-group-label">English — Regional Editions</div>
-
-  <a class="om-card" data-edition="en" href="/owners-manual-eu/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🌍</div>
-    <div class="om-card-badge badge-eu">EU / Global</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. ECE/UNECE, EU directives.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-gb" href="/owners-manual-uk/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇬🇧</div>
-    <div class="om-card-badge badge-uk">UK Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. DVSA, GBWVTA, Construction &amp; Use Regs 1986. 999 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-us" href="/owners-manual-us/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇺🇸</div>
-    <div class="om-card-badge badge-us">US Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Imperial units (mph, miles, psi, °F, hp). NHTSA, FMVSS. 911 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-au" href="/owners-manual-au/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇦🇺</div>
-    <div class="om-card-badge badge-au">AU Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. NHVR, ADR, RVSA 2018, GVM. 000 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Central &amp; Western Europe</div>
-
-  <a class="om-card" data-edition="de" href="/owners-manual-german/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ihre Sprache</div>
-    <div class="om-card-flag">🇩🇪</div>
-    <div class="om-card-badge badge-lang">Deutsch</div>
-    <div class="om-card-title">Deutsch</div>
-    <div class="om-card-sub">Metrisch. EU-Vorschriften (ECE/UNECE). Notruf 112.</div>
-    <div class="om-card-arrow">Öffnen <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="nl" href="/owners-manual-dutch/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Uw taal</div>
-    <div class="om-card-flag">🇳🇱</div>
-    <div class="om-card-badge badge-lang">Nederlands</div>
-    <div class="om-card-title">Nederlands</div>
-    <div class="om-card-sub">Metrisch. EU-regelgeving (ECE/UNECE). Noodnummer 112.</div>
-    <div class="om-card-arrow">Openen <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="fr" href="/owners-manual-french/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Votre langue</div>
-    <div class="om-card-flag">🇫🇷</div>
-    <div class="om-card-badge badge-lang">Français</div>
-    <div class="om-card-title">Français</div>
-    <div class="om-card-sub">Métrique. Réglementation européenne (ECE/UNECE). Urgence 112.</div>
-    <div class="om-card-arrow">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="it" href="/owners-manual-italian/" target="_blank" rel="noopener">
-    <div class="om-match-pill">La tua lingua</div>
-    <div class="om-card-flag">🇮🇹</div>
-    <div class="om-card-badge badge-lang">Italiano</div>
-    <div class="om-card-title">Italiano</div>
-    <div class="om-card-sub">Metrico. Normativa UE (ECE/UNECE). Emergenza 112.</div>
-    <div class="om-card-arrow">Apri <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="es" href="/owners-manual-spanish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Tu idioma</div>
-    <div class="om-card-flag">🇪🇸</div>
-    <div class="om-card-badge badge-lang">Español</div>
-    <div class="om-card-title">Español</div>
-    <div class="om-card-sub">Métrico. Normativa europea (ECE/UNECE). Emergencia 112.</div>
-    <div class="om-card-arrow">Abrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="pt" href="/owners-manual-portuguese/" target="_blank" rel="noopener">
-    <div class="om-match-pill">O seu idioma</div>
-    <div class="om-card-flag">🇵🇹</div>
-    <div class="om-card-badge badge-lang">Português</div>
-    <div class="om-card-title">Português</div>
-    <div class="om-card-sub">Métrico. Regulamentação europeia (ECE/UNECE). Emergência 112.</div>
-    <div class="om-card-arrow">Abrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="pl" href="/owners-manual-polish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Twój język</div>
-    <div class="om-card-flag">🇵🇱</div>
-    <div class="om-card-badge badge-lang">Polski</div>
-    <div class="om-card-title">Polski</div>
-    <div class="om-card-sub">Metryczny. Regulacje UE (ECE/UNECE). Numer alarmowy 112.</div>
-    <div class="om-card-arrow">Otwórz <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Nordic &amp; Baltic</div>
-
-  <a class="om-card" data-edition="no" href="/owners-manual-norsk/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ditt språk</div>
-    <div class="om-card-flag">🇳🇴</div>
-    <div class="om-card-badge badge-lang">Norsk</div>
-    <div class="om-card-title">Norsk</div>
-    <div class="om-card-sub">Metrisk. EU/EØS-regelverk. Nødnummer 112.</div>
-    <div class="om-card-arrow">Åpne <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="sv" href="/owners-manual-swedish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ditt språk</div>
-    <div class="om-card-flag">🇸🇪</div>
-    <div class="om-card-badge badge-lang">Svenska</div>
-    <div class="om-card-title">Svenska</div>
-    <div class="om-card-sub">Metriskt. EU-regelverk (ECE/UNECE). Nödnummer 112.</div>
-    <div class="om-card-arrow">Öppna <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="da" href="/owners-manual-danish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Dit sprog</div>
-    <div class="om-card-flag">🇩🇰</div>
-    <div class="om-card-badge badge-lang">Dansk</div>
-    <div class="om-card-title">Dansk</div>
-    <div class="om-card-sub">Metrisk. EU-regulering (ECE/UNECE). Nødnummer 112.</div>
-    <div class="om-card-arrow">Åbn <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="fi" href="/owners-manual-finnish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Kielesi</div>
-    <div class="om-card-flag">🇫🇮</div>
-    <div class="om-card-badge badge-lang">Suomi</div>
-    <div class="om-card-title">Suomi</div>
-    <div class="om-card-sub">Metrinen. EU-säädökset (ECE/UNECE). Hätänumero 112.</div>
-    <div class="om-card-arrow">Avaa <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="is" href="/owners-manual-icelandic/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Þitt tungumál</div>
-    <div class="om-card-flag">🇮🇸</div>
-    <div class="om-card-badge badge-lang">Íslenska</div>
-    <div class="om-card-title">Íslenska</div>
-    <div class="om-card-sub">Metrakerfi. EES-reglugerðir (ECE/UNECE). Neyðarlína 112.</div>
-    <div class="om-card-arrow">Opna <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Middle East</div>
-
-  <a class="om-card" data-edition="ar" href="/owners-manual-arabic/" target="_blank" rel="noopener" dir="ltr">
-    <div class="om-match-pill">لغتك</div>
-    <div class="om-card-flag">🇸🇦</div>
-    <div class="om-card-badge badge-lang">العربية</div>
-    <div class="om-card-title">العربية</div>
-    <div class="om-card-sub">متري. لوائح أوروبية (ECE/UNECE). الطوارئ 112.</div>
-    <div class="om-card-arrow">فتح <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="he" href="/owners-manual-hebrew/" target="_blank" rel="noopener" dir="ltr">
-    <div class="om-match-pill">השפה שלך</div>
-    <div class="om-card-flag">🇮🇱</div>
-    <div class="om-card-badge badge-lang">עברית</div>
-    <div class="om-card-title">עברית</div>
-    <div class="om-card-sub">מטרי. תקנות אירופיות. חירום 112.</div>
-    <div class="om-card-arrow">פתח <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="tr" href="/owners-manual-turkish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Diliniz</div>
-    <div class="om-card-flag">🇹🇷</div>
-    <div class="om-card-badge badge-lang">Türkçe</div>
-    <div class="om-card-title">Türkçe</div>
-    <div class="om-card-sub">Metrik. Avrupa yönetmelikleri (ECE/UNECE). Acil 112.</div>
-    <div class="om-card-arrow">Aç <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">East Asia</div>
-
-  <a class="om-card" data-edition="ja" href="/owners-manual-japanese/" target="_blank" rel="noopener">
-    <div class="om-match-pill">あなたの言語</div>
-    <div class="om-card-flag">🇯🇵</div>
-    <div class="om-card-badge badge-lang">日本語</div>
-    <div class="om-card-title">日本語</div>
-    <div class="om-card-sub">メートル法。MLIT（国土交通省）基準。緊急110/119。</div>
-    <div class="om-card-arrow">開く <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="ko" href="/owners-manual-korean/" target="_blank" rel="noopener">
-    <div class="om-match-pill">귀하의 언어</div>
-    <div class="om-card-flag">🇰🇷</div>
-    <div class="om-card-badge badge-lang">한국어</div>
-    <div class="om-card-title">한국어</div>
-    <div class="om-card-sub">미터법. 국토교통부(MOLIT) 기준. 긴급 112/119.</div>
-    <div class="om-card-arrow">열기 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="zh" href="/windrose-user-manual-zh.html" target="_blank" rel="noopener">
-    <div class="om-match-pill">您的语言</div>
-    <div class="om-card-flag">🇨🇳</div>
-    <div class="om-card-badge badge-lang">中文（简体）</div>
-    <div class="om-card-title">中文（简体）</div>
-    <div class="om-card-sub">公制。中国标准（GB）。紧急 110/119。</div>
-    <div class="om-card-arrow">打开 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="zh_tw" href="/owners-manual-chinese-traditional/" target="_blank" rel="noopener">
-    <div class="om-match-pill">您的語言</div>
-    <div class="om-card-flag">🇭🇰</div>
-    <div class="om-card-badge badge-lang">中文（繁體）</div>
-    <div class="om-card-title">中文（繁體）香港</div>
-    <div class="om-card-sub">公制。香港運輸署（HKSAR）標準。緊急 999。</div>
-    <div class="om-card-arrow">開啟 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
+  <div class="sm-picker" id="om-picker">
+    <div class="sm-picker-steps">
+      <div class="sm-step">
+        <label class="sm-step-label" for="om-country-select"><span class="sm-step-num">1</span> Country / Region</label>
+        <select id="om-country-select" class="sm-select" aria-label="Select country or region">
+          <option value="">Select a country…</option>
+        </select>
+      </div>
+      <div class="sm-step">
+        <label class="sm-step-label" for="om-lang-select2"><span class="sm-step-num">2</span> Language</label>
+        <select id="om-lang-select2" class="sm-select" aria-label="Select language" disabled>
+          <option value="">Choose a country first</option>
+        </select>
+      </div>
+    </div>
+    <div class="sm-picker-result" id="om-picker-result"></div>
+  </div>
 
 </div>
 </section>
@@ -2822,54 +2599,126 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
+/* Owner's Manual — two-level country → language picker */
 (function(){
-  var map = {
-    'en':'en','en_us':'en-us','en_uk':'en-gb','en_au':'en-au','de':'de','fr':'fr','es':'es','zh':'zh','zh_tw':'zh_tw',
-    'ja':'ja','ko':'ko','nl':'nl','pt':'pt','it':'it','no':'no',
-    'da':'da','fi':'fi','sv':'sv','pl':'pl','is':'is','ar':'ar','he':'he','tr':'tr'
-  };
-  function applyMatch() {
-    var lang = '';
-    try { lang = localStorage.getItem('wr-lang') || ''; } catch(e){}
-    var edition = map[lang] || '';
-    var hasLang = lang && map[lang];
-    document.querySelectorAll('#om-nav-grid .om-card').forEach(function(c){
-      c.classList.remove('om-match');
-      c.style.display = hasLang ? (c.getAttribute('data-edition') === edition ? '' : 'none') : '';
+  var OM_MARKETS = [
+    { region: "North America", countries: [
+      { flag:"🇺🇸", name:"United States", langs:[ {label:"English (US)", url:"/owners-manual-us/", note:"Imperial units. NHTSA / FMVSS. Emergency 911."} ] },
+      { flag:"🇨🇦", name:"Canada", langs:[ {label:"English", url:"/owners-manual-us/", note:"Served by the US English edition."}, {label:"Français", url:"/owners-manual-french/", note:"Édition française."} ] },
+      { flag:"🇲🇽", name:"Mexico", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Edición en español."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] }
+    ]},
+    { region: "South America", countries: [
+      { flag:"🇨🇱", name:"Chile", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Edición en español."} ] }
+    ]},
+    { region: "Europe", countries: [
+      { flag:"🇪🇺", name:"European Union", langs:[ {label:"English", url:"/owners-manual-eu/", note:"Metric. ECE/UNECE, EU directives. Emergency 112."} ] },
+      { flag:"🇬🇧", name:"United Kingdom", langs:[ {label:"English (UK)", url:"/owners-manual-uk/", note:"Metric. DVSA, GBWVTA. Emergency 999."} ] },
+      { flag:"🇩🇪", name:"Germany", langs:[ {label:"Deutsch", url:"/owners-manual-german/", note:"Metrisch. EU (ECE/UNECE). Notruf 112."} ] },
+      { flag:"🇫🇷", name:"France", langs:[ {label:"Français", url:"/owners-manual-french/", note:"Métrique. ECE/UNECE. Urgence 112."} ] },
+      { flag:"🇮🇹", name:"Italy", langs:[ {label:"Italiano", url:"/owners-manual-italian/", note:"Metrico. UE (ECE/UNECE). Emergenza 112."} ] },
+      { flag:"🇪🇸", name:"Spain", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Métrico. ECE/UNECE. Emergencia 112."} ] },
+      { flag:"🇵🇹", name:"Portugal", langs:[ {label:"Português", url:"/owners-manual-portuguese/", note:"Métrico. ECE/UNECE. Emergência 112."} ] },
+      { flag:"🇳🇱", name:"Netherlands", langs:[ {label:"Nederlands", url:"/owners-manual-dutch/", note:"Metrisch. EU (ECE/UNECE). Noodnummer 112."} ] },
+      { flag:"🇵🇱", name:"Poland", langs:[ {label:"Polski", url:"/owners-manual-polish/", note:"Metryczny. UE (ECE/UNECE). Alarmowy 112."} ] },
+      { flag:"🇳🇴", name:"Norway", langs:[ {label:"Norsk", url:"/owners-manual-norsk/", note:"Metrisk. EU/EØS. Nødnummer 112."} ] },
+      { flag:"🇸🇪", name:"Sweden", langs:[ {label:"Svenska", url:"/owners-manual-swedish/", note:"Metriskt. EU (ECE/UNECE). Nödnummer 112."} ] },
+      { flag:"🇩🇰", name:"Denmark", langs:[ {label:"Dansk", url:"/owners-manual-danish/", note:"Metrisk. EU (ECE/UNECE). Nødnummer 112."} ] },
+      { flag:"🇫🇮", name:"Finland", langs:[ {label:"Suomi", url:"/owners-manual-finnish/", note:"Metrinen. EU (ECE/UNECE). Hätänumero 112."} ] },
+      { flag:"🇮🇸", name:"Iceland", langs:[ {label:"Íslenska", url:"/owners-manual-icelandic/", note:"Metrakerfi. EES (ECE/UNECE). Neyðarlína 112."} ] }
+    ]},
+    { region: "Asia Pacific", countries: [
+      { flag:"🇦🇺", name:"Australia", langs:[ {label:"English (AU)", url:"/owners-manual-au/", note:"Metric. NHVR, ADR, RVSA 2018. Emergency 000."} ] },
+      { flag:"🇳🇿", name:"New Zealand", langs:[ {label:"English", url:"/owners-manual-au/", note:"Served by the Australian edition."} ] },
+      { flag:"🇨🇳", name:"China", langs:[ {label:"中文（简体）", url:"/windrose-user-manual-zh.html", note:"公制。中国标准（GB）。紧急 110/119。"} ] },
+      { flag:"🇭🇰", name:"Hong Kong", langs:[ {label:"中文（繁體）", url:"/owners-manual-chinese-traditional/", note:"公制。香港運輸署標準。緊急 999。"} ] },
+      { flag:"🇯🇵", name:"Japan", langs:[ {label:"日本語", url:"/owners-manual-japanese/", note:"メートル法。MLIT基準。緊急 110/119。"} ] },
+      { flag:"🇰🇷", name:"South Korea", langs:[ {label:"한국어", url:"/owners-manual-korean/", note:"미터법. MOLIT 기준. 긴급 112/119."} ] }
+    ]},
+    { region: "Middle East and Africa", countries: [
+      { flag:"🇦🇪", name:"GCC / UAE", langs:[ {label:"العربية", url:"/owners-manual-arabic/", note:"متري. لوائح أوروبية (ECE/UNECE)."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] },
+      { flag:"🇸🇦", name:"Saudi Arabia", langs:[ {label:"العربية", url:"/owners-manual-arabic/", note:"متري. لوائح أوروبية (ECE/UNECE)."} ] },
+      { flag:"🇮🇱", name:"Israel", langs:[ {label:"עברית", url:"/owners-manual-hebrew/", note:"מטרי. תקנות אירופיות. חירום 112."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] },
+      { flag:"🇹🇷", name:"Turkey", langs:[ {label:"Türkçe", url:"/owners-manual-turkish/", note:"Metrik. Avrupa yönetmelikleri (ECE/UNECE). Acil 112."} ] }
+    ]}
+  ];
+
+  var countrySel = document.getElementById('om-country-select');
+  var langSel = document.getElementById('om-lang-select2');
+  var result = document.getElementById('om-picker-result');
+  if (!countrySel || !langSel || !result) return;
+
+  OM_MARKETS.forEach(function(grp, ri){
+    var og = document.createElement('optgroup');
+    og.label = grp.region;
+    grp.countries.forEach(function(c, ci){
+      var opt = document.createElement('option');
+      opt.value = ri + '-' + ci;
+      opt.textContent = c.flag + '  ' + c.name;
+      og.appendChild(opt);
     });
-    document.querySelectorAll('#om-nav-grid .om-group-label').forEach(function(l){
-      l.style.display = hasLang ? 'none' : '';
-    });
-    if (hasLang) {
-      var card = document.querySelector('#om-nav-grid .om-card[data-edition="' + edition + '"]');
-      if (card) card.classList.add('om-match');
-    }
-    // Keep om-lang-select in sync
-    var omSel = document.getElementById('om-lang-select');
-    if (omSel) {
-      for (var i = 0; i < omSel.options.length; i++) {
-        if (omSel.options[i].value === lang) { omSel.selectedIndex = i; break; }
-        if (i === omSel.options.length - 1) omSel.selectedIndex = 0; // fallback to "All"
-      }
+    countrySel.appendChild(og);
+  });
+
+  function getCountry(val){
+    if (!val) return null;
+    var p = val.split('-');
+    return OM_MARKETS[+p[0]].countries[+p[1]];
+  }
+
+  function renderResult(country, lang){
+    result.innerHTML = '';
+    if (!country || !lang) return;
+    var a = document.createElement('a');
+    a.className = 'sm-result-open';
+    a.href = lang.url; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = 'Open ' + country.name + ' · ' + lang.label +
+      ' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>';
+    result.appendChild(a);
+    if (lang.note){
+      var n = document.createElement('div');
+      n.className = 'sm-result-note';
+      n.textContent = lang.note;
+      result.appendChild(n);
     }
   }
-  document.addEventListener('DOMContentLoaded', function(){
-    applyMatch();
-    var omSel = document.getElementById('om-lang-select');
-    if (omSel) {
-      omSel.addEventListener('change', function(){
-        var v = this.value;
-        if (v && window.setLang) { window.setLang(v); }
-        else if (!v) {
-          // "All editions" — clear lang filter but keep site language as-is
-          try { localStorage.removeItem('wr-lang'); } catch(e){}
-          applyMatch();
-        }
-      });
+
+  function populateLangs(country){
+    langSel.innerHTML = '';
+    if (!country){
+      langSel.disabled = true;
+      var o0 = document.createElement('option');
+      o0.value = ''; o0.textContent = 'Choose a country first';
+      langSel.appendChild(o0);
+      return;
+    }
+    langSel.disabled = false;
+    if (country.langs.length > 1){
+      var ph = document.createElement('option');
+      ph.value = ''; ph.textContent = 'Select a language…';
+      langSel.appendChild(ph);
+    }
+    country.langs.forEach(function(l, li){
+      var o = document.createElement('option');
+      o.value = String(li);
+      o.textContent = l.label;
+      langSel.appendChild(o);
+    });
+  }
+
+  countrySel.addEventListener('change', function(){
+    var country = getCountry(this.value);
+    populateLangs(country);
+    result.innerHTML = '';
+    if (country && country.langs.length === 1){
+      langSel.selectedIndex = 0;
+      renderResult(country, country.langs[0]);
     }
   });
-  window.addEventListener('storage', function(e){
-    if (e.key === 'wr-lang') applyMatch();
+
+  langSel.addEventListener('change', function(){
+    var country = getCountry(countrySel.value);
+    if (!country || this.value === ''){ result.innerHTML = ''; return; }
+    renderResult(country, country.langs[+this.value]);
   });
 })();
 </script>
