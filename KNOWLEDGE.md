@@ -698,4 +698,394 @@ CEVA Logistics · Kuehne+Nagel · KLN (Kerry Logistics) · Decathlon · Rémy Co
 
 ---
 
-*Last updated: 2026-06-28. Maintained by Windrose Electric web team.*
+## 11. Service Manual — Technical Reference (US Edition)
+
+> Source: `service-manual-us/index.html` + `windrose-us-maintenance-manual.pdf`  
+> Model: WH12 Series (Windrose E700, US Edition). EPA & CARB compliant.
+
+### 11.1 Manual Structure (9 Chapters)
+
+| Chapter | Title | Key Content |
+|---|---|---|
+| 1 | Introduction | VIN, specs, vehicle lifting, safety warnings, health & safety, calibration procedures |
+| 2 | Maintenance and Service | Inspection schedules, maintenance provisions, fluid capacities, maintenance cycle |
+| 3 | Diagnosis | Mechanical fault diagnosis, steering/brake/tire fault tables, body fault assessment |
+| 4 | New Energy Vehicle Components | E-axle, HV battery, BMS, charging system, thermal management, DTC lists |
+| 5 | Intelligent Driving | Camera, radar, USS, ADAS sensor removal/installation and DTC diagnosis |
+| 6 | Vehicle Body | Bumper, body-in-white, glass, doors, seats, sleeper, mirrors, wiper, paint |
+| 7 | Automotive Electrical Appliances | A/C, refrigerant, audio, instruments, IVI, TPMS, lighting, ESCL, SSM |
+| 8 | Chassis | Fifth wheel, frame, subframe, suspension, brakes, steering, wheels/tires, ECAS, EPB |
+| 9 | Circuit | Smart junction box, DC fast charge, BMS, thermal management, ADAS, lighting wiring |
+
+### 11.2 Technical Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| BTMS | Battery thermal management system |
+| CMS | Camera monitor system |
+| VTDR | Vehicle traveling data recorder |
+| T-GW | TBOX and gateway |
+| SSM | Sleeper switch module |
+| GSM | Gear shift module |
+| DCM | Door control module |
+| AVAS | Acoustic vehicle alerting system |
+| UDS | Unified diagnostic service |
+| IVI | In-vehicle infotainment |
+| CAR | Car control screen |
+| IPC | Instrument panel cluster |
+| PWC | Phone wireless charging |
+| DMS | Driver monitoring system |
+| ESCL | Electronic steering column lock |
+| SJB_UP | Body intelligent power distribution box |
+| SJB_UN | Chassis intelligent power distribution box |
+| IBS | Intelligent battery sensor |
+| VDC | Power domain controller |
+| MCU | Electric drive axle control unit |
+| TCU | Transmission control unit |
+| CDC | Cockpit domain control unit |
+| BDCU | Body domain control unit |
+| NCM | Ternary lithium battery |
+| LFP | Lithium iron phosphate battery |
+| TWI | Tire wear indicator |
+| BSD | Blind spot detection |
+| DOW | Door open warning |
+| TSR | Traffic sign recognition |
+| CSW | Curve speed warning |
+| IHBC | Intelligent high beam control |
+
+(All ADAS abbreviations: ACC, AEB, LKA, LCC, LDW, ESC, EBS, EBD, ASR, EPB, ECAS, EHPS, ABS — see Owner's Manual section §8.12)
+
+### 11.3 VIN Structure (Example: 1W94RBCD8RR698001)
+
+| Digits | Code | Meaning |
+|---|---|---|
+| 1–3 | 1W9 | World Manufacturer Identifier — Windrose Technology Inc |
+| 4–8 | 4RBCD | Vehicle Description Section (configuration code) |
+| 9 | 8 | Check digit |
+| 10 | R | Model year (R = 2024, S = 2025) |
+| 11 | R | Plant of manufacture — Windrose Technology Inc |
+| 12–14 | 698 | WMI assigned by SAE |
+| 15–17 | 001 | Sequential production number |
+
+**VDS Configurations:**
+
+| Code | Series | Motor | Chassis | Cab |
+|---|---|---|---|---|
+| 4RBCD | 5325 | 780 kW peak | 3 axles | Sleeper |
+| 4RBCF | 5325 | 1,040 kW peak | 3 axles | Sleeper |
+| 4RACC | 5325 | 520 kW peak | 2 axles | Sleeper |
+
+VIN is engraved near the centerline of the front axle, outer side of frame right side member.
+
+### 11.4 Vehicle Weights (from Environmental Sign / Nameplate)
+
+| Configuration | Curb weight (lb) | GVWR (lb) |
+|---|---|---|
+| NCM 3-motor | 23,700 | 55,116 |
+| NCM 4-motor | — | 55,116 |
+| LFP 3-motor | 26,092 | 55,116 |
+| LFP 4-motor | — | 55,116 |
+
+Axle load (no load, LFP 3-motor): front 12,236 lb / intermediate+rear 13,856 lb  
+Axle load (full load, LFP 3-motor): front 15,432 lb / intermediate+rear 39,683 lb  
+Seating capacity: 2 persons
+
+### 11.5 Fluid Capacities
+
+| Application | Specification | Capacity |
+|---|---|---|
+| Final drive fluid — 3-motor | GL-5 (75W/90), Extended Life | 16.5 L (intermediate axle) + 11.5 L (rear axle) |
+| Final drive fluid — 4-motor | GL-5 (75W/90), Extended Life | 16.5 L (intermediate axle) + 16.5 L (rear axle) |
+| Motor coolant — 3-motor | Ethylene glycol antifreeze, −45 °C | 30 L (reference; add on request) |
+| Motor coolant — 4-motor | Ethylene glycol antifreeze, −45 °C | 35 L (reference; add on request) |
+| Battery coolant — NCM | Ethylene glycol antifreeze, −45 °C | 37 L (reference; add on request) |
+| Battery coolant — LFP | Ethylene glycol antifreeze, −45 °C | 27 L (reference; add on request) |
+| Steering gear hydraulic oil | ATF3 | 4 L |
+| A/C refrigerant | HFC-134a | 850 g ± 50 g |
+
+### 11.6 Maintenance Schedule
+
+**First maintenance:** 6 months or 5,000 km from sale date (whichever comes first) — at Windrose authorized service center.
+
+**Rule:** whichever interval (time or mileage) comes first in the schedule below governs.
+
+| Maintenance Item | 15,000 km / 12 mo | 50,000 km / 6 mo | 60,000 km / 6 mo | 60,000 km / 24 mo | 80,000 km / 12 mo | 300,000 km / 12 mo | 40,000 km | 500,000 km |
+|---|---|---|---|---|---|---|---|---|
+| A/C filter element | ● | | | | | | | |
+| Dryer | | ● | | | | | | |
+| Air filter element (engine air) | | ● | | | | | | |
+| Steering fluid reservoir filter element | | ● | | | | | ● | |
+| Power steering fluid | | ● | | | ● | | | |
+| Air compressor air filter element | | | ● | | | | | |
+| Drying tank | | | ● | | | | | |
+| Coolant | | | | ● | | | | |
+| Electric drive axle final drive fluid | | | | | | ● | | |
+| Gear oil (final drive) | | | | | | | | ● |
+
+**Use only Windrose OEM-specified fluids and accessories. Non-OEM fluids void warranty.**
+
+### 11.7 Routine Inspection Schedule
+
+| Frequency | Items |
+|---|---|
+| Every drive | Horn operation; brake noise/pedal feel; tire/vehicle alignment; steering feel and headlamp aim |
+| Every refueling | Coolant level and condition; washer fluid level |
+| Weekly | Tire condition, pressure (cold), and spare tire pressure |
+| Monthly | Tire pressure; lamp operation (license plate, headlamps, tail/stop/turn/backup/hazard); oil leakage check |
+| Twice a year | Silicone grease on door/window sealing strips |
+| Annually | Seat belt condition; door hinge/hydraulic lock lubrication; cooling system pressure test and hose replacement |
+
+### 11.8 First Maintenance Checklist (6 mo / 5,000 km)
+
+At each first maintenance, a Windrose-authorized technician must inspect:
+- **High-voltage battery**: box cleanliness, connector seating, fixing bolts, charging socket condition, SOC fault codes, cell voltage/temperature spread, charging test in sleep state
+- **Electric drive axle**: lubricating oil level, HV cables, cooling water pipes, insulation, fastener torque, DTC read
+- **Motor control unit (MCU)**: harness/connector seating, insulation resistance, heat dissipation, DTC read
+- **PDU (Power Distribution Unit)**: HV/LV harness connections, insulation resistance, cooling lines, ground cable
+- **EHPS (electro-hydraulic power steering)**: ball joint clearance, steering pump operation, fluid level, free clearance, DTC read
+- **Electric air compressor**: air filter element purge, HV harness integrity, insulation resistance, dryer/condenser/valve air-tightness, DTC read
+- **Battery cooling system**: expansion tank level, refrigeration function test, pipeline integrity, water pump operation
+- **Brake system**: parking brake effectiveness, pedal free travel, pipeline air-tightness, lining wear, air reservoir drain
+- **Chassis**: airbag condition, suspension height, shock absorber oil leakage, all fastener torques, air circuit checks, DTC (EBS/ECAS/EPB)
+- **Cab**: front cover, wipers, mirrors, windows, door operation, trim panels
+- **Electrical**: LV battery fastening and capacity, DC-DC operation, all lamps/IVI, harness routing, DTC read
+- **A/C**: operation check, filter element cleaning
+- **Fifth wheel**: damage/wear inspection, mounting bolts, grease fill
+
+### 11.9 Regular Maintenance vs. First Maintenance — Key Differences
+
+| Item | First Maintenance | Regular Maintenance |
+|---|---|---|
+| Steering fluid | Check level (do not change) | Change fluid + clean filter element |
+| Brake linings | Check wear | Replace brake linings |
+| Electric drive axle oil | Check level | Change lubricating oil |
+| Battery cooling | Check coolant level & function | Change coolant |
+| A/C filter | Blow clean | Replace filter element |
+| Fifth wheel grease | Check fill level | Change grease |
+| Air compressor filter | Purge and clean | Replace filter element |
+
+### 11.10 Mechanical Fault Diagnosis — Common Issues
+
+**Steering system:**
+- Steering wheel shaking → check wheel balance, kingpin inclination, wheel camber
+- Heavy steering or large free travel → inspect EHPS pump, tie rod ball joints, check steering fluid
+- Abnormal sounds when turning → inspect ball joints, lubrication
+
+**Braking:**
+- Brake deviation → check brake lining wear differential, axle alignment
+- Brake failure → service brake: use EPB spot-brake technique; check air pressure
+
+**Tire wear patterns:**
+- Crown wear → tire pressure too high
+- Edge wear → overloading
+- One-sided wear → toe-in out of spec or overloaded front axle
+- Cupping → wheel imbalance or shock absorber failure
+
+**Chassis:**
+- Air pressure loss throughout vehicle → check dryer, condenser, four-circuit valve, serpentine pipe, air reservoirs
+- Suspension height abnormal → ECAS height valve or airbag fault
+
+### 11.11 Key Fastener Torques (from Service Manual Chapter 4/8)
+
+| Fastener | Thread | Torque |
+|---|---|---|
+| Slave rocker arm to subframe | M14 × 2 | 154.9 ± 14.8 lb-ft |
+| Tie rod ball joint | M24 × 1.5 | 254.5 ± 11.1 lb-ft |
+| EHPS to subframe | M20 × 1.5 | 405.7 ± 14.8 lb-ft |
+| Wiper motor to bracket | M8 | 18.5 ± 2 lb-ft |
+| Wiper arm to motor | M8 | 14.75–17 lb-ft |
+| Rear boarding armrest to integrated frame | M8 | 18.5 ± 2 lb-ft |
+
+### 11.12 A/C Refrigerant Service Procedures
+
+1. **Leakage detection**: halogen/electronic leak detector at all fittings; visually check for oil stains
+2. **Recovery**: connect recovery machine before any disassembly; never vent HFC-134a to atmosphere
+3. **Evacuation**: pull vacuum for minimum 15 minutes; confirm vacuum holds before recharging
+4. **Filling**: 850 g ± 50 g HFC-134a; verify with manifold gauges
+5. **Oil balance**: add refrigerant oil if compressor or major components were replaced
+
+### 11.13 High-Voltage Power Down Procedures
+
+**From inside vehicle:**
+1. Park; apply EPB
+2. Open lower-left instrument panel trim
+3. Disconnect low-voltage MSD
+
+**From outside vehicle:**
+1. Park; apply EPB
+2. Pull hood release handle twice
+3. Remove low-voltage MSD from engine compartment
+
+*Note: HV system deactivates automatically in a collision event.*
+
+### 11.14 Vehicle Lifting and Jacking
+
+- Use only designated jack points per the service manual diagram (Section 1.4)
+- Never work under vehicle supported only by a jack — use jack stands or vehicle lift
+- Place wheel wedges when tires remain on ground
+- Apply parking brake before lifting
+
+---
+
+## 12. Website & Repository Structure
+
+> Source repository: `github.com/Windrose-Electric/Windrose-website`  
+> Hosting: Netlify (auto-deploys from `main` branch). Publish directory: `.` (root)
+
+### 12.1 Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Static HTML5 + vanilla CSS + vanilla JavaScript |
+| Hosting | Netlify (CDN + Functions + Forms) |
+| Serverless functions | Netlify Functions (Node.js) |
+| Chatbot AI | Anthropic Claude API (`claude-haiku-4-5-20251001`) |
+| CRM integration | HubSpot (via `log-chat.js` function) |
+| Payments | Stripe (reservation deposits — `create-payment-intent.js`) |
+| Maps | Google Places API (`GOOGLE_PLACES_API_KEY` — Netlify env var only, never in code) |
+| 3D viewer | Three.js + GLTF (`.glb` models in `/assets/`) |
+| Translation | GitHub Actions workflow calling Claude Haiku for alt-text translation |
+| CI validation | GitHub Actions workflow validating owner's manual HTML structure |
+
+### 12.2 Top-Level Directory Structure
+
+```
+/                          Root (static HTML pages)
+├── index.html             Homepage
+├── about-us.html          Company / About page
+├── certification.html     Certifications page
+├── charging.html          Charging infrastructure page
+├── commercialization.html Commercialization timeline
+├── how-to-buy*.html       Pricing, TCO, dealers, regional price pages
+├── how-to-service*.html   Service, maintenance, warranty, repairs, manuals, locations
+├── how-to-use*.html       Range calculator, charging guide, scenarios
+├── specs.html             Technical specifications
+├── technology*.html       Technology overview, specs, roadmap
+├── view-truck.html        3D truck viewer
+├── view-chassis.html      3D chassis viewer
+├── warranty.html          Warranty terms
+├── repairs.html           Repairs information
+├── maintenance.html       Maintenance overview
+├── manual.html            Manual landing page
+├── roadmap.html           Product roadmap
+├── news.html              News / press releases
+├── manufacturing.html     Manufacturing overview
+├── locations.html         Dealer/service locations
+├── network.html           Distribution network
+├── pricing.html           Pricing overview
+├── tco.html               Total cost of ownership
+├── chat.html              Chatbot redirect/launcher page
+│
+├── owners-manual-{lang}/  24 language editions of owner's manual
+│   ├── index.html         Full manual (sidebar nav + body content)
+│   └── styles.css         Manual-specific CSS
+│
+├── service-manual-us/     US service/maintenance manual for technicians
+│   ├── index.html         Full service manual (collapsible chapter/section structure)
+│   ├── styles.css         Service manual CSS
+│   └── windrose-us-maintenance-manual.pdf  Authoritative PDF source
+│
+├── netlify/
+│   └── functions/
+│       ├── chat.js          Claude API proxy (main chatbot backend)
+│       ├── log-chat.js      HubSpot CRM integration (lead capture)
+│       ├── create-payment-intent.js  Stripe payment backend
+│       ├── places.js        Google Places API proxy
+│       ├── link.js          Short-link handler
+│       └── track-shipments.js  Shipment tracking
+│
+├── .github/
+│   └── workflows/
+│       ├── validate-manuals.yml    Validates owner's manual HTML structure on every push
+│       ├── translate-alt-texts.yml  Auto-translates image alt texts via Claude Haiku
+│       └── deploy-notify.yml       Smoke-checks live site after deploy to main
+│
+├── assets/
+│   ├── Frame.glb           3D chassis model
+│   └── Windrose-truck-3D.glb  3D truck model
+│
+├── chatbot.js             Main chatbot script (FAQ engine + API integration)
+├── KNOWLEDGE.md           Source of truth for all chatbot/support knowledge (this file)
+├── CLAUDE.md              Claude Code project instructions
+├── netlify.toml           Netlify configuration (publish=".", functions="netlify/functions")
+└── translations.js        i18n translations for site UI
+```
+
+### 12.3 Key Files — Purpose & Notes
+
+| File | Purpose | Notes |
+|---|---|---|
+| `chatbot.js` | Chatbot engine embedded in every page | Contains `SYSTEM_BASE` (Claude system prompt), `FAQ_LANGS` (15-language FAQ database), `FAQ_TRIGGERS` (keyword matching), `SEARCH_INDEX` (176 page mappings) |
+| `netlify/functions/chat.js` | Claude API proxy | Uses `claude-haiku-4-5-20251001`, max 300–600 tokens, prompt caching |
+| `netlify/functions/log-chat.js` | HubSpot CRM | Creates/updates contacts; logs Q&A pairs as notes; requires `HUBSPOT_TOKEN` env var |
+| `netlify/functions/create-payment-intent.js` | Stripe | Handles reservation deposits; requires `STRIPE_SECRET_KEY` env var |
+| `netlify/functions/places.js` | Google Places | Dealer locator; requires `GOOGLE_PLACES_API_KEY` env var (never committed to code) |
+| `KNOWLEDGE.md` | Knowledge base | Update here first; then sync changed facts into `chatbot.js` `SYSTEM_BASE` and `FAQ_LANGS` |
+| `translations.js` | UI i18n | 20+ language translations for navigation labels, buttons, page text |
+| `.github/workflows/validate-manuals.yml` | CI | Checks each `owners-manual-*/index.html` for exactly 1 DOCTYPE, 1 `<main>`, balanced `</main>` |
+| `.github/workflows/translate-alt-texts.yml` | CI | Auto-translates English alt-text fallbacks in non-English editions; requires `ANTHROPIC_API_KEY` GitHub secret |
+| `.github/workflows/deploy-notify.yml` | CI | Waits 90 s post-deploy then smoke-checks HTTP status of windrose.ai + 4 manual pages |
+
+### 12.4 Owner's Manual — 24 Language Editions
+
+| Folder | Language |
+|---|---|
+| `owners-manual-us` | English (US) — primary source |
+| `owners-manual-eu` | English (EU) |
+| `owners-manual-uk` | English (UK) |
+| `owners-manual-au` | English (AU) |
+| `owners-manual-australia` | English (AU alt) |
+| `owners-manual-german` | German |
+| `owners-manual-french` | French |
+| `owners-manual-spanish` | Spanish |
+| `owners-manual-italian` | Italian |
+| `owners-manual-portuguese` | Portuguese |
+| `owners-manual-dutch` | Dutch |
+| `owners-manual-swedish` | Swedish |
+| `owners-manual-norsk` | Norwegian |
+| `owners-manual-danish` | Danish |
+| `owners-manual-finnish` | Finnish |
+| `owners-manual-polish` | Polish |
+| `owners-manual-icelandic` | Icelandic |
+| `owners-manual-hebrew` | Hebrew (RTL) |
+| `owners-manual-arabic` | Arabic (RTL) |
+| `owners-manual-turkish` | Turkish |
+| `owners-manual-chinese-traditional` | Traditional Chinese |
+| `owners-manual-chinese-simplified` | Simplified Chinese |
+| `owners-manual-korean` | Korean |
+| `owners-manual-japanese` | Japanese |
+
+Section label format: `1.A` for chapters, `1.A.1` for subsections (both `sec-label` in body headings and `toc-chapter-label` in in-page TOC).
+
+### 12.5 Environment Variables (Netlify — never commit to code)
+
+| Variable | Used By |
+|---|---|
+| `ANTHROPIC_API_KEY` | `chat.js` function (chatbot), `translate-alt-texts.yml` workflow |
+| `HUBSPOT_TOKEN` | `log-chat.js` function |
+| `STRIPE_SECRET_KEY` | `create-payment-intent.js` function |
+| `GOOGLE_PLACES_API_KEY` | `places.js` function |
+
+### 12.6 Chatbot Architecture
+
+```
+User Question
+    ↓
+chatbot.js — FAQ_TRIGGERS keyword matching (15 languages, 56 trigger groups)
+    ├── MATCH → Instant FAQ reply from FAQ_LANGS (no API cost)
+    └── NO MATCH → POST to /.netlify/functions/chat
+            ↓
+        chat.js — Anthropic Claude API (claude-haiku-4-5-20251001)
+        System prompt: SYSTEM_BASE (this file's product knowledge, condensed)
+        Max tokens: 600; prompt caching enabled
+            ↓
+        Response → chatbot.js renders to user
+            ↓
+        [Parallel] log-chat.js → HubSpot CRM (lead capture)
+```
+
+Supported languages (FAQ): English, Spanish, French, German, Chinese (Simplified), Dutch, Norwegian, Swedish, Finnish, Danish, Polish, Italian, Portuguese, Japanese, Korean, Icelandic (16 total).
+
+---
+
+*Last updated: 2026-06-29. Maintained by Windrose Electric web team.*
