@@ -785,6 +785,17 @@ TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Ma
     window.wrSend({ preventDefault: function() {} });
   };
 
+  // Unified entry point — called by the search bar AI button and Enter key in unified-search.js.
+  // Routes through the chatbot panel so there is only one AI experience on the site.
+  window.gsAskAI = function() {
+    var gsi = document.getElementById('gs-input');
+    var q = gsi ? gsi.value.trim() : '';
+    if (window.gsClose) window.gsClose();
+    var panel = document.getElementById('wr-chat-panel');
+    if (panel && panel.style.display !== 'flex') wrChatToggle();
+    if (q) wrAsk(q);
+  };
+
   // Map suggestion chip categories to actual question text
   window.wrAskChip = function(category) {
     var questions = {
@@ -965,8 +976,6 @@ TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Ma
         /* Floating pill hidden — topbar button is the single entry point */
         '#wr-chat-btn{display:none!important;}' +
         '#wr-header-chat{display:none!important;}' +
-        /* Hide the search-bar "AI" button (same chat action, creates duplicate entry point) */
-        '#topbar #gs-wrap button{display:none!important;}' +
         /* Topbar Ask AI button style — shown in blue topbar on all pages */
         '#wr-topbar-chat{display:flex!important;align-items:center!important;gap:5px!important;background:rgba(255,255,255,0.12)!important;border:1px solid rgba(255,255,255,0.28)!important;border-radius:4px!important;color:#fff!important;font-family:Barlow Condensed,Arial Narrow,Arial,sans-serif!important;font-size:0.85rem!important;font-weight:700!important;letter-spacing:0.07em!important;padding:3px 12px!important;cursor:pointer!important;white-space:nowrap!important;transition:background .15s,border-color .15s!important;}' +
         '#wr-topbar-chat:hover{background:rgba(255,255,255,0.22)!important;border-color:rgba(255,255,255,0.5)!important;}' +
@@ -1048,8 +1057,6 @@ TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Ma
 
     function run() {
       injectPanelHTML();
-      injectTopbarBtn();
-      injectHeaderBtn();
       injectFloatingBtn();
     }
 
