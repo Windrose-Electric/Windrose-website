@@ -1,0 +1,536 @@
+<title>TopCo Governance — Art. 13 Board Approval</title>
+<meta name="description" content="Single governance requirement for TopCo (Windrose Holdings Limited) to effect the WTI NYSE listing under the v0.13 Business Combination Agreement structure.">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:    #F0F1F6;
+    --ink:      #181D29;
+    --navy:     #1A3D7C;
+    --green:    #1A6B3C;
+    --green-bg: #E6F4EC;
+    --muted:    #8593A8;
+    --rule:     #CDD1DD;
+    --callout:  #E4EBF7;
+    --callout-border: #1A3D7C;
+    --strike-bg: #F7EBE4;
+    --strike-border: #C05030;
+    --serif: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 13.5px;
+    line-height: 1.67;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 28px 56px;
+  }
+
+  /* ─── Top rule ─────────────────────────────────────────────── */
+  .topbar {
+    height: 4px;
+    background: var(--navy);
+    margin: 0 -28px 36px;
+  }
+
+  /* ─── Masthead ──────────────────────────────────────────────── */
+  .masthead {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .masthead h1 {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: .01em;
+    color: var(--ink);
+    text-wrap: balance;
+    margin-bottom: 6px;
+  }
+
+  .masthead .sub {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .03em;
+  }
+
+  .masthead .sub span {
+    margin: 0 8px;
+    opacity: .5;
+  }
+
+  /* ─── Lead summary box ──────────────────────────────────────── */
+  .summary-box {
+    background: var(--green-bg);
+    border-left: 3px solid var(--green);
+    border-radius: 2px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.6;
+    color: #1A3D28;
+  }
+
+  .summary-box strong {
+    font-weight: 700;
+  }
+
+  .summary-box .summary-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+
+  /* ─── Section heading ───────────────────────────────────────── */
+  .section {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-num {
+    flex: 0 0 28px;
+    height: 28px;
+    background: var(--navy);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    margin-top: 2px;
+  }
+
+  .section-num.single {
+    background: var(--green);
+  }
+
+  .section-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .section-title {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .section-body p {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .section-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .art {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    color: var(--muted);
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1px 5px;
+    white-space: nowrap;
+    margin-left: 5px;
+  }
+
+  .badge {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: #fff;
+    text-transform: uppercase;
+    background: var(--navy);
+    border-radius: 2px;
+    padding: 2px 6px;
+    margin-left: 5px;
+  }
+
+  .badge.green {
+    background: var(--green);
+  }
+
+  /* ─── Callout ───────────────────────────────────────────────── */
+  .callout {
+    background: var(--callout);
+    border-left: 3px solid var(--callout-border);
+    padding: 12px 14px;
+    margin: 12px 0;
+    border-radius: 2px;
+    font-size: 12.5px;
+    font-family: var(--sans);
+    line-height: 1.55;
+    color: #1A2D50;
+  }
+
+  .callout p { margin-bottom: 0; font-size: 12.5px; font-family: var(--sans); }
+
+  /* ─── Struck-out / removed items ───────────────────────────── */
+  .removed-section {
+    background: var(--strike-bg);
+    border-left: 3px solid var(--strike-border);
+    border-radius: 2px;
+    padding: 14px 16px;
+    margin-bottom: 30px;
+  }
+
+  .removed-section .removed-title {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #C05030;
+    margin-bottom: 8px;
+  }
+
+  .removed-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.8;
+    color: #6B3020;
+  }
+
+  .removed-list li::before {
+    content: "✕ ";
+    color: #C05030;
+    font-weight: 700;
+    margin-right: 2px;
+  }
+
+  /* ─── Requirement list ──────────────────────────────────────── */
+  .req-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .req-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .req-list .li-num {
+    flex: 0 0 20px;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ─── Timeline table ────────────────────────────────────────── */
+  .timeline {
+    margin: 12px 0 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    font-family: var(--sans);
+    font-size: 12px;
+  }
+
+  .tl-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tl-row:last-child { border-bottom: none; }
+
+  .tl-when {
+    flex: 0 0 108px;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--navy);
+    background: var(--callout);
+    border-right: 1px solid var(--rule);
+  }
+
+  .tl-what {
+    padding: 8px 12px;
+    color: var(--ink);
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  /* ─── Comparison table ──────────────────────────────────────── */
+  .compare-wrap { overflow-x: auto; margin: 12px 0; }
+
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 12px;
+  }
+
+  table.compare th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    text-align: left;
+  }
+
+  table.compare td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  table.compare tr:last-child td { border-bottom: none; }
+
+  table.compare tr:nth-child(even) td { background: rgba(26,61,124,.04); }
+
+  .yes { color: var(--green); font-weight: 700; }
+  .no  { color: #C05030; font-weight: 700; }
+
+  /* ─── Footer ────────────────────────────────────────────────── */
+  .footer {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+</style>
+
+<div class="topbar"></div>
+
+<div class="masthead">
+  <div class="eyebrow">Business Combination Agreement · v0.13</div>
+  <h1>TopCo Governance Requirement — Article 13 Board Approval</h1>
+  <div class="sub">
+    Windrose Holdings Limited (BE 1017.756.464)
+    <span>·</span>
+    HCIC VIII Acquisition Corp.
+    <span>·</span>
+    Draft · Not for circulation · 29 June 2026
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">v0.13 Structure — One Requirement, No Dissolution, Founder Holds Class A Directly, NYSE</div>
+  <strong>TopCo (Windrose Holdings Limited, Belgian NV) stays alive.</strong> Following the NYSE listing, TopCo holds Company Class B Common Stock (1 vote/share) and remains the largest economic shareholder of WTI. <strong>Wen Han (Founder) holds Company Class A Common Stock (20 votes/share) directly as an individual</strong> — the super-voting founder class. The only governance action required under the statuten is a single board resolution under <strong>Article 13</strong>, which must now also cover the Founder Share Issuance and TopCo's share reclassification. No EGM, no Investor Consent, no dissolution, no Deemed Liquidation Event.
+</div>
+
+<!-- ═══ SECTION 1: The one requirement ══════════════════════════ -->
+<div class="section">
+  <div class="section-num single">1</div>
+  <div class="section-body">
+    <div class="section-title">
+      Board Approval — Majority Preferred Directors
+      <span class="art">Art. 13 statuten</span>
+      <span class="badge green">Only Required Step</span>
+    </div>
+    <p>Article 13 of the statuten requires that the <strong>board of directors of TopCo — including the Majority Preferred Directors</strong> appointed by holders of more than 60% of Preferred Share voting power — affirmatively approve the following matters before the Company lists on the NYSE:</p>
+    <ol class="req-list">
+      <li><span class="li-num">i</span><span>The <strong>listing of the Company (WTI) on the New York Stock Exchange (NYSE)</strong>, including the dual-class share structure (Company Class A Common Stock, 20 votes/share, held by Wen Han as Founder; Company Class B Common Stock, 1 vote/share, held by TopCo and issued to HCIC shareholders)</span></li>
+      <li><span class="li-num">ii</span><span>The <strong>valuation of the Company</strong> implied by the BCA — being the Pre-Money Equity Value ($10.00 per share × ~138,565,537 aggregate Company shares ≈ $1.385 billion)</span></li>
+      <li><span class="li-num">iii</span><span>The <strong>timing of the Company's NYSE listing</strong> and the consummation of the Transactions</span></li>
+      <li><span class="li-num">iv</span><span>The <strong>Founder Share Issuance</strong> — the direct issuance of [●] shares of Company Class A Common Stock to Wen Han personally — and the <strong>reclassification of TopCo's existing WTI shares as Company Class B Common Stock</strong> (1 vote/share), including the resulting change in TopCo's voting position from Class A (20 votes/share) to Class B (1 vote/share)</span></li>
+    </ol>
+    <p>Item (iv) is from v0.12, simplified in v0.13. The TopCo board (including Majority Preferred Directors) must approve the Founder Share Issuance — the direct grant of WTI Class A shares to Wen Han. The Charter Amendment itself automatically reclassifies all outstanding WTI common stock (including TopCo's shares) as Class B on a one-for-one basis; no separate TopCo consent to the reclassification is required. TopCo's preferred shareholders should note that their indirect WTI exposure shifts from Class A economic terms to Class B economic terms as a consequence of the universal reclassification.</p>
+    <p>The approval is documented as a certified copy of the relevant board resolution(s) of TopCo (the <strong>"TopCo Approval"</strong>) and must be delivered to HCIC in form and substance reasonably acceptable to HCIC, no later than <strong>30 days before the anticipated Closing Date</strong> and, in any event, prior to the filing of the Registration Statement on Form S-4 with the SEC.</p>
+    <div class="callout">
+      <p><strong>Majority Preferred Directors.</strong> Under the statuten, the Majority Preferred Holders (holders of more than 60% of the combined voting power of all Preferred Shares — Series A-1, A-2, B-1, B-2, and C-1) are entitled to appoint a specified number of directors to the TopCo board. Their affirmative vote on the board is required by Article 13 for the listing approval — including item (iv) above. Identifying the current Majority Preferred Directors and confirming the approval process with Belgian counsel is the critical-path action item, particularly for item (iv) given its impact on TopCo's WTI voting rights.</p>
+    </div>
+    <p>TopCo is a party to the BCA for purposes of Section 4.13 (TopCo Board Approval) and Section 5.02(h). Wen Han is a party to the BCA for purposes of the Founder Share Issuance (Section 2.01(b), Section 4.12(a)) and will sign a Founder Share Subscription Agreement (Exhibit [●]).</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: What is NOT required ═══════════════════════ -->
+<div class="section">
+  <div class="section-num">2</div>
+  <div class="section-body">
+    <div class="section-title">Actions Not Required in v0.13</div>
+    <p>Because TopCo remains alive and does not dissolve — and because the Founder Share Issuance is a new issuance by WTI (not a transfer of TopCo's assets) — the following actions are <em>not</em> required:</p>
+
+    <div class="removed-section">
+      <div class="removed-title">Removed — No Longer Required</div>
+      <ul class="removed-list">
+        <li>Investor Consent from Majority Preferred Holders (Art. 27) — no TopCo dissolution is occurring</li>
+        <li>Waiver of "Deemed Liquidation Event" treatment (Art. 34) — the Transactions do not constitute a liquidation event; TopCo preferred shareholders retain all rights under the statuten</li>
+        <li>Waiver of liquidation preference waterfall — no liquidation; preferred shareholders keep their preferences in TopCo</li>
+        <li>Preferred Share Conversion (Art. 10(iii)) — TopCo preferred shares are not being converted; they remain in TopCo</li>
+        <li>Extraordinary General Meeting (EGM) — dissolution vote not required (Arts. 24, 27, 36)</li>
+        <li>Liquidator appointment and in-kind distribution authorisation (Art. 33)</li>
+        <li>Belgian Official Gazette publication and creditor protection period</li>
+        <li>KBO / BCE deregistration — TopCo does not cease to exist</li>
+        <li>Exhibit F (Form of TopCo Investor Consent) — removed from Transaction Documents</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <p><strong>No Deemed Liquidation Event — reclassification is not a transfer.</strong> Article 34 is not triggered. The Founder Share Issuance is a new share issuance by WTI — TopCo does not transfer or surrender any of its WTI shares. The reclassification of TopCo's WTI shares from common stock to Company Class B Common Stock is a change in voting class only; TopCo's economic value and WTI share count are unchanged. No assets leave TopCo; preferred shareholders retain all liquidation preferences, anti-dilution rights, and consent rights. Belgian counsel must confirm this analysis prior to the TopCo board meeting.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: Drag-along ════════════════════════════════ -->
+<div class="section">
+  <div class="section-num">3</div>
+  <div class="section-body">
+    <div class="section-title">
+      Drag-Along Rights — Automatic Termination
+      <span class="art">Art. 11 statuten</span>
+    </div>
+    <p>Article 11 of the statuten provides that the drag-along rights set out therein <strong>terminate automatically upon the completion of a Qualifying IPO</strong> — defined as an initial public offering of any Group Company on a recognised securities exchange. The WTI NYSE listing is such a Qualifying IPO.</p>
+    <p>The consequences are:</p>
+    <ol class="req-list">
+      <li><span class="li-num">a</span><span><strong>Drag-along rights cannot be exercised</strong> by Wen Han (as the founding Class A shareholder of TopCo) to compel preferred shareholders to participate in the Transactions. This mechanism is therefore not available as a tool to ensure participation.</span></li>
+      <li><span class="li-num">b</span><span><strong>Drag-along rights terminate at Closing</strong> (the Effective Time). After the WTI NYSE listing is complete, no shareholder of TopCo can use the drag-along mechanism to compel other shareholders to sell or transfer their TopCo shares.</span></li>
+      <li><span class="li-num">c</span><span><strong>No drag-along is needed in v0.13.</strong> Because TopCo is not dissolving and its shareholders are not receiving WTI shares in exchange for their TopCo shares, there is no "drag-along scenario" to navigate. Preferred shareholders remain shareholders of TopCo; they do not need to consent to any transfer of their own shares.</span></li>
+    </ol>
+    <div class="callout">
+      <p><strong>Wen Han's voting position.</strong> As the sole holder of Class A shares (3 votes each), Wen Han controls approximately 41.9% of TopCo's total voting power on a fully diluted basis. This is below the 50% threshold required to exercise drag-along rights under Article 11, which is an additional reason why the drag-along is not available as a mechanism to compel preferred holders — even if it had not terminated upon the Qualifying IPO.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: Post-Closing structure ════════════════════ -->
+<div class="section">
+  <div class="section-num">4</div>
+  <div class="section-body">
+    <div class="section-title">Post-Closing Ownership Structure</div>
+    <p>Following the Effective Time, the corporate structure is:</p>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Status</th>
+            <th>Holds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Wen Han (Founder)</strong><br>Individual</td>
+            <td class="yes">Sole Class A holder · Voting controller</td>
+            <td>[●] shares of Company Class A Common Stock (20 votes/share). Wen Han controls WTI voting directly as an individual. Economic stake = [●]% of total WTI shares (to be determined by Founder Share count).</td>
+          </tr>
+          <tr>
+            <td><strong>TopCo</strong><br>Windrose Holdings Ltd.<br>(Belgian NV, BE 1017.756.464)</td>
+            <td class="yes">Alive · Largest economic holder</td>
+            <td>138,565,537 shares of Company Class B Common Stock (1 vote/share, reclassified from existing WTI stock). Economic majority of WTI; no super-voting after reclassification.</td>
+          </tr>
+          <tr>
+            <td><strong>WTI / Company</strong><br>Windrose Technology Inc.<br>(Delaware)</td>
+            <td class="yes">Listed on NYSE (PubCo)</td>
+            <td>100% of HCIC (Cayman) via Merger Sub A. HCIC trust proceeds released to Company.</td>
+          </tr>
+          <tr>
+            <td><strong>HCIC shareholders</strong><br>(public + sponsor)</td>
+            <td>Receive Company Class B<br>Common Stock (1 vote/share)</td>
+            <td>~35,072,929 shares of Company Class B Common Stock. Public minority shareholders of WTI.</td>
+          </tr>
+          <tr>
+            <td><strong>TopCo preferred shareholders</strong><br>(Series A-1, A-2, B-1, B-2, C-1)</td>
+            <td class="yes">Remain in TopCo</td>
+            <td>Retain preferred shares in TopCo, including all liquidation preferences, anti-dilution rights, and consent rights. Indirect WTI economic exposure via TopCo's Class B holding.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:10px;">The key change in v0.13: Wen Han controls WTI directly (via Class A, 20 votes/share), while TopCo holds economic exposure to WTI (via Class B, 1 vote/share). TopCo's preferred shareholders retain all their TopCo rights and have indirect WTI economic interest through TopCo's Class B holding — but they no longer influence WTI governance through TopCo's voting position, which has been reclassified from Class A to Class B.</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: Timeline ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-num">5</div>
+  <div class="section-body">
+    <div class="section-title">Estimated Sequence &amp; Timeline — TopCo Steps</div>
+    <p>The TopCo Approval must be obtained and delivered to HCIC at least <strong>30 days before the anticipated Closing Date</strong>, and prior to filing the Form S-4 Registration Statement with the SEC. The estimated sequence:</p>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-when">Day 0</div>
+        <div class="tl-what">BCA execution · TopCo joins as party to BCA (Section 4.13) · Identify Majority Preferred Directors · Engage Belgian counsel</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Days 1–30</div>
+        <div class="tl-what">Belgian counsel confirms Art. 13 process · Board meeting convened · Majority Preferred Directors briefed on listing valuation and timing</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Board resolution date</div>
+        <div class="tl-what">Board approves (i) WTI NYSE listing, (ii) ~$1.385B pre-money valuation, (iii) transaction timing, AND (iv) Founder Share Issuance + reclassification of TopCo's WTI shares as Class B · Certified copy prepared</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">TopCo Approval delivery</div>
+        <div class="tl-what">Certified board resolution(s) delivered to HCIC · Form and substance confirmed reasonably acceptable to HCIC · BCA closing condition (§ 5.02(h)) satisfied</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">S-4 filing</div>
+        <div class="tl-what">Registration Statement filed with SEC · TopCo Approval pre-condition confirmed</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Total</div>
+        <div class="tl-what"><strong>Estimated 2–4 weeks</strong> from BCA execution to TopCo Approval delivery. Compare with 3–6 months for the v0.10 Pre-Closing Restructuring.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>Windrose Holdings Limited (BE 1017.756.464) · BCA v0.13</span>
+  <span>Draft · Not for circulation · 29 June 2026</span>
+</footer>

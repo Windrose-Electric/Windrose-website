@@ -18,6 +18,8 @@
 /roadmap    /technology    301
 /roadmap.html    /technology.html    301
 
+/legal/*    /404    404
+
 /commercialization    /pricing    301
 /commercialization.html    /pricing.html    301
 

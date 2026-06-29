@@ -1,0 +1,2769 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOCUMENT OVERVIEW — BCA DRAFT v0.12
+Estimated Total Length: approximately 38–44 pages
+(Standard legal formatting; Google Docs at 11pt, 1-inch margins)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SECTION                                              EST. PAGES
+  ─────────────────────────────────────────────────────────────
+  Cover Page, Table of Contents, Recitals                  2–3
+  Transaction Structure Diagram                              1
+  Article I   — Definitions                                4–5
+  Article II  — The Transaction (§§ 2.01–2.09)             3–4
+  Article III — Representations & Warranties (§§ 3.01–3.02)4–5
+  Article IV  — Covenants (§§ 4.01–4.11)                  4–5
+  Article V   — Conditions to Closing (§§ 5.01–5.03)      2–3
+  Article VI  — Termination (§§ 6.01–6.02)                1–2
+  Article VII — General Provisions (§§ 7.01–7.12)          2–3
+  Signature Page                                             1
+  Exhibits A–E (placeholder text)                          2–3
+  Schedule 2.02 (Exchange Ratio + Cap Table by PubCo Class) 4–5
+  All Other Schedules (2.06(c/d), 3.01(b), 3.02(d),
+    4.01, 7.08)                                            2–3
+  Schedule 4.04(b) — Preferred Shareholder Consent Rights    1
+  Open Items Section                                         1
+  ─────────────────────────────────────────────────────────────
+  TOTAL (estimated)                                       34–40
+
+  v0.5 CHANGES FROM v0.4:
+  Minimum Cash Condition removed. The Share Exchange will
+  consummate regardless of the level of HCIC Shareholder
+  Redemptions, subject only to the remaining conditions in
+  Article V. The defined terms "Minimum Cash Condition" and
+  "Available Closing SPAC Cash" have been deleted accordingly.
+
+  v0.6 CHANGES FROM v0.5:
+  Schedule 3.02(d) updated with confirmed HCIC capitalization data
+  from Form S-1/A (FY 2026) filed with the SEC:
+  — Sponsor entity confirmed as HC VIII Sponsor LLC (Nevada LLC)
+  — Sponsor Class B shares: 8,910,429 (up to 1,137,857 subject to
+    forfeiture per overallotment terms)
+  — Rights count confirmed: 24,150,000 → 2,012,500 PubCo Class B
+  — Pro-forma HCIC share table added (No Redemption / Full Redemption)
+  All other terms remain as in v0.5.
+  Remaining placeholders marked [●] will expand on completion.
+
+  v0.7 CHANGES FROM v0.6:
+  Pre-Money Equity Value methodology confirmed: Pre-Money = $10.00
+  (Reference Price) × Total TopCo Fully Diluted Shares, yielding an
+  Exchange Ratio of exactly 1.0000 (one TopCo share → one PubCo share).
+  — "Pre-Money Equity Value" definition in Article I updated
+  — Schedule 2.02 Exchange Ratio section updated; illustrative range
+    $1.75B–$2.25B replaced by single-formula derivation
+  — At current confirmed issued share count of 138,565,537 (excluding
+    ESOP): Pre-Money = $1,385,655,370. Final amount determined at
+    Signing upon ESOP pool confirmation; Exchange Ratio remains 1.0000
+    regardless of ESOP size.
+  — Open Items updated to reflect methodology agreed.
+
+  v0.8 CHANGES FROM v0.7 — MAJOR STRUCTURAL REVISION:
+  Transaction structure changed from "TopCo Share Exchange with
+  HCIC" to a "Double Merger / New Cayman HoldCo" structure:
+  — Party change: "Company" is now Windrose Technology Inc (a US/
+    Delaware corporation), not Windrose Holdings Limited (Belgian NV).
+  — Pre-Closing Restructuring: Windrose Holdings Limited (Belgian NV)
+    dissolves/winds up prior to Closing; TopCo shareholders receive
+    Windrose Technology Inc shares at 1:1 proportion. Governed by
+    Belgian WVV and Delaware law; forms a covenant in Article IV and
+    a closing condition in Article V.
+  — Transaction mechanism: "Share Exchange" replaced by two simultaneous
+    mergers at Closing:
+    • HCIC Merger: Merger Sub A (new Cayman subsidiary of PubCo) merges
+      with and into HCIC (Cayman); HCIC survives as PubCo subsidiary;
+      HCIC shareholders receive PubCo shares. Governed by Cayman Act.
+    • Company Merger: Merger Sub B (new Delaware subsidiary of PubCo)
+      merges with and into the Company (Delaware); Company survives as
+      PubCo subsidiary; Company shareholders receive PubCo shares.
+      Governed by DGCL.
+  — PubCo: now a brand-new Cayman Islands exempted company ("[Windrose
+    Inc.]") to be incorporated prior to Closing; NOT a renamed HCIC.
+    PubCo forms Merger Sub A (Cayman) and Merger Sub B (Delaware) for
+    the respective mergers.
+  — Exchange Ratio remains 1.0000 (one Company share → one PubCo share)
+    as established in v0.7. Pre-Money Equity Value methodology unchanged.
+  — Definitions updated: Added "Company Merger", "HCIC Merger",
+    "Merger Sub A", "Merger Sub B", "Pre-Closing Restructuring",
+    "DGCL". Updated "Company", "PubCo", "Transactions". Removed
+    "Share Exchange" and "Belgian Companies Code" (no longer Company
+    governing law).
+  — Cap table (Schedule 2.02) shareholder identities and share counts
+    unchanged; now references Windrose Technology Inc shares post-
+    restructuring rather than TopCo shares.
+  — Schedule 4.04(b) preferred shareholder consent rights: now to be
+    embedded in Windrose Technology Inc Delaware charter (as "protective
+    provisions" in the certificate of incorporation) rather than TopCo
+    Belgian statuten; Article references updated accordingly.
+  — Registration Statement form: remains F-4 (PubCo is a new Cayman
+    foreign private issuer).
+  — Business Day definition: Brussels removed (Company is now Delaware).
+
+  v0.12 CHANGES FROM v0.11:
+  Founder super-voting share structure: Wen Han holds Company Class A Common
+  Stock (20 votes/share) DIRECTLY as an individual, not through TopCo.
+  — TopCo's existing WTI shares are RECLASSIFIED as Company Class B Common
+    Stock (1 vote/share) via the Charter Amendment. TopCo retains its full
+    economic stake in WTI (100% of pre-HCIC-Merger WTI shares, as Class B).
+    No Deemed Liquidation Event under Art. 34 of the statuten: TopCo's assets
+    are not transferred; only their voting class changes.
+  — Wen Han (Founder) is issued [●] shares of Company Class A Common Stock
+    directly (the "Founder Share Issuance") at a subscription price of $[●]/share
+    as part of the Charter Amendment step (Section 2.01(b), Section 4.12(a)).
+  — Wen Han added as party (4) for purposes of the Founder Share Issuance.
+  — Section 4.13(a): TopCo board approval now explicitly covers (iv) the
+    Founder Share Issuance and reclassification of TopCo's shares as Class B.
+  — Section 5.02(h): Closing condition updated to include (iv) Founder Share
+    Issuance and reclassification.
+  — Definitions updated: Company Class A (holder: Wen Han, not TopCo),
+    Company Class B (covers TopCo post-reclassification + HCIC shareholders),
+    Founder Shareholders (Wen Han, not TopCo), Transactions (add step (ii)).
+  — Open items added: Founder Share count, subscription price, Exhibit [●].
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+v0.11 CHANGES FROM v0.10 — MAJOR STRUCTURAL REVISION:
+  Transaction structure changed from "Double Merger / New Cayman HoldCo"
+  to "Single HCIC Merger / WTI as PubCo":
+  — PubCo is Windrose Technology Inc. (WTI, Delaware), the existing
+    wholly-owned subsidiary of TopCo. No new Cayman entity is formed.
+  — TopCo (Windrose Holdings Limited, Belgian NV) stays alive as the
+    controlling parent shareholder of WTI. No Pre-Closing Restructuring;
+    TopCo does not dissolve.
+  — Single merger at Closing: Merger Sub A (Cayman sub of WTI) merges
+    with and into HCIC; HCIC becomes a wholly-owned Cayman subsidiary of
+    WTI; HCIC shareholders receive Company Class B Common Stock.
+  — No Company Merger, Merger Sub B, Company Preferred Share Conversion,
+    or Pre-Closing Restructuring. TopCo's WTI shares are reclassified as
+    Company Class A Common Stock (20 votes/share) via Charter Amendment.
+  — TopCo added as party (3); covenant to obtain Art 13 board approval
+    for WTI Nasdaq listing ("TopCo Approval") per Section 4.13.
+  — Registration Statement: Form S-4 (WTI is domestic Delaware issuer).
+  — Share terminology: "PubCo Class A/B Ordinary Shares" (Cayman) →
+    "Company Class A/B Common Stock" (Delaware) throughout.
+  — Section 4.12: WTI Charter Amendment + Merger Sub A only.
+  — Section 4.13: PCR → TopCo Board Approval covenant.
+  — Defs removed: Company Merger, Company Merger Effective Time, Merger
+    Sub B, Pre-Closing Restructuring, Investor Consent, Preferred Share
+    Conversion. Def added: TopCo Approval.
+  — Closing conditions: (f) Charter Amendment, (g) Merger Sub A,
+    (h) TopCo Approval (replaced PCR / Investor Consent conditions).
+  — Exhibit A: A&R Certificate of Incorporation (Delaware). Exhibit F removed.
+
+  v0.10 CHANGES FROM v0.9:
+  Defined term rename: "WHL Belgian" → "TopCo" throughout. The entity
+  Windrose Holdings Limited (Belgian NV, BE 1017.756.464) is now
+  consistently referred to as "TopCo" in all defined terms, section
+  headings, definitions, recitals, covenants, conditions, exhibits,
+  schedules, and open items. No substantive changes.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  v0.9 CHANGES FROM v0.8 — PRE-CLOSING RESTRUCTURING ENHANCED:
+  TopCo articles of association (statuten) reviewed (June 2026).
+  Section 4.13 substantially expanded to incorporate AOA requirements:
+  — Investor Consent (new): required from Majority Preferred Holders
+    (>60% of Preferred Shares, Art 27 of statuten) BEFORE any EGM.
+    Covers: dissolution consent (Art 27(iv)); Deemed Liquidation waiver
+    (Art 34); liquidation preference waterfall waiver (Art 34); Preferred
+    Share Conversion consent (Art 10(iii)); Nasdaq listing approval (Art
+    13); 20-day notice waiver (Art 34); charter amendment consent (Art
+    27(x)).
+  — Preferred Share Conversion (new Section 4.13(b)): all TopCo Preferred
+    Shares (Series A-1, A-2, B-1, B-2, C-1) convert to Class C Ordinary
+    Shares 1:1 immediately prior to dissolution. Terminates all Preferred
+    protective provisions under the statuten.
+  — Share mapping for WTI: TopCo Class A Ordinary → WTI Class A Common
+    (→ PubCo Class A); TopCo Class B and Class C Ordinary (including
+    post-conversion former Preferred holders) → WTI Class B Common
+    (→ PubCo Class B).
+  — EGM vote threshold confirmed: >2/3 of all shares (fully diluted,
+    as-converted), single class (Art 27, Art 36 of statuten). Dual-class
+    quorum: >50% Ordinary AND >50% Preferred (now Class C).
+  — Section 5.01(h) (new closing condition): delivery of executed
+    Investor Consent to HCIC.
+  — Exhibit F (new): Form of TopCo Investor Consent.
+  — Definitions added: "Investor Consent", "Majority Preferred Holders
+    (TopCo)", "Preferred Share Conversion".
+  — Open Items updated: Pre-Closing Restructuring mechanics confirmed
+    [✓]; TopCo preferred consent rights confirmed [✓]; new items
+    added for Investor Consent solicitation and liquidation preference
+    quantification.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BUSINESS COMBINATION AGREEMENT
+
+
+  
+
+
+(Agreement and Plan of Reorganization)
+
+
+  
+
+
+Dated as of [●], 2026
+
+
+  
+
+
+among
+
+
+  
+
+
+HENNESSY CAPITAL INVESTMENT CORP. VIII,
+
+
+a Cayman Islands exempted company ("HCIC")
+
+
+  
+
+
+— and —
+
+
+  
+
+
+WINDROSE TECHNOLOGY INC.,
+
+
+a Delaware corporation (the "Company")
+  [Note: Windrose Holdings Limited (Belgian NV, "TopCo") is the
+  controlling parent of the Company and is a party to this Agreement.
+  TopCo shall not dissolve prior to Closing; it remains the majority
+  shareholder of the Company following the Effective Time. The Company
+  (Windrose Technology Inc., Delaware) is the Nasdaq-listed entity
+  following the Effective Time (also referred to herein as "PubCo").]
+
+
+  
+
+
+STRICTLY CONFIDENTIAL — DRAFT FOR DISCUSSION PURPOSES ONLY
+
+
+NOT FOR DISTRIBUTION
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+TABLE OF CONTENTS
+
+
+  
+
+
+ARTICLE I    DEFINITIONS
+
+
+ARTICLE II   THE TRANSACTION
+
+
+ARTICLE III  REPRESENTATIONS AND WARRANTIES
+
+
+ARTICLE IV   COVENANTS
+
+
+ARTICLE V    CONDITIONS TO CLOSING
+
+
+ARTICLE VI   TERMINATION
+
+
+ARTICLE VII  GENERAL PROVISIONS
+
+
+  
+
+
+EXHIBIT A    Amended and Restated Amended and Restated Certificate of Incorporation of the Company
+             (Dual-Class: Class A Ordinary Shares / Class B Ordinary Shares)
+
+
+EXHIBIT B    Sponsor Support and Forfeiture Agreement
+
+
+EXHIBIT C    Form of Lock-Up Agreement
+
+
+EXHIBIT D    PubCo Equity Incentive Plan (Class B Ordinary Shares)
+
+
+EXHIBIT E    Company Disclosure Schedules
+
+
+EXHIBIT F    Form of TopCo Investor Consent
+             (Written Consent of Majority Preferred Holders (TopCo) to
+             Pre-Closing Restructuring, Preferred Share Conversion, and Waivers)
+
+
+  
+
+
+
+════════════════════════════════════════════════════════════════
+
+
+TRANSACTION STRUCTURE — DOUBLE MERGER / NEW CAYMAN HOLDCO (v0.8)
+
+
+════════════════════════════════════════════════════════════════
+
+  STEP 1 — PRE-CLOSING RESTRUCTURING (before Closing; Belgian law)
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  Windrose Holdings Limited       Belgian WVV liquidation:       Each TopCo shareholder
+  (Belgian NV, BE 1017.756.464)   TopCo winds up and dissolves.    receives 1 share of
+  — All TopCo shareholders          Each TopCo shareholder           Windrose Technology
+    (Wen Han, Xenial, Greentech,  receives 1:1 corresponding --> Inc. (Delaware)
+    Planetree, GSR, others)       share of Windrose              of same class/series.
+                                  Technology Inc. (Delaware).    TopCo ceases to exist.
+
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  STEP 2 — PUBCO FORMATION (before Closing; Cayman Islands)
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  [Windrose Inc.] ("PubCo")       New Cayman Islands exempted    PubCo: two share
+  is incorporated by HCIC         company incorporated as        classes only:
+  and the Company.            --> public listing vehicle.        Class A (20 votes)
+  PubCo forms Merger Sub A        Merger Sub A: wholly-owned     Class B (1 vote).
+  (Cayman) and Merger Sub B       Cayman sub of PubCo.           No preferred.
+  (Delaware).                     Merger Sub B: wholly-owned
+                                  Delaware sub of PubCo.
+
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  STEP 3a — HCIC MERGER (at Effective Time; Cayman Act)
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  HCIC CLASS A PUBLIC             Merger Sub A merges INTO       PubCo CLASS B
+  SHAREHOLDERS                    HCIC. HCIC survives as     --> ORDINARY SHARES
+  (~24,150,000 pre-redemption)    wholly-owned Cayman sub of     (1 vote/share)
+  (non-redeeming)                 PubCo. 1:1 conversion.
+
+  HCIC CLASS A PUBLIC             Elect redemption before        Cash from Trust
+  SHAREHOLDERS (redeeming)        HCIC Shareholder Meeting.  --> Account (~$10/share)
+                                  Receive Trust proceeds.
+
+  HCIC SPONSOR                    HCIC Class B → 1:1 PubCo      PubCo CLASS B
+  HC VIII Sponsor LLC             Class B (subj. forfeiture  --> ORDINARY SHARES
+  8,910,429 shares                per Exhibit B).                (1 vote/share)
+
+  HCIC RIGHTS HOLDERS             Each Right → 1/12 PubCo       PubCo CLASS B
+  24,150,000 Rights               Class B Ordinary Share.    --> ORDINARY SHARES
+  → 2,012,500 PubCo Class B       (rounded down per holder)      (1 vote/share)
+
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  STEP 3b — COMPANY MERGER (at Effective Time; DGCL) [simultaneous with Step 3a]
+  ──────────────────────────────────────────────────────────────────────────────────
+
+  WINDROSE TECHNOLOGY INC.        Preferred → Class B Common     —
+  Company Preferred Shares        1:1 (automatically, imm.
+  (all series, 1:1 to common)     prior to Company Merger).
+
+  JUNE LAKE DRIVE LIMITED         Merger Sub B merges INTO       PubCo CLASS A
+  (Wen Han, CEO)                  Company. Company survives  --> ORDINARY SHARES
+  25,986,778 Class A Common       as wholly-owned Delaware        (20 votes/share)
+  (Founder Shareholder)           sub of PubCo. 1:1.
+
+  ALL OTHER COMPANY               Merger Sub B merges INTO       PubCo CLASS B
+  SHAREHOLDERS                    Company. 1:1 conversion.   --> ORDINARY SHARES
+  112,578,759 shares              (Preferred already converted    (1 vote/share)
+  (Class B/C Common +             to Class B Common above.)
+  all former Preferred)
+
+  PIPE INVESTORS                  Subscribe for cash;            PubCo CLASS B
+  (new money at Closing)          receive Class B at         --> ORDINARY SHARES
+                                  $10.00 per share.              (1 vote/share)
+
+  ESOP POOL ([●] shares)          Reserved post-Closing;         PubCo CLASS B
+                                  awards at Board discretion. --> (reserved, unissued)
+
+  ──────────────────────────────────────────────────────────────────────────────────
+
+                                  Exchange Ratio = 1.0000 (all steps above)
+
+
+  POST-CLOSING CORPORATE STRUCTURE:
+
+                              ┌─────────────────────────────────────────┐
+                              │             PUBCO (NASDAQ)              │
+                              │           [Windrose Inc.]               │
+                              │      Cayman Islands exempted company    │
+                              │                                         │
+                              │  Class A: 20 votes/share (Wen Han)      │
+                              │  Class B: 1 vote/share  (all others)    │
+                              │  No preferred shares                    │
+                              └───────────┬─────────────────┬───────────┘
+                                          │ 100%            │ 100%
+                              ┌───────────v──────────┐  ┌───v───────────────────────┐
+                              │ HCIC (Cayman sub)    │  │ Windrose Technology Inc.  │
+                              │ (renamed, dormant    │  │ (Delaware operating sub)  │
+                              │  holding entity)     │  │                           │
+                              └──────────────────────┘  └─────────────┬─────────────┘
+                                                                       │ 100% each
+                              ┌────────────────────────────────────────v─────────────┐
+                              │   Windrose Technology B.V. (NL)                      │
+                              │   Windrose HK Holdings                               │
+                              │   Windrose Technology Antwerp N.V. (BE)              │
+                              │   Windrose Australia Pty Ltd                         │
+                              │   Chinese operating entities                         │
+                              └──────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+BUSINESS COMBINATION AGREEMENT
+
+
+  
+
+
+This BUSINESS COMBINATION AGREEMENT (this "Agreement"), dated as of [●], 2026 (the "Signing Date"), is entered into by and among:
+
+
+  
+
+
+(1) HENNESSY CAPITAL INVESTMENT CORP. VIII, a Cayman Islands exempted company ("HCIC");
+
+
+
+
+
+(2) WINDROSE TECHNOLOGY INC., a Delaware corporation (the "Company"); and
+
+
+
+
+
+(3) WINDROSE HOLDINGS LIMITED (naamloze vennootschap), a Belgian public limited company (enterprise number BE 1017.756.464) ("TopCo"); and
+
+
+
+
+
+(4) WEN HAN, an individual residing at [●] ("Founder").
+  [Note: TopCo is the largest economic shareholder of the Company (holding Company Class B Common Stock
+  following the Charter Amendment) and is a party hereto for purposes of Section 4.13 (TopCo Board
+  Approval) and the related closing condition in Section 5.02(h). Wen Han (Founder) is a party hereto
+  for purposes of the Founder Share Issuance (Section 2.01(b) and Section 4.12(a)) and is the direct
+  holder of all Company Class A Common Stock (super-voting founder shares, 20 votes/share) following
+  the Charter Amendment.]
+
+
+  
+
+
+RECITALS
+
+
+  
+
+
+WHEREAS, HCIC is a blank check company incorporated as a Cayman Islands exempted company for the purpose of effecting a business combination, with approximately $241,500,000 held in trust following its initial public offering on Nasdaq (ticker: HCICU);
+
+
+  
+
+
+WHEREAS, the Company is a Delaware corporation engaged in the design, engineering, manufacturing, and distribution of battery-electric heavy-duty commercial vehicles, operating across multiple jurisdictions globally, and is a wholly-owned subsidiary of TopCo; following the Effective Time, the Company shall remain majority-controlled by TopCo and shall be listed on Nasdaq as the public operating company of the Windrose group;
+
+
+  
+
+
+[Pre-Closing Restructuring recital intentionally omitted in v0.11 — TopCo does not dissolve]
+
+
+  
+
+
+[New Cayman HoldCo recital intentionally omitted in v0.11 — WTI/Company is PubCo]
+
+
+  
+
+
+WHEREAS, prior to Closing, the Company shall adopt the Amended and Restated Certificate of Incorporation attached as Exhibit A (the "Charter Amendment"), which shall: (a) create Company Class A Common Stock (20 votes per share) and Company Class B Common Stock (1 vote per share); (b) reclassify all existing Company common stock held by TopCo as Company Class B Common Stock on a one-for-one basis; and (c) issue [●] shares of Company Class A Common Stock directly to the Founder (Wen Han) as the personal super-voting founder class (the "Founder Share Issuance"), with the result that following the Charter Amendment the Company shall have a dual-class share structure in which the Founder holds all Class A shares (20 votes per share) and TopCo holds all Class B shares (1 vote per share, reclassified from its existing Company common stock), and the Company shall thereafter serve as the Nasdaq-listed public company ("PubCo") following the Effective Time;
+
+WHEREAS, upon the terms and subject to the conditions of this Agreement and in accordance with the Cayman Islands Companies Act (As Revised) (the "Cayman Act"), the parties desire to effect a business combination transaction pursuant to which, at the Effective Time, Merger Sub A, a Cayman Islands exempted company and a wholly-owned subsidiary of the Company, shall merge with and into HCIC pursuant to the Cayman Act (the "HCIC Merger"), with HCIC surviving as a wholly-owned Cayman subsidiary of the Company, and each HCIC shareholder receiving Company Class B Common Stock as set forth herein, and the Company shall thereafter operate as a Nasdaq-listed public holding company with TopCo as its controlling shareholder;
+
+WHEREAS, TopCo shall remain the largest economic shareholder of the Company following the Effective Time (holding Company Class B Common Stock), and the board of directors of TopCo (including the Majority Preferred Directors, pursuant to Article 13 of the statuten) shall, prior to Closing, approve: (i) the listing of the Company on Nasdaq; (ii) the consummation of the Transactions; and (iii) the Founder Share Issuance and the reclassification of TopCo's existing Company common stock as Company Class B Common Stock (the "TopCo Approval"), as set forth in Section 4.13;
+
+
+  
+
+
+WHEREAS, the board of directors of HCIC has unanimously (i) determined that it is in the best interests of HCIC and its shareholders to enter into this Agreement and consummate the Transactions, and (ii) approved the execution, delivery, and performance of this Agreement;
+
+
+  
+
+
+WHEREAS, the board of directors of the Company has unanimously (i) determined that it is in the best interests of the Company and its shareholders to enter into this Agreement and consummate the Transactions, and (ii) approved the execution, delivery, and performance of this Agreement;
+
+WHEREAS, the board of directors of TopCo (including the affirmative vote of the Majority Preferred Directors as required by Article 13 of the statuten) has approved, or shall approve prior to Closing, (i) the listing of the Company on Nasdaq, (ii) the valuation of the Company implied by this Agreement, and (iii) the entry by TopCo into this Agreement and the consummation of the Transactions;
+
+
+  
+
+
+NOW, THEREFORE, in consideration of the foregoing and the mutual covenants, representations, warranties, and agreements contained herein, and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows:
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE I
+
+
+DEFINITIONS
+
+
+  
+
+
+Section 1.01  Definitions.
+
+
+  
+
+
+As used in this Agreement, the following terms have the meanings set forth below:
+
+
+  
+
+
+"Affiliate" means, with respect to any Person, any other Person that directly or indirectly controls, is controlled by, or is under common control with, such Person.
+
+
+  
+
+
+"Agreement" has the meaning set forth in the preamble.
+
+
+  
+
+
+"Alternative Transaction" means any merger, acquisition, business combination, recapitalization, share exchange, or similar transaction involving the Company or any of its material subsidiaries with any party other than HCIC.
+
+
+  
+
+
+"Belgian Companies Code" means the Belgian Code of Companies and Associations (Wetboek van vennootschappen en verenigingen / Code des sociétés et des associations), as amended from time to time. The Belgian Companies Code governs the internal affairs of TopCo. In v0.11, no TopCo dissolution or EGM is required; TopCo's only obligation in connection with the Transactions is to obtain the TopCo Approval from its board pursuant to Section 4.13.
+
+
+  
+
+
+"Business Day" means any day other than a Saturday, Sunday, or any day on which commercial banks are authorized or required to be closed in New York City, New York, Wilmington, Delaware, or the Cayman Islands.
+
+
+  
+
+
+"Cayman Act" means the Cayman Islands Companies Act (As Revised), as amended from time to time.
+
+
+  
+
+
+"Closing" has the meaning set forth in Section 2.08.
+
+
+  
+
+
+"Closing Date" has the meaning set forth in Section 2.08.
+
+
+  
+
+
+"Company" means Windrose Technology Inc., a Delaware corporation, as set forth in the preamble. The Company is a direct party to this Agreement as the entity that (i) adopts the Charter Amendment; (ii) forms Merger Sub A; (iii) is the parent entity following the HCIC Merger, with HCIC as its wholly-owned Cayman subsidiary; and (iv) is listed on Nasdaq as the public operating company following the Effective Time, with TopCo as its controlling shareholder. References to the Company's capitalization in Schedule 2.02 reflect its capitalization immediately following the HCIC Merger.
+
+
+  
+
+
+"Company MAC" means any event, circumstance, development, change, or effect that, individually or in the aggregate, has had or would reasonably be expected to have a material adverse effect on (i) the business, financial condition, assets, liabilities, or results of operations of the Company and its subsidiaries, taken as a whole, or (ii) the ability of the Company to consummate the Transactions; provided, however, that none of the following shall be taken into account in determining whether a Company MAC has occurred: (a) general economic, financial market, or geopolitical conditions; (b) conditions generally affecting the industries in which the Company operates; (c) changes in applicable law or IFRS after the date hereof; (d) the announcement or pendency of the Transactions; or (e) any matter disclosed in the Company Disclosure Schedules.
+
+
+  
+
+
+"Company Disclosure Schedules" means the disclosure schedules delivered by the Company to HCIC concurrently with the execution of this Agreement, attached hereto as Exhibit E.
+
+
+  
+
+
+"Company Common Stock" means the Company Class A Common Stock and Company Class B Common Stock of the Company, par value $0.0001 per share (or such other par value as set forth in the Charter Amendment). Company Class A Common Stock carries twenty (20) votes per share and, following the Charter Amendment and the Founder Share Issuance, is held exclusively by the Founder (Wen Han) and Permitted Class A Transferees. Company Class B Common Stock carries one (1) vote per share and is held by TopCo (as reclassified) and issued to HCIC shareholders at the Effective Time pursuant to the HCIC Merger.
+
+
+  
+
+
+"Company Preferred Shares" — in v0.12, the Company (WTI) has no preferred shares outstanding at any point in the Transactions. Preferred shares exist only at the TopCo level and remain in TopCo following the Effective Time. The Charter Amendment (Exhibit A) authorizes only Company Class A Common Stock (for the Founder) and Company Class B Common Stock (for TopCo and HCIC shareholders). TopCo's preferred shareholders retain all rights under the statuten following the Effective Time; the reclassification of TopCo's WTI shares from Company common stock to Company Class B Common Stock does not affect TopCo's internal capital structure or its preferred shareholders' rights.
+
+
+  
+
+
+"Company Shareholder Approval" has the meaning set forth in Section 4.04.
+
+
+  
+
+
+"Company Shareholder Meeting" has the meaning set forth in Section 4.04.
+
+
+  
+
+
+"Company Shares" means Company Ordinary Shares and Company Preferred Shares, collectively, in each case as outstanding immediately prior to the Effective Time.
+
+
+  
+
+
+"Company Shareholders" means the holders of Company Shares as of immediately prior to the Effective Time.
+
+
+  
+
+
+"Effective Time" has the meaning set forth in Section 2.08.
+
+
+  
+
+
+"Equity Incentive Plan" means the Company equity incentive plan in the form attached hereto as Exhibit D, under which awards are settled in shares of Company Class B Common Stock.
+
+
+  
+
+
+"Exchange Ratio" means the ratio determined in accordance with Section 2.02, applied uniformly to all Company Shares on a fully-diluted, as-converted-to-ordinary-share basis.
+
+"Company Merger" — this defined term has been removed in v0.11. There is no Company Merger; only the HCIC Merger occurs at Closing.
+
+
+  
+
+
+"DGCL" means the Delaware General Corporation Law, as amended from time to time.
+
+
+  
+
+
+"HCIC Merger" has the meaning set forth in the Recitals. The HCIC Merger is governed by the Cayman Act, with Merger Sub A merging with and into HCIC, HCIC surviving as a wholly-owned Cayman subsidiary of the Company.
+
+
+  
+
+
+"HCIC Merger Effective Time" means the date and time at which the Plan of Merger with respect to the HCIC Merger is registered by the Registrar of Companies in the Cayman Islands. References to "Effective Time" in this Agreement mean the HCIC Merger Effective Time.
+
+
+  
+
+
+"Merger Sub A" means a Cayman Islands exempted company to be incorporated as a wholly-owned subsidiary of the Company prior to Closing for the sole purpose of effecting the HCIC Merger.
+
+
+  
+
+
+"Merger Sub B" — this defined term has been removed in v0.11. There is no Merger Sub B; only Merger Sub A (Cayman) is used.
+
+
+  
+
+
+"Pre-Closing Restructuring" — this defined term has been removed in v0.11. TopCo shall not dissolve or be wound up; it shall remain alive as the controlling shareholder of the Company following the Effective Time.
+
+"Investor Consent" — this defined term has been removed in v0.11. The sole TopCo governance requirement is the TopCo Approval pursuant to Section 4.13.
+
+"TopCo Approval" means the written resolution of the board of directors of TopCo (including the affirmative vote of the Majority Preferred Directors as required by Article 13 of the statuten), confirming: (i) approval of the listing of the Company on Nasdaq; (ii) approval of the Pre-Money Equity Value implied by this Agreement; (iii) approval of the entry by TopCo into this Agreement and the consummation of the Transactions; and (iv) approval of the Founder Share Issuance and the reclassification of TopCo's existing Company common stock as Company Class B Common Stock, including the resulting change in TopCo's voting position from Company Class A Common Stock (20 votes per share) to Company Class B Common Stock (1 vote per share).
+
+"Majority Preferred Holders (TopCo)" means holders of more than sixty percent (60%) of the voting power of all issued and outstanding Preferred Shares of TopCo (being the Series A-1, A-2, B-1, B-2, and C-1 Preferred Shares of TopCo), voting together as a single class on a fully-diluted and as-converted basis, as defined in Article 36 of the statuten. As of the date hereof, the Majority Preferred Holders (TopCo) are believed to include [Xenial Investments Limited (Series A-2)], [Greentech Capital (Series A-1)], [GSR Ventures (Series B-1)], [Planetree Capital (Series B-2)], and [●] (Series C-1), among others; provided, however, that the exact holders and their respective percentage interests as of any applicable date shall be determined by reference to the then-current TopCo share register.
+
+"Preferred Share Conversion" — this defined term has been removed in v0.11. TopCo's Preferred Shares are not converted as part of the Transactions; they remain outstanding in TopCo following the Effective Time.
+
+
+
+
+  
+
+
+"Founder Shareholders" means Wen Han (the "Founder"), as the direct holder of all Company Class A Common Stock (20 votes per share) following the Charter Amendment and the Founder Share Issuance. The Founder is the sole Founder Shareholder following the Effective Time. TopCo is not a Founder Shareholder; TopCo holds Company Class B Common Stock (1 vote per share) following the Charter Amendment.
+
+
+  
+
+
+"HCIC" has the meaning set forth in the preamble.
+
+
+  
+
+
+"HCIC MAC" means any event, circumstance, development, change, or effect that has had or would reasonably be expected to materially impair the ability of HCIC to perform its obligations under this Agreement or to consummate the Transactions.
+
+
+  
+
+
+"Company Charter" means the Amended and Restated Amended and Restated Certificate of Incorporation of the Company in the form attached hereto as Exhibit A, to be adopted and effective upon Closing, establishing the dual-class share structure described in Section 2.06(a).
+
+
+  
+
+
+"HCIC Ordinary Shares" means the Class A and Class B ordinary shares of HCIC outstanding immediately prior to the Effective Time.
+
+
+  
+
+
+"HCIC Rights" means the rights of HCIC outstanding immediately prior to the Effective Time, each entitling the holder to receive 1/12th of one (1) share of Company Class B Common Stock upon the consummation of a Business Combination, in accordance with HCIC's existing memorandum and articles of association.
+
+
+  
+
+
+"HCIC Shareholder Approval" means the approval by the requisite majority of HCIC shareholders at the HCIC Shareholder Meeting of each of the proposals set forth in the Registration Statement, including approval of the Transactions, the Company Charter (including the dual-class share structure), the Equity Incentive Plan, and the Nasdaq Listing.
+
+
+  
+
+
+"HCIC Shareholder Meeting" has the meaning set forth in Section 4.03(c).
+
+
+  
+
+
+"HCIC Shareholder Redemptions" means the aggregate amount paid or payable by HCIC to holders of HCIC Class A Ordinary Shares who validly exercise their redemption rights in connection with the HCIC Shareholder Meeting.
+
+
+  
+
+
+"IFRS" means International Financial Reporting Standards as issued by the International Accounting Standards Board, as in effect from time to time.
+
+
+  
+
+
+"Lock-Up Agreement" means the form of lock-up agreement attached hereto as Exhibit C.
+
+
+  
+
+
+"Material Contract" means any contract or agreement to which the Company or any subsidiary is a party that (i) involves annual payments or consideration in excess of $1,000,000, (ii) is a joint venture, partnership, or similar agreement, (iii) contains a non-competition, exclusivity, or similar restrictive covenant material to the Company's business, (iv) is a license of material intellectual property, or (v) is otherwise material to the Company's business.
+
+
+  
+
+
+"Outside Date" means March 31, 2027, as may be extended by mutual written agreement of the parties.
+
+
+  
+
+
+"PCAOB Financial Statements" has the meaning set forth in Section 4.07.
+
+
+  
+
+
+"PIPE" means any private investment in public equity financing arranged by HCIC with third-party investors prior to or concurrently with the Closing, in respect of Company Class B Common Stock.
+
+
+  
+
+
+"PIPE Proceeds" means the aggregate gross proceeds received by HCIC pursuant to PIPE subscription agreements entered into prior to the Closing.
+
+
+  
+
+
+"Pre-Money Equity Value" means the product of (a) $10.00 (the Reference Price) multiplied by (b) the Total TopCo Fully Diluted Shares, being the aggregate number of Company Ordinary Shares outstanding at the Effective Time (after giving effect to the conversion of all Company Preferred Shares) on a fully diluted basis, as set forth in Schedule 2.02. The effect of this definition is that the Exchange Ratio (as defined in Section 2.02(b)) equals exactly 1.0000, such that each Company Share is exchanged for exactly one (1) PubCo Ordinary Share. Based on the Total Issued TopCo Shares of 138,565,537 as of the date hereof (excluding the ESOP Pool, which remains to be determined), the Pre-Money Equity Value is approximately $1,385,655,370; the final Pre-Money Equity Value shall be confirmed at Signing upon determination of the ESOP Pool size, with the Exchange Ratio remaining 1.0000 in all cases.
+
+
+  
+
+
+"PubCo" means the Company — i.e., Windrose Technology Inc., a Delaware corporation — in its capacity as the Nasdaq-listed public company following the Effective Time. No new entity is incorporated for purposes of the Transactions; the Company itself serves as the listed entity. "PubCo" and "the Company" refer to the same legal entity; "PubCo" is used in the context of post-Closing listed operations.
+
+
+  
+
+
+"Company Class A Common Stock" means the Class A common stock of the Company, par value $0.0001 per share, each carrying twenty (20) votes per share on all matters submitted to a vote of Company stockholders. Company Class A Common Stock is issuable only to the Founder (Wen Han) and Permitted Class A Transferees (as defined in the Company Charter). Following the Charter Amendment and the Founder Share Issuance, the Founder is the sole holder of all issued and outstanding Company Class A Common Stock. Company Class A Common Stock is convertible into Company Class B Common Stock on a one-for-one basis at the election of the holder or automatically upon transfer to any person who is not a Permitted Class A Transferee.
+
+
+  
+
+
+"Company Class B Common Stock" means the Class B common stock of the Company, par value $0.0001 per share, each carrying one (1) vote per share on all matters submitted to a vote of Company stockholders. Following the Charter Amendment, Company Class B Common Stock is held by TopCo (as reclassified from TopCo's existing Company common stock on a one-for-one basis) and, following the Effective Time, by former HCIC shareholders (as issued at the Effective Time pursuant to the HCIC Merger consideration).
+
+
+  
+
+
+"Company Common Stock" means, collectively, Company Class A Common Stock and Company Class B Common Stock. The Company has no preferred shares or other classes of shares following the Effective Time.
+
+
+  
+
+
+"Reference Price" means $10.00 per PubCo Ordinary Share (Class A and Class B having the same economic value for purposes of the Exchange Ratio, with differential voting rights only).
+
+
+  
+
+
+"Registration Statement" means the registration statement on Form S-4 (or such other applicable SEC form as determined by the parties in consultation with their respective legal counsel) to be filed by HCIC with the SEC pursuant to Section 4.03.
+
+
+  
+
+
+"SEC" means the U.S. Securities and Exchange Commission.
+
+
+  
+
+
+"Share Exchange" — this defined term has been superseded in v0.8. The mechanism by which Company Shareholders receive PubCo shares is now the Company Merger (Section 2.01(d)), not a share exchange. References to "Share Exchange" elsewhere in this Agreement shall be read as references to the "Company Merger" to the extent applicable.
+
+
+  
+
+
+"Signing Date" has the meaning set forth in the preamble.
+
+
+  
+
+
+"Sponsor" means HC VIII Sponsor LLC, a Nevada limited liability company.
+
+
+  
+
+
+"Sponsor Support Agreement" means the sponsor support and forfeiture agreement in the form attached hereto as Exhibit B.
+
+
+  
+
+
+"Transaction Documents" means this Agreement, Exhibit A (Amended and Restated Certificate of Incorporation of the Company), Exhibit B (Sponsor Support Agreement), Exhibit C (Lock-Up Agreements), and Exhibit D (Equity Incentive Plan).
+
+
+  
+
+
+"Transaction Expenses" means all fees, costs, and expenses incurred by or on behalf of a party in connection with the negotiation, preparation, execution, and consummation of this Agreement and the Transactions, including legal, financial advisory, accounting, printing, and regulatory filing fees.
+
+
+  
+
+
+"Transactions" means, collectively: (i) the Charter Amendment (Section 2.01(b)); (ii) the Founder Share Issuance (Section 2.01(b) and Section 4.12(a)); (iii) the formation of Merger Sub A (Section 4.12(b)); (iv) the TopCo Approval (Section 4.13); (v) the HCIC Merger (Section 2.01(c)); and (vi) all other transactions contemplated by this Agreement and the other Transaction Documents, including the PIPE (if any) and the Equity Incentive Plan.
+
+
+  
+
+
+"Trust Account" means the trust account established by HCIC in connection with its initial public offering, currently maintained with Odyssey Transfer and Trust Company as trustee, holding approximately $241,500,000.
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE II
+
+
+THE TRANSACTION
+
+
+  
+
+
+Section 2.01  The Transactions.
+
+
+  
+
+
+(a) Overview. The Transactions shall be effected in the following sequence: (i) prior to Closing, the Company shall adopt the Charter Amendment pursuant to Section 2.01(b), establishing the dual-class capital structure; (ii) prior to Closing, Merger Sub A shall be formed pursuant to Section 4.12 and the TopCo Approval shall be obtained pursuant to Section 4.13; and (iii) at the Effective Time, the HCIC Merger shall occur in accordance with Section 2.01(c).
+
+
+  
+
+
+(b) Company Charter Amendment and Founder Share Issuance. Prior to Closing, the Company shall prepare, adopt, and file with the Secretary of State of Delaware the Amended and Restated Certificate of Incorporation in the form attached as Exhibit A (the "Charter Amendment"), which shall: (i) create and authorize Company Class A Common Stock (20 votes per share, issuable only to the Founder and Permitted Class A Transferees) and Company Class B Common Stock (1 vote per share); (ii) reclassify all outstanding Company common stock held by TopCo as Company Class B Common Stock on a one-for-one basis; (iii) issue [●] shares of Company Class A Common Stock to the Founder (Wen Han) at a subscription price of $[●] per share (the "Founder Share Issuance"), such that the Founder is the sole holder of all Company Class A Common Stock following the Charter Amendment; and (iv) authorize sufficient shares of Company Class B Common Stock to satisfy all issuances contemplated by this Agreement, including the HCIC Merger consideration. TopCo, as the sole shareholder of the Company immediately prior to the Charter Amendment, shall execute all consents required under the DGCL to effect the Charter Amendment, including the reclassification of TopCo's existing Company common stock as Company Class B Common Stock. The Charter Amendment and the Founder Share Issuance constitute a single integrated pre-Closing step.
+
+
+  
+
+
+(c) HCIC Merger. At the Effective Time, upon the terms and subject to the conditions of this Agreement and the Cayman Act, Merger Sub A shall merge with and into HCIC. HCIC shall be the surviving company and shall become a wholly-owned Cayman Islands subsidiary of the Company. By virtue of the HCIC Merger:
+
+    (i)   Each HCIC Class A Ordinary Share outstanding immediately prior to the HCIC Merger Effective Time (other than shares in respect of which HCIC Shareholder Redemptions have been elected) shall be converted into the right to receive one (1) share of Company Class B Common Stock.
+
+    (ii)  Each HCIC Class B Ordinary Share (held by the Sponsor) outstanding immediately prior to the HCIC Merger Effective Time shall be converted into the right to receive one (1) share of Company Class B Common Stock, subject to the forfeiture and vesting provisions in the Sponsor Support Agreement (Exhibit B).
+
+    (iii) Each outstanding HCIC Right shall, at the HCIC Merger Effective Time, automatically become 1/12th of one (1) share of Company Class B Common Stock, rounded down to the nearest whole share per registered holder, pursuant to Section 2.03.
+
+    (iv)  Each share of Merger Sub A outstanding immediately prior to the HCIC Merger Effective Time shall be cancelled and extinguished.
+
+    (v)   Holders of HCIC Class A Ordinary Shares who have validly elected to redeem their shares shall receive from the Trust Account, in lieu of Company shares, a per-share redemption amount equal to their pro rata portion of the Trust Account, as provided in HCIC's existing memorandum and articles of association.
+
+
+  
+
+
+[Section 2.01(d) Company Preferred Share Conversion: intentionally omitted in v0.11 — no Company Preferred Shares outstanding; preferred shares exist only at TopCo level and remain in TopCo]
+
+
+  
+
+
+[Section 2.01(e) Company Merger: intentionally omitted in v0.11 — no Company Merger; only HCIC Merger occurs at Closing]
+
+
+  
+
+
+Section 2.02  Exchange Ratio.
+
+
+  
+
+
+(a) Aggregate HCIC Share Issuance. The aggregate number of shares of Company Class B Common Stock to be issued to HCIC shareholders pursuant to Section 2.01(c) shall equal the sum of: (i) the number of HCIC Class A Ordinary Shares outstanding immediately prior to the Effective Time (excluding redeemed shares); (ii) the number of HCIC Class B Ordinary Shares (Sponsor founder shares) outstanding immediately prior to the Effective Time; and (iii) the aggregate number of shares issuable upon settlement of all HCIC Rights at the HCIC Rights Exchange Ratio, all as set forth in Schedule 2.02 and Section 2.03.
+
+
+  
+
+
+"Aggregate Company Share Count" means the total number of shares of Company Class A Common Stock outstanding immediately following the Charter Amendment (i.e., the number of TopCo's reclassified WTI shares), as set forth in Schedule 2.02.
+
+
+  
+
+
+(b) Exchange Ratio and Pre-Money Equity Value. The Exchange Ratio for all HCIC shares is 1.0000 (each HCIC Class A Ordinary Share and HCIC Class B Ordinary Share converts into one (1) share of Company Class B Common Stock). The Pre-Money Equity Value is the Aggregate Company Share Count multiplied by the Reference Price ($10.00):
+
+
+  
+
+
+    Pre-Money Equity Value  =  Aggregate Company Share Count × $10.00 (Reference Price)
+
+
+  
+
+
+The Aggregate Company Share Count shall be confirmed at Signing and set forth in Schedule 2.02. Based on the current issued share count of 138,565,537 (excluding the ESOP Pool), the Pre-Money Equity Value is approximately $1,385,655,370; the final amount shall be confirmed at Signing upon determination of the ESOP Pool size. The Exchange Ratio remains 1.0000 in all cases.
+
+
+  
+
+
+(c) No Fractional Shares. No fractional shares of Company Class B Common Stock shall be issued in connection with the HCIC Merger. Each HCIC shareholder who would otherwise receive a fractional share shall instead receive the next lower whole number of shares of Company Class B Common Stock, with no cash consideration in respect of such fractional entitlement.
+
+
+  
+
+
+Section 2.03  Treatment of HCIC Rights.
+
+
+  
+
+
+At the Effective Time, each outstanding HCIC Right shall automatically convert into 1/12th of one PubCo Class B Ordinary Share, rounded down to the nearest whole share in the aggregate per registered holder, without any action required by the holder thereof.
+
+
+  
+
+
+Section 2.04  Treatment of HCIC Ordinary Shares.
+
+
+  
+
+
+Each HCIC Ordinary Share outstanding immediately prior to the Effective Time (other than HCIC Ordinary Shares redeemed pursuant to HCIC Shareholder Redemptions) shall remain outstanding as one PubCo Class B Ordinary Share following the Effective Time, without any exchange, conversion, or further action required.
+
+
+  
+
+
+Section 2.05  Equity Incentive Plan and ESOP Pool.
+
+
+  
+
+
+(a) At or prior to the Effective Time, PubCo shall adopt the Equity Incentive Plan in the form attached hereto as Exhibit D.
+
+
+  
+
+
+(b) The initial reserve under the Equity Incentive Plan shall be [●] Company Class B Common Stock (the "ESOP Pool"), representing approximately [●]% of the fully-diluted Company Common Stock outstanding immediately following the Closing (calculated after giving effect to (i) the issuance of Company Common Stock pursuant to the Share Exchange, (ii) the conversion of HCIC Rights, (iii) PIPE Proceeds, and (iv) the ESOP Pool itself). All awards under the Equity Incentive Plan shall be settled in Company Class B Common Stock.
+
+
+  
+
+
+(c) The Equity Incentive Plan and the ESOP Pool shall be submitted to HCIC shareholders as a separate proposal for approval at the HCIC Shareholder Meeting.
+
+
+  
+
+
+(d) Awards under the Equity Incentive Plan shall be at the discretion of the PubCo board of directors following the Closing, subject to the terms of the Equity Incentive Plan.
+
+
+  
+
+
+Section 2.06  Post-Closing Corporate Actions.
+
+
+  
+
+
+(a) At the Effective Time, PubCo shall adopt the Company Charter in the form set forth as Exhibit A, replacing in their entirety HCIC's existing memorandum and articles of association. The Company Charter shall establish a dual-class share structure comprising: (i) Company Class A Common Stock, each carrying twenty (20) votes per share, convertible into Company Class B Common Stock on a one-for-one basis at the holder's election or upon transfer other than to a Permitted Class A Transferee; and (ii) Company Class B Common Stock, each carrying one (1) vote per share. PubCo shall have no preferred shares or other classes of shares authorized following the Effective Time.
+
+
+  
+
+
+(b) Simultaneously with the adoption of the Company Charter, HCIC shall change its name to "[Windrose Inc.]" (or such other name as the parties mutually agree in writing prior to Closing).
+
+
+  
+
+
+(c) The board of directors of PubCo immediately following the Closing shall be constituted as set forth in Schedule 2.06(c). The parties shall use commercially reasonable efforts to agree on the post-Closing board composition no later than [●] days prior to the anticipated Closing Date.
+
+
+  
+
+
+(d) The initial officers of PubCo following the Closing shall be as set forth in Schedule 2.06(d).
+
+
+  
+
+
+Section 2.07  PIPE.
+
+
+  
+
+
+Prior to the Closing, HCIC shall use commercially reasonable efforts to arrange a PIPE with third-party investors on terms to be agreed between HCIC and the Company, acting reasonably. All PIPE subscriptions shall be for Company Class B Common Stock at the Reference Price of $10.00 per share. The minimum aggregate PIPE Proceeds shall be $[●] (as mutually agreed). The Company shall cooperate with HCIC in connection with PIPE marketing, including by making the Company's management reasonably available to prospective PIPE investors.
+
+
+  
+
+
+Section 2.08  Closing; Effective Time.
+
+
+  
+
+
+(a) The closing of the Transactions (the "Closing") shall take place remotely by electronic exchange of documents and signatures on a date (the "Closing Date") that is no later than the third (3rd) Business Day after all conditions set forth in Article V have been satisfied or waived (other than those conditions that by their nature are to be satisfied at the Closing, but subject to the satisfaction or waiver of such conditions at the Closing), unless another time or date is agreed by the parties in writing.
+
+
+  
+
+
+(b) The Transactions shall become effective at the time and on the date that HCIC confirms (i) the conversion of all Company Preferred Shares into Company Ordinary Shares, (ii) the issuance of Company Class A Common Stock and Company Class B Common Stock to Company Shareholders, and (iii) the adoption of the Company Charter (the "Effective Time"), which shall occur on the Closing Date.
+
+
+  
+
+
+Section 2.09  Closing Deliverables.
+
+
+  
+
+
+(a) At the Closing, the Company and each Company Shareholder shall deliver (or cause to be delivered) to HCIC:
+
+
+    (i)   duly executed share transfer forms in respect of all Company Ordinary Shares (including those issued upon conversion of Company Preferred Shares) held by each Company Shareholder, in a form sufficient under Belgian law to transfer legal and beneficial title to HCIC;
+
+
+    (ii)  any share certificates representing Company Shares (if certificated);
+
+
+    (iii) a board resolution of the Company approving the registration of HCIC as the shareholder of all Company Ordinary Shares in the Company's shareholder register;
+
+
+    (iv)  executed counterparts of each Transaction Document to which the Company or any Company Shareholder is a party; and
+
+
+    (v)   a certificate of a duly authorized officer of the Company certifying the satisfaction of the conditions set forth in Sections 5.02(a) and 5.02(b).
+
+
+  
+
+
+(b) At the Closing, HCIC shall deliver (or cause to be delivered):
+
+
+    (i)   evidence of the book-entry issuance of Company Class A Common Stock and Company Class B Common Stock to each Company Shareholder in the respective amounts set forth in Schedule 2.02;
+
+
+    (ii)  evidence of the adoption of the Company Charter (Exhibit A);
+
+
+    (iii) evidence of the adoption of the Equity Incentive Plan (Exhibit D);
+
+
+    (iv)  evidence of the release of Trust Account funds in accordance with the trust agreement; and
+
+
+    (v)   a certificate of a duly authorized officer of HCIC certifying the satisfaction of the conditions set forth in Sections 5.03(a) and 5.03(b).
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE III
+
+
+REPRESENTATIONS AND WARRANTIES
+
+
+  
+
+
+Section 3.01  Representations and Warranties of the Company.
+
+
+  
+
+
+The Company represents and warrants to HCIC, as of the Signing Date and as of the Closing Date (except for representations and warranties made as of a specific date, which are made only as of such date), subject to the Company Disclosure Schedules, as follows:
+
+
+  
+
+
+(a) Organization and Good Standing. The Company is duly incorporated and validly existing as a Belgian public limited company (naamloze vennootschap) under the laws of Belgium, with full corporate power and authority to own and operate its properties and conduct its business as currently conducted. Each material subsidiary of the Company is duly organized, validly existing, and in good standing (or equivalent status) under the laws of its jurisdiction of incorporation or formation.
+
+
+  
+
+
+(b) Capitalization.
+
+
+    (i)  The authorized and issued share capital of the Company as of the Signing Date is as set forth in Schedule 3.01(b) (the "Company Cap Table"). All issued Company Shares have been duly authorized and validly issued, are fully paid and non-assessable (or equivalent), and were issued in compliance with applicable law and the Company's articles of association, and not in violation of any preemptive right, right of first refusal, or similar right.
+
+
+    (ii) Except as set forth in Schedule 3.01(b) and the Company's articles of association, there are no outstanding options, warrants, convertible notes, phantom equity, subscription rights, or other rights of any kind to acquire, or securities convertible into or exchangeable for, any Company Shares or other equity interests in the Company or any subsidiary.
+
+
+    (iii) The conversion ratios applicable to each class of Company Preferred Shares set forth in Schedule 2.02 are accurate and complete, and each class of Company Preferred Shares will convert into Company Ordinary Shares at the ratio set forth therein without any adjustment, additional consideration, or payment.
+
+
+  
+
+
+(c) Authorization; Enforceability. The Company has full corporate power and authority to execute and deliver this Agreement and each Transaction Document to which it is a party, to perform its obligations hereunder and thereunder, and to consummate the Transactions. The execution, delivery, and performance of this Agreement by the Company have been duly authorized by the Company's board of directors and, to the extent required by the Belgian Companies Code or the Company's articles of association, by the Company's shareholders. This Agreement constitutes the legal, valid, and binding obligation of the Company, enforceable against it in accordance with its terms, subject to applicable bankruptcy, insolvency, reorganization, and equitable principles.
+
+
+  
+
+
+(d) No Conflicts. The execution, delivery, and performance of this Agreement and the consummation of the Transactions do not and will not (i) conflict with or violate the Company's articles of association or the equivalent organizational documents of any material subsidiary, (ii) conflict with or violate any applicable law in any material respect, or (iii) result in any breach of, or constitute a default under, any Material Contract that would, individually or in the aggregate, reasonably be expected to have a Company MAC; in each case except as set forth in the Company Disclosure Schedules.
+
+
+  
+
+
+(e) Financial Statements. The Company has provided HCIC with audited consolidated financial statements of the Company for the fiscal years ended December 31, 2023 and December 31, 2024, prepared in accordance with IFRS (the "Financial Statements"). The Financial Statements present fairly, in all material respects, the consolidated financial position, results of operations, and cash flows of the Company as of the dates and for the periods indicated, and have been prepared in accordance with IFRS consistently applied throughout the periods covered.
+
+
+  
+
+
+(f) No Undisclosed Liabilities. The Company has no material liabilities of a type required to be reflected on a consolidated balance sheet prepared in accordance with IFRS, other than (i) liabilities reflected or reserved against in the most recent Financial Statements, (ii) liabilities incurred in the ordinary course of business since the date of the most recent Financial Statements that are not material individually or in the aggregate, and (iii) liabilities arising under this Agreement or any Transaction Document.
+
+
+  
+
+
+(g) No Company MAC. Since December 31, 2024, there has not occurred any event, circumstance, development, or change that has had, or would reasonably be expected to have, a Company MAC.
+
+
+  
+
+
+(h) Intellectual Property. The Company and its subsidiaries own or have valid rights to use all material intellectual property used in the conduct of their business as currently conducted, including all patents, trademarks, copyrights, trade secrets, and know-how. To the Company's knowledge, the conduct of the Company's business does not infringe, misappropriate, or otherwise violate the intellectual property rights of any third party in any material respect.
+
+
+  
+
+
+(i) Material Contracts. Schedule 3.01(i) sets forth a list of each Material Contract of the Company and its subsidiaries as of the Signing Date. Each Material Contract listed on Schedule 3.01(i) is valid, binding, and enforceable against the applicable Company entity in accordance with its terms (subject to applicable bankruptcy and equitable principles), and no material breach or default exists thereunder by the Company or, to the Company's knowledge, any other party thereto.
+
+
+  
+
+
+(j) Legal Proceedings. There is no pending or, to the Company's knowledge, threatened legal proceeding, arbitration, governmental investigation, or order against the Company or any of its subsidiaries that would, individually or in the aggregate, reasonably be expected to have a Company MAC or that would materially impair the ability of the Company to consummate the Transactions.
+
+
+  
+
+
+(k) Compliance with Laws; Permits. The Company and each of its subsidiaries are in compliance with all applicable laws, regulations, and orders in all material respects, including applicable environmental, health and safety, anti-bribery, anti-corruption (including the U.S. Foreign Corrupt Practices Act), anti-money laundering, and sanctions laws. The Company and its subsidiaries hold all material permits, licenses, approvals, and certifications required to conduct their businesses as currently conducted, including all applicable vehicle type-approvals (including EU Whole Vehicle Type Approvals), homologations, and regulatory certifications in each jurisdiction in which the Company or its subsidiaries operate, sell, or distribute products.
+
+
+  
+
+
+(l) No Brokers. Except for fees payable to advisors disclosed in Schedule 3.01(l), neither the Company nor any of its subsidiaries has engaged any broker, finder, or investment banker in connection with the Transactions for whom HCIC or PubCo would have any obligation following the Closing.
+
+
+  
+
+
+Section 3.02  Representations and Warranties of HCIC.
+
+
+  
+
+
+HCIC represents and warrants to the Company, as of the Signing Date and as of the Closing Date (except for representations and warranties made as of a specific date, which are made only as of such date), as follows:
+
+
+  
+
+
+(a) Organization. HCIC is duly incorporated and validly existing as a Cayman Islands exempted company under the Cayman Act, with full corporate power and authority to own its properties and conduct its business.
+
+
+  
+
+
+(b) Authorization; Enforceability. HCIC has full corporate power and authority to execute and deliver this Agreement and each Transaction Document to which it is a party, to perform its obligations hereunder and thereunder, and to consummate the Transactions. The execution, delivery, and performance of this Agreement and each Transaction Document by HCIC have been duly authorized by HCIC's board of directors. This Agreement constitutes the legal, valid, and binding obligation of HCIC, enforceable against it in accordance with its terms.
+
+
+  
+
+
+(c) Trust Account. As of the Signing Date, the Trust Account holds not less than $241,500,000 in cash and permitted investments. The Trust Account funds are held in trust pursuant to the trust agreement between HCIC and the Trustee and will be released only upon the consummation of a Business Combination or the liquidation of HCIC, in accordance with the terms of such trust agreement and HCIC's memorandum and articles of association.
+
+
+  
+
+
+(d) Capitalization. The authorized and outstanding share capital of HCIC as of the Signing Date is as set forth on Schedule 3.02(d). All outstanding HCIC Ordinary Shares and HCIC Rights have been duly authorized and validly issued.
+
+
+  
+
+
+(e) SEC Filings. HCIC has filed all reports and other documents required to be filed with the SEC since its initial public offering. As of the respective dates of their filing, such reports did not contain any untrue statement of a material fact or omit to state any material fact required to be stated therein or necessary to make the statements therein, in light of the circumstances under which they were made, not misleading.
+
+
+  
+
+
+(f) No HCIC MAC. Since the date of HCIC's initial public offering, no HCIC MAC has occurred.
+
+
+  
+
+
+(g) Compliance. HCIC is in compliance with all Nasdaq listing standards and applicable SEC rules and regulations in all material respects as of the Signing Date.
+
+
+  
+
+
+(h) No Brokers. Except as set forth on Schedule 3.02(h), HCIC has not engaged any broker, finder, or investment banker in connection with the Transactions for whom the Company or PubCo would have any obligation following the Closing.
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE IV
+
+
+COVENANTS
+
+
+  
+
+
+Section 4.01  Conduct of Business Prior to Closing.
+
+
+  
+
+
+(a) Company Conduct. From the Signing Date until the earlier of the Closing or the termination of this Agreement pursuant to Article VI (the "Interim Period"), except (i) as expressly contemplated by this Agreement, (ii) as set forth on Schedule 4.01, or (iii) with HCIC's prior written consent (not to be unreasonably withheld, conditioned, or delayed), the Company shall, and shall cause each of its material subsidiaries to, (A) operate its business in the ordinary course consistent with past practice in all material respects, (B) use commercially reasonable efforts to preserve intact its business organization, (C) maintain in good standing all material permits and licenses (including all vehicle type-approvals and homologations), and (D) maintain relationships with material customers, suppliers, distributors, and regulators.
+
+
+  
+
+
+Without limiting the foregoing, during the Interim Period, the Company shall not, without HCIC's prior written consent:
+
+
+    (i)   issue, sell, or authorize the issuance of any equity securities, convertible securities, or rights to acquire any equity interest in the Company or any subsidiary (other than pursuant to existing written agreements disclosed in Schedule 3.01(b));
+
+
+    (ii)  declare, set aside, or pay any dividend or other distribution on any Company Shares;
+
+
+    (iii) acquire any business or assets with a value exceeding $5,000,000 in any single transaction or series of related transactions, other than in the ordinary course of business;
+
+
+    (iv)  incur any indebtedness for borrowed money in excess of $5,000,000 in aggregate, other than in the ordinary course of business;
+
+
+    (v)   make any capital expenditure in excess of $10,000,000 in any single instance, other than as set forth in the Company's existing capital expenditure budget disclosed to HCIC;
+
+
+    (vi)  enter into any Material Contract outside the ordinary course of business or amend or terminate any existing Material Contract in a manner materially adverse to the Company; or
+
+
+    (vii) agree or commit to do any of the foregoing.
+
+
+  
+
+
+(b) HCIC Conduct. During the Interim Period, HCIC shall not, without the Company's prior written consent:
+
+
+    (i)   amend HCIC's existing memorandum and articles of association in any manner that would adversely affect the Transactions;
+
+
+    (ii)  issue any equity securities (other than pursuant to existing HCIC Rights or in connection with a PIPE arranged with the Company's knowledge);
+
+
+    (iii) incur any indebtedness for borrowed money; or
+
+
+    (iv)  agree or commit to do any of the foregoing.
+
+
+  
+
+
+Section 4.02  Access and Information.
+
+
+  
+
+
+During the Interim Period, the Company shall provide HCIC and its authorized representatives with reasonable access, during normal business hours and upon reasonable advance notice, to the Company's books and records, properties, and management personnel, to the extent reasonably necessary for HCIC to complete its due diligence, prepare the Registration Statement, and consummate the Transactions; provided that such access shall not unduly disrupt the normal operations of the Company.
+
+
+  
+
+
+Section 4.03  Registration Statement and Proxy Materials.
+
+
+  
+
+
+(a) HCIC shall, as promptly as practicable following the Signing Date, prepare and file with the SEC a registration statement on Form S-4 (the "Registration Statement") in respect of the Company Common Stock to be issued in connection with the Transactions, which shall include a proxy statement for the HCIC Shareholder Meeting. The Registration Statement shall include disclosure regarding the dual-class share structure of PubCo (including the 20:1 voting ratio of PubCo Class A to Company Class B Common Stock and the conversion of all Company Preferred Shares into Company Class B Common Stock at Closing). The Company shall cooperate reasonably with HCIC in the preparation of the Registration Statement and shall provide all information about the Company and its subsidiaries that is required to be included therein.
+
+
+  
+
+
+(b) Each party shall use commercially reasonable efforts to cause the Registration Statement to be declared effective by the SEC as promptly as practicable, and shall promptly supplement, update, or amend the Registration Statement if required by the SEC or applicable law.
+
+
+  
+
+
+(c) HCIC shall, following the effectiveness of the Registration Statement, duly call, give notice of, convene, and hold a general meeting of its shareholders (the "HCIC Shareholder Meeting") for the purpose of, among other things, obtaining the HCIC Shareholder Approval, in accordance with applicable Cayman Islands law and HCIC's memorandum and articles of association.
+
+
+  
+
+
+Section 4.04  Company Shareholder Approval.
+
+
+  
+
+
+(a) The Company shall, as promptly as practicable following the Signing Date, prepare and circulate an information circular to all Company Shareholders and duly call, give notice of, convene, and hold a general meeting of its shareholders (the "Company Shareholder Meeting") for the purpose of obtaining the approval of Company Shareholders for the Transactions and the execution and performance of this Agreement (the "Company Shareholder Approval"), in accordance with the Belgian Companies Code and the Company's articles of association.
+
+
+  
+
+
+(b) The Company Shareholder Approval shall include, without limitation, approval by the holders of Company Preferred Shares required under the Company's articles of association, including any required approval of holders of Series A-2, B-1, and C-1 Preferred Shares, as further described in Schedule 4.04(b). For the avoidance of doubt, all rights, preferences, and privileges attaching to the Company Preferred Shares — including consent rights described in Schedule 4.04(b) — shall automatically terminate and be extinguished at the Effective Time upon conversion of all Company Preferred Shares into Company Ordinary Shares pursuant to Section 2.01(a).
+
+
+  
+
+
+(c) The Company shall use its best efforts to obtain the Company Shareholder Approval as promptly as practicable.
+
+
+  
+
+
+Section 4.05  Nasdaq Listing.
+
+
+  
+
+
+HCIC shall use commercially reasonable efforts to cause Company Class A Common Stock and Company Class B Common Stock to be approved for listing on The Nasdaq Stock Market, LLC ("Nasdaq") upon the Closing, under ticker symbols to be agreed by the parties (it being understood that Nasdaq permits the listing of dual-class companies and that both classes shall be listed). The Company shall cooperate reasonably with HCIC in connection with the Nasdaq listing application and shall provide any information about the Company reasonably required by Nasdaq.
+
+
+  
+
+
+Section 4.06  Exclusivity.
+
+
+  
+
+
+From the Signing Date until the earlier of the Closing or the termination of this Agreement, the Company shall not, and shall cause its directors, officers, and representatives not to, directly or indirectly: (i) solicit, initiate, encourage, or facilitate any inquiry, proposal, or offer relating to an Alternative Transaction; (ii) engage in any discussions or negotiations regarding an Alternative Transaction; or (iii) enter into any agreement, letter of intent, or term sheet with respect to an Alternative Transaction.
+
+
+  
+
+
+Section 4.07  PCAOB Financial Statements.
+
+
+  
+
+
+The Company shall use commercially reasonable efforts to deliver to HCIC, no later than [●] days following the Signing Date, audited consolidated financial statements of the Company for the fiscal years ended December 31, 2023 and December 31, 2024 (and, if required, December 31, 2025), prepared in accordance with U.S. GAAP or IFRS as applicable, and audited in accordance with PCAOB standards by a PCAOB-registered auditing firm acceptable to HCIC (the "PCAOB Financial Statements"). The PCAOB Financial Statements shall be in a form suitable for inclusion in the Registration Statement.
+
+
+  
+
+
+Section 4.08  Equity Incentive Plan.
+
+
+  
+
+
+HCIC shall submit the Equity Incentive Plan (including the size of the ESOP Pool, all awards being settled in Company Class B Common Stock) to HCIC shareholders for approval at the HCIC Shareholder Meeting as a separate proposal, and shall include appropriate disclosure regarding the Equity Incentive Plan in the Registration Statement.
+
+
+  
+
+
+Section 4.09  Confidentiality.
+
+
+  
+
+
+Each party shall keep the existence and terms of this Agreement and the Transactions strictly confidential, and shall not disclose any information relating hereto without the prior written consent of the other party, except (i) as required by applicable law, regulation, or the rules of any stock exchange, (ii) to such party's advisors, financing sources, and representatives who are bound by obligations of confidentiality no less restrictive than those set forth herein, or (iii) as mutually agreed in a joint press release or public disclosure.
+
+
+  
+
+
+Section 4.10  Lock-Up Agreements.
+
+
+  
+
+
+Prior to the Closing, the Company shall use commercially reasonable efforts to cause each founder shareholder and other Company Shareholder as mutually agreed by the parties to execute and deliver a Lock-Up Agreement in the form attached hereto as Exhibit C, pursuant to which such shareholder shall agree not to transfer, sell, or otherwise dispose of any Company Common Stock received in the Share Exchange for a period of [●] months following the Closing Date (the "Lock-Up Period"). The Lock-Up Agreement shall provide for customary exceptions including block trades, estate transfers, and transfers to affiliates, and shall also provide that any conversion of Company Class A Common Stock into Company Class B Common Stock during the Lock-Up Period shall not constitute a transfer for purposes of the Lock-Up Agreement.
+
+
+  
+
+
+Section 4.11  Tax Matters.
+
+
+  
+
+
+Each party shall use commercially reasonable efforts to structure the Transactions in a tax-efficient manner, taking into account applicable U.S. (Delaware and federal), Cayman Islands, Belgian, and other applicable tax laws, including, without limitation: (i) structuring the Pre-Closing Restructuring (TopCo dissolution) to minimize Belgian exit tax exposure under Article 210bis of the Belgian Income Tax Code, including through available participation exemption or step-up mechanisms; (ii) structuring the HCIC Merger and Company Merger to qualify, to the extent possible, as tax-free reorganizations under Section 368(a) of the U.S. Internal Revenue Code (or other applicable non-recognition provisions); and (iii) preserving, to the extent practicable, the Company's operating subsidiaries' eligibility for applicable tax treaty benefits following the restructuring.
+
+
+Section 4.12  Company Charter Amendment, Founder Share Issuance, and Formation of Merger Sub A.
+
+(a) Charter Amendment and Founder Share Issuance. Prior to Closing, the Company shall prepare, adopt, and file with the Secretary of State of the State of Delaware the Amended and Restated Certificate of Incorporation in the form attached hereto as Exhibit A (the "Charter Amendment"), which shall: (i) create and authorize Company Class A Common Stock (20 votes per share) and Company Class B Common Stock (1 vote per share); (ii) reclassify all outstanding Company common stock held by TopCo as Company Class B Common Stock on a one-for-one basis; (iii) issue [●] shares of Company Class A Common Stock to the Founder (Wen Han) at a subscription price of $[●] per share (the "Founder Share Issuance"), representing the Founder's direct personal super-voting equity interest in the Company; and (iv) authorize sufficient shares of Company Class B Common Stock to cover all issuances contemplated by this Agreement. TopCo, in its capacity as the sole shareholder of the Company immediately prior to the Charter Amendment, shall execute all consents required under the DGCL to effect the Charter Amendment, including the reclassification of TopCo's existing Company common stock as Company Class B Common Stock. The Founder shall execute a subscription agreement in the form attached as Exhibit [●] (the "Founder Share Subscription Agreement") concurrently with the Charter Amendment.
+
+(b) Formation of Merger Sub A. Prior to Closing, the Company shall cause Merger Sub A to be incorporated as a wholly-owned Cayman Islands exempted company subsidiary of the Company for the sole purpose of effecting the HCIC Merger. All costs of formation shall be borne by the Company. Merger Sub A shall execute a joinder to this Agreement prior to Closing.
+
+
+  
+
+
+Section 4.13  TopCo Board Approval.
+
+(a)  Required Approval.  Pursuant to Article 13 of the statuten, the board of directors of TopCo (including the Majority Preferred Directors appointed by the Majority Preferred Holders (TopCo)) must approve the following matters in connection with the Transactions prior to Closing:
+
+     (i)   the listing of the Company on the Nasdaq Stock Market;
+
+     (ii)  the valuation of the Company implied by this Agreement (being the Pre-Money Equity Value as defined in Article I); and
+
+     (iii) the timing of the Company's Nasdaq listing; and
+
+     (iv)  the Founder Share Issuance (the direct issuance of [●] shares of Company Class A Common Stock to Wen Han) and the reclassification of TopCo's existing Company common stock as Company Class B Common Stock pursuant to Section 2.01(b), including the resulting change in TopCo's voting class from Company Class A Common Stock (20 votes per share) to Company Class B Common Stock (1 vote per share).
+
+TopCo shall, no later than thirty (30) days prior to the anticipated Closing Date (and in any event, prior to the filing of the Registration Statement on Form S-4 with the SEC), deliver to HCIC written evidence of the TopCo Approval, in the form of a certified copy of the relevant board resolution(s) of TopCo, confirming the approvals in (i) through (iv) above. The TopCo Approval shall be in form and substance reasonably acceptable to HCIC.
+
+(b)  Covenant by TopCo.  TopCo hereby covenants to use its commercially reasonable efforts to obtain the TopCo Approval from its board of directors (including the Majority Preferred Directors) as promptly as practicable following the execution of this Agreement, and in any event no later than thirty (30) days prior to the anticipated Closing Date. TopCo shall promptly notify HCIC and the Company if it becomes aware of any circumstance likely to prevent or delay the TopCo Approval.
+
+(c)  No Other Consents Required.  For the avoidance of doubt, Article 13 of the statuten is the only provision requiring TopCo board or shareholder consent in connection with the Transactions. No dissolution, EGM vote, Investor Consent, Preferred Share Conversion, or other action is required under the statuten or the Belgian Companies Code, because TopCo shall remain a going concern. The Transactions do not constitute a "Deemed Liquidation Event" under Article 34 of the statuten. TopCo's preferred shareholders retain all rights under the statuten following the Effective Time.
+
+(d)  Belgian Counsel.  The Company and TopCo shall each engage qualified Belgian legal counsel reasonably acceptable to HCIC to advise on the TopCo Approval process and compliance with the statuten.
+
+
+  
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE V
+
+
+CONDITIONS TO CLOSING
+
+
+  
+
+
+Section 5.01  Conditions to Each Party's Obligations.
+
+
+  
+
+
+The obligations of each party to consummate the Transactions are subject to the satisfaction or written waiver, at or prior to the Closing, of the following conditions:
+
+
+  
+
+
+(a) No Law or Order. No applicable law, regulation, injunction, or order of a governmental authority shall be in effect that prohibits, prevents, or makes illegal the consummation of the Transactions.
+
+
+  
+
+
+(b) Registration Statement. The Registration Statement shall have been declared effective by the SEC and shall not be subject to any stop order, suspension, or proceedings seeking a stop order.
+
+
+  
+
+
+(c) HCIC Shareholder Approval. The HCIC Shareholder Approval shall have been obtained at the HCIC Shareholder Meeting.
+
+
+  
+
+
+(d) Nasdaq Listing. Company Class A Common Stock and Company Class B Common Stock shall have been approved for listing on Nasdaq, subject only to official notice of issuance.
+
+
+  
+
+
+Section 5.02  Additional Conditions to HCIC's Obligations.
+
+
+  
+
+
+The obligations of HCIC to consummate the Transactions are subject to the satisfaction or written waiver of the following additional conditions:
+
+
+  
+
+
+(a) Accuracy of Representations. The representations and warranties of the Company set forth in Article III shall be true and correct in all material respects (other than representations qualified by materiality or Company MAC, which shall be true and correct in all respects) as of the Signing Date and as of the Closing Date as though made on and as of the Closing Date.
+
+
+  
+
+
+(b) Performance of Covenants. The Company shall have performed or complied in all material respects with all covenants and obligations required by this Agreement to be performed or complied with by it on or prior to the Closing Date.
+
+
+  
+
+
+(c) Company Shareholder Approval. The Company Shareholder Approval shall have been obtained.
+
+
+  
+
+
+(d) No Company MAC. Since the Signing Date, no Company MAC shall have occurred and be continuing.
+
+
+  
+
+
+(e) PCAOB Financial Statements. The Company shall have delivered the PCAOB Financial Statements to HCIC in accordance with Section 4.07.
+
+
+  
+
+
+(f) Charter Amendment. The Charter Amendment shall have been duly filed with the Secretary of State of Delaware and shall have become effective prior to Closing, establishing the dual-class share structure as contemplated by Section 2.01(b) and Exhibit A.
+
+
+  
+
+
+(g) Formation of Merger Sub A. Merger Sub A shall have been duly incorporated as a wholly-owned Cayman Islands exempted company subsidiary of the Company and shall have executed a joinder to this Agreement in accordance with Section 4.12(b).
+
+(h) TopCo Approval. TopCo shall have delivered to HCIC the TopCo Approval (as defined in Article I) in form and substance reasonably acceptable to HCIC, being a certified copy of the board resolution(s) of TopCo (including the affirmative vote of the Majority Preferred Directors) approving: (i) the listing of the Company on Nasdaq; (ii) the valuation implied by this Agreement; (iii) the consummation of the Transactions; and (iv) the Founder Share Issuance and the reclassification of TopCo's existing Company common stock as Company Class B Common Stock.
+
+
+  
+
+
+Section 5.03  Additional Conditions to the Company's Obligations.
+
+
+  
+
+
+The obligations of the Company to consummate the Transactions are subject to the satisfaction or written waiver of the following additional conditions:
+
+
+  
+
+
+(a) Accuracy of Representations. The representations and warranties of HCIC set forth in Article III shall be true and correct in all material respects (other than representations qualified by materiality or HCIC MAC, which shall be true and correct in all respects) as of the Signing Date and as of the Closing Date as though made on and as of the Closing Date.
+
+
+  
+
+
+(b) Performance of Covenants. HCIC shall have performed or complied in all material respects with all covenants and obligations required by this Agreement to be performed or complied with by it on or prior to the Closing Date.
+
+
+  
+
+
+(c) No HCIC MAC. Since the Signing Date, no HCIC MAC shall have occurred and be continuing.
+
+
+  
+
+
+(d) Sponsor Support Agreement. The Sponsor shall have executed and delivered the Sponsor Support Agreement (Exhibit B).
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE VI
+
+
+TERMINATION
+
+
+  
+
+
+Section 6.01  Termination.
+
+
+  
+
+
+This Agreement may be terminated and the Transactions abandoned at any time prior to the Closing:
+
+
+  
+
+
+(a) by mutual written consent of HCIC and the Company;
+
+
+  
+
+
+(b) by either party, if the Closing has not occurred on or before the Outside Date (March 31, 2027), provided that the terminating party's breach of this Agreement has not caused or materially contributed to such failure to close;
+
+
+  
+
+
+(c) by either party, if a governmental authority of competent jurisdiction shall have enacted, issued, or entered a final, non-appealable order, injunction, or law permanently prohibiting the consummation of the Transactions;
+
+
+  
+
+
+(d) by either party, if the HCIC Shareholder Approval shall not have been obtained at the HCIC Shareholder Meeting (including any adjournment thereof);
+
+
+  
+
+
+(e) by HCIC, if the Company has breached any representation, warranty, covenant, or agreement in this Agreement, and such breach (i) would cause a condition in Section 5.02(a) or 5.02(b) not to be satisfied and (ii) is not cured within 30 days after written notice to the Company specifying the nature of such breach in reasonable detail; or
+
+
+  
+
+
+(f) by the Company, if HCIC has breached any representation, warranty, covenant, or agreement in this Agreement, and such breach (i) would cause a condition in Section 5.03(a) or 5.03(b) not to be satisfied and (ii) is not cured within 30 days after written notice to HCIC specifying the nature of such breach in reasonable detail.
+
+
+  
+
+
+Section 6.02  Effect of Termination.
+
+
+  
+
+
+In the event of termination pursuant to Section 6.01:
+
+
+  
+
+
+(a) This Agreement shall become void and of no further force or effect, and the Transactions shall be abandoned, without any further liability or obligation of any party to any other party hereunder; provided, however, that (i) this Section 6.02, Section 4.09 (Confidentiality), Section 7.01 (Expenses), and Article VII (General Provisions) shall survive such termination and (ii) nothing in this Section 6.02 shall relieve any party from liability for fraud.
+
+
+  
+
+
+(b) There shall be no termination fee, break-up fee, or reverse termination fee payable by either party in connection with any termination of this Agreement.
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+ARTICLE VII
+
+
+GENERAL PROVISIONS
+
+
+  
+
+
+Section 7.01  Expenses.
+
+
+  
+
+
+Except as otherwise expressly provided in this Agreement, each party shall bear its own Transaction Expenses incurred in connection with this Agreement and the Transactions. For the avoidance of doubt, Transaction Expenses of the Company and HCIC shall each be borne by the respective party incurring such expenses, and no such expenses shall be reimbursable by PubCo following the Closing other than as otherwise agreed in writing.
+
+
+  
+
+
+Section 7.02  Survival.
+
+
+  
+
+
+The representations and warranties of the parties set forth in this Agreement shall not survive the Closing. None of the covenants and agreements of the parties set forth in this Agreement shall survive the Closing, except for those covenants and agreements that by their terms contemplate performance after the Closing, which shall survive the Closing in accordance with their respective terms.
+
+
+  
+
+
+Section 7.03  Indemnification.
+
+
+  
+
+
+Following the Closing, no party shall have any indemnification obligation to any other party in respect of any breach of any representation, warranty, covenant, or agreement under this Agreement, except in the case of fraud. The parties acknowledge that the sole remedy for any breach of any representation or warranty is the failure of the applicable closing condition, which would result in termination of this Agreement.
+
+
+  
+
+
+Section 7.04  Amendments.
+
+
+  
+
+
+This Agreement may not be amended, modified, or supplemented except by a written instrument signed by each of the parties.
+
+
+  
+
+
+Section 7.05  Waivers.
+
+
+  
+
+
+Any waiver of any right or remedy under this Agreement must be in writing and signed by the waiving party. No waiver of any breach, violation, right, or remedy shall be deemed a continuing waiver or a waiver of any subsequent breach or violation of the same or any other provision.
+
+
+  
+
+
+Section 7.06  Governing Law; Dispute Resolution.
+
+
+  
+
+
+(a) This Agreement and all claims and disputes arising out of or in connection with this Agreement shall be governed by and construed in accordance with the laws of the Cayman Islands, without regard to any conflict of laws principles that would cause the application of the laws of any other jurisdiction.
+
+
+  
+
+
+(b) Any dispute, controversy, or claim arising out of or in connection with this Agreement, or the breach, termination, or invalidity thereof, shall be finally settled by arbitration under the Rules of Arbitration of the International Chamber of Commerce ("ICC Rules") by three arbitrators appointed in accordance with the ICC Rules. The seat and legal place of arbitration shall be New York, New York, United States. The language of the arbitration shall be English. The award of the arbitral tribunal shall be final and binding on the parties.
+
+
+  
+
+
+Section 7.07  Entire Agreement.
+
+
+  
+
+
+This Agreement (together with the Exhibits, Schedules, and Transaction Documents referred to herein) constitutes the entire agreement of the parties with respect to the subject matter hereof and supersedes all prior agreements, understandings, negotiations, and discussions, whether oral or written, between the parties with respect thereto. No prior drafts of this Agreement shall be used in the interpretation or construction of this Agreement.
+
+
+  
+
+
+Section 7.08  Notices.
+
+
+  
+
+
+All notices, requests, demands, consents, approvals, and other communications under this Agreement shall be in writing and shall be deemed duly given: (i) when delivered personally; (ii) one Business Day after being sent by internationally recognized overnight courier service; (iii) when sent by email (with written confirmation of receipt, other than auto-reply), to the addresses and email addresses set forth in Schedule 7.08, or to such other address or email address as a party may specify by notice given in accordance with this Section.
+
+
+  
+
+
+Section 7.09  Counterparts.
+
+
+  
+
+
+This Agreement may be executed in one or more counterparts, each of which shall be deemed an original, and all of which shall together constitute one and the same instrument. Electronic signatures (including PDF or DocuSign) shall be deemed original signatures for all purposes of this Agreement.
+
+
+  
+
+
+Section 7.10  Severability.
+
+
+  
+
+
+If any provision of this Agreement is held to be invalid or unenforceable by a court of competent jurisdiction, such invalidity or unenforceability shall not affect the remaining provisions of this Agreement, which shall remain in full force and effect.
+
+
+  
+
+
+Section 7.11  No Third-Party Beneficiaries.
+
+
+  
+
+
+Nothing in this Agreement, express or implied, is intended to or shall confer upon any person other than the parties and their respective successors and permitted assigns any legal or equitable right, benefit, or remedy of any nature whatsoever under or by reason of this Agreement.
+
+
+  
+
+
+Section 7.12  Assignment.
+
+
+  
+
+
+Neither party may assign any of its rights or obligations under this Agreement without the prior written consent of the other party; any purported assignment in violation hereof shall be null and void.
+
+
+  
+
+
+[SIGNATURE PAGE FOLLOWS]
+
+
+  
+
+
+IN WITNESS WHEREOF, the parties have executed this Business Combination Agreement as of the date first written above.
+
+
+  
+
+
+HENNESSY CAPITAL INVESTMENT CORP. VIII
+
+
+  
+
+
+By: ___________________________________
+
+
+Name:
+
+
+Title:
+
+
+  
+
+
+WINDROSE HOLDINGS LIMITED
+
+
+  
+
+
+By: ___________________________________
+
+
+Name:  Wen Han
+
+
+Title:  Chairman and Chief Executive Officer
+
+
+  
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+EXHIBITS
+
+
+  
+
+
+EXHIBIT A — AMENDED AND RESTATED MEMORANDUM AND ARTICLES OF ASSOCIATION OF PUBCO
+
+
+  
+
+
+[To be prepared by Cayman Islands counsel (Maples and Calder or equivalent) prior to the Signing Date. Must reflect the following dual-class structure:
+
+  Class A Ordinary Shares: 20 votes per share; convertible into Class B at holder's election
+    or upon transfer other than to a Permitted Class A Transferee (as defined therein);
+    issuable only in the Share Exchange to Founder Shareholders.
+
+  Class B Ordinary Shares: 1 vote per share; no conversion right into Class A.
+
+  No preferred shares or other classes of shares authorized.
+
+  The Company Charter shall also address: (i) director appointment rights; (ii) transfer restrictions
+  on Class A Ordinary Shares; (iii) definition of Permitted Class A Transferee; and
+  (iv) automatic conversion of Class A Ordinary Shares upon specified events as agreed
+  by the parties prior to the Signing Date.]
+
+
+  
+
+
+EXHIBIT B — SPONSOR SUPPORT AND FORFEITURE AGREEMENT
+
+
+  
+
+
+[To be negotiated and agreed between HCIC and the Sponsor prior to the Signing Date. Key terms to include: (i) Sponsor voting agreement in support of HCIC Shareholder Approval; (ii) forfeiture of a portion of Sponsor Shares (amount to be negotiated); (iii) lock-up on remaining Sponsor Shares; and (iv) waiver of redemption rights in respect of any HCIC Ordinary Shares held by the Sponsor. All Sponsor shares convert to Company Class B Common Stock at Closing.]
+
+
+  
+
+
+EXHIBIT C — FORM OF LOCK-UP AGREEMENT
+
+
+  
+
+
+[Standard 180-day / [●]-month lock-up agreement for Windrose founder shareholders and other significant shareholders as agreed by the parties. To include customary exceptions for transfers to affiliates, estate planning transfers, and block trades with HCIC's consent. Conversion of Company Class A Common Stock into Company Class B Common Stock during the Lock-Up Period shall not constitute a transfer for lock-up purposes.]
+
+
+  
+
+
+EXHIBIT D — PUBCO EQUITY INCENTIVE PLAN
+
+
+  
+
+
+[To be drafted as a standard Cayman Islands exempted company equity incentive plan. Key terms:
+
+  Pool: [●] Company Class B Common Stock ([●]% post-Closing fully diluted)
+  Share class: Company Class B Common Stock only (no Class A awards)
+  Eligible participants: employees, directors, and consultants of PubCo and its subsidiaries
+  Award types: options, restricted share units, restricted shares, and other equity awards
+  Vesting: as determined by the PubCo board of directors (standard 4-year vesting with 1-year cliff)
+  Administration: PubCo board of directors or a designated compensation committee]
+
+
+  
+
+
+[ESOP Pool: [●] shares = [●]% of post-Closing fully-diluted Company Common Stock]
+
+
+  
+
+
+EXHIBIT E — COMPANY DISCLOSURE SCHEDULES
+
+
+
+
+
+[To be delivered by the Company concurrently with execution]
+
+
+
+
+
+════════════════════════════════════════════════════════════════
+
+
+EXHIBIT F — FORM OF TOPCO INVESTOR CONSENT
+
+
+
+
+
+WRITTEN CONSENT OF MAJORITY PREFERRED HOLDERS
+OF WINDROSE HOLDINGS LIMITED (BELGIAN NV, BE 1017.756.464)
+
+Dated: [●], 202[●]
+
+The undersigned holders of Preferred Shares of Windrose Holdings Limited (Belgian
+naamloze vennootschap, registered under enterprise number BE 1017.756.464) ("TopCo
+Belgian") representing in the aggregate more than sixty percent (60%) of the voting
+power of all issued and outstanding Preferred Shares of TopCo (on a fully-
+diluted and as-converted basis), being the "Majority Preferred Holders" as defined
+in Article 36 of TopCo's articles of association (statuten) ("Statuten"),
+hereby provide the following consents and waivers in connection with the proposed
+business combination between TopCo (acting through its wholly-owned subsidiary
+Windrose Technology Inc., a Delaware corporation), Hennessy Capital Investment Corp.
+VIII (a Cayman Islands exempted company), and [Windrose Inc.] (a Cayman Islands
+exempted company to be incorporated as "PubCo"), as described in the Business
+Combination Agreement among such parties (as amended from time to time, the "BCA"):
+
+1.  CONSENT TO DISSOLUTION AND WIND-UP
+
+    Pursuant to Article 27(iv) of the Statuten, the undersigned hereby consent to
+    the dissolution, liquidation, and wind-up of TopCo in accordance with the
+    Belgian Code of Companies and Associations (Wetboek van vennootschappen en
+    verenigingen) as part of the Pre-Closing Restructuring described in the BCA.
+
+2.  WAIVER OF DEEMED LIQUIDATION
+
+    Pursuant to Article 34 of the Statuten, the undersigned hereby waive the
+    "Deemed Liquidation" provisions of Article 34 of the Statuten with respect to
+    the Pre-Closing Restructuring and all other Transactions contemplated by the BCA.
+    No Trade Sale deemed liquidation treatment shall apply to the dissolution of TopCo
+    Belgian, the distribution of Windrose Technology Inc. shares to TopCo
+    shareholders, or any other step in the Transactions.
+
+3.  WAIVER OF LIQUIDATION PREFERENCES
+
+    Pursuant to Article 34 of the Statuten, the undersigned hereby waive all
+    liquidation preferences to which their respective Preferred Shares would otherwise
+    be entitled under Article 34 of the Statuten in connection with the liquidation of
+    TopCo, including the right to receive 100% of their respective Issue Prices
+    plus any accrued and unpaid dividends prior to any distribution to holders of
+    Ordinary Shares. The undersigned acknowledge that, in lieu thereof, they shall
+    receive Windrose Technology Inc. shares on a one-for-one basis (following the
+    Preferred Share Conversion described below), and subsequently PubCo Class B
+    Ordinary Shares in the Company Merger, and that such exchange is fair and
+    reasonable consideration for the waiver of such preferences given the liquidity
+    and listing benefits afforded by the Transactions.
+
+4.  CONSENT TO PREFERRED SHARE CONVERSION
+
+    Pursuant to Article 10(iii) of the Statuten, the undersigned hereby consent to
+    and approve the automatic conversion of all issued and outstanding Preferred Shares
+    of TopCo (being the Series A-1, A-2, B-1, B-2, and C-1 Preferred Shares)
+    into Class C Ordinary Shares of TopCo on a one-for-one (1:1) basis (the
+    "Preferred Share Conversion"), effective immediately prior to the dissolution of
+    TopCo. The undersigned acknowledge that upon the Preferred Share Conversion,
+    all liquidation preferences, anti-dilution rights, conversion rights, and other
+    Preferred Share protective provisions under the Statuten shall terminate.
+
+5.  CONSENT TO TRANSACTIONS AND LISTING
+
+    Pursuant to Article 13 of the Statuten, the undersigned (including the Preferred
+    Directors appointed by the undersigned) hereby approve the Transactions, including
+    the Pre-Closing Restructuring, the Company Merger, the HCIC Merger, and the
+    listing of PubCo on The Nasdaq Stock Market, LLC. The undersigned confirm that
+    the listing venue (Nasdaq), timing, valuation, and other material terms of the
+    Transactions are hereby approved for purposes of Article 13 of the Statuten.
+
+6.  WAIVER OF ADVANCE NOTICE PERIOD
+
+    Pursuant to Article 34 of the Statuten, the undersigned hereby waive the twenty
+    (20) day advance notice period required under Article 34 of the Statuten with
+    respect to the Liquidation Event constituted by the dissolution of TopCo,
+    and agree that such notice period shall be shortened to [●] days (or such shorter
+    period as the undersigned and TopCo shall agree in writing).
+
+7.  CONSENT TO CHARTER AMENDMENTS
+
+    Pursuant to Article 27(x) of the Statuten, the undersigned hereby consent to
+    any amendments to the Statuten necessary or appropriate in connection with the
+    Pre-Closing Restructuring, including any resolutions required to be adopted at
+    the Extraordinary General Meeting to effect the dissolution of TopCo.
+
+8.  GENERAL
+
+    This Consent is irrevocable and shall be binding upon the undersigned and their
+    respective successors, assigns, and transferees. This Consent shall be governed
+    by and construed in accordance with the laws of Belgium. Capitalized terms used
+    but not defined herein shall have the meanings given in the BCA.
+
+[SIGNATURE PAGES FOLLOW]
+
+[Each Majority Preferred Holder to sign below, indicating the series and number of
+Preferred Shares held, and the percentage of total Preferred Share voting power
+represented by such holder's shares.]
+
+
+
+
+
+════════════════════════════════════════════════════════════════
+
+
+  
+
+
+SCHEDULES
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 2.02 — EXCHANGE RATIO AND ALLOCATION OF PUBCO CLASS A / CLASS B SHARES
+
+
+Exchange Ratio Formula
+
+
+The Exchange Ratio applies uniformly to all TopCo shares on a fully-diluted, as-converted-to-ordinary-share basis:
+
+
+    Exchange Ratio  =  Pre-Money Equity Value  /  Reference Price  /  Total TopCo Fully Diluted Shares
+
+
+Where:
+  - Pre-Money Equity Value = $10.00 × Total TopCo Fully Diluted Shares
+      (definition confirmed — see "Pre-Money Equity Value" in Article I)
+  - Reference Price = $10.00 per PubCo Ordinary Share
+  - Total TopCo Fully Diluted Shares at Closing = 138,565,537 issued
+      + ESOP Pool [●] (to be determined prior to Signing Date)
+
+  Because Pre-Money Equity Value = Reference Price × Total TopCo Fully
+  Diluted Shares, the formula simplifies to:
+
+    Exchange Ratio  =  1.0000  (exactly one PubCo share per TopCo share)
+
+  This one-for-one exchange applies uniformly to all TopCo shares
+  regardless of class or series.
+
+
+Class Allocation Rule
+
+
+At Closing:
+  → Founder Shareholders receive PubCo CLASS A ORDINARY SHARES (20 votes/share)
+  → All other shareholders receive PubCo CLASS B ORDINARY SHARES (1 vote/share)
+
+All Company Preferred Shares convert to Company Ordinary Shares at 1:1 prior to the
+Share Exchange (Section 2.01(a)) and then exchange for Company Class B Common Stock.
+No preferred shares exist at PubCo.
+
+
+═══════════════════════════════════════════════════════════════
+PART A — PUBCO CLASS A ORDINARY SHARES (20 votes/share)
+  [Founder Shareholders only]
+═══════════════════════════════════════════════════════════════
+
+TopCo CLASS A ORDINARY SHARES → Company Class A Common Stock
+
+  June Lake Drive Limited (Wen Han, CEO)           25,986,778
+
+  SUBTOTAL — receives PubCo CLASS A               25,986,778
+  PubCo Class A shares issued at Exchange Ratio:   [●] × 25,986,778
+
+
+═══════════════════════════════════════════════════════════════
+PART B — PUBCO CLASS B ORDINARY SHARES (1 vote/share)
+  [All other TopCo shareholders — ordinary and former preferred]
+═══════════════════════════════════════════════════════════════
+
+TopCo CLASS B ORDINARY SHARES → Company Class B Common Stock
+
+  Shineland Global Limited (Haoli Chen, President) 21,000,000
+  Euclidean Investment LLC (David Liu)              8,797,755
+  Goodman                                             108,968
+  ESOP Pool (reserved — fully diluted)                    [●]
+  Rokin Logistics Supply Chain Co., Ltd. (warrant)  1,851,378
+  SUBTOTAL CLASS B (excl. ESOP)                    31,758,101
+
+TopCo CLASS C ORDINARY SHARES → Company Class B Common Stock
+
+  HITE Hedge Horizon LP                             1,191,469
+  Ingenious Value Limited                             953,963
+  Sigma Point Investment LLC                          297,867
+  Bruno Medard Albert Thellier                        119,147
+  Corner Capital Limited                              119,147
+  Eric Gauthier                                       119,147
+  Curtis Alan Ferguson                                119,147
+  Other / Pending Transfers                               [●]
+  SUBTOTAL CLASS C (known issued)                   2,919,887
+
+SERIES A-1 PREFERRED → converts 1:1 to Ordinary → PubCo Class B
+
+  Euclidean Investment LLC                          3,871,467
+  Sigma Point Investment LLC                        1,935,734
+  Tang TG Holdings Limited                          3,871,467
+  Super Truck Investment Limited                    1,935,734
+  Bliss Assemble Limited                            1,742,160
+  Aurora Founds Limited                             1,827,888
+  Corner Capital Limited                              774,293
+  Nice Joy International Limited                      967,867
+  Groove Coverage Limited                             387,147
+  Xtelli Holdings LLC                                  96,787
+  Splendid Cedar Limited                            2,851,122
+  SUBTOTAL SERIES A-1                              22,261,666
+
+SERIES A-2 PREFERRED → converts 1:1 to Ordinary → PubCo Class B
+
+  Planetree Partners III, L.P.                     14,128,072
+  Planetree Partners III-A, L.P.                    1,662,126
+  57 Stars – Yun Qi Co-Investment SPV, LLC            822,835
+  Xenial Holding Ltd                               18,513,781
+  Tsoi Tak Lun Leo                                    874,261
+  Feifei Xiong                                        521,588
+  June Lake Drive Limited                             164,978
+  Terence Foo Kok Seng                                297,867
+  Angela Chih Wen Huang                               822,835
+  Jia You                                             277,707
+  Yifan Li                                            185,138
+  Bruno Medard Albert Thellier                        370,276
+  SUBTOTAL SERIES A-2                              38,641,464
+
+SERIES B-1 PREFERRED → converts 1:1 to Ordinary → PubCo Class B
+
+  Greentech Ventures Limited                        5,480,958
+  Feifei Xiong                                        755,289
+  June Lake Drive Limited                           1,310,664
+  Hong Kong Gemini Pty Limited (K. Harvey)            119,151
+  Paul William McGarry                                 59,576
+  HITE Hedge II LP                                  1,239,173
+  HITE Hedge LP                                       881,719
+  HITE Hedge Offshore, Ltd                          3,836,671
+  SUBTOTAL SERIES B-1                              13,683,201
+
+SERIES B-2 PREFERRED → converts 1:1 to Ordinary → PubCo Class B
+
+  Jia You                                              99,967
+  SUBTOTAL SERIES B-2                                  99,967
+
+SERIES C-1 PREFERRED → converts 1:1 to Ordinary → PubCo Class B
+
+  [Per Series C-1 SPA Investor Schedule]            1,214,473
+  SUBTOTAL SERIES C-1                               1,214,473
+
+                                                ─────────────
+TOTAL PART B (TopCo shareholders → Class B)       112,578,759
+(excl. ESOP placeholder)
+
+
+═══════════════════════════════════════════════════════════════
+SUMMARY — TOTAL TopCo FULLY DILUTED SHARES
+═══════════════════════════════════════════════════════════════
+
+  Part A: → PubCo Class A                          25,986,778
+  Part B: → PubCo Class B (excl. ESOP)            112,578,759
+  ESOP Pool (→ PubCo Class B, reserved)                   [●]
+                                                ─────────────
+  TOTAL ISSUED (ROM, as of C-1 SPA Signing)       138,565,537
+  Note: slight variance from prior version due to rounding;
+  to be reconciled against final share register at Signing Date.
+  ESOP Pool (fully diluted, reserved)                     [●]
+  TOTAL FULLY DILUTED                        138,565,537 + ESOP [●]
+
+
+Exchange Ratio — Confirmed 1.0000 (one-for-one)
+
+  Exchange Ratio: 1.0000 per TopCo share (exact, regardless of ESOP size)
+
+  Pre-Money Equity Value at current issued count (excl. ESOP):
+    138,565,537 shares × $10.00  =  $1,385,655,370
+
+  Pre-Money Equity Value increases by $10.00 for each ESOP share added.
+  Example: ESOP Pool = 13,856,554 shares (~10% of issued on FD basis)
+    → Total FD = 152,422,091  →  Pre-Money = $1,524,220,910
+
+  June Lake Drive Limited (Wen Han) receives exactly 25,986,778 PubCo
+  Class A Ordinary Shares (1:1 from TopCo Class A, 20 votes per share).
+  All other TopCo shareholders receive PubCo Class B at the same 1:1 ratio.
+
+(Exchange Ratio = 1.0000 confirmed per "Pre-Money Equity Value" definition
+in Article I. Final Pre-Money dollar amount confirmed at Signing upon
+determination of ESOP Pool size.)
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 2.06(c) — POST-CLOSING BOARD COMPOSITION
+
+
+[●] — To be agreed between the parties no later than [●] days prior to the anticipated Closing Date.
+
+
+Note: Expected composition of 7 directors: [●] designated by Windrose (including Wen Han as Chairman and CEO), [●] independent directors satisfying Nasdaq Rule 5605 independence requirements, and [●] designated by the Sponsor. Voting at PubCo board level: one vote per director regardless of share class held.
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 2.06(d) — POST-CLOSING OFFICERS
+
+
+[●] — To be agreed between the parties prior to the Closing Date.
+
+
+Note: Wen Han is expected to serve as Chairman and Chief Executive Officer of PubCo following the Closing.
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 3.01(b) — COMPANY CAP TABLE (FULLY DILUTED)
+
+
+See Schedule 2.02 above for the complete fully diluted capitalization table of Windrose Holdings NV, organized by PubCo share class allocation.
+
+
+The Company represents and warrants that the capitalization table in Schedule 2.02 accurately reflects all issued and outstanding Company Shares and all reserved, subscribed, or committed shares (including ESOP, warrants, and rights to acquire Company Shares) as of the Signing Date, subject to completion of pending share transfers noted therein.
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 3.01(i) — MATERIAL CONTRACTS
+
+
+[To be delivered by the Company as part of Exhibit E (Company Disclosure Schedules) concurrently with execution of this Agreement]
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 3.01(l) — COMPANY BROKER / ADVISOR FEES
+
+
+[To be delivered by the Company concurrently with execution of this Agreement]
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 3.02(d) — HCIC CAPITALIZATION
+
+
+HCIC VIII Capitalization as of the Signing Date:
+
+
+Class A Ordinary Shares (public, pre-redemption):        24,150,000
+  → converts to Company Class B Common Stock at Closing
+
+Class B Ordinary Shares (Sponsor / founder shares):       8,910,429
+  Held by:    HC VIII Sponsor LLC (Nevada LLC)
+  Note: up to 1,137,857 shares subject to forfeiture if the underwriters'
+        overallotment option is not fully exercised (per Sponsor Support
+        Agreement, Exhibit B). Net of full forfeiture: 7,772,572 shares.
+  → converts to Company Class B Common Stock at Closing
+
+HCIC Rights outstanding (each = 1/12th PubCo Class B at Closing):  24,150,000
+  → 2,012,500 Company Class B Common Stock at Closing
+
+
+Trust Account:
+  Trustee:        Odyssey Transfer and Trust Company
+  Balance:        ~$241,500,000
+
+
+Sponsor Entity:  HC VIII Sponsor LLC (Nevada LLC)
+  (Source: Form S-1/A filed with the SEC, FY 2026)
+
+
+                                                     No Redemption    Full Redemption
+                                                     ─────────────    ───────────────
+PubCo Class B — from HCIC Class A public shares:     24,150,000              —
+PubCo Class B — from HCIC Rights:                     2,012,500        2,012,500
+PubCo Class B — from HCIC Sponsor (HC VIII Sponsor):  8,910,429        8,910,429
+                                                     ─────────────    ───────────────
+Total PubCo Class B from HCIC side:                  35,072,929       10,922,929
+
+
+Notes:
+  (i)  Class A and Rights share counts sourced from HCIC's Form S-1/A (FY 2026) on file
+       with the SEC. To be reconfirmed against HCIC's most recent proxy statement prior
+       to the Signing Date.
+  (ii) All HCIC shares convert to Company Class B Common Stock only. No HCIC holder
+       receives Company Class A Common Stock.
+  (iii) Sponsor forfeiture provisions are set forth in the Sponsor Support Agreement
+        attached as Exhibit B.
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 3.02(h) — HCIC BROKER / ADVISOR FEES
+
+
+[To be delivered by HCIC concurrently with execution of this Agreement]
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 4.01 — PERMITTED PRE-CLOSING ACTIONS
+
+
+The following Company actions during the Interim Period are pre-approved and shall not require HCIC's consent pursuant to Section 4.01(a):
+
+
+(i)   issuances of Company Shares pursuant to existing written commitments disclosed in Schedule 3.01(b), including vesting and exercise of existing ESOP grants;
+(ii)  ordinary course capital expenditures consistent with the Company's existing budget as disclosed to HCIC prior to the Signing Date;
+(iii) entry into customer, supplier, or distribution agreements in the ordinary course of business on arm's-length terms;
+(iv)  actions required to prepare and deliver PCAOB-compliant financial statements pursuant to Section 4.07; and
+(v)   actions taken at the direction of HCIC in connection with the preparation of the Registration Statement or HCIC Shareholder Meeting materials.
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 7.08 — NOTICES
+
+
+If to HCIC:
+  Hennessy Capital Investment Corp. VIII
+  [Address to be provided]
+  Attention: [●]
+  Email:     [●]
+  With a copy to: [HCIC outside legal counsel] / [●]
+
+
+If to the Company:
+  Windrose Holdings Limited
+  [Registered Belgian address to be provided]
+  Attention: Wen Han, Chairman & Chief Executive Officer
+  Email:     wen.han@windrose.ai
+  With a copy to: [Company outside legal counsel] / [●]
+
+
+════════════════════════════════════════════════════════════════
+
+
+
+════════════════════════════════════════════════════════════════
+
+
+SCHEDULE 4.04(b) — PREFERRED SHAREHOLDER CONSENT RIGHTS
+
+
+Pursuant to Section 4.04(b), the Company Shareholder Approval must include
+the affirmative consent or approval of the following preferred shareholders,
+who hold veto or consent rights under the Company's articles of association
+(statuten) as amended through 23 January 2026.
+
+IMPORTANT: All consent and veto rights described in this Schedule are rights
+attaching to the Company Preferred Shares at the TopCo level only. Upon
+conversion of all Company Preferred Shares into Company Ordinary Shares
+pursuant to Section 2.01(a) at the Effective Time, all such rights —
+including all liquidation preferences, anti-dilution protections, consent
+rights, and veto rights — are automatically and irrevocably extinguished.
+No preferred share rights of any kind survive at PubCo.
+
+
+Series A-2 Preferred Shareholders — Pre-Closing Consent Required
+  Xenial Holding Ltd
+    Basis: Protective provision under Article [●] of the Company's
+    articles of association — consent required for any Change of Control
+    transaction, issuance of new shares ranking equal or senior to
+    Series A-2, or amendment to Series A-2 rights.
+    Shares held: 18,513,781 Series A-2 Preferred (13.37% FD)
+    Post-Closing: converts to 18,513,781 × Exchange Ratio PubCo Class B
+    Ordinary Shares; no preferred rights survive.
+
+  Yun Qi / Planetree entities (Planetree Partners III L.P.,
+    Planetree Partners III-A L.P., 57 Stars – Yun Qi Co-Investment SPV LLC)
+    Basis: Protective provision under Article [●] of the Company's
+    articles of association — consent required for Change of Control
+    and Series A-2 rights amendments.
+    Shares held: ~16,613,033 Series A-2 Preferred (~12.00% FD)
+    Post-Closing: converts to Company Class B Common Stock; no preferred
+    rights survive.
+
+
+Series B-1 Preferred Shareholders — Pre-Closing Consent Required
+  Greentech Ventures Limited (lead B-1 investor)
+    Basis: Protective provision under Article [●] of the Company's
+    articles of association — consent required for Change of Control
+    transactions.
+    Shares held: 5,480,958 Series B-1 Preferred (3.96% FD)
+    Post-Closing: converts to Company Class B Common Stock; no preferred
+    rights survive.
+
+
+Series C-1 Preferred Shareholders — Pre-Closing Consent Required
+  [Per Series C-1 SPA investor schedule]
+    Basis: Protective provision under the Series C-1 Share Purchase
+    Agreement dated [●] — consent required for any liquidation,
+    dissolution, or Change of Control event.
+    Shares held: 1,214,473 Series C-1 Preferred (0.88% FD)
+    Post-Closing: converts to Company Class B Common Stock; no preferred
+    rights survive.
+
+
+Notes:
+  (i)   Article references to be confirmed against the Company's
+        coordinated articles of association as notarised on 23 January
+        2026 prior to the Signing Date.
+  (ii)  The Company shall use its best efforts to obtain all required
+        consents prior to or simultaneously with the Company
+        Shareholder Meeting, as required by Section 4.04(c).
+  (iii) In addition to the above preferred shareholder consents, the
+        Share Exchange requires approval by the extraordinary general
+        meeting of TopCo shareholders under Article 7:147 of the
+        Belgian Companies Code (supermajority of 75% of votes cast).
+  (iv)  GSR (苏州金沙江朝华四期创业投资合伙企业（有限合伙）) holds
+        Series A-1 Preferred (3,871,467 shares). Consent rights under
+        Series A-1 to be confirmed from the Company's articles.
+  (v)   All preferred shareholders receive Company Class B Common Stock
+        (1 vote/share) upon conversion at Closing. The dual-class structure
+        of PubCo (Class A: 20 votes/share held by founder Wen Han only)
+        and the absence of any preferred share class at PubCo are material
+        terms that should be disclosed to preferred shareholders in the
+        information circular for the Company Shareholder Meeting.
+
+
+════════════════════════════════════════════════════════════════
+
+OPEN ITEMS — FOR DISCUSSION (NOT PART OF AGREEMENT)
+
+
+═══ v0.12 STRUCTURAL ITEMS ════════════════════════════════════
+
+[✓] Transaction structure — CONFIRMED (v0.12): Single HCIC Merger / WTI as PubCo.
+    Company = Windrose Technology Inc. (WTI, Delaware) = PubCo = listed entity.
+    TopCo (Belgian NV) stays alive as largest economic shareholder of WTI (Class B).
+    Wen Han (Founder) holds Company Class A (20 votes/share) directly as individual.
+    No new Cayman HoldCo; no Company Merger; no Pre-Closing Restructuring.
+    Sole merger: Merger Sub A (Cayman WTI sub) + HCIC → HCIC survives as WTI sub.
+
+[✓] TopCo governance — CONFIRMED (v0.12): Only requirement is TopCo Art 13 board
+    approval, now extended to cover: (i) WTI Nasdaq listing; (ii) valuation; (iii) timing;
+    AND (iv) Founder Share Issuance + reclassification of TopCo's shares as Class B.
+    No EGM, no Investor Consent required. Art. 34 not triggered (TopCo retains WTI
+    shares; only voting class changes from Class A to Class B — no asset transfer).
+
+[●] FOUNDER SHARE ISSUANCE — CRITICAL PATH (NEW IN v0.12):
+    (a) Number of Class A shares to issue to Wen Han: [●] shares.
+        Reference: June Lake Drive Limited held 25,986,778 TopCo Class A shares
+        in the v0.10 Double Merger cap table. Sizing at that count would give Wen Han
+        ~25.99M Class A (20 votes = 519.7M votes) vs. ~173.6M Class B votes (TopCo
+        138.6M + HCIC ~35.1M) → Wen Han ≈ 74.9% voting control.
+    (b) Subscription price: $[●]/share. Fairness analysis required to ensure no
+        dilutive claim from TopCo's preferred shareholders. If priced at $10.00/share
+        (= Reference Price), TopCo's WTI stake value is unchanged on an economic basis.
+    (c) Form of Founder Share Subscription Agreement: to be attached as Exhibit [●].
+    (d) Founder residential address for parties block: [●].
+    (e) Belgian counsel confirmation: reclassification of TopCo's WTI shares from
+        Company common stock to Class B does not constitute a Deemed Liquidation
+        Event under Art. 34 (no asset transfer; pure reclassification of voting class).
+
+[●] TopCo Art 13 board approval (CRITICAL PATH — extended in v0.12): Obtain
+    resolution of TopCo board (including Majority Preferred Directors) approving:
+    (i) WTI Nasdaq listing; (ii) Pre-Money Equity Value; (iii) timing; and (iv)
+    Founder Share Issuance + reclassification of TopCo's shares as Class B.
+    Must be delivered ≥30 days before Closing and prior to S-4 filing.
+    Identify current Majority Preferred Directors; confirm process with Belgian counsel.
+
+[●] WTI current capitalization and Charter Amendment (Exhibit A): Confirm current
+    WTI authorized and issued shares (100% held by TopCo). Draft Charter Amendment:
+    authorize Class A Common Stock (20 votes, for Wen Han personally) and Class B
+    Common Stock (1 vote, for TopCo reclassification + HCIC shareholders + ESOP).
+    Confirm Aggregate Company Share Count = 138,565,537 + [●] Founder Class A +
+    ESOP Pool. TopCo must consent as 100% shareholder (DGCL §228).
+
+[●] WTI Nasdaq listing: Confirm WTI satisfies Nasdaq initial listing standards as a
+    domestic issuer (Delaware corporation). Form S-4 (not F-4). Confirm dual-class
+    stock eligibility on Nasdaq Capital Market or Nasdaq Global Select Market.
+
+[●] Merger Sub A (Cayman) formation: Confirm Cayman counsel engaged to incorporate
+    Merger Sub A as wholly-owned WTI subsidiary prior to Closing.
+
+[●] State of incorporation of WTI: Confirmed Delaware. Verify good standing.
+
+═══ EXISTING OPEN ITEMS ════════════════════════════════════════
+
+[✓] Pre-Money Equity Value — confirmed: $10.00 × Aggregate Company Share Count
+    (TopCo's WTI Class A shares) → Exchange Ratio = 1.0000.
+    Current issued-only value: 138,565,537 × $10.00 = $1,385,655,370.
+    Final amount pending ESOP Pool size.
+
+[●] ESOP Pool size — number of Company Class B Common Stock shares to be reserved
+    under Equity Incentive Plan, to be agreed prior to Signing Date
+
+[●] ESOP Pool % — to be calculated upon agreement of ESOP Pool share count
+
+[✓] HCIC Sponsor entity name — confirmed: HC VIII Sponsor LLC (Nevada LLC), 8,910,429
+    Class B founder shares (Form S-1/A, FY 2026). Up to 1,137,857 subject to forfeiture.
+
+[●] PCAOB delivery deadline — number of days post-Signing
+
+[●] Lock-up period for founder shareholders — Wen Han (Class A) and TopCo (Class B): 180 days vs. 12 months
+
+[●] Post-Closing board composition — Schedule 2.06(c). TopCo as controlling shareholder
+    will have board designation rights at WTI level; confirm alignment with statuten.
+
+[●] Minimum PIPE size — to be agreed (Section 2.07)
+
+[●] Class A conversion triggers — mandatory Class A → Class B conversion events to be
+    set out in Charter Amendment (Exhibit A): e.g. (i) transfer to non-Permitted Class A
+    Transferee; (ii) TopCo ceasing to hold ≥ [●]% of WTI; (iii) [other triggers TBD]
+
+[●] Nasdaq dual-class listing eligibility — confirm WTI's dual-class structure qualifies;
+    Form S-4 applies as WTI is a domestic Delaware issuer
+
+[●] TopCo preferred shareholder rights (disclosure): TopCo preferred shareholders retain
+    all rights under the statuten. Disclose in Registration Statement. Confirm with
+    Belgian counsel that no preferred shareholder vote is required for Art 13 approval
+
+
+════════════════════════════════════════════════════════════════
+
+
+END OF DOCUMENT
