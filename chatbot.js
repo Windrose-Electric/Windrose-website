@@ -200,7 +200,7 @@
 
   window.FAQ_LANGS = window.FAQ_LANGS || {}; var FAQ_LANGS = {
     'range': {
-      'en': 'The Windrose E700 achieves 700 km fully loaded (single trailer, 49 tons). With a double trailer at 64 tons it achieves 500 km. Next generation targets 800+ km.',
+      'en': '• 700 km fully loaded — single trailer at 49 tons\n• 500 km with double trailer at 64 tons\n• Next generation targets 800+ km',
       'fr': 'Le Windrose E700 atteint 700 km en charge complète (semi-remorque simple, 49 tonnes). Avec un B-double à 64 tonnes : 500 km. La prochaine génération vise 800+ km.',
       'de': 'Der Windrose E700 erreicht 700 km vollbeladen (Einzelauflieger, 49 Tonnen). Mit B-Doppel bei 64 Tonnen: 500 km. Die nächste Generation soll 800+ km erreichen.',
       'zh': 'Windrose E700满载续航700公里(单挂49吨)。双挂64吨时续航500公里。下一代目标800+公里。',
@@ -216,7 +216,7 @@
       'ko': 'Windrose E700은 만재(싱글 트레일러, 49톤) 기준 700km를 달성합니다. 64톤 더블 트레일러는 500km. 차세대 목표는 800+km.',
     },
     'price': {
-      'en': 'Indicative prices: 🇪🇺 €198,000 · 🇬🇧 £220,000 (up to £81k UK grant) · 🇺🇸 $285,000 ($120k+ HVIP) · 🇦🇺 A$450,000. Monthly lease from €3,900/mo. Click a price card to enquire.',
+      'en': '• 🇪🇺 €198,000 excl. taxes — lease from €3,900/mo\n• 🇬🇧 £220,000 excl. VAT — up to £81k UK grant — from £2,200/mo after grant\n• 🇺🇸 $285,000 excl. taxes — $120k+ HVIP — from $3,100/mo after HVIP\n• 🇦🇺 A$450,000 excl. GST — from A$7,200/mo\n• Click a price card or email sales@windrose.ai to enquire',
       'fr': 'Prix indicatifs : 🇪🇺 250 000 € · 🇬🇧 220 000 £ (jusqu\'à 81 000 £ de subvention) · 🇺🇸 300 000 $ (120 000 $+ HVIP) · 🇦🇺 450 000 A$. Leasing à partir de 3 900 €/mois.',
       'de': 'Richtpreise: 🇪🇺 €250.000 · 🇬🇧 £220.000 (bis zu £81.000 Förderung) · 🇺🇸 $300.000 ($120.000+ HVIP) · 🇦🇺 A$450.000. Leasing ab €3.900/Monat.',
       'zh': '参考价格:🇪🇺 €198,000 · 🇬🇧 £220,000(最高 £81,000 英国补贴)· 🇺🇸 $285,000($120,000+ HVIP)· 🇦🇺 A$450,000。月租赁从€3,900起。点击价格卡片咨询。',
@@ -232,7 +232,7 @@
       'ko': '참고 가격: 🇪🇺 €198,000 · 🇬🇧 £220,000 (최대 £81,000 영국 보조금) · 🇺🇸 $285,000 (HVIP $120,000+) · 🇦🇺 A$450,000. 월 리스 €3,900부터. 가격 카드를 클릭하여 문의하세요.',
     },
     'delivery': {
-      'en': 'Q3 2026 with 60% advanced payment (priority allocation). Q4 2026 with standard 5% deposit, balance due before delivery.',
+      'en': '• Q3 2026 — 60% advanced payment for priority allocation\n• Q4 2026 — 5% deposit to reserve, balance due before delivery',
       'fr': 'T3 2026 avec 60% de paiement anticipé (allocation prioritaire). T4 2026 avec un acompte standard de 5%, solde dû avant livraison.',
       'de': 'Q3 2026 mit 60% Vorauszahlung (Prioritätsallokation). Q4 2026 mit Standard 5% Anzahlung, Restzahlung vor Lieferung.',
       'zh': '2026年第三季度交付:需60%预付款(优先分配)。2026年第四季度:5%订金预定,余款交付前付清。',
@@ -248,7 +248,7 @@
       'ko': '2026년 Q3 인도: 우선 배정을 위해 60% 선불 결제 필요. 2026년 Q4: 표준 5% 보증금으로 예약, 잔금은 인도 전 지불.',
     },
     'order': {
-      'en': 'Click any price card on this page to email our sales team, or write to sales@windrose.ai. You can also use the Reserve button at the top of the page.',
+      'en': '• Click any price card on this page to email our sales team\n• Or write directly to sales@windrose.ai\n• Or use the Reserve button at the top of the page',
       'fr': 'Cliquez sur n\'importe quelle carte de prix pour envoyer un e-mail à notre équipe commerciale, ou écrivez à sales@windrose.ai. Vous pouvez aussi utiliser le bouton Réserver en haut de la page.',
       'de': 'Klicken Sie auf eine Preiskarte, um unserem Vertriebsteam eine E-Mail zu senden, oder schreiben Sie an sales@windrose.ai. Sie können auch den Reservieren-Button oben auf der Seite verwenden.',
       'zh': '点击页面上任何价格卡片即可联系销售团队,或发送邮件至sales@windrose.ai。也可使用页面顶部的预定按钮。',
@@ -264,7 +264,7 @@
       'ko': '페이지의 가격 카드를 클릭하여 영업팀에 이메일을 보내거나 sales@windrose.ai로 문의하세요. 페이지 상단의 예약 버튼도 사용할 수 있습니다.',
     },
     'charge': {
-      'en': 'The Windrose E700 charges at 870 kW MCS — 20% to 80% in 38 minutes. 800V architecture with MCS, CCS2, CCS1, and GB/T standards. Validated at 100% of MCS sites in Europe with partners Milence, Kempower, EV Realty, and Greenlane (3 months free charging with every purchase).',
+      'en': '• 870 kW MCS — 20% to 80% in 38 minutes\n• 800V architecture supports MCS, CCS2, CCS1, and GB/T\n• Validated at 100% of MCS sites in Europe\n• Partners: Milence, Kempower, EV Realty, Greenlane\n• 3 months free charging included with every purchase',
       'fr': 'Le Windrose E700 se recharge à 870 kW MCS — 20% à 80% en 38 minutes. Architecture 800V avec les standards MCS, CCS2, CCS1 et GB/T. Validé sur 100% des sites MCS en Europe avec Milence, Kempower, EV Realty et Greenlane (3 mois de recharge gratuite à chaque achat).',
       'de': 'Der Windrose E700 lädt mit 870 kW MCS — 20% auf 80% in 38 Minuten. 800V-Architektur mit MCS, CCS2, CCS1 und GB/T. An 100% der MCS-Standorte in Europa validiert, mit Partnern Milence, Kempower, EV Realty und Greenlane (3 Monate kostenloses Laden bei jedem Kauf).',
       'nl': 'De Windrose E700 laadt op 870 kW MCS — 20% naar 80% in 38 minuten. 800V-architectuur met MCS, CCS2, CCS1 en GB/T-standaarden. Gevalideerd op 100% van de MCS-locaties in Europa met partners Milence, Kempower, EV Realty en Greenlane (3 maanden gratis laden bij elke aankoop).',
@@ -280,7 +280,7 @@
       'zh': 'Windrose E700采用870 kW MCS充电——38分钟内从20%充至80%。800V架构,支持MCS、CCS2、CCS1和GB/T标准。已在欧洲100%的MCS站点验证,合作伙伴包括Milence、Kempower、EV Realty和Greenlane(每次购买赠送3个月免费充电)。',
     },
     'specs': {
-      'en': 'Windrose E700: 705 kWh LFP battery at 800V, 1,400 hp (1,045 kW) motor, 120 km/h top speed, 7.5% climbing ability fully loaded. Dimensions 8.1m × 2.5m × 3.9m. Curb 11,835 kg, GCW 49,000 kg. Tested -32°C to +48°C, up to 4,700m altitude.',
+      'en': '• 705 kWh LFP battery at 800V\n• 1,400 hp (1,045 kW) motor, 120 km/h top speed\n• 7.5% climbing ability fully loaded\n• Dimensions: 8.1m × 2.5m × 3.9m — curb 11,835 kg, GCW 49,000 kg\n• Tested −32°C to +48°C, up to 4,700m altitude',
       'fr': 'Windrose E700 : batterie LFP 705 kWh à 800V, moteur 1 400 ch (1 045 kW), vitesse max 120 km/h, capacité de montée 7,5% en pleine charge. Dimensions 8,1m × 2,5m × 3,9m. Poids à vide 11 835 kg, PTRA 49 000 kg. Testé de -32°C à +48°C, jusqu\'à 4 700m d\'altitude.',
       'de': 'Windrose E700: 705-kWh-LFP-Batterie bei 800V, 1.400 PS (1.045 kW) Motor, 120 km/h Spitze, 7,5% Steigfähigkeit voll beladen. Maße 8,1m × 2,5m × 3,9m. Leergewicht 11.835 kg, GCW 49.000 kg. Getestet von -32°C bis +48°C, bis 4.700m Höhe.',
       'nl': 'Windrose E700: 705 kWh LFP-batterij op 800V, 1.400 pk (1.045 kW) motor, topsnelheid 120 km/u, klimvermogen 7,5% volledig beladen. Afmetingen 8,1m × 2,5m × 3,9m. Leeggewicht 11.835 kg, GCW 49.000 kg. Getest van -32°C tot +48°C, tot 4.700m hoogte.',
@@ -296,7 +296,7 @@
       'zh': 'Windrose E700:705 kWh LFP电池(800V)、1,400马力(1,045 kW)电机、最高时速120 km/h、满载爬坡能力7.5%。尺寸8.1m × 2.5m × 3.9m。整备质量11,835 kg,总重49,000 kg。测试温度-32°C至+48°C,海拔最高4,700米。',
     },
     'lease': {
-      'en': 'Lease estimates (5-year term, 20% residual): 🇪🇺 €3,900/mo, 🇬🇧 £2,200/mo after grant, 🇺🇸 $3,100/mo after HVIP, 🇦🇺 A$7,200/mo. Tailored financing: sales@windrose.ai.',
+      'en': '• 🇪🇺 €3,900/mo (5-year, 20% residual)\n• 🇬🇧 £2,200/mo after UK grant\n• 🇺🇸 $3,100/mo after HVIP\n• 🇦🇺 A$7,200/mo\n• Tailored financing: sales@windrose.ai',
       'fr': 'Estimations de location (5 ans, valeur résiduelle 20%) : 🇪🇺 3 900 €/mois, 🇬🇧 2 200 £/mois après subvention, 🇺🇸 3 100 $/mois après HVIP, 🇦🇺 7 200 A$/mois. Financement sur mesure : sales@windrose.ai.',
       'de': 'Leasing-Schätzungen (5 Jahre, 20% Restwert): 🇪🇺 3.900 €/Mon., 🇬🇧 2.200 £/Mon. nach Förderung, 🇺🇸 3.100 $/Mon. nach HVIP, 🇦🇺 7.200 A$/Mon. Individuelle Finanzierung: sales@windrose.ai.',
       'nl': 'Leaseramingen (5 jaar, 20% restwaarde): 🇪🇺 €3.900/mnd, 🇬🇧 £2.200/mnd na subsidie, 🇺🇸 $3.100/mnd na HVIP, 🇦🇺 A$7.200/mnd. Op maat gemaakte financiering: sales@windrose.ai.',
@@ -692,7 +692,7 @@
     return (FAQ_LANGS['fallback'] && FAQ_LANGS['fallback'][lang]) ? FAQ_LANGS['fallback'][lang] : FAQ_LANGS['fallback']['en'];
   }
 
-  var SYSTEM_BASE = `You are the customer assistant for Windrose Electric, a global electric long-haul truck company headquartered in Antwerp, Belgium. Be warm and helpful. Use bullet points (starting with •) for any list of facts, features, prices, or steps — never write these as run-on sentences. Keep answers focused. Always respond in {LANGUAGE}.\n\nPRODUCT:\n- Truck: Windrose E700 / Global E700\n- Range: 700 km fully loaded (single trailer at 49 tons), 500 km with double trailer at 64 tons\n- Battery: 705 kWh LFP at 800V — safe, long life. Motor: 1,400 hp (1,045 kW peak)\n- Charging: MCS 870 kW, CCS2, CCS1, GB/T — 38 min charge (20-80%)\n\nPRICING (indicative):\n- EUR: €198,000 excl. taxes — est. €3,900/mo lease\n- GBP: £220,000 excl. VAT — up to £81,000 UK grant — est. £2,200/mo after grant\n- USD: $285,000 excl. taxes — $120,000+ HVIP — est. $3,100/mo after HVIP\n- AUD: A$450,000 excl. GST — est. A$7,200/mo\n- All lease estimates: 5-year term, 20% residual\n\nDELIVERY:\n- Q3 2026: 60% advanced payment required\n- Q4 2026: 5% deposit to reserve, balance due before delivery\n\nCOMPANY:\n- Founded 2022 by Stanford graduate 韩文 (Wen Han)\n- HQ: Antwerp, Belgium — 24 countries, 5 continents\n- Investors: HSBC, Citi, Fountainvest, GSR Ventures, HITE Hedge, Goodman Group\n- Customers: CEVA, Kuehne+Nagel, KLN, Decathlon, Remy Cointreau, Nestle Wyeth, Bluescope, Danske Fragtmaend\n\nORDERING: Email sales@windrose.ai or click any price card. Reserve via Stripe at top of page.\nCHARGING PARTNERS: Milence (EU), ENGIE Vianeo (FR), Kempower (FI/US), EV Realty (US), Greenlane (US), Terawatt (US), Hubject (DE), Autel (NL), Sinexcel (AU), Transport & Energy (UK)\nIf unsure, suggest emailing sales@windrose.ai.
+  var SYSTEM_BASE = `You are the customer assistant for Windrose Electric, a global electric long-haul truck company headquartered in Antwerp, Belgium. Be warm and helpful. ALWAYS format every answer as bullet points starting with • — one key fact or step per bullet, never prose paragraphs. Even a single-sentence answer must be a bullet. Keep answers focused (3–6 bullets max). Always respond in {LANGUAGE}.\n\nPRODUCT:\n- Truck: Windrose E700 / Global E700\n- Range: 700 km fully loaded (single trailer at 49 tons), 500 km with double trailer at 64 tons\n- Battery: 705 kWh LFP at 800V — safe, long life. Motor: 1,400 hp (1,045 kW peak)\n- Charging: MCS 870 kW, CCS2, CCS1, GB/T — 38 min charge (20-80%)\n\nPRICING (indicative):\n- EUR: €198,000 excl. taxes — est. €3,900/mo lease\n- GBP: £220,000 excl. VAT — up to £81,000 UK grant — est. £2,200/mo after grant\n- USD: $285,000 excl. taxes — $120,000+ HVIP — est. $3,100/mo after HVIP\n- AUD: A$450,000 excl. GST — est. A$7,200/mo\n- All lease estimates: 5-year term, 20% residual\n\nDELIVERY:\n- Q3 2026: 60% advanced payment required\n- Q4 2026: 5% deposit to reserve, balance due before delivery\n\nCOMPANY:\n- Founded 2022 by Stanford graduate 韩文 (Wen Han)\n- HQ: Antwerp, Belgium — 24 countries, 5 continents\n- Investors: HSBC, Citi, Fountainvest, GSR Ventures, HITE Hedge, Goodman Group\n- Customers: CEVA, Kuehne+Nagel, KLN, Decathlon, Remy Cointreau, Nestle Wyeth, Bluescope, Danske Fragtmaend\n\nORDERING: Email sales@windrose.ai or click any price card. Reserve via Stripe at top of page.\nCHARGING PARTNERS: Milence (EU), ENGIE Vianeo (FR), Kempower (FI/US), EV Realty (US), Greenlane (US), Terawatt (US), Hubject (DE), Autel (NL), Sinexcel (AU), Transport & Energy (UK)\nIf unsure, suggest emailing sales@windrose.ai.
 
 REAL-WORLD MISSIONS (documented, not lab projections):
 - 2,600 km across 5 European countries
@@ -942,11 +942,11 @@ TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Ma
     lines.forEach(function(line) {
       var t = line.trim();
       if (t.match(/^[•\-]\s+\S/)) {
-        if (!inList) { out += '<ul style="margin:6px 0 6px 16px;padding:0;line-height:1.65;">'; inList = true; }
-        out += '<li style="margin-bottom:4px;">' + fmt(t.replace(/^[•\-]\s+/,'')) + '</li>';
+        if (!inList) { out += '<ul style="margin:4px 0 4px 0;padding:0 0 0 1.1em;line-height:1.75;list-style:none;">'; inList = true; }
+        out += '<li style="margin-bottom:7px;padding-left:0.1em;">' + fmt(t.replace(/^[•\-]\s+/,'')) + '</li>';
       } else {
         if (inList) { out += '</ul>'; inList = false; }
-        if (t) out += '<p style="margin:0 0 6px;">' + fmt(t) + '</p>';
+        if (t) out += '<p style="margin:0 0 8px;">' + fmt(t) + '</p>';
       }
     });
     if (inList) out += '</ul>';
