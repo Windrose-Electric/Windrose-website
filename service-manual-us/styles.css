@@ -745,3 +745,95 @@ summary.toc-sub-title:hover { background: rgba(11,94,215,.04); }
 details.toc-chapter { width: 100%; }
 summary.toc-chapter-title { padding: 8px 10px; }
 
+
+/* ════════════════════════════════════════════════════════════
+   Collapsible TOC (sidebar) + collapsible content (body)
+   Added 2026-06 — sidebar chapters and body sections collapse.
+   ════════════════════════════════════════════════════════════ */
+
+/* ---- Sidebar: collapsible chapter groups ---- */
+.nav-ch-toggle {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 11px 14px; border: none; background: transparent;
+  font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--text); text-align: left;
+  cursor: pointer; transition: background .15s;
+}
+.nav-ch-toggle:hover { background: rgba(11,94,215,.07); }
+.nav-ch-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.nav-ch-toggle::after {
+  content: "▸"; margin-left: auto; font-size: 11px; color: var(--text-muted);
+  transition: transform .2s;
+}
+.nav-ch-toggle[aria-expanded="true"]::after { transform: rotate(90deg); }
+.nav-ch-num {
+  flex: 0 0 auto; min-width: 18px; height: 18px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border-radius: 4px;
+  font-size: 11px; font-weight: 700;
+}
+/* reuse existing .nav-sections collapse; lift cap so big chapters don't clip */
+.nav-sections.expanded { max-height: none; }
+.nav-sections .nav-item {
+  display: block; padding: 5px 14px; color: var(--text-muted);
+  text-decoration: none; border-left: 3px solid transparent;
+  font-size: 13px; line-height: 1.35; transition: all .12s;
+}
+.nav-sections .nav-item:hover { color: var(--accent); background: rgba(11,94,215,.05); }
+.nav-sections .nav-item.active {
+  color: var(--accent); font-weight: 600;
+  border-left-color: var(--accent); background: var(--accent-light);
+}
+.nav-item.lvl1 { padding-left: 16px; font-weight: 600; color: var(--text); }
+.nav-item.lvl2 { padding-left: 30px; font-size: 12.5px; }
+.nav-item.lvl3 { padding-left: 44px; font-size: 12px; color: #7a8597; }
+
+/* ---- Body: expand/collapse toolbar ---- */
+.manual-toolbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin: 0 0 18px; padding-bottom: 14px; border-bottom: 1px solid var(--nav-border);
+}
+.manual-toolbar button {
+  padding: 6px 14px; border: 1px solid var(--accent); border-radius: 5px;
+  background: #fff; color: var(--accent); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.manual-toolbar button:hover { background: var(--accent); color: #fff; }
+.toolbar-hint { font-size: 12.5px; color: var(--text-muted); }
+.manual-intro { margin-bottom: 8px; }
+
+/* ---- Body: collapsible chapters ---- */
+details.ch-block { border: 1px solid var(--nav-border); border-radius: var(--radius); margin: 0 0 12px; background: #fff; box-shadow: var(--shadow-sm); }
+details.ch-block[open] { box-shadow: var(--shadow-md); }
+summary.ch-summary {
+  display: flex; align-items: center; gap: 10px; list-style: none; cursor: pointer;
+  padding: 14px 18px; font-size: 16px; font-weight: 700; color: var(--hdr-fg);
+  background: var(--hdr-bg); border-radius: var(--radius);
+}
+details.ch-block[open] > summary.ch-summary { border-radius: var(--radius) var(--radius) 0 0; }
+summary.ch-summary::-webkit-details-marker { display: none; }
+summary.ch-summary::after { content: "▸"; margin-left: auto; transition: transform .2s; opacity: .7; }
+details.ch-block[open] > summary.ch-summary::after { transform: rotate(90deg); }
+summary.ch-summary .ch-num {
+  flex: 0 0 auto; min-width: 24px; height: 24px; padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border-radius: 5px; font-size: 14px;
+}
+.ch-body { padding: 14px 16px; }
+
+/* ---- Body: collapsible sections ---- */
+details.sec-block { border: 1px solid var(--nav-border); border-radius: var(--radius); margin: 0 0 10px; overflow: hidden; }
+details.sec-block:last-child { margin-bottom: 0; }
+summary.sec-summary {
+  list-style: none; cursor: pointer; padding: 12px 16px;
+  background: var(--nav-bg); transition: background .15s;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+summary.sec-summary:hover { background: var(--accent-light); }
+summary.sec-summary::-webkit-details-marker { display: none; }
+summary.sec-summary::before { content: "▸"; color: var(--accent); font-size: 12px; margin-top: 4px; transition: transform .2s; }
+details.sec-block[open] > summary.sec-summary { background: var(--accent-light); border-bottom: 1px solid var(--nav-border); }
+details.sec-block[open] > summary.sec-summary::before { transform: rotate(90deg); }
+summary.sec-summary h2 { margin: 0; font-size: 15px; font-weight: 600; color: var(--text); }
+.sec-body { padding: 14px 18px; }
+.sec-body > h3:first-child, .sec-body > h4:first-child { margin-top: 0; }
