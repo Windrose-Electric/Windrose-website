@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WVTA Transition — Windrose WH13 R700</title>
+<meta name="description" content="WVTA transition from Anhui Windrose Holdings to Windrose Technology Antwerp NV.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.5; color: #111; background: #fff; max-width: 1180px; margin: 0 auto; padding: 32px 24px 80px; }
+  h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .sub { font-size: 13px; color: #555; margin-bottom: 28px; }
+  details { border: 1px solid #ccc; border-radius: 3px; margin-bottom: 10px; }
+  details > summary { padding: 9px 14px; cursor: pointer; font-weight: 600; font-size: 14px; list-style: none; user-select: none; background: #f5f5f5; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] > summary { border-bottom: 1px solid #ccc; }
+  .body { padding: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 6px 10px; background: #f0f0f0; font-weight: 600; font-size: 12px; border: 1px solid #ccc; }
+  td { padding: 6px 10px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  tr.flag td { background: #fffbe6; }
+  code { font-family: 'SF Mono', Consolas, monospace; font-size: 12px; background: #f0f0f0; padding: 1px 4px; border-radius: 2px; }
+  .warn { color: #92400e; font-weight: 600; }
+  .ok { color: #166534; }
+  .note { font-size: 12px; color: #666; margin: 0 0 10px; }
+  a { color: #1d4ed8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nofile { color: #999; }
+  details.howto { border: none; border-radius: 0; margin: 5px 0 0; background: none; }
+  details.howto > summary { padding: 0; background: none; border: none; font-size: 11px; font-weight: 600; color: #1d4ed8; }
+  details.howto[open] > summary { border: none; }
+  details.howto > summary::after { content: ' ▸'; color: #1d4ed8; font-size: 10px; }
+  details.howto[open] > summary::after { content: ' ▾'; }
+  details.howto .steps { font-size: 11px; font-weight: 400; color: #333; margin-top: 5px; line-height: 1.5; }
+  h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #555; margin: 16px 0 6px; }
+  h2:first-child { margin-top: 0; }
+  details.sub { margin: 8px 0; border-radius: 3px; }
+  details.sub > summary { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #555; background: #ededed; }
+  details.sub > summary::after { content: ' ▸'; color: #888; font-size: 10px; }
+  details.sub[open] > summary::after { content: ' ▾'; }
+  details.sub > .subbody { padding: 12px 14px; }
+  .scrollx { overflow-x: auto; }
+  table.status { font-size: 12px; }
+  table.status code { white-space: nowrap; }
+  table.status td:nth-child(2), table.status td:nth-child(3) { white-space: nowrap; }
+  .kw { border-bottom: 1px dotted #1d4ed8; color: #1d4ed8; cursor: help; position: relative; }
+  .kw > .kwdef { display: none; position: absolute; left: 0; top: 1.5em; z-index: 30; width: 280px; max-width: 80vw; background: #fff; color: #333; border: 1px solid #bbb; border-radius: 4px; padding: 8px 10px; font-size: 11.5px; font-weight: 400; font-style: normal; line-height: 1.5; white-space: normal; box-shadow: 0 3px 10px rgba(0,0,0,.18); }
+  .kw:hover > .kwdef, .kw:focus > .kwdef, .kw:focus-within > .kwdef { display: block; }
+
+  .certnav { display:flex; flex-wrap:wrap; gap:10px; align-items:center; font-size:12px; margin:0 0 22px; padding:10px 14px; background:#f0f4ff; border:1px solid #c7d2fe; border-radius:3px; }
+  .certnav strong { color:#1e3a8a; }
+  .certnav a { font-weight:600; }
+  .certnav span.sep { color:#94a3b8; }
+</style>
+</head>
+<body>
+<nav class="certnav"><strong>WVTA cert set:</strong><a href="r155.html">R155 · Cybersecurity (CSMS)</a><span class="sep">·</span><a href="r156.html">R156 · Software Updates (SUMS)</a><span class="sep">·</span><a href="wvta-status.html">Belgian-entity document tracker</a><span class="sep">·</span><span>You are here: Transition overview</span></nav>
+<h1>WVTA Transition — Windrose WH13 / R700</h1>
+<div class="sub">
+  Current: <code>e5*2018/858*00525*01</code> — Transportstyrelsen (Sweden · e5) · 18 Mar 2026 · N3 BEV/FCEV<br>
+  Goal: new e5 <span class="kw" tabindex="0">WVTA<span class="kwdef">Whole Vehicle Type Approval — the single EU certificate (Reg 2018/858) covering the whole vehicle type. Here: e5*2018/858*00525*01.</span></span> naming <strong>Windrose Technology Antwerp NV</strong> as manufacturer, <span class="kw" tabindex="0">WMI<span class="kwdef">World Manufacturer Identifier — the first three VIN characters. LKL/LH5 (China) -> YCB (Belgium).</span></span> <strong>YCB</strong>
+</div>
+
+<details open>
+  <summary>1 · Key Facts &amp; Concepts</summary>
+  <div class="body">
+    
+    <p class="note"><strong><span class="kw" tabindex="0">Part III<span class="kwdef">The section of the WVTA certificate listing every regulatory act the vehicle complies with.</span></span></strong> is the section of the WVTA certificate <code>e5*2018/858*00525*01</code> listing every regulatory act the vehicle complies with. Everything here is built from it.</p>
+
+    <details class="sub" open><summary>1A · Overview, concepts &amp; counts</summary>
+    <div class="subbody"><p class="note"><strong>Fulfilled:</strong> 50 / 50 Part III items (47 certificates + 3 declarations; D4 <span class="kw" tabindex="0">R155<span class="kwdef">UN Regulation 155 — vehicle Cybersecurity and the Cyber Security Management System (CSMS).</span></span> &amp; H2 <span class="kw" tabindex="0">R156<span class="kwdef">UN Regulation 156 — vehicle Software Updates and the Software Update Management System (SUMS).</span></span> must be reissued to the Belgian entity). <strong>Held:</strong> 48 distinct approvals (70 physical copies). <strong>UN R-regulations:</strong> 32 (33 incl. R165).</p>
+
+
+
+    <p class="note">Inside the WVTA, the 50 Part III rows partition by evidence source (see the table below). UN and EU overlap in exactly one place — <strong>G3</strong>, the only row holding both a UN cert (R85) and an EU cert (<span class="kw" tabindex="0">VECTO<span class="kwdef">EU CO2 / energy-consumption simulation tool — the EU half of item G3, alongside the R85 approval.</span></span>). Self-declarations belong to neither.</p>
+    
+    <p class="note">Total: 35 UN-only + 11 EU-only + 1 both (G3) + 3 declarations = <strong>50</strong>.</p>
+
+    <p class="note" style="margin-top:10px"><strong>Is this MECE?</strong> The 50 Part III rows are the complete, non-overlapping set of <em>technical</em> requirements (<span class="kw" tabindex="0">Annex II<span class="kwdef">The list in Reg 2018/858 of all applicable regulatory acts; defines the A–H group codes.</span></span>, category N3). The full transition is <strong>62 items</strong> = those 50 + 9 manufacturer/paperwork items + 3 also-held certs.</p>
+    <h2>Part III by evidence source</h2>
+    <table>
+      <thead><tr><th></th><th>UN / E-mark</th><th>EU e-act</th><th>Self-declaration</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rows in Part III</strong></td><td>35 (+ G3)</td><td>11 (+ G3)</td><td>3</td></tr>
+        <tr><td><strong>Issuing authorities</strong></td><td>E5 Sweden ×44 · E49 Cyprus ×2 (D4, H2) · E24 Ireland ×1 (G3) · + 22 E25 Croatia backups</td><td>e5 Sweden ×12</td><td>manufacturer (no authority)</td></tr>
+        <tr><td><strong>Transition action</strong></td><td>Carry forward — except <strong>D4 (R155)</strong> &amp; <strong>H2 (R156)</strong> reissued to Antwerp NV + YCB</td><td>Carry forward</td><td>Restate in new dossier</td></tr>
+      </tbody>
+    </table>
+    <p class="note">All terms used in this document are defined in <strong>1B</strong> below.</p>
+</div>
+    </details>
+    <details class="sub" open><summary>1B · Terminology &amp; definitions</summary>
+    <div class="subbody">
+    <p class="note">Definitions are inline: each keyword is <span class="kw" tabindex="0">underlined<span class="kwdef">Like this — hover or tap/click the keyword to reveal its definition.</span></span> at its first appearance — hover or tap it to reveal the definition. Two references that can't be inlined:</p>
+    <table>
+      <thead><tr><th>Reference</th><th>Values</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Country codes</strong> (capital E or lowercase e)</td><td>4 = Netherlands · 5 = Sweden · 6 = Belgium · 24 = Ireland · 25 = Croatia · 49 = Cyprus</td></tr>
+        <tr><td><strong>Marks</strong></td><td>Ⓔ UN = capital E in a circle (global) · ▭e EU = lowercase e in a rectangle (EU/EEA only)</td></tr>
+      </tbody>
+    </table></div>
+    </details>
+    
+  </div>
+</details>
+
+<details open>
+  <summary>2 · Master Status — Everything in One Table</summary>
+  <div class="body">
+    
+    <p class="note">Every item for the transition in one place. <span class="ok">✓ = done / in place</span> · <span class="warn">⚠ = must change</span>. <strong><span class="ok">✓ Done: 49</span> · <span class="warn">⚠ To change: 13</span></strong> (62 items total) — the 13 are the manufacturer/WMI paperwork, the R155/R156 certificates, and the system certs.</p>
+    <details class="sub" open><summary>2A · Complete transition checklist — done &amp; to-do</summary>
+    <div class="subbody">
+    <p class="note">The complete MECE list of everything the WVTA needs, with the held certificate per country (E5 Sweden · E25 Croatia · E49 Cyprus) and its transition status. <span class="ok">✓ = held / done</span> · <span class="warn">⚠ = must change to move to the Belgian entity</span>.</p>
+    <p class="note"><strong>Already done — 43 items confirmed in Drive:</strong> 21 technical-service test reports · 5 <span class="kw" tabindex="0">E-mark<span class="kwdef">A UNECE (UN 1958 Agreement) approval — capital E + country number; recognised in ~60 countries.</span></span> component certs · 5 R155 <span class="kw" tabindex="0">CSMS<span class="kwdef">Cyber Security Management System — the manufacturer-process side of R155.</span></span> docs · 4 R156 <span class="kw" tabindex="0">SUMS<span class="kwdef">Software Update Management System — the manufacturer-process side of R156.</span></span> docs · 8 corporate/approvals · + both R155/R156 vehicle certs and the full change-analysis (<a href="/cert/r155.html" target="_blank" rel="noopener">r155</a> · <a href="/cert/r156.html" target="_blank" rel="noopener">r156</a> · <a href="/cert/wvta-status.html" target="_blank" rel="noopener">status</a>). Every Part III regulation below already holds its certificate — the remaining work is the manufacturer/WMI swap on the documents and the four ⚠ certificate reissuances.</p>
+    <div class="scrollx"><table class="status">
+      <thead><tr><th>Item</th><th>Rule</th><th>Mark</th><th>Subject / change</th><th>E5 · Sweden</th><th>E25 · Croatia</th><th>E49 · Cyprus</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td colspan="8"><strong>① Whole-vehicle &amp; manufacturer changes</strong></td></tr>
+        <tr class="flag"><td>WVTA</td><td>—</td><td>▭e EU</td><td>Whole Vehicle Type Approval (umbrella cert)</td><td><a href="https://drive.google.com/file/d/1pRMB_6BH4D4VOxTLoH_lmYTQcsrDYTYH/view" target="_blank" rel="noopener"><code>e5*2018/858*00525*01</code></a></td><td>—</td><td>—</td><td class="warn">⚠ new application (manufacturer + WMI)<details class="howto"><summary>how to obtain</summary><div class="steps">1. Compile the updated dossier (all 50 Part III items) naming Windrose Technology Antwerp NV. 2. File a new WVTA application — or an extension of 00525 — with Transportstyrelsen. 3. Attach the NBN WMI letter, <span class="kw" tabindex="0">CoC<span class="kwdef">Certificate of Conformity — per-vehicle document for EU registration; signed by the entity named as manufacturer in the WVTA.</span></span> specimen signatures, the TS designation, and the reissued R155/R156 certs. 4. Transportstyrelsen reviews against 2018/858 Annex II and issues the new e5 number.</div></details>
+    
+    </td></tr>
+        <tr class="flag"><td>0.5</td><td>—</td><td>—</td><td>Manufacturer: Anhui Windrose Holdings → Windrose Technology Antwerp NV</td><td>WVTA field 0.5 · <a href="https://drive.google.com/file/d/1pRMB_6BH4D4VOxTLoH_lmYTQcsrDYTYH/view" target="_blank" rel="noopener">Drive</a></td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Stated in the WVTA application: name Windrose Technology Antwerp NV (Belgium) in field 0.5. Supporting evidence: company registration showing it is structured as an EU manufacturer under 2018/858.</div></details></td></tr>
+        <tr class="flag"><td>0.3</td><td>—</td><td>—</td><td>WMI / VIN: LKL, LH5 → YCB</td><td>WVTA field 0.3 · NBN WMI letter</td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">WMI YCB is already allocated by NBN — provide the allocation letter. Then update the VIN structure in the dossier and on the statutory plate (item F7).</div></details></td></tr>
+        <tr><td>0.9</td><td>—</td><td>—</td><td>Representative: remove (vacated once Antwerp is manufacturer)</td><td>WVTA field 0.9 · <a href="https://drive.google.com/file/d/1pRMB_6BH4D4VOxTLoH_lmYTQcsrDYTYH/view" target="_blank" rel="noopener">Drive</a></td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Once the Antwerp entity is itself the manufacturer, field 0.9 (manufacturer's representative) is no longer needed — remove it in the new application.</div></details></td></tr>
+        <tr><td>CoC</td><td>—</td><td>—</td><td>Certificate of Conformity: signer → Windrose Technology Antwerp NV</td><td><a href="https://drive.google.com/file/d/1laWS38wxJn0oWnEkG6hITPAW4reta8x4/view" target="_blank" rel="noopener"><code>COC-Windrose.doc</code></a></td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Update the CoC template to name Windrose Technology Antwerp NV as issuer, and lodge specimen signatures of the authorised signatories with Transportstyrelsen.</div></details></td></tr>
+        <tr><td><span class="kw" tabindex="0">CoP<span class="kwdef">Conformity of Production — the ongoing QMS duty (ISO 9001) that every built vehicle matches the approved type.</span></span></td><td>—</td><td>—</td><td>Conformity of Production: Belgian entity QMS scope over both plants</td><td>ISO 9001 cert · <a href="https://drive.google.com/file/d/12qZNH-ap7CVmfNynvCvXBl1fnW-EiXWs/view" target="_blank" rel="noopener">Drive</a></td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Extend the ISO 9001 / QMS scope so the Belgian entity holds CoP oversight of both assembly plants, then pass the CoP audit by the approval authority or its <span class="kw" tabindex="0">Technical Service<span class="kwdef">Independent test/audit body designated by an approval authority; must be designated by Transportstyrelsen for the new WVTA.</span></span>.</div></details></td></tr>
+        <tr><td>TS</td><td>—</td><td>—</td><td>Technical service: provider designated by Transportstyrelsen</td><td>TS designation (covers R155 / R156)</td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Submit a designation request so Transportstyrelsen recognises the chosen Technical Service for this WVTA (covering R155 and R156).</div></details></td></tr>
+        <tr><td>Dossier</td><td>—</td><td>—</td><td>Information dossier: re-sign as Windrose Technology Antwerp NV</td><td><a href="https://drive.google.com/file/d/1orbqHQLKLAHLzJ74ZK7j7L2Ta8H0AD1g/view" target="_blank" rel="noopener"><code>WDR-WH13-858-01</code></a></td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Compile the successor to WDR-WH13-858-01 covering all 50 items, signed by Windrose Technology Antwerp NV; update the VIN/plate text (F7) and the H1 contact details.</div></details></td></tr>
+        <tr><td>VIN</td><td>—</td><td>—</td><td>VIN stamping: YCB tooling at CHTC KINWIN (Nanjing) &amp; Higer Bus (Suzhou)</td><td>Plant tooling — operational</td><td>—</td><td>—</td><td class="warn">⚠ change<details class="howto"><summary>how to obtain</summary><div class="steps">Install YCB-prefix VIN tooling at CHTC KINWIN (Nanjing) and Higer Bus (Suzhou); update build records, statutory plates, and CoC data feeds.</div></details></td></tr>
+        <tr class="flag"><td>ID×22</td><td>—</td><td>—</td><td>Information documents — swap manufacturer name + WMI (per-regulation ID files R13…R151) + F7 statutory-plate text</td><td>—</td><td>—</td><td>—</td><td class="warn">⚠ change</td></tr>
+        <tr class="flag"><td>VAT</td><td>—</td><td>—</td><td>Belgian VAT registration certificate</td><td>—</td><td>—</td><td>—</td><td class="warn">⚠ obtain</td></tr>
+        <tr class="flag"><td>EORI</td><td>—</td><td>—</td><td>EORI certificate (EU customs registration)</td><td>—</td><td>—</td><td>—</td><td class="warn">⚠ obtain</td></tr>
+        <tr class="flag"><td>Datasheet</td><td>—</td><td>—</td><td>Consolidated WH13 technical datasheet</td><td>—</td><td>—</td><td>—</td><td class="warn">⚠ create</td></tr>
+
+        <tr><td colspan="8"><strong>② Part III regulations · A — Restraint Systems, Crash Testing, High-Voltage Safety</strong></td></tr>
+        <tr><td>A2</td><td>R17</td><td>Ⓔ UN</td><td>Seats and head restraints (R17)</td><td><a href="https://drive.google.com/file/d/1L9SApmfatlJGIVgzVkDyUP3b2agmJW_s/view" target="_blank" rel="noopener"><code>E5*17R11/01*0104*00</code></a></td><td><a href="https://drive.google.com/file/d/1chEiZHNHxZJZgmYf2MrwuCR59DeRxHPA/view" target="_blank" rel="noopener"><code>E25*17R11/01*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A4</td><td>R14</td><td>Ⓔ UN</td><td>Safety-belt anchorages (R14)</td><td><a href="https://drive.google.com/file/d/1Veae2UpeC7iiJZ-uxkAYHCnzKtCayLtc/view" target="_blank" rel="noopener"><code>E5*14R09/04*0061*00</code></a></td><td><a href="https://drive.google.com/file/d/1eJLXlsblw5sMoRKUcIS4gq4Z8zbiosY4/view" target="_blank" rel="noopener"><code>E25*14R09/04*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A5</td><td>R16</td><td>Ⓔ UN</td><td>Safety belts (R16)</td><td><a href="https://drive.google.com/file/d/15XJUTMaUt84pkfy001du85NpXptf1x6z/view" target="_blank" rel="noopener"><code>E5*16R09/01*0560*00</code></a></td><td><a href="https://drive.google.com/file/d/1Mp_xeussqSEoj_97HYHLIxo9UzGKeNeO/view" target="_blank" rel="noopener"><code>E25*16R09/01*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A6</td><td>R16</td><td>Ⓔ UN</td><td>Safety-belt reminders (R16)</td><td><a href="https://drive.google.com/file/d/15XJUTMaUt84pkfy001du85NpXptf1x6z/view" target="_blank" rel="noopener"><code>E5*16R09/01*0560*00</code></a></td><td>↑ same cert as A5</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A11</td><td>R93</td><td>Ⓔ UN</td><td>Front underrun protection (R93)</td><td><a href="https://drive.google.com/file/d/1cBoYInQNHs9ekyg-V0bm2hYNolK2VQJa/view" target="_blank" rel="noopener"><code>E5*93R00/01*0008*00</code></a></td><td><a href="https://drive.google.com/file/d/1VC-i3KPBPxR-Unjz1JRHONJ8WwEAjWTx/view" target="_blank" rel="noopener"><code>E25*93R00/01*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A19</td><td>R100</td><td>Ⓔ UN</td><td>High-voltage / electric safety (R100)</td><td><a href="https://drive.google.com/file/d/1B75lvFtLuY3kBHyrZh2YA55qHYt2UqCG/view" target="_blank" rel="noopener"><code>E5*100R03/04*0056*00</code></a></td><td><a href="https://drive.google.com/file/d/1vpxgdMd88V_7pXFVHvDwPWz_4izXwLyG/view" target="_blank" rel="noopener"><code>E25*100R03/05*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>A24</td><td>R29</td><td>Ⓔ UN</td><td>Cab impact (R29)</td><td><a href="https://drive.google.com/file/d/1ojnGrM31g7iEF-3RUab2lq6ga7e45CEo/view" target="_blank" rel="noopener"><code>E5*29R03/06*0008*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>B — Vulnerable Road Users, Vision</strong></td></tr>
+        <tr><td>B5</td><td>R159</td><td>Ⓔ UN</td><td>Pedestrian / cyclist warning (R159)</td><td><a href="https://drive.google.com/file/d/11fE1PUGMjX51e5uwf58lpGt7k4smwKqx/view" target="_blank" rel="noopener"><code>E5*159R00/02*0009*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>B6</td><td>R151</td><td>Ⓔ UN</td><td>Blind spot information (R151)</td><td><a href="https://drive.google.com/file/d/1S9iJqHZPuL2gj2KCBkAgZiU3RovmkXGk/view" target="_blank" rel="noopener"><code>E5*151R00/04*0010*00</code></a></td><td><a href="https://drive.google.com/file/d/1rsAMBZzdOWrKE854ezN5QImAZ_5NkBvW/view" target="_blank" rel="noopener"><code>E25*151R00/04*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>B7</td><td>R158</td><td>Ⓔ UN</td><td>Reversing detection (R158)</td><td><a href="https://drive.google.com/file/d/1qUKEuC34X3-zRzMWbyIfkKbRE4GR7YMk/view" target="_blank" rel="noopener"><code>E5*158R00/04*0032*00</code></a></td><td><a href="https://drive.google.com/file/d/1eggHtJyLDZGzEA09ZJoDO2FwQbWT8iGA/view" target="_blank" rel="noopener"><code>E25*158R00/03*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>B10</td><td>R43</td><td>Ⓔ UN</td><td>Safety glazing (R43)</td><td><a href="https://drive.google.com/file/d/1i7p2iqaIy75YcdHmXDdgybYftuYGYdNc/view" target="_blank" rel="noopener"><code>E5*43R01/12*0149*00</code></a></td><td><a href="https://drive.google.com/file/d/1lG7XfmgGrpZbkdLmbZw4tRx3gcw-g8Dm/view" target="_blank" rel="noopener"><code>E25*43R01/12*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>B11</td><td>—</td><td>self-decl</td><td>Windscreen defrost / demist</td><td>Declaration — no cert</td><td>—</td><td>—</td><td class="ok">✓ restate in dossier</td></tr>
+        <tr><td>B12</td><td>—</td><td>self-decl</td><td>Windscreen wash / wipe</td><td>Declaration — no cert</td><td>—</td><td>—</td><td class="ok">✓ restate in dossier</td></tr>
+        <tr><td>B13</td><td>R46</td><td>Ⓔ UN</td><td>Indirect vision / mirrors (R46)</td><td><a href="https://drive.google.com/file/d/1uBvStO6tphmNYPCMcfFrukQtR0-5wjSq/view" target="_blank" rel="noopener"><code>E5*46R05/01*0092*00</code></a></td><td><a href="https://drive.google.com/file/d/1hOtoqFxDONdhaE-gdw8PMdZ8RV3p48JB/view" target="_blank" rel="noopener"><code>E25*46R05/01*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>B14</td><td>R138</td><td>Ⓔ UN</td><td>AVAS (R138)</td><td><a href="https://drive.google.com/file/d/10oK_oorP-yqbhxcoszxYuNH_-JayKQiZ/view" target="_blank" rel="noopener"><code>E5*138R02/00*0039*00</code></a></td><td><a href="https://drive.google.com/file/d/1LALoqfMDhacaPqW22dIglRfl2AWOMaK7/view" target="_blank" rel="noopener"><code>E25*138R01/03*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>C — Braking, Tyres, Steering</strong></td></tr>
+        <tr><td>C1</td><td>R79</td><td>Ⓔ UN</td><td>Steering (R79)</td><td><a href="https://drive.google.com/file/d/1qbEsmeyMWexYb48pluOQfWJI3VtTSh5k/view" target="_blank" rel="noopener"><code>E5*79R04/06*0075*00</code></a></td><td><a href="https://drive.google.com/file/d/1muNdnFijSnIvM2TYTWMqYTqRnynr9rOD/view" target="_blank" rel="noopener"><code>E25*79R04/08*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C2</td><td>R130</td><td>Ⓔ UN</td><td>Lane departure warning (R130)</td><td><a href="https://drive.google.com/file/d/113aTOIR5RPjm5mYA2mOZ0Mf31h6fEmIx/view" target="_blank" rel="noopener"><code>E5*130R00/01*0007*00</code></a></td><td><a href="https://drive.google.com/file/d/1PVPlBQwKlW7Dl4ywLD0dEM24EAY1Jg2V/view" target="_blank" rel="noopener"><code>E25*130R01/00*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C4</td><td>R13</td><td>Ⓔ UN</td><td>Braking (R13)</td><td><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener"><code>E5*13R13/03*0045*00</code></a></td><td><a href="https://drive.google.com/file/d/1AM1XchhlEZr5GyIeoAtHpZGt2qIeoel6/view" target="_blank" rel="noopener"><code>E25*13R13/05*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C7</td><td>R13</td><td>Ⓔ UN</td><td>Stability control / ESC (R13)</td><td><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener"><code>E5*13R13/03*0045*00</code></a></td><td>↑ same cert as C4</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C8</td><td>R131</td><td>Ⓔ UN</td><td>Advanced emergency braking (R131)</td><td><a href="https://drive.google.com/file/d/1mUikMY00ewZSQXxesu81gRoOQPyN13f2/view" target="_blank" rel="noopener"><code>E5*131R01/03*0014*00</code></a></td><td><a href="https://drive.google.com/file/d/1193hDKd81a2Ncb70DjX9f7CRo4CyCrTM/view" target="_blank" rel="noopener"><code>E25*131R01/04*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C14</td><td>R141</td><td>Ⓔ UN</td><td>Tyre pressure monitoring (R141)</td><td><a href="https://drive.google.com/file/d/1on79RWIqzCHN1wX4QkEv21n5XLbo8w8b/view" target="_blank" rel="noopener"><code>E5*141R01/02*0049*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>C15</td><td>R142</td><td>Ⓔ UN</td><td>Tyre installation (R142)</td><td><a href="https://drive.google.com/file/d/1itPNYCNmmxKeFLMJGQIvPAGCorc5JRJj/view" target="_blank" rel="noopener"><code>E5*142R01/01*0047*00</code></a></td><td><a href="https://drive.google.com/file/d/1ZSWulcP5H-AmYdNysN6g_sRTwIgCFVw_/view" target="_blank" rel="noopener"><code>E25*142R01/02*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>D — Instruments, Electrical, Lighting, Cybersecurity</strong></td></tr>
+        <tr><td>D1</td><td>R28</td><td>Ⓔ UN</td><td>Audible warning (R28)</td><td><a href="https://drive.google.com/file/d/1ytmmrAFs_GPbeWiooePJkeh8Qjg4ppJk/view" target="_blank" rel="noopener"><code>E5*28R00/06*0062*00</code></a></td><td><a href="https://drive.google.com/file/d/1CRWaXx7I8FSoe_LNbLHSAdQFibw9_ztv/view" target="_blank" rel="noopener"><code>E25*28R00/06*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D2</td><td>R10</td><td>Ⓔ UN</td><td>EMC (R10)</td><td><a href="https://drive.google.com/file/d/107cT8Ow1z8yzrvzG7ayCpoEPxO0LBB7l/view" target="_blank" rel="noopener"><code>E5*10R06/03*0733*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D3</td><td>R18</td><td>Ⓔ UN</td><td>Immobiliser / alarm (R18)</td><td><a href="https://drive.google.com/file/d/1lvox5_sTD74maKqaubJypzMJeCIsDQjm/view" target="_blank" rel="noopener"><code>E5*18R03/04*0009*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr class="flag"><td><strong>D4</strong></td><td>R155</td><td>Ⓔ UN</td><td><strong>Cybersecurity / CSMS (R155)</strong></td><td>—</td><td>—</td><td><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener"><code>E49*155R00/03*1037*00</code></a></td><td class="warn">⚠ reissue → Antwerp + YCB<details class="howto"><summary>how to obtain</summary><div class="steps">1. Engage a Technical Service to extend the CSMS assessment to Windrose Technology Antwerp NV + WMI YCB. 2. Submit updated CSMS process documentation. 3. The TS issues the successor R155 vehicle cert (replacing E49*155R00/03*1037*00) plus the updated CSMS system cert. 4. Cite the new cert in Part III row D4. <strong>Documents:</strong> update CSMS Policy (P-01), org chart/role matrix, management-review procedure, internal audit plan, HR+training; create EU threat-intel monitoring, vulnerability disclosure &amp; recall/field-action addenda.</div></details></td></tr>
+        <tr><td>D5</td><td>R39</td><td>Ⓔ UN</td><td>Speedometer (R39)</td><td><a href="https://drive.google.com/file/d/1opmyWqqn80Q30LD2wka-WGBS1ndX_eJK/view" target="_blank" rel="noopener"><code>E5*39R01/02*0060*00</code></a></td><td><a href="https://drive.google.com/file/d/1r-sHByZUbVmSNPx_RlMitoFsPfg_Oxtz/view" target="_blank" rel="noopener"><code>E25*39R01/02*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D6</td><td>R39</td><td>Ⓔ UN</td><td>Odometer (R39)</td><td><a href="https://drive.google.com/file/d/1opmyWqqn80Q30LD2wka-WGBS1ndX_eJK/view" target="_blank" rel="noopener"><code>E5*39R01/02*0060*00</code></a></td><td>↑ same cert as D5</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D7</td><td>R89</td><td>Ⓔ UN</td><td>Speed limiter (R89)</td><td><a href="https://drive.google.com/file/d/1YvG_9cqgxIfdSUYfpqMbzaT4_v5HS8Dn/view" target="_blank" rel="noopener"><code>E5*89R00/03*0025*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D8</td><td>—</td><td>▭e EU</td><td>Intelligent speed assistance (EU 2021/1958)</td><td><a href="https://drive.google.com/file/d/1WjxjKgOyOX7eFZFvTmJ_gpr0yay5cG3U/view" target="_blank" rel="noopener"><code>e5*2021/1958*2024/1721*00059*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D9</td><td>R121</td><td>Ⓔ UN</td><td>Controls / tell-tales (R121)</td><td><a href="https://drive.google.com/file/d/1tTzNb6oJbx8K9NqR6cl4qxiS0p9Lz12q/view" target="_blank" rel="noopener"><code>E5*121R01/06*0052*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D10</td><td>R122</td><td>Ⓔ UN</td><td>Heating systems (R122)</td><td><a href="https://drive.google.com/file/d/1ogmBLe2d5qrt2wg_mBqRHkh85zrioU16/view" target="_blank" rel="noopener"><code>E5*122R00/07*0059*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D15</td><td>R48</td><td>Ⓔ UN</td><td>Lighting installation (R48)</td><td><a href="https://drive.google.com/file/d/1pb6IZSCB9zwBSGnQb1uQlnvm9rc2rgKx/view" target="_blank" rel="noopener"><code>E5*48R06/05*0061*00</code></a></td><td><a href="https://drive.google.com/file/d/1PWZlGwA7QFmEdRofcK0EoCQgYAtZ4umh/view" target="_blank" rel="noopener"><code>E25*48R08/06*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>D16</td><td>R48</td><td>Ⓔ UN</td><td>Emergency stop signal (R48)</td><td><a href="https://drive.google.com/file/d/1pb6IZSCB9zwBSGnQb1uQlnvm9rc2rgKx/view" target="_blank" rel="noopener"><code>E5*48R06/05*0061*00</code></a></td><td>↑ same cert as D15</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>E — Driver Behaviour</strong></td></tr>
+        <tr><td>E1</td><td>—</td><td>▭e EU</td><td>Alcohol interlock (EU 2021/1243)</td><td><a href="https://drive.google.com/file/d/1iisJXiH21zojjiVph4sWwzm0FeUZUKiM/view" target="_blank" rel="noopener"><code>e5*2021/1243*2024/1721*00059*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>E2</td><td>—</td><td>▭e EU</td><td>Drowsiness warning (EU 2021/1341)</td><td><a href="https://drive.google.com/file/d/1U8sbiyrYIWbhEZ_9uGmOCNhcoFnNFY6e/view" target="_blank" rel="noopener"><code>e5*2021/1341*2024/1721*00054*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>E3</td><td>—</td><td>▭e EU</td><td>Distraction warning (EU 2023/2590)</td><td><a href="https://drive.google.com/file/d/1Y5UAm-k6zev3Lc-of6_BmXH7YDuaApj8/view" target="_blank" rel="noopener"><code>e5*2023/2590*2024/1721*00042*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>F — General Construction</strong></td></tr>
+        <tr><td>F1</td><td>—</td><td>▭e EU</td><td>Registration plate space (EU 2021/535 §III)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/III*2024/883*00100*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F2</td><td>—</td><td>▭e EU</td><td>Reversing motion (EU 2021/535 §XI)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/XI*2024/883*00074*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F4</td><td>—</td><td>▭e EU</td><td>Steps and handholds (EU 2021/535 §X)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/X*2024/883*00071*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F6</td><td>R61</td><td>Ⓔ UN</td><td>Cab external projections (R61)</td><td><a href="https://drive.google.com/file/d/1CZGOuYX_im66-ZoEjIaXJUgq16TgxuKd/view" target="_blank" rel="noopener"><code>E5*61R00/03*0013*00</code></a></td><td><a href="https://drive.google.com/file/d/1Z8CpJRszmz2jssIzu6w5KzKnsqaE4cjx/view" target="_blank" rel="noopener"><code>E25*61R00/04*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F7</td><td>—</td><td>▭e EU</td><td>Statutory plate / VIN (EU 2021/535 §II)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/II*2024/883*00115*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ cert ok — update VIN/plate text in dossier</td></tr>
+        <tr><td>F8</td><td>—</td><td>▭e EU</td><td>Towing devices (EU 2021/535 §VII)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/VII*2024/883*00099*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F10</td><td>—</td><td>▭e EU</td><td>Spray suppression (EU 2021/535 §VII)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/VII*2024/883*00042*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F11</td><td>—</td><td>▭e EU</td><td>Masses and dimensions (EU 2021/535 §XII)</td><td><a href="https://drive.google.com/file/d/1Q3AzKcnY5pr6nVyLCLN6pB4cQQBgcTpG/view" target="_blank" rel="noopener"><code>e5*2021/535/XII*2024/883*00133*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>F12</td><td>R55</td><td>Ⓔ UN</td><td>Mechanical couplings (R55)</td><td><a href="https://drive.google.com/file/d/1L_Ufe6a5c7epg0wDWpwVvIoAeWsk59xN/view" target="_blank" rel="noopener"><code>E5*55R01/00*0084*00</code></a></td><td><a href="https://drive.google.com/file/d/1ssnPTB1q2ecA8OPGMeFX7PMmhfq9CjUh/view" target="_blank" rel="noopener"><code>E25*55R03/00*40001*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td colspan="8"><strong>G — Emissions</strong></td></tr>
+        <tr><td>G1</td><td>R51</td><td>Ⓔ UN</td><td>Sound level (R51) — 77 dB(A) moving · 64 dB(A) stationary</td><td><a href="https://drive.google.com/file/d/15xjuqJ9deywgxv74KpeMXinZXSKDbzC2/view" target="_blank" rel="noopener"><code>E5*51R03/10*0468*00</code></a></td><td><a href="https://drive.google.com/file/d/1d0YWKKxw_l7aR4IYuJecnOZgAL9KJWq3/view" target="_blank" rel="noopener"><code>E25*51R03/10*40001*00</code></a> · <a href="https://drive.google.com/file/d/1kwOa1Ju7g6LHnUdvcJ9eiqKSBoHjYySt/view" target="_blank" rel="noopener"><code>*40002*00</code></a></td><td>—</td><td class="ok">✓ in place</td></tr>
+        <tr><td>G3</td><td>R85</td><td>Ⓔ UN + ▭e EU</td><td>Energy consumption (R85 + VECTO)</td><td><a href="https://drive.google.com/file/d/1ObhUQgBXxY9g3ay7qDRHBV9660w2W_RZ/view" target="_blank" rel="noopener"><code>E24*85R00/13*0220*00</code></a> · E24<br><a href="https://drive.google.com/drive/folders/1iZAggRkjwgX-l-uHvj75Yo3UxDxKn6O8" target="_blank" rel="noopener"><code>e5*2017/2400*2025/258*00307*00</code></a></td><td>—</td><td>—</td><td class="ok">✓ in place (zero tailpipe)</td></tr>
+        <tr><td colspan="8"><strong>H — Vehicle Information and Software Updates</strong></td></tr>
+        <tr><td>H1</td><td>—</td><td>self-decl</td><td>OBD / repair and maintenance information</td><td>Appendix 1 — no cert</td><td>—</td><td>—</td><td class="ok">✓ update contact in dossier</td></tr>
+        <tr class="flag"><td><strong>H2</strong></td><td>R156</td><td>Ⓔ UN</td><td><strong>Software updates / SUMS (R156)</strong></td><td>—</td><td>—</td><td><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener"><code>E49*156R00/00*1026*00</code></a></td><td class="warn">⚠ reissue → Antwerp + YCB<details class="howto"><summary>how to obtain</summary><div class="steps">1. Engage a Technical Service to extend the SUMS assessment to Windrose Technology Antwerp NV + WMI YCB. 2. Submit updated SUMS process documentation (incl. <span class="kw" tabindex="0">RXSWIN<span class="kwdef">Regulatory software identification number tracking the approved software version per regulation (R156/SUMS).</span></span> management). 3. The TS issues the successor R156 vehicle cert (replacing E49*156R00/00*1026*00) plus the updated SUMS system cert. 4. Cite the new cert in Part III row H2. <strong>Documents:</strong> create SUMS scope declaration, owner-manual EU addendum, user-notification addendum, monitoring/emergency addendum; update after-sales EU-fleet procedure, Form F-01, Form F-02.</div></details></td></tr>
+
+        <tr><td colspan="8"><strong>③ Also held — not a Part III row of this WVTA</strong></td></tr>
+        <tr class="flag"><td>—</td><td>R155</td><td>Ⓔ UN</td><td>R155 CSMS manufacturer system cert</td><td>—</td><td>—</td><td><a href="https://drive.google.com/file/d/1UU8DAqmTRJFM-Cg4L0PRshhLKUDkJ8Qw/view" target="_blank" rel="noopener"><code>CYPRUS*CERT*1032*00</code></a></td><td class="warn">⚠ reissue → Antwerp entity<details class="howto"><summary>how to obtain</summary><div class="steps">Re-audit the Cyber Security Management System under the Belgian entity; the Technical Service reissues CYPRUS*CERT*1032*00 in the name of Windrose Technology Antwerp NV.</div></details></td></tr>
+        <tr class="flag"><td>—</td><td>R156</td><td>Ⓔ UN</td><td>R156 SUMS manufacturer system cert</td><td>—</td><td>—</td><td><a href="https://drive.google.com/file/d/1TKp2W7UDMyhpYwiJRmGx1lN9WM9xEtaj/view" target="_blank" rel="noopener"><code>CYPRUS*CERT*1021*01</code></a></td><td class="warn">⚠ reissue → Antwerp entity<details class="howto"><summary>how to obtain</summary><div class="steps">Re-audit the Software Update Management System under the Belgian entity; the Technical Service reissues CYPRUS*CERT*1021*01 in the name of Windrose Technology Antwerp NV.</div></details></td></tr>
+        <tr><td>—</td><td>R165</td><td>Ⓔ UN</td><td>R165 Audible reverse warning signals</td><td>—</td><td>—</td><td><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener"><code>E49*165R00/00*1001*00</code></a></td><td class="ok">✓ held — no action</td></tr>
+      </tbody>
+    </table></div></div>
+    </details>
+
+    <details class="sub"><summary>2B · R155 &amp; R156 — full document list (every item)</summary>
+    <div class="subbody">
+    <p class="note">Every document and item for each management system, from <a href="/cert/r155.html" target="_blank" rel="noopener">/cert/r155.html</a> and <a href="/cert/r156.html" target="_blank" rel="noopener">/cert/r156.html</a>. <span class="ok">✓ done</span> · <span class="warn">⚠ reissue / update / create</span> · — no change.</p>
+
+    <h2>R155 — Cybersecurity (CSMS)</h2>
+    <table><thead><tr><th>Document / item</th><th>Action</th><th>Detail</th></tr></thead><tbody>
+      <tr class="flag"><td>R155 vehicle certificate</td><td class="warn">⚠ reissue</td><td><code>E49*155R00/03*1037*00</code> → Windrose Technology Antwerp NV + WMI YCB</td></tr>
+      <tr class="flag"><td>CSMS (Cyber Security Management System) manufacturer-system certificate</td><td class="warn">⚠ reissue</td><td><code>CYPRUS*CERT*1032*00</code> → Antwerp NV</td></tr>
+      <tr><td>TARA — Threat Analysis &amp; Risk Assessment</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr><td>V&amp;V — Verification &amp; Validation</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr><td>Incident Response procedures</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr><td>Vehicle Cybersecurity Plan / CSMS (Cyber Security Management System) management manual</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr class="flag"><td>CSMS Policy (P-01)</td><td class="warn">⚠ update</td><td>add Antwerp NV to scope declaration; reference SE approval</td></tr>
+      <tr class="flag"><td>Organisational chart + role matrix</td><td class="warn">⚠ update</td><td>designate the Antwerp CISO (Chief Information Security Officer) / CSMS owner</td></tr>
+      <tr class="flag"><td>Management-review control procedure</td><td class="warn">⚠ update</td><td>add EU-entity KPIs (Key Performance Indicators) to annual review scope</td></tr>
+      <tr class="flag"><td>Internal audit plan</td><td class="warn">⚠ update</td><td>Belgian-entity audit 1–2×/yr; technical-service liaison clause</td></tr>
+      <tr class="flag"><td>HR (Human Resources) + training plan</td><td class="warn">⚠ update</td><td>Antwerp staff onboarding; EU / GDPR (General Data Protection Regulation) cyber content</td></tr>
+      <tr class="flag"><td>EU Threat-Intelligence Monitoring Addendum</td><td class="warn">⚠ create</td><td>new EU governing document</td></tr>
+      <tr class="flag"><td>Vulnerability Disclosure Procedure (EU)</td><td class="warn">⚠ create</td><td>new EU governing document</td></tr>
+      <tr class="flag"><td>EU Recall &amp; Field-Action Notification Procedure</td><td class="warn">⚠ create</td><td>new EU governing document</td></tr>
+      <tr><td>EU Supplier Cybersecurity Requirements Addendum</td><td class="warn">⚠ conditional</td><td>only if Antwerp NV engages direct EU suppliers; not needed for pass-through from the Anhui supply chain</td></tr>
+      <tr><td>Document &amp; Records Control Procedure</td><td>— no change</td><td>applies globally</td></tr>
+      <tr><td>Engineering Change Control Procedure</td><td>— no change</td><td>engineering domain; Anhui scope</td></tr>
+      <tr><td>Corrective-Improvement Control Procedure</td><td>— no change</td><td>entity-agnostic</td></tr>
+      <tr><td>Lifecycle / Procurement / After-sales procedures</td><td>— no change</td><td>reviewed under supplier scope</td></tr>
+      <tr><td>Procurement Control Procedure</td><td>— no change</td><td>Anhui entity manages supply chain</td></tr>
+      <tr><td>Supplier qualification · SOR (Statement of Requirements) / CIA (Cybersecurity Interface Agreement) · delivery inspection · performance evaluation</td><td>— no change</td><td>remain Anhui-entity processes</td></tr>
+    </tbody></table>
+
+    <h2>R156 — Software Updates (SUMS)</h2>
+    <table><thead><tr><th>Document / item</th><th>Action</th><th>Detail</th></tr></thead><tbody>
+      <tr class="flag"><td>R156 vehicle certificate</td><td class="warn">⚠ reissue</td><td><code>E49*156R00/00*1026*00</code> → Windrose Technology Antwerp NV + WMI YCB</td></tr>
+      <tr class="flag"><td>SUMS (Software Update Management System) manufacturer-system certificate</td><td class="warn">⚠ reissue</td><td><code>CYPRUS*CERT*1021*01</code> → Antwerp NV</td></tr>
+      <tr><td>RXSWIN (Regulatory Software Identification Number) register</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr><td>SUMS (Software Update Management System) Operations Summary</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr><td>Software-update policy / process / release procedures</td><td class="ok">✓ done</td><td>confirmed in Drive</td></tr>
+      <tr class="flag"><td>SUMS (Software Update Management System) Policy — Belgian-entity scope declaration</td><td class="warn">⚠ create</td><td>add Antwerp NV; reference SE approval number</td></tr>
+      <tr class="flag"><td>Tier-1 Vehicle Owner Manual — EU addendum</td><td class="warn">⚠ create</td><td>OTA (Over-The-Air) update consent, notification rights, multilingual EN/FR/NL (English, French, Dutch) per Reg 2018/858</td></tr>
+      <tr class="flag"><td>EU User Notification Addendum</td><td class="warn">⚠ create</td><td>EU-fleet OTA (Over-The-Air) + dealer notification; Belgian-market language requirements</td></tr>
+      <tr class="flag"><td>EU Monitoring &amp; Emergency-Response Addendum</td><td class="warn">⚠ create</td><td>EU fleet uptime thresholds; Transportstyrelsen incident notification within 72 h</td></tr>
+      <tr class="flag"><td>After-Sales Monitoring Procedure — EU fleet</td><td class="warn">⚠ update</td><td>Antwerp NV holds EU-fleet release-authorization role; confirms readiness before full EU rollout</td></tr>
+      <tr class="flag"><td>Form F-01 — Vehicle Software Update Campaign</td><td class="warn">⚠ update</td><td>add Belgian-entity approver field; EU-fleet scope column</td></tr>
+      <tr class="flag"><td>Form F-02 — Rollback Procedure</td><td class="warn">⚠ update</td><td>add EU-fleet scope and Belgian-entity sign-off</td></tr>
+      <tr class="flag"><td>Belgian RXSWIN (Regulatory Software Identification Number) format + ledger procedure</td><td class="warn">⚠ update</td><td>add Belgian-entity identifier to the RXSWIN format; maintain the ledger under SUMS</td></tr>
+      <tr><td>EU user-notification language (EN/FR/NL)</td><td class="warn">⚠ requirement</td><td>OTA (Over-The-Air) in-app + dealer pre-notification + written summary on request (Reg 2018/858)</td></tr>
+      <tr><td>Consent re-confirmation for safety-related updates</td><td class="warn">⚠ requirement</td><td>GDPR (General Data Protection Regulation) Art. 22 profile-based decisions</td></tr>
+      <tr><td>Project / Process / Information / System management procedures</td><td>— no change</td><td>engineering domain; Anhui scope</td></tr>
+      <tr><td>Doc &amp; Records / Audit / Corrective / HR / Procurement procedures</td><td>— no change</td><td>entity-agnostic; reference update only</td></tr>
+      <tr><td>Impact-assessment / development &amp; testing / release &amp; rollout measures</td><td>— no change</td><td>engineering activities remain at Anhui</td></tr>
+      <tr><td>OTA (Over-The-Air) push / offline update processes</td><td>— no change</td><td>technical implementation unchanged</td></tr>
+      <tr><td>Small-scale pilot rollout</td><td>— no change</td><td>China-market based; EU pilot TBD post-WVTA</td></tr>
+      <tr><td>Four delivery modes (OTA Over-The-Air / Diagnostic / USB / EOL End-of-Line)</td><td>— no change</td><td>same technical mechanism</td></tr>
+      <tr><td>A/B partition rollback mechanism</td><td>— no change</td><td>engineering implementation unchanged</td></tr>
+      <tr><td>OTA (Over-The-Air) platform security (authentication, HTTPS)</td><td>— no change</td><td>no Belgian-specific change</td></tr>
+    </tbody></table>
+    </div>
+    </details>
+
+    <details class="sub" open><summary>2C · Approval Path — sequence to the new e5 certificate</summary>
+    <div class="subbody"><table>
+      <thead><tr><th>#</th><th>Action</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>WMI YCB allocated by NBN to Windrose Technology Antwerp NV. Written confirmation obtained for WVTA dossier.</td><td class="ok">Done</td></tr>
+        <tr><td>2</td><td>R155 and R156 vehicle-level certs obtained from technical services provider (<code>E49·155·1037</code> and <code>E49·156·1026</code>). Test report CN-137-1-161-WHO26-48797-IR, 20 Feb 2026. Addenda for Belgian entity scope prepared — see /cert/r155.html and /cert/r156.html.</td><td class="ok">Done</td></tr>
+        <tr><td>3</td><td>Extend R155 and R156 vehicle certs and manufacturer system certs (<code>CYPRUS*CERT*1032*00</code>, <code>CYPRUS*CERT*1021*01</code>) to Windrose Technology Antwerp NV and WMI YCB. Engage technical services provider.</td><td class="warn">In progress</td></tr>
+        <tr><td>4</td><td>Prepare updated information dossier signed by Windrose Technology Antwerp NV. Update VIN structure (YCB), statutory plate, H1 OBD/RMI contact, and all 50 Part III items.</td><td>Pending</td></tr>
+        <tr><td>5</td><td>Submit new WVTA application to Transportstyrelsen: TS designation for chosen technical services provider, NBN WMI letter, updated CoC signatory specimens, full dossier. Confirm: new certificate number or extension of 00525.</td><td>Pending</td></tr>
+        <tr><td>6</td><td>Transportstyrelsen issues new e5 WVTA naming Windrose Technology Antwerp NV (0.5) and WMI YCB (0.3). Both plants begin stamping YCB VINs.</td><td>Pending</td></tr>
+      </tbody>
+    </table></div>
+    </details>
+    
+  </div>
+</details>
+</body>
+</html>
