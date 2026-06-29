@@ -282,11 +282,11 @@
       mid = [[-2,51],[-6,49],[-9,46],[-12,42],[-18,39],[-27,36],[-38,34],[-50,33],[-60,32],[-68,31],[-74,31],[-79,32]];
     } else if (polR==='us-east' && podR==='europe') {
       mid = [[-79,32],[-74,31],[-68,31],[-60,32],[-50,33],[-38,34],[-27,36],[-18,39],[-12,42],[-9,46],[-6,49],[-2,51]];
-    } else if (polR==='us-west' && podR==='south-america') {
-      // Pacific coast of Mexico, Central America, and South America
-      mid = [[-118,28],[-114,22],[-110,16],[-105,11],[-100,7],[-96,3],[-92,0],[-88,-3],[-85,-6],[-82,-10],[-80,-14],[-78,-18],[-76,-22],[-73,-28],[-71,-32]];
-    } else if (polR==='south-america' && podR==='us-west') {
-      mid = [[-71,-32],[-73,-28],[-76,-22],[-78,-18],[-80,-14],[-82,-10],[-85,-6],[-88,-3],[-92,0],[-96,3],[-100,7],[-105,11],[-110,16],[-114,22],[-118,28]];
+    } else if ((polR==='east-asia'||polR==='se-asia') && podR==='south-america') {
+      // South Pacific: Philippine Sea → Central Pacific → Chile
+      mid = [[124,26],[128,20],[132,14],[138,8],[145,2],[155,-4],[165,-8],[175,-12],[-175,-16],[-165,-20],[-155,-24],[-145,-27],[-135,-29],[-125,-31],[-115,-31],[-100,-32],[-85,-33],[-75,-33]];
+    } else if (polR==='south-america' && (podR==='east-asia'||podR==='se-asia')) {
+      mid = [[-75,-33],[-85,-33],[-100,-32],[-115,-31],[-125,-31],[-135,-29],[-145,-27],[-155,-24],[-165,-20],[-175,-16],[175,-12],[165,-8],[155,-4],[145,2],[138,8],[132,14],[128,20],[124,26]];
     }
     var coords = [[polLng,polLat]].concat(mid, [[podLng,podLat]]);
     return {type:'Feature', geometry:{type:'LineString', coordinates:coords}};
@@ -299,7 +299,7 @@
     seaRoute(121.5,31.2, 144.9,-37.8),      // Shanghai → Melbourne (Coral Sea)
     seaRoute(4.4,51.2, -81.1,32.1),         // Antwerp → Savannah (North Atlantic)
     seaRoute(4.4,51.2, 115.7,-32),          // Antwerp → Fremantle (Suez + Indian Ocean)
-    seaRoute(-118.2,34, -70.7,-33.4)        // Los Angeles → Valparaíso (Pacific)
+    seaRoute(121.5,31.2, -70.7,-33.4)        // China/Korea → Valparaíso (South Pacific)
   ];
 
   /* ═══════════════════════════════════════════════════════════════════════════
