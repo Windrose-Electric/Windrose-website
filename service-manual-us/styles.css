@@ -837,3 +837,18 @@ details.sec-block[open] > summary.sec-summary::before { transform: rotate(90deg)
 summary.sec-summary h2 { margin: 0; font-size: 15px; font-weight: 600; color: var(--text); }
 .sec-body { padding: 14px 18px; }
 .sec-body > h3:first-child, .sec-body > h4:first-child { margin-top: 0; }
+
+/* ── Go-to-top floating button ─────────────────────────────── */
+.to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 9px 15px; border: none; border-radius: 22px;
+  background: var(--accent); color: #fff; font-size: 13px; font-weight: 600;
+  cursor: pointer; box-shadow: var(--shadow-md);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .2s, transform .2s, visibility .2s, background .15s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: #0a4fb5; }
+.to-top:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .to-top { transition: opacity .2s; transform: none; } }

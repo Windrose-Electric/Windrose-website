@@ -16236,7 +16236,7 @@ current channel is powered on</td><td></td></tr>
 </tbody></table></div>
 <p>Step 4:Enter the SJBUP action test on the diagnostic instrument interface and perform the &quot;Vehicle Output Channel Control ECAS, On/Off&quot; action test. Check if the ECAS power supply operates according to the diagnostic instrument instructions. – Yes: Next step – No: Replace ECAS. Refer to Replacement Of Air Suspension Controller Assembly Step 5:Rewrite the configuration code, reload the software, and upgrade the smart junction box UP. Step 6:Replace the smart junction box UP. Refer to Replacement Of Body Smart Electrical Box Step 7:Clear and confirm DTC.</p>
 <h4 id="7-4-6-16-power-supply-circuit-fault-of-door-control-module-2">7.4.6.16 Power Supply Circuit Fault Of Door Control Module</h4>
-<p class="step">1. DTC Monitoring Logic 2.Circuit Diagram</p>
+<p class="step">1. DTC Monitoring Logic</p>
 <div class="tw"><table>
 <thead><tr><th></th><th></th></tr></thead>
 <tbody>
@@ -16247,6 +16247,8 @@ current channel is powered on</td><td></td></tr>
 <tr><td></td><td></td></tr>
 <tr><td></td><td></td></tr>
 </tbody></table></div>
+<p class="step">2. Circuit Diagram</p>
+<figure><img src="images/img_p1294_circuit.jpg" alt="7.4.6.16 Circuit Diagram — Door Control Module power supply" class="manual-img" loading="lazy"/></figure>
 <p class="step">3. Diagnostic Steps Step 1:DTC confirmation. Refer to DTC Confirmation Step 2:Routine inspection. Refer to Routine Inspection Step 3:Check the power supply harness of the door control module.</p>
 <div class="tw"><table>
 <thead><tr><th>DTC Code</th><th>Description</th><th>DTC Trigger Conditions</th><th>Faulty Part</th></tr></thead>
@@ -35976,6 +35978,7 @@ e</th><th>Stitch definition</th></tr></thead>
 </div></details>
 </main>
 
+<button id="toTop" class="to-top" type="button" aria-label="Go to top" title="Go to top">↑ Top</button>
 <script>
 // ── Mobile sidebar toggle ──────────────────────────────────────
 (function(){
@@ -36082,6 +36085,14 @@ window.addEventListener('hashchange',function(){ openAndScroll(decodeURIComponen
     headings.forEach(function(h){ if(h.getBoundingClientRect&&h.offsetParent!==null&&h.offsetTop<=y) cur=h.id; });
     navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
   },{passive:true});
+})();
+
+// ── Go to top ──────────────────────────────────────────────────
+(function(){
+  var b=document.getElementById('toTop'); if(!b) return;
+  function upd(){ b.classList.toggle('show', window.scrollY>400); }
+  window.addEventListener('scroll', upd, {passive:true}); upd();
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
 })();
 </script>
 </body>
