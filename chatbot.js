@@ -942,8 +942,8 @@ TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Ma
     lines.forEach(function(line) {
       var t = line.trim();
       if (t.match(/^[•\-]\s+\S/)) {
-        if (!inList) { out += '<ul style="margin:4px 0 4px 0;padding:0 0 0 1.1em;line-height:1.75;list-style:none;">'; inList = true; }
-        out += '<li style="margin-bottom:7px;padding-left:0.1em;">' + fmt(t.replace(/^[•\-]\s+/,'')) + '</li>';
+        if (!inList) { out += '<ul style="margin:4px 0 4px 0;padding:0 0 0 1.1em;line-height:1.5;list-style:none;">'; inList = true; }
+        out += '<li style="margin-bottom:2px;padding-left:0.1em;">' + fmt(t.replace(/^[•\-]\s+/,'')) + '</li>';
       } else {
         if (inList) { out += '</ul>'; inList = false; }
         if (t) out += '<p style="margin:0 0 8px;">' + fmt(t) + '</p>';
