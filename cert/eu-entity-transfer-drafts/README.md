@@ -24,5 +24,5 @@ Record control (all docs): Prepared by [blank] · Reviewed by **Lin Zou, Chief A
 ## Status / open items
 - All marked **DRAFT** — not yet submitted to the technical service or Transportstyrelsen.
 - Functional sign-offs (CISO/CSMS Owner, SUMS Owner, DPO) **pending** Antwerp NV officer names.
-- Placeholders: `psirt@windrose.ai`, **DEKRA** (proposed Technical Service).
+- Placeholders: `psirt@windrose.ai`, the technical services provider (TS provider, to be designated).
 - The ⚠ update docs themselves live as `.docx`/`.xlsx` in Drive — edit per the REDLINES file.

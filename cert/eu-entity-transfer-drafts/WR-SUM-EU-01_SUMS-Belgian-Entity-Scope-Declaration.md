@@ -43,6 +43,6 @@ Effective on signature; superseded when the re-issued SUMS certificate naming Wi
 |---|---|---|---|
 | SUMS Owner (Antwerp NV) | | | |
 | Quality / Regulatory (Antwerp NV) | | | |
-| Technical Service witness (DEKRA, proposed) | | | |
+| Technical Service witness (TS provider — to be designated) | | | |
 
 *DRAFT for internal review — not yet submitted.*

@@ -54,6 +54,6 @@ This declaration takes effect on signature and remains valid until the re-issued
 |---|---|---|---|
 | CSMS Owner / CISO (Antwerp NV) | _____________ | | |
 | Quality / Regulatory (Antwerp NV) | _____________ | | |
-| Technical Service witness (DEKRA, proposed) | _____________ | | |
+| Technical Service witness (TS provider — to be designated) | _____________ | | |
 
 *DRAFT for internal review — not yet submitted to the technical service or Transportstyrelsen.*

@@ -69,7 +69,6 @@ EU Entity Transfer — R155 / R156 · WH13 Swedish WVTA `e5*2018/858*00525`
 | EU / EEA | European Union / European Economic Area | 欧盟 / 欧洲经济区 |
 | HR | Human Resources | 人力资源 |
 | KPI | Key Performance Indicator | 关键绩效指标 |
-| DEKRA | German vehicle inspection body (proposed Technical Service) | 德国机动车监督协会（拟任技术服务机构） |
 | ATS | Approval and Testing Services Europe S.r.l. (original Technical Service) | 原车辆测试技术服务机构（意大利） |
 
 ## Country / mark codes / 国别与标志代码

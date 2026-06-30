@@ -31,7 +31,7 @@
 
 ### 4. WR-CS&SUP-01 — Internal & External Audit Control Procedure (5K)
 - **Location:** audit-programme / frequency clause.
-- **ADD:** "An internal CSMS audit covering the Windrose Technology Antwerp NV governance scope is conducted 1–2× per year. A technical-service liaison clause provides for «DEKRA» (proposed TS) to witness or conduct the external audit supporting the CSMS certificate re-issue and the Swedish WVTA update."
+- **ADD:** "An internal CSMS audit covering the Windrose Technology Antwerp NV governance scope is conducted 1–2× per year. A technical-service liaison clause provides for the TS provider (to be designated) to witness or conduct the external audit supporting the CSMS certificate re-issue and the Swedish WVTA update."
 
 ### 5. WR-QP-14 — Human-Resources Control Procedure (5AF)
 - **Location:** competence/training-plan clause.

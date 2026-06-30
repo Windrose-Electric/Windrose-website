@@ -8,7 +8,7 @@ Reason for change: name **Windrose Technology Antwerp NV** (WMI **YCB**) as manu
 
 ## Changes
 1. **Audit programme / frequency** — ADD: "An internal audit covering the Windrose Technology Antwerp NV governance scope (CSMS and SUMS) is conducted 1–2× per year."
-2. **Technical-service liaison** — ADD a clause providing for the technical service (DEKRA, proposed) to witness or conduct the external audit supporting the CSMS/SUMS certificate re-issues and the Swedish WVTA update.
+2. **Technical-service liaison** — ADD a clause providing for the technical service (TS provider — to be designated) to witness or conduct the external audit supporting the CSMS/SUMS certificate re-issues and the Swedish WVTA update.
 
 ## Functional sign-off (to be completed once Antwerp NV officers are appointed)
 Quality System Engineer: __________   CISO / SUMS Owner (Antwerp NV): __________
