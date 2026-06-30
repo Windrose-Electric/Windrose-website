@@ -537,6 +537,11 @@
   .rdet .pf3 { background:#fff; padding:12px 14px; border-radius:6px; margin-top:8px; }
   .rdet .pf3 h2 { margin:14px 0 4px; }
   .rdet .pf3 h2:first-child { margin-top:0; }
+
+  .group-label { cursor:pointer; }
+  .group-label::after { content:" \25BE"; color:var(--muted); font-weight:400; }
+  .group.collapsed > .group-label::after { content:" \25B8"; }
+  .group.collapsed > :not(.group-label) { display:none; }
 </style>
 </head>
 <body>
@@ -637,7 +642,7 @@
     </div>
     <div class="category-body">
       <div class="group">
-        <div class="group-label">Requires External Audit, Full Testing, or Regulatory Unblocking
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">Requires External Audit, Full Testing, or Regulatory Unblocking
           <span class="zh">需外部审计、完整测试或突破监管限制</span>
         </div>
 
@@ -653,7 +658,7 @@
             <tr class="flag"><td><strong>Product / 产品</strong> — vehicle approval 车辆型式批准</td><td>WH13 / R700 vehicle type / 车型</td><td><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener"><code>E49*155R00/03*1037*00</code></a></td><td>Part III row <strong>D4</strong></td><td class="warn">⚠ Update cert for WMI YCB; entity stays Anhui / 更新WMI</td><td class="warn">⚠ Reissue → Antwerp NV + YCB; re-audit (NL) / 继任版</td></tr>
           </tbody>
         </table><h2>Step-by-step (① vs ②)</h2><table><thead><tr><th style="width:23%;">Step / 步骤</th><th style="width:38%;">① Change WMI only<br><span style="font-weight:400;font-size:11px;">仅改 WMI · keep Anhui · SE e5</span></th><th style="width:39%;">② Change entity + WMI<br><span style="font-weight:400;font-size:11px;">改主体 + WMI · Antwerp NV · NL e4</span></th></tr></thead><tbody><tr><td><strong>Technical service<br>技术服务</strong></td><td>Engage TS to update the R155 vehicle cert for WMI YCB (entity stays Anhui). <span class="zh">委托技术服务机构更新R155车辆证书（仅WMI，保留安徽主体）</span></td><td>Engage TS to extend the CSMS assessment to Antwerp NV + YCB under RDW (NL). <span class="zh">委托技术服务机构将CSMS评估扩展至Antwerp NV，并改由荷兰RDW</span></td></tr><tr><td><strong>CSMS scope<br>体系范围 (<a href="https://drive.google.com/file/d/1uegS0NEm9xZJQaJVzPO5JXe91abVx2r6/view" target="_blank" rel="noopener">5A</a>)</strong></td><td>Update WMI references only — no entity change. <span class="zh">仅更新WMI，主体不变</span></td><td>Name Antwerp NV in the scope / management manual. <span class="zh">在体系范围/管理手册中列入Antwerp NV</span></td></tr><tr><td><strong>Org chart & CISO<br>组织与CISO (<a href="https://drive.google.com/file/d/1XrR-Nh97z_80pSfAJ7S90FsNkkhRJZ1v/view" target="_blank" rel="noopener">5B</a>)</strong></td><td>— Not needed (Anhui org unchanged). <span class="zh">无需变更</span></td><td>Designate the Antwerp CISO / CSMS owner. <span class="zh">任命Antwerp NV的CISO／CSMS负责人</span></td></tr><tr><td><strong>Management review<br>管理评审 (<a href="https://drive.google.com/file/d/1NRN7YT8y5oKvUYpxIjMNNzmAKo2avIfg/view" target="_blank" rel="noopener">5R</a>/<a href="https://drive.google.com/file/d/1x8H9YmdAe0GFMEOnnrT_IxUp6ZRPsSkX/view" target="_blank" rel="noopener">5S</a>/<a href="https://drive.google.com/file/d/1XRREPUb5M1LtNGvirs0eR-caNeTidkwx/view" target="_blank" rel="noopener">5T</a>)</strong></td><td>Standard review — no EU-entity KPIs. <span class="zh">标准评审，无需欧盟主体KPI</span></td><td>Add EU-entity KPIs to the review scope. <span class="zh">评审范围纳入欧盟主体KPI</span></td></tr><tr><td><strong>Audit<br>内外审 (<a href="https://drive.google.com/file/d/1dzVy5Rq19MQI2LBZv1zXh_L7qz7dXGzb/view" target="_blank" rel="noopener">5K</a>)</strong></td><td>— Not needed. <span class="zh">无需</span></td><td>Add Belgian-entity audit cadence + TS-liaison clause. <span class="zh">加入比利时主体审核频次及技术服务联络条款</span></td></tr><tr><td><strong>HR / training<br>人力与培训 (<a href="https://drive.google.com/file/d/1q5wfoaFFNnwJ5I3qcGQGSioINSPPgFmH/view" target="_blank" rel="noopener">5AF</a>)</strong></td><td>— Not needed. <span class="zh">无需</span></td><td>Antwerp staff onboarding; EU/GDPR content. <span class="zh">Antwerp员工入职；欧盟/GDPR内容</span></td></tr><tr><td><strong>New EU governing docs<br>新欧盟治理文件</strong></td><td>Create — EU-market obligation, applies either way: threat-intel (<a href="https://drive.google.com/file/d/1VADgS4P5MV-8avEzVowviWBXUKBghvfl/view" target="_blank" rel="noopener">8A</a>), vuln disclosure (<a href="https://drive.google.com/file/d/1S8W_rbhrgZxs-UyAuohv15eDAFI81GlK/view" target="_blank" rel="noopener">8D</a>), recall (<a href="https://drive.google.com/file/d/1WvmwKNPmNr0MWRre8WCiBvfA9fJXoJWw/view" target="_blank" rel="noopener">12D</a>). <span class="zh">仍需创建（EU市场义务）：威胁情报、漏洞披露、召回</span></td><td>Create — same three EU documents. <span class="zh">同样创建该三份欧盟文件</span></td></tr><tr><td><strong>Confirm existing evidence<br>确认现有证据</strong></td><td>✓ Confirm: <a href="https://drive.google.com/file/d/1ktdIKLqNwJ3RfRis-EvQjjXMsfP-CrCL/view" target="_blank" rel="noopener">TARA</a>, <a href="https://drive.google.com/file/d/1UdZ_uY-jDfzBOV0Yq1GcBNrpZZDQyIpd/view" target="_blank" rel="noopener">V&amp;V</a>, <a href="https://drive.google.com/file/d/1WgZJggT_wSbOAyXHzW9eDp0ibDDDKwXd/view" target="_blank" rel="noopener">lifecycle</a>, <a href="https://drive.google.com/file/d/1n1C9E42XZfhNL1XXwoU8MKFkGPVP3Wls/view" target="_blank" rel="noopener">ops</a>. <span class="zh">确认现有证据</span></td><td>✓ Same — unchanged. <span class="zh">同样确认，无变更</span></td></tr><tr><td><strong>Certificates<br>证书</strong></td><td>Update R155 vehicle cert for YCB; CSMS system cert (<a href="https://drive.google.com/file/d/1UU8DAqmTRJFM-Cg4L0PRshhLKUDkJ8Qw/view" target="_blank" rel="noopener">1032*00</a>) <strong>not reissued</strong> — names Anhui. <span class="zh">更新R155车辆证书（YCB）；体系证书无需重签</span></td><td>TS reissues the R155 vehicle cert (<a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">EU VTA folder</a>) + the CSMS system cert → Antwerp NV; re-audit under NL. <span class="zh">技术服务机构重签车辆证书与体系证书至Antwerp NV，并在荷兰复审</span></td></tr><tr><td><strong>Cite in WVTA<br>引用 (Part III D4)</strong></td><td>Cite the updated cert in D4 of the updated Swedish WVTA. <span class="zh">在更新后的瑞典WVTA的D4行引用</span></td><td>Cite the new cert in D4 of the new e4 (NL) WVTA. <span class="zh">在新的e4（荷兰）WVTA的D4行引用</span></td></tr></tbody></table></div></details>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-red">Audit required <span class="zh">需审计</span></span></div>
         </div>
 
@@ -669,7 +674,7 @@
             <tr class="flag"><td><strong>Product / 产品</strong> — vehicle approval 车辆型式批准</td><td>WH13 / R700 vehicle type / 车型</td><td><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener"><code>E49*156R00/00*1026*00</code></a></td><td>Part III row <strong>H2</strong></td><td class="warn">⚠ Update cert for WMI YCB; entity stays Anhui / 更新WMI</td><td class="warn">⚠ Reissue → Antwerp NV + YCB; re-audit (NL) / 继任版</td></tr>
           </tbody>
         </table><h2>Step-by-step (① vs ②)</h2><table><thead><tr><th style="width:23%;">Step / 步骤</th><th style="width:38%;">① Change WMI only<br><span style="font-weight:400;font-size:11px;">仅改 WMI · keep Anhui · SE e5</span></th><th style="width:39%;">② Change entity + WMI<br><span style="font-weight:400;font-size:11px;">改主体 + WMI · Antwerp NV · NL e4</span></th></tr></thead><tbody><tr><td><strong>Technical service<br>技术服务</strong></td><td>Engage TS to update the R156 vehicle cert for WMI YCB (entity stays Anhui). <span class="zh">委托技术服务机构更新R156车辆证书（仅WMI）</span></td><td>Engage TS to extend the SUMS assessment to Antwerp NV + YCB under RDW (NL). <span class="zh">委托技术服务机构将SUMS扩展至Antwerp NV，改由荷兰RDW</span></td></tr><tr><td><strong>SUMS scope<br>体系范围 (<a href="https://drive.google.com/file/d/14v9RQHO0WiJ1E5ZZHJR8i_ubitUhUBLc/view" target="_blank" rel="noopener">5AM</a>/<a href="https://drive.google.com/file/d/10kYO3fhQNs0majMRXzUn_TTk5n0okjH2/view" target="_blank" rel="noopener">5AA</a>)</strong></td><td>Update WMI references only — no entity declaration. <span class="zh">仅更新WMI，无需主体声明</span></td><td>Create the SUMS Belgian-entity scope declaration. <span class="zh">创建SUMS比利时主体范围声明</span></td></tr><tr><td><strong>Owner-manual & user notification (EN/FR/NL)<br>用户手册与通知 (<a href="https://drive.google.com/file/d/1-oov5RUawb_IenQiic72O6GAiedX77GZ/view" target="_blank" rel="noopener">13H</a>/<a href="https://drive.google.com/file/d/1h-A-Svue7zqRDDBsv4jhn8JiU5vQy7P6/view" target="_blank" rel="noopener">13G</a>)</strong></td><td>Create — EN/FR/NL required for the EU market either way. <span class="zh">仍需创建——EU市场要求EN/FR/NL</span></td><td>Create — same. <span class="zh">同样创建</span></td></tr><tr><td><strong>EU monitoring & emergency response<br>监控与应急</strong></td><td>Create — EU-fleet obligation either way. <span class="zh">仍需创建——EU车队义务</span></td><td>Create — same. <span class="zh">同样创建</span></td></tr><tr><td><strong>After-sales monitoring<br>售后监控 (<a href="https://drive.google.com/file/d/14-5ywx6S_i964FsLiU4nmC_18PYUxHEw/view" target="_blank" rel="noopener">13I</a>)</strong></td><td>Light update; release authorization stays with Anhui. <span class="zh">轻度更新；发布授权仍由安徽</span></td><td>Update — Antwerp NV holds EU-fleet release authorization. <span class="zh">更新——Antwerp NV持有EU车队发布授权</span></td></tr><tr><td><strong>Forms F-01 / F-02<br>表单 (<a href="https://drive.google.com/file/d/10ME5hV0MgCsT3VHxmgqEqeoTPGf1Jwj6/view" target="_blank" rel="noopener">13K</a>/<a href="https://drive.google.com/file/d/1eSs4M1JqnSnu-rrad7V2mqGC7JTnsnZs/view" target="_blank" rel="noopener">13M</a>)</strong></td><td>Update for Belgian WMI / EU-fleet; approver stays Anhui. <span class="zh">更新WMI/EU车队范围；审批人仍为安徽</span></td><td>Update + add Belgian-entity approver field. <span class="zh">更新并加入比利时主体审批栏</span></td></tr><tr><td><strong>RXSWIN format & ledgers<br>RXSWIN与台账 (<a href="https://drive.google.com/file/d/13Tcf2JmJLYYBADbwlUIUyzPagYZN-9sL/view" target="_blank" rel="noopener">F-03</a>/<a href="https://drive.google.com/file/d/1QYyo8gDYwHAkUdH39Kww13_4pVLlY4sR/view" target="_blank" rel="noopener">F-04</a>/<a href="https://drive.google.com/file/d/1Fo7GhBg-D4oDzytZ0MmqB5US6XrYIDJk/view" target="_blank" rel="noopener">F-05</a>)</strong></td><td>Update — Belgian WMI YCB in RXSWIN + ledgers. <span class="zh">更新——RXSWIN及台账采用YCB</span></td><td>Update — same + Antwerp NV. <span class="zh">更新——同样并列入Antwerp NV</span></td></tr><tr><td><strong>Management review<br>管理评审 (<a href="https://drive.google.com/file/d/1433384VI-hv_5OHysnCZZYDi4DLRkO_-/view" target="_blank" rel="noopener">5U</a>/<a href="https://drive.google.com/file/d/1WQHsMNxdF5JnFxd2DeP7E5LIjzCBGciW/view" target="_blank" rel="noopener">5V</a>)</strong></td><td>Standard review — no EU-entity KPIs. <span class="zh">标准评审，无需欧盟主体KPI</span></td><td>Add EU-entity KPIs. <span class="zh">纳入欧盟主体KPI</span></td></tr><tr><td><strong>Confirm existing evidence<br>确认现有证据</strong></td><td>✓ Confirm: <a href="https://drive.google.com/file/d/18pYjutm7KKnIXFTEJZEpbH4kJleGLK6g/view" target="_blank" rel="noopener">ops</a>, <a href="https://drive.google.com/file/d/1sERH2eIZtpPILIircofMhvtqW-0pBEaN/view" target="_blank" rel="noopener">process</a>, <a href="https://drive.google.com/file/d/1UPjviVn0rzjXzQ_xzGQJ98THL1or7A0v/view" target="_blank" rel="noopener">info</a> control. <span class="zh">确认现有证据</span></td><td>✓ Same — unchanged. <span class="zh">同样确认，无变更</span></td></tr><tr><td><strong>Certificates<br>证书</strong></td><td>Update R156 vehicle cert for YCB; SUMS system cert (<a href="https://drive.google.com/file/d/1TKp2W7UDMyhpYwiJRmGx1lN9WM9xEtaj/view" target="_blank" rel="noopener">1021*01</a>) <strong>not reissued</strong> — names Anhui. <span class="zh">更新R156车辆证书（YCB）；体系证书无需重签</span></td><td>TS reissues the R156 vehicle cert (<a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">EU VTA folder</a>) + the SUMS system cert → Antwerp NV; re-audit under NL. <span class="zh">技术服务机构重签车辆证书与体系证书至Antwerp NV，并在荷兰复审</span></td></tr><tr><td><strong>Cite in WVTA<br>引用 (Part III H2)</strong></td><td>Cite the updated cert in H2 of the updated Swedish WVTA. <span class="zh">在更新后的瑞典WVTA的H2行引用</span></td><td>Cite the new cert in H2 of the new e4 (NL) WVTA. <span class="zh">在新的e4（荷兰）WVTA的H2行引用</span></td></tr></tbody></table></div></details>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-red">Audit required <span class="zh">需审计</span></span></div>
         </div>
 
@@ -678,7 +683,7 @@
           <div class="item-body">
             <div class="item-name">Rear Underrun Protection (RUP) <span class="zh">后部防撞保护装置</span></div>
             <div class="item-detail">No R58 documentation in Drive; blank on the Swedish WVTA. Resolve by (a) documenting exemption from rear-structure geometry, or (b) full R58 testing. <span class="zh">Drive无R58文件，瑞典WVTA为空白。解决：（a）以后部几何尺寸记录豁免，或（b）开展R58全套测试。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-red">Zero docs <span class="zh">无文件</span></span></div>
         </div>
 
@@ -687,7 +692,7 @@
           <div class="item-body">
             <div class="item-name">World Manufacturer Identifier — Unblocking NBN Release <span class="zh">世界制造商识别码 — 解除NBN下发限制</span></div>
             <div class="item-detail">YCB allocated to Antwerp NV by NBN but withheld pending proof of a Belgian production site; blocks all new VINs. Resolve: lease Antwerp site (Houtdok-Noordkaai 16) · register NACE at BCE · submit lease + BCE extract + photos to NBN. <span class="zh">NBN已分配YCB但暂扣，待比利时生产现场证明；阻塞所有新VIN。解决：租赁安特卫普场地（Houtdok-Noordkaai 16）·在BCE注册NACE·向NBN提交租约+BCE摘录+照片。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-red">Standoff <span class="zh">僵局</span></span></div>
         </div>
 
@@ -696,7 +701,7 @@
           <div class="item-body">
             <div class="item-name">Event Data Recorder (R160) — newly required, not yet held <span class="zh">事件数据记录系统（R160）— 新增要求，尚未持有</span></div>
             <div class="item-detail">No R160 (EDR) approval in Drive. Mandatory for new N3 types (EU GSR 2019/2144, via UN R160). Needs R160 testing + a new Part III row. Confirm N3 applicability date. <span class="zh">Drive无R160（EDR）批准。N3新车型强制（欧盟GSR 2019/2144，经UN R160）。需R160测试并新增Part III项。确认N3适用日期。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-red">Obtain / test <span class="zh">需取得／测试</span></span></div>
         </div>
       </div>
@@ -993,7 +998,7 @@
 
       <!-- ATS Inspection Reports -->
       <div class="group">
-        <div class="group-label">ATS Inspection Reports &amp; Test Folders — Confirmed in Drive
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">ATS Inspection Reports &amp; Test Folders — Confirmed in Drive
           <span class="zh">ATS检验报告及测试文件夹 — 已在Google Drive中确认</span>
         </div>
 
@@ -1002,7 +1007,7 @@
           <div class="item-body">
             <div class="item-name">Braking of Heavy Vehicles <span class="zh">重型车辆制动系统</span></div>
             <div class="item-detail">ATS-EU-PR-02456 + RFI found. Information Document ID_WH13-A-R13-00.pdf confirmed. <span class="zh">ATS-EU-PR-02456项目文件夹及检验报告已找到。信息文件ID_WH13-A-R13-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1011,7 +1016,7 @@
           <div class="item-body">
             <div class="item-name">Safety Belt Anchorages <span class="zh">安全带固定点</span></div>
             <div class="item-detail">ATS-EU-PR-02434 + ID_WH13-A-R14-00.pdf confirmed. <span class="zh">ATS-EU-PR-02434及ID_WH13-A-R14-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1Veae2UpeC7iiJZ-uxkAYHCnzKtCayLtc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1020,7 +1025,7 @@
           <div class="item-body">
             <div class="item-name">Safety Belts and Restraint Systems <span class="zh">安全带及约束系统</span></div>
             <div class="item-detail">ATS-EU-PR-02468 + RFI + ID_WH13-A-R16-00.pdf confirmed. <span class="zh">ATS-EU-PR-02468 + 检验报告 + ID_WH13-A-R16-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/15XJUTMaUt84pkfy001du85NpXptf1x6z/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1029,7 +1034,7 @@
           <div class="item-body">
             <div class="item-name">Seats, Seat Anchorages, and Head Restraints <span class="zh">座椅、座椅固定点及头枕</span></div>
             <div class="item-detail">ATS-EU-PR-02469 + RFI + ID_WH13-A-R17-00.pdf confirmed. <span class="zh">ATS-EU-PR-02469 + 检验报告 + ID_WH13-A-R17-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1Veae2UpeC7iiJZ-uxkAYHCnzKtCayLtc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1038,7 +1043,7 @@
           <div class="item-body">
             <div class="item-name">Audible Warning Devices (Horn) <span class="zh">声响警示装置（喇叭）</span></div>
             <div class="item-detail">ATS-EU-PR-02452 + RFI + ID_WH13-A-R28-00.pdf confirmed. <span class="zh">ATS-EU-PR-02452 + 检验报告 + ID_WH13-A-R28-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ytmmrAFs_GPbeWiooePJkeh8Qjg4ppJk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1047,7 +1052,7 @@
           <div class="item-body">
             <div class="item-name">Speedometer Equipment <span class="zh">车速表装置</span></div>
             <div class="item-detail">ATS-EU-PR-02446 + ID_WH13-A-R39-00.pdf confirmed. <span class="zh">ATS-EU-PR-02446及ID_WH13-A-R39-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1opmyWqqn80Q30LD2wka-WGBS1ndX_eJK/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1056,7 +1061,7 @@
           <div class="item-body">
             <div class="item-name">Safety Glazing (Windows and Windscreens) <span class="zh">安全玻璃（车窗及挡风玻璃）</span></div>
             <div class="item-detail">ATS-EU-PR-02445 + ID_WH13-A-R43-00.pdf confirmed. <span class="zh">ATS-EU-PR-02445及ID_WH13-A-R43-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1i7p2iqaIy75YcdHmXDdgybYftuYGYdNc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1065,7 +1070,7 @@
           <div class="item-body">
             <div class="item-name">Rear-View Mirrors <span class="zh">后视镜</span></div>
             <div class="item-detail">ATS-EU-PR-02457 + RFI + ID_WH13-A-R46-00.pdf confirmed. <span class="zh">ATS-EU-PR-02457 + 检验报告 + ID_WH13-A-R46-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1uBvStO6tphmNYPCMcfFrukQtR0-5wjSq/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1074,7 +1079,7 @@
           <div class="item-body">
             <div class="item-name">Installation of Lighting and Light-Signalling Devices <span class="zh">灯光及信号装置的安装</span></div>
             <div class="item-detail">ATS-EU-PR-02483 + ID_WH13-A-R48-00.pdf confirmed. <span class="zh">ATS-EU-PR-02483及ID_WH13-A-R48-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1pb6IZSCB9zwBSGnQb1uQlnvm9rc2rgKx/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1083,7 +1088,7 @@
           <div class="item-body">
             <div class="item-name">Noise Emissions from Motor Vehicles — two test configurations <span class="zh">机动车噪声排放（两种测试配置）</span></div>
             <div class="item-detail">ATS-EU-PR-02450 (part 1) and ATS-EU-PR-02444 (part 2) + both IDs confirmed. <span class="zh">ATS-EU-PR-02450（第一部分）和ATS-EU-PR-02444（第二部分）及两份信息文件均已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/15xjuqJ9deywgxv74KpeMXinZXSKDbzC2/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1092,7 +1097,7 @@
           <div class="item-body">
             <div class="item-name">Mechanical Couplings (Towing Hitches and Fifth Wheels) <span class="zh">机械联接装置（牵引钩及第五轮）</span></div>
             <div class="item-detail">ATS-EU-PR-02479 + ID_WH13-A-R55-00.pdf confirmed. <span class="zh">ATS-EU-PR-02479及ID_WH13-A-R55-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1L_Ufe6a5c7epg0wDWpwVvIoAeWsk59xN/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1101,7 +1106,7 @@
           <div class="item-body">
             <div class="item-name">External Projections of Cab (Pedestrian Injury Risk) <span class="zh">驾驶室外部突出物（行人伤害风险）</span></div>
             <div class="item-detail">ATS-EU-PR-02443 + RFI + ID_WH13-A-R61-00.pdf confirmed. <span class="zh">ATS-EU-PR-02443 + 检验报告 + ID_WH13-A-R61-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1CZGOuYX_im66-ZoEjIaXJUgq16TgxuKd/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1110,7 +1115,7 @@
           <div class="item-body">
             <div class="item-name">Steering Equipment <span class="zh">转向装置</span></div>
             <div class="item-detail">ATS-EU-PR-02455 + RFI + ID_WH13-A-R79-00.pdf confirmed. <span class="zh">ATS-EU-PR-02455 + 检验报告 + ID_WH13-A-R79-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1qbEsmeyMWexYb48pluOQfWJI3VtTSh5k/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1119,7 +1124,7 @@
           <div class="item-body">
             <div class="item-name">Front Underrun Protection (FUP) <span class="zh">前部防撞保护装置</span></div>
             <div class="item-detail">ATS-EU-PR-02451 + RFI + ID_WH13-A-R93-00.pdf confirmed. <span class="zh">ATS-EU-PR-02451 + 检验报告 + ID_WH13-A-R93-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1cBoYInQNHs9ekyg-V0bm2hYNolK2VQJa/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1128,7 +1133,7 @@
           <div class="item-body">
             <div class="item-name">Electric Vehicle Safety (Battery, Charging, Electrical Systems) <span class="zh">电动车辆安全（电池、充电及电气系统）</span></div>
             <div class="item-detail">ATS-EU-PR-02449 + RFI Part I + ID_WH13-A-R100-00.pdf confirmed. <span class="zh">ATS-EU-PR-02449 + 检验报告第一部分 + ID_WH13-A-R100-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1B75lvFtLuY3kBHyrZh2YA55qHYt2UqCG/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1137,7 +1142,7 @@
           <div class="item-body">
             <div class="item-name">Lane Departure Warning System (LDWS) <span class="zh">车道偏离预警系统</span></div>
             <div class="item-detail">ATS-EU-PR-02460 + RFI + ID_WH13-A-R130-00.pdf confirmed. <span class="zh">ATS-EU-PR-02460 + 检验报告 + ID_WH13-A-R130-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/113aTOIR5RPjm5mYA2mOZ0Mf31h6fEmIx/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1146,7 +1151,7 @@
           <div class="item-body">
             <div class="item-name">Automatic Emergency Braking System (AEBS) <span class="zh">自动紧急制动系统</span></div>
             <div class="item-detail">ATS-EU-PR-02454 + functional safety doc + ID confirmed. <span class="zh">ATS-EU-PR-02454 + 功能安全文件 + 信息文件已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1155,7 +1160,7 @@
           <div class="item-body">
             <div class="item-name">Acoustic Vehicle Alerting System (AVAS) <span class="zh">声学车辆警示系统</span></div>
             <div class="item-detail">ATS-EU-PR-02453 + ID_WH13-A-R138-00.pdf confirmed. <span class="zh">ATS-EU-PR-02453及ID_WH13-A-R138-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/10oK_oorP-yqbhxcoszxYuNH_-JayKQiZ/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1164,7 +1169,7 @@
           <div class="item-body">
             <div class="item-name">Tyre Pressure Monitoring System (TPMS) <span class="zh">轮胎气压监测系统</span></div>
             <div class="item-detail">ATS-EU-PR-02448 + ID_WH13-A-R142-00.pdf confirmed. <span class="zh">ATS-EU-PR-02448及ID_WH13-A-R142-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1on79RWIqzCHN1wX4QkEv21n5XLbo8w8b/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1173,7 +1178,7 @@
           <div class="item-body">
             <div class="item-name">Blind Spot Detection (BSD) <span class="zh">盲区探测系统</span></div>
             <div class="item-detail">ATS-EU-PR-02459 + ID_WH13-A-R151-00.pdf confirmed. <span class="zh">ATS-EU-PR-02459及ID_WH13-A-R151-00.pdf已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1S9iJqHZPuL2gj2KCBkAgZiU3RovmkXGk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1182,14 +1187,14 @@
           <div class="item-body">
             <div class="item-name">Reversing Detection <span class="zh">倒车探测系统</span></div>
             <div class="item-detail">ATS-EU-PR-02458 + RFI confirmed. Was not on original list — found in Drive audit. <span class="zh">ATS-EU-PR-02458及检验报告已确认。原列表中未包含此项——在Google Drive审查中发现。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1qUKEuC34X3-zRzMWbyIfkKbRE4GR7YMk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
       </div>
 
       <!-- E-mark Certs -->
       <div class="group">
-        <div class="group-label">E-mark Component Certificates — Confirmed in Drive
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">E-mark Component Certificates — Confirmed in Drive
           <span class="zh">E型认证零部件证书 — 已在Drive中确认</span>
         </div>
 
@@ -1198,7 +1203,7 @@
           <div class="item-body">
             <div class="item-name">Horn E-mark Certificates <span class="zh">喇叭E型认证证书</span></div>
             <div class="item-detail">Electric horn E1-28R0004002004809 and electro-pneumatic horn E1-28R000300070800 confirmed. <span class="zh">电动喇叭E1-28R0004002004809及气动电喇叭E1-28R000300070800已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ytmmrAFs_GPbeWiooePJkeh8Qjg4ppJk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1207,7 +1212,7 @@
           <div class="item-body">
             <div class="item-name">Safety Glazing E-mark Certificates <span class="zh">安全玻璃E型认证证书</span></div>
             <div class="item-detail">4.0mm and 3.5mm green toughened glass E-mark certs confirmed. <span class="zh">4.0mm和3.5mm绿色钢化玻璃E型认证证书已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1i7p2iqaIy75YcdHmXDdgybYftuYGYdNc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1216,7 +1221,7 @@
           <div class="item-body">
             <div class="item-name">Mechanical Coupling E-mark Certificates <span class="zh">机械联接装置E型认证证书</span></div>
             <div class="item-detail">JSK37C, JSK36D coupling certs and fifth wheel mounting plate cert confirmed. <span class="zh">JSK37C、JSK36D联接装置证书及第五轮安装板证书已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1L_Ufe6a5c7epg0wDWpwVvIoAeWsk59xN/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1225,7 +1230,7 @@
           <div class="item-body">
             <div class="item-name">Battery Pack E-mark Certificates <span class="zh">电池包E型认证证书</span></div>
             <div class="item-detail">NSAI Ireland E24 cert and Croatian DZM E25 cert for battery pack confirmed. Multiple revision certs present. <span class="zh">爱尔兰NSAI颁发的E24证书及克罗地亚DZM颁发的E25电池包证书均已确认，存有多版本修订证书。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1234,14 +1239,14 @@
           <div class="item-body">
             <div class="item-name">AEBS / AVAS / TPMS / BSD Component E-mark Certificates <span class="zh">AEBS / AVAS / TPMS / BSD零部件E型认证证书</span></div>
             <div class="item-detail">Croatian DZM (E25) certs confirmed for all four systems. <span class="zh">四个系统的克罗地亚DZM（E25）证书均已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1mUikMY00ewZSQXxesu81gRoOQPyN13f2/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
       </div>
 
       <!-- CSMS Documents -->
       <div class="group">
-        <div class="group-label">CSMS — Cybersecurity Management System Documents (UN R155)
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">CSMS — Cybersecurity Management System Documents (UN R155)
           <span class="zh">CSMS — 网络安全管理体系文件（UN R155）</span>
         </div>
 
@@ -1250,7 +1255,7 @@
           <div class="item-body">
             <div class="item-name">CSMS System Certificate <span class="zh">网络安全管理体系证书</span></div>
             <div class="item-detail">R155体系证书20250417.pdf + extension PNG confirmed. Ref: CYPRUS*CERT*1032*01. Valid to Jan 2028. Currently names Anhui entity — scope extension required (see Cat. 3). <span class="zh">R155体系证书（20250417.pdf）及延伸证书PNG已确认。证书编号：CYPRUS*CERT*1032*01，有效期至2028年1月。当前证书主体为安徽实体——需扩大范围至比利时实体（见第三类）。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1UU8DAqmTRJFM-Cg4L0PRshhLKUDkJ8Qw/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1259,7 +1264,7 @@
           <div class="item-body">
             <div class="item-name">Threat Analysis and Risk Assessment <span class="zh">威胁分析与风险评估</span></div>
             <div class="item-detail">WR-T0104-CSMS-010 management procedure + risk assessment table confirmed. <span class="zh">WR-T0104-CSMS-010管理程序及风险评估表已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ktdIKLqNwJ3RfRis-EvQjjXMsfP-CrCL/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1268,7 +1273,7 @@
           <div class="item-body">
             <div class="item-name">Verification and Validation <span class="zh">验证与确认</span></div>
             <div class="item-detail">WR-T0104-CSMS-006: test management procedure, test plan, test cases, and test report confirmed. Validation plan, cases, and report also confirmed. <span class="zh">WR-T0104-CSMS-006：测试管理程序、测试计划、测试用例及测试报告已确认。确认计划、确认用例及确认报告亦已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1UdZ_uY-jDfzBOV0Yq1GcBNrpZZDQyIpd/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1277,7 +1282,7 @@
           <div class="item-body">
             <div class="item-name">Incident Response Procedures <span class="zh">事件响应程序</span></div>
             <div class="item-detail">Emergency response report (WR-P0101-CSMS-009-03) and incident summary report (WR-P0101-CSMS-009-04) confirmed. <span class="zh">应急响应报告（WR-P0101-CSMS-009-03）及事件汇总报告（WR-P0101-CSMS-009-04）已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1286,14 +1291,14 @@
           <div class="item-body">
             <div class="item-name">Vehicle Cybersecurity Plan and Management Manual <span class="zh">车辆网络安全计划及管理手册</span></div>
             <div class="item-detail">WR-CSP-04-01 cybersecurity plan + development file checklist confirmed. Chinese-language system — English version may need to be produced for Belgian TS audit. <span class="zh">WR-CSP-04-01网络安全计划及开发文件检查清单已确认。现有体系文件为中文版——比利时技术服务机构审计时可能需要提供英文版本。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1WgZJggT_wSbOAyXHzW9eDp0ibDDDKwXd/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
       </div>
 
       <!-- SUMS Documents -->
       <div class="group">
-        <div class="group-label">SUMS — Software Update Management System Documents (UN R156)
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">SUMS — Software Update Management System Documents (UN R156)
           <span class="zh">SUMS — 软件更新管理体系文件（UN R156）</span>
         </div>
 
@@ -1302,7 +1307,7 @@
           <div class="item-body">
             <div class="item-name">SUMS System Certificate <span class="zh">软件更新管理体系证书</span></div>
             <div class="item-detail">R156体系证书20250417.pdf + extension PNG confirmed. Ref: CYPRUS*CERT*1021*01. Valid to Jan 2028. Currently names Anhui entity — scope extension required (see Cat. 3). <span class="zh">R156体系证书（20250417.pdf）及延伸证书PNG已确认。证书编号：CYPRUS*CERT*1021*01，有效期至2028年1月。当前证书主体为安徽实体——需扩大范围至比利时实体（见第三类）。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1TKp2W7UDMyhpYwiJRmGx1lN9WM9xEtaj/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1311,7 +1316,7 @@
           <div class="item-body">
             <div class="item-name">Software Identification Number Register <span class="zh">软件版本识别号注册表</span></div>
             <div class="item-detail">RXSWIN encode list (WR-T0108-SUMS-003-06) and RXSWIN register (WR-T0108-SUMS-003-07) both confirmed. <span class="zh">RXSWIN编码列表（WR-T0108-SUMS-003-06）及RXSWIN注册表（WR-T0108-SUMS-003-07）均已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/13Tcf2JmJLYYBADbwlUIUyzPagYZN-9sL/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1320,7 +1325,7 @@
           <div class="item-body">
             <div class="item-name">SUMS Operations Summary <span class="zh">SUMS管理体系运行总结</span></div>
             <div class="item-detail">SUMS管理体系运行总结.pptx (WR-SUM-04) confirmed. <span class="zh">SUMS管理体系运行总结.pptx（WR-SUM-04）已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/18pYjutm7KKnIXFTEJZEpbH4kJleGLK6g/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1329,14 +1334,14 @@
           <div class="item-body">
             <div class="item-name">Software Update Policy, Process, and Release Procedures <span class="zh">软件更新政策、流程及发布程序</span></div>
             <div class="item-detail">WR-SUP-02 (upgrade process control), WR-SUP-03 (info management), WR-B05-SUMS-001 (release/push management), and rollback/change test review tables confirmed. <span class="zh">WR-SUP-02（升级流程管控）、WR-SUP-03（信息管理）、WR-B05-SUMS-001（发布/推送管理）及回滚/变更测试审查表均已确认。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1sERH2eIZtpPILIircofMhvtqW-0pBEaN/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
       </div>
 
       <!-- Partners + Approvals + Corporate -->
       <div class="group">
-        <div class="group-label">Approvals, Partnerships, and Belgian Corporate Documents
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">Approvals, Partnerships, and Belgian Corporate Documents
           <span class="zh">批文、合作协议及比利时公司文件</span>
         </div>
 
@@ -1345,7 +1350,7 @@
           <div class="item-body">
             <div class="item-name">Speed Limitation Device — Existing Approval <span class="zh">车速限制装置 — 现有批准</span></div>
             <div class="item-detail">Approval number E5*89R00/03*0025*00 confirmed on Swedish WVTA. Information Document WDR-WH13-A-R89-00 also confirmed in Drive and already names Windrose Technology Antwerp as manufacturer rep. <span class="zh">批准编号E5*89R00/03*0025*00已在瑞典WVTA中确认。信息文件WDR-WH13-A-R89-00亦已在Drive中确认，且已将Windrose Technology Antwerp列为制造商代表。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1YvG_9cqgxIfdSUYfpqMbzaT4_v5HS8Dn/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1354,7 +1359,7 @@
           <div class="item-body">
             <div class="item-name">Swedish WVTA Certificate — e5*2018/858*00525 <span class="zh">瑞典整车型式认证证书</span></div>
             <div class="item-detail">Revisions 00 and 01 confirmed (multiple copies). Issued 18 March 2026 by Swedish Transport Agency. This is the approval being updated — not replaced. <span class="zh">第00版和第01版已确认（多份副本）。由瑞典交通运输局于2026年3月18日颁发。这是待更新（而非替换）的批文。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1pRMB_6BH4D4VOxTLoH_lmYTQcsrDYTYH/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1363,7 +1368,7 @@
           <div class="item-body">
             <div class="item-name">Technical Services Provider — Non-Disclosure Agreement <span class="zh">技术服务机构保密协议</span></div>
             <div class="item-detail">Signed NDA July 2024 confirmed. Between the technical services provider and Windrose Technology Antwerp NV, scoped to homologation of Windrose electric trucks. <span class="zh">已签署的保密协议（2024年7月）已确认。协议双方为技术服务机构与Windrose Technology Antwerp NV，范围涵盖Windrose电动卡车的型式认证工作。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1372,7 +1377,7 @@
           <div class="item-body">
             <div class="item-name">Technical Services Provider — Memorandum of Understanding <span class="zh">技术服务机构谅解备忘录</span></div>
             <div class="item-detail">Signed MOU 23 June 2025 confirmed. Covers UNECE type approvals and CoP. Not a formal Technical Service appointment — that still needs to be drafted (see Cat. 2). <span class="zh">已签署的谅解备忘录（2025年6月23日）已确认。涵盖UNECE型式认证及生产一致性。这不是正式的技术服务机构任命函——该文件仍需起草（见第二类）。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1381,7 +1386,7 @@
           <div class="item-body">
             <div class="item-name">Notarial Deed of Incorporation (Akte van Oprichting) <span class="zh">公司设立公证书</span></div>
             <div class="item-detail">Multiple copies confirmed in Drive. Note: titled "Windrose Technology B.V." in the file name — confirm this is the correct Antwerp NV entity before submission. <span class="zh">已在Drive中确认多份副本。注意：文件名标题为"Windrose Technology B.V."——提交前请确认这是正确的安特卫普NV实体文件。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1390,7 +1395,7 @@
           <div class="item-body">
             <div class="item-name">KBO/BCE Company Register Extract <span class="zh">比利时企业数据库摘录</span></div>
             <div class="item-detail">Rapport KBO confirmed. Obtain a fresh dated extract before submitting to Transportstyrelsen — authorities typically require one dated within 3 months. <span class="zh">KBO报告已确认。提交至Transportstyrelsen前须获取最新有效日期的版本——主管机构通常要求3个月内有效。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1399,7 +1404,7 @@
           <div class="item-body">
             <div class="item-name">Articles of Association (Statuten) <span class="zh">公司章程</span></div>
             <div class="item-detail">Statuten Windrose (FF19jan25).docx confirmed, January 2025. <span class="zh">Statuten Windrose（FF19jan25）.docx已确认，日期为2025年1月。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
 
@@ -1408,7 +1413,7 @@
           <div class="item-body">
             <div class="item-name">Ultimate Beneficial Owner Declaration <span class="zh">最终受益人申报文件</span></div>
             <div class="item-detail">Notarieel attest inzake UBO confirmed (2 copies). Required by Belgian AML law; confirms who ultimately controls the company. <span class="zh">UBO公证证明已确认（2份）。比利时反洗钱法要求提供；证明公司最终控制人身份。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-green">Found <span class="zh">已确认</span></span></div>
         </div>
       </div>
@@ -1430,7 +1435,7 @@
 
       <!-- Information Documents -->
       <div class="group">
-        <div class="group-label">Information Documents — Entity Name and WMI Update Required (23 documents)
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">Information Documents — Entity Name and WMI Update Required (23 documents)
           <span class="zh">信息文件 — 需更新主体名称和WMI（23份文件）</span>
         </div>
 
@@ -1439,7 +1444,7 @@
           <div class="item-body">
             <div class="item-name">Braking of Heavy Vehicles <span class="zh">重型车辆制动系统</span></div>
             <div class="item-detail">ID_WH13-A-R13-00 exists (.docx + .pdf). Replace Anhui entity with Windrose Technology Antwerp NV; update WMI to YCB. <span class="zh">ID_WH13-A-R13-00已存在（.docx及.pdf格式）。将安徽实体替换为Windrose Technology Antwerp NV；将WMI更新为YCB。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1448,7 +1453,7 @@
           <div class="item-body">
             <div class="item-name">Safety Belt Anchorages <span class="zh">安全带固定点</span></div>
             <div class="item-detail">ID_WH13-A-R14-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R14-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1Veae2UpeC7iiJZ-uxkAYHCnzKtCayLtc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1457,7 +1462,7 @@
           <div class="item-body">
             <div class="item-name">Safety Belts and Restraint Systems <span class="zh">安全带及约束系统</span></div>
             <div class="item-detail">ID_WH13-A-R16-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R16-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/15XJUTMaUt84pkfy001du85NpXptf1x6z/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1466,7 +1471,7 @@
           <div class="item-body">
             <div class="item-name">Seats, Seat Anchorages, and Head Restraints <span class="zh">座椅、座椅固定点及头枕</span></div>
             <div class="item-detail">ID_WH13-A-R17-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R17-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1Veae2UpeC7iiJZ-uxkAYHCnzKtCayLtc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1475,7 +1480,7 @@
           <div class="item-body">
             <div class="item-name">Audible Warning Devices (Horn) <span class="zh">声响警示装置（喇叭）</span></div>
             <div class="item-detail">ID_WH13-A-R28-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R28-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ytmmrAFs_GPbeWiooePJkeh8Qjg4ppJk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1484,7 +1489,7 @@
           <div class="item-body">
             <div class="item-name">Speedometer Equipment <span class="zh">车速表装置</span></div>
             <div class="item-detail">ID_WH13-A-R39-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R39-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1opmyWqqn80Q30LD2wka-WGBS1ndX_eJK/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1493,7 +1498,7 @@
           <div class="item-body">
             <div class="item-name">Safety Glazing <span class="zh">安全玻璃</span></div>
             <div class="item-detail">ID_WH13-A-R43-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R43-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1i7p2iqaIy75YcdHmXDdgybYftuYGYdNc/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1502,7 +1507,7 @@
           <div class="item-body">
             <div class="item-name">Rear-View Mirrors <span class="zh">后视镜</span></div>
             <div class="item-detail">ID_WH13-A-R46-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R46-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1uBvStO6tphmNYPCMcfFrukQtR0-5wjSq/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1511,7 +1516,7 @@
           <div class="item-body">
             <div class="item-name">Lighting and Light-Signalling Devices <span class="zh">灯光及信号装置</span></div>
             <div class="item-detail">ID_WH13-A-R48-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R48-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1520,7 +1525,7 @@
           <div class="item-body">
             <div class="item-name">Noise Emissions — Two Configurations <span class="zh">噪声排放——两种配置</span></div>
             <div class="item-detail">ID_WH13-A-1-R51-00 and ID_WH13-A-2-R51-00 both exist. Entity/WMI swap on both. <span class="zh">ID_WH13-A-1-R51-00和ID_WH13-A-2-R51-00均已存在。两份均需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/15xjuqJ9deywgxv74KpeMXinZXSKDbzC2/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1529,7 +1534,7 @@
           <div class="item-body">
             <div class="item-name">Mechanical Couplings <span class="zh">机械联接装置</span></div>
             <div class="item-detail">ID_WH13-A-R55-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R55-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1L_Ufe6a5c7epg0wDWpwVvIoAeWsk59xN/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1538,7 +1543,7 @@
           <div class="item-body">
             <div class="item-name">External Projections of Cab <span class="zh">驾驶室外部突出物</span></div>
             <div class="item-detail">ID_WH13-A-R61-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R61-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1CZGOuYX_im66-ZoEjIaXJUgq16TgxuKd/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1547,7 +1552,7 @@
           <div class="item-body">
             <div class="item-name">Steering Equipment <span class="zh">转向装置</span></div>
             <div class="item-detail">ID_WH13-A-R79-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R79-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1qbEsmeyMWexYb48pluOQfWJI3VtTSh5k/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1556,7 +1561,7 @@
           <div class="item-body">
             <div class="item-name">Speed Limitation Device <span class="zh">车速限制装置</span></div>
             <div class="item-detail">WDR-WH13-A-R89-00 exists and already names Windrose Technology Antwerp as manufacturer rep. Confirm content is complete and submit to ATS for sign-off — no separate ATS folder found yet. <span class="zh">WDR-WH13-A-R89-00已存在，且已将Windrose Technology Antwerp列为制造商代表。确认内容完整后提交ATS审批——目前尚未发现单独的ATS项目文件夹。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1YvG_9cqgxIfdSUYfpqMbzaT4_v5HS8Dn/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Near complete <span class="zh">接近完成</span></span></div>
         </div>
 
@@ -1565,7 +1570,7 @@
           <div class="item-body">
             <div class="item-name">Front Underrun Protection <span class="zh">前部防撞保护装置</span></div>
             <div class="item-detail">ID_WH13-A-R93-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R93-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1cBoYInQNHs9ekyg-V0bm2hYNolK2VQJa/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1574,7 +1579,7 @@
           <div class="item-body">
             <div class="item-name">Electric Vehicle Safety <span class="zh">电动车辆安全</span></div>
             <div class="item-detail">ID_WH13-A-R100-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R100-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1B75lvFtLuY3kBHyrZh2YA55qHYt2UqCG/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1583,7 +1588,7 @@
           <div class="item-body">
             <div class="item-name">Lane Departure Warning System (LDWS) <span class="zh">车道偏离预警系统</span></div>
             <div class="item-detail">ID_WH13-A-R130-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R130-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/113aTOIR5RPjm5mYA2mOZ0Mf31h6fEmIx/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1592,7 +1597,7 @@
           <div class="item-body">
             <div class="item-name">Automatic Emergency Braking System (AEBS) <span class="zh">自动紧急制动系统</span></div>
             <div class="item-detail">ID_WH13-A-R131-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R131-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1ODyhfMMaEI0oNmzLF3o_HESvlnKvlI1n/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1601,7 +1606,7 @@
           <div class="item-body">
             <div class="item-name">Acoustic Vehicle Alerting System (AVAS) <span class="zh">声学车辆警示系统</span></div>
             <div class="item-detail">ID_WH13-A-R138-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R138-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/10oK_oorP-yqbhxcoszxYuNH_-JayKQiZ/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1610,7 +1615,7 @@
           <div class="item-body">
             <div class="item-name">Event Data Recorder (EDR — Vehicle Black Box) <span class="zh">事件数据记录仪（车辆"黑匣子"）</span></div>
             <div class="item-detail">WDR-WH13-R141-00 draft confirmed. No ATS project folder found — may not yet have been submitted. Confirm scope and submit to ATS. <span class="zh">WDR-WH13-R141-00草稿已确认。未发现ATS项目文件夹——可能尚未提交。确认测试范围后提交ATS。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Draft only <span class="zh">仅有草稿</span></span></div>
         </div>
 
@@ -1619,7 +1624,7 @@
           <div class="item-body">
             <div class="item-name">Tyre Pressure Monitoring System (TPMS) <span class="zh">轮胎气压监测系统</span></div>
             <div class="item-detail">ID_WH13-A-R142-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R142-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1on79RWIqzCHN1wX4QkEv21n5XLbo8w8b/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
 
@@ -1628,14 +1633,14 @@
           <div class="item-body">
             <div class="item-name">Blind Spot Detection (BSD) <span class="zh">盲区探测系统</span></div>
             <div class="item-detail">ID_WH13-A-R151-00 exists. Entity/WMI swap only. <span class="zh">ID_WH13-A-R151-00已存在。仅需更换主体名称/WMI。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1S9iJqHZPuL2gj2KCBkAgZiU3RovmkXGk/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Update needed <span class="zh">需更新</span></span></div>
         </div>
       </div>
 
       <!-- Documents to obtain or create -->
       <div class="group">
-        <div class="group-label">Documents to Obtain, Create, or Finalise
+        <div class="group-label" onclick="this.parentNode.classList.toggle('collapsed')">Documents to Obtain, Create, or Finalise
           <span class="zh">待获取、创建或完善的文件</span>
         </div>
 
@@ -1644,7 +1649,7 @@
           <div class="item-body">
             <div class="item-name">Belgian VAT Registration Certificate <span class="zh">比利时增值税登记证</span></div>
             <div class="item-detail">Not found in Drive. Obtain from SPF Finances / FOD Financiën. Required to prove Belgian tax registration for Transportstyrelsen dossier. <span class="zh">Drive中未找到。须向SPF Finances / FOD Financiën申请获取。用于证明比利时税务登记，为Transportstyrelsen档案必需文件。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Not found <span class="zh">未找到</span></span></div>
         </div>
 
@@ -1653,7 +1658,7 @@
           <div class="item-body">
             <div class="item-name">EORI Certificate (EU Customs Registration) <span class="zh">EORI证书（欧盟海关注册）</span></div>
             <div class="item-detail">Application form dated 23 Jan 2025 found. Granted certificate not found in Drive — confirm EORI number was issued and file the certificate. <span class="zh">日期为2025年1月23日的申请表已找到。Drive中未找到已签发证书——请确认EORI编号是否已颁发并归档证书。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Application only <span class="zh">仅有申请</span></span></div>
         </div>
 
@@ -1662,7 +1667,7 @@
           <div class="item-body">
             <div class="item-name">Supplier Cybersecurity Agreements <span class="zh">供应商网络安全协议</span></div>
             <div class="item-detail">Referenced in CSMS system but not found as standalone documents. Required under R155 to show cybersecurity obligations are flowed down to component suppliers. Locate or draft. <span class="zh">CSMS体系中有提及，但未找到独立文件。R155要求提供此类文件，以证明网络安全义务已传递至零部件供应商。请查找或起草。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Not found <span class="zh">未找到</span></span></div>
         </div>
 
@@ -1671,7 +1676,7 @@
           <div class="item-body">
             <div class="item-name">Certificate of Conformity Template for WH13 (Belgian Entity) <span class="zh">WH13合格证模板（比利时实体）</span></div>
             <div class="item-detail">Individual VIN CoC (COC-Windrose.doc) found. A properly formatted blank CoC template under Windrose Technology Antwerp NV with WMI YCB needs to be drafted and approved by Transportstyrelsen. <span class="zh">单车VIN合格证（COC-Windrose.doc）已找到。需起草以Windrose Technology Antwerp NV名义、WMI为YCB的正式空白合格证模板，并经Transportstyrelsen批准。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/1laWS38wxJn0oWnEkG6hITPAW4reta8x4/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Template needed <span class="zh">需要模板</span></span></div>
         </div>
 
@@ -1680,7 +1685,7 @@
           <div class="item-body">
             <div class="item-name">Conformity of Production Plan (Vehicle Level) <span class="zh">生产一致性计划（车辆级别）</span></div>
             <div class="item-detail">EU draft confirmed: 欧盟产品COP控制计划 Dec 2025. Update to reflect Belgian entity, Antwerp assembly site, and YCB WMI. CoP framework docs also found (Initial Assessment, Application Form). <span class="zh">欧盟草稿已确认：欧盟产品COP控制计划（2025年12月）。需更新以反映比利时主体、安特卫普装配场地及YCB WMI。生产一致性框架文件亦已找到（初步评估、申请表）。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/file/d/12qZNH-ap7CVmfNynvCvXBl1fnW-EiXWs/view" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Draft exists <span class="zh">存在草稿</span></span></div>
         </div>
 
@@ -1689,7 +1694,7 @@
           <div class="item-body">
             <div class="item-name">Technical Service Appointment Letter (TS provider) <span class="zh">技术服务机构任命函</span></div>
             <div class="item-detail">Not found. The MOU covers the commercial relationship but is not a formal Technical Service designation under EU Regulation 2018/858 Article 72. A specific appointment letter is required before Transportstyrelsen can accept the technical services provider as the TS for the updated Swedish WVTA. <span class="zh">未找到。谅解备忘录仅涵盖商业关系，不构成欧盟法规2018/858第72条所规定的正式技术服务机构任命。Transportstyrelsen接受技术服务机构担任瑞典WVTA前，须提供正式任命函。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Not found <span class="zh">未找到</span></span></div>
         </div>
 
@@ -1698,7 +1703,7 @@
           <div class="item-body">
             <div class="item-name">Consolidated WH13 Technical Datasheet <span class="zh">WH13综合技术数据表</span></div>
             <div class="item-detail">Technical specs are distributed across 23 Information Documents. A single consolidated datasheet is useful for Transportstyrelsen discussions and investor/partner briefings. Not found as a standalone document. <span class="zh">技术规格分散于23份信息文件中。一份完整的综合技术数据表有助于与Transportstyrelsen的讨论及投资者/合作方简报。目前无独立文件。</span></div>
-          </div>
+          <div class="item-detail"><a href="https://drive.google.com/drive/folders/1yRANc3DcFUl-yaovoOEh4GO152uLe4sb" target="_blank" rel="noopener">📄 Document / 文件 ↗</a></div></div>
           <div class="item-status"><span class="status-badge badge-amber">Not found <span class="zh">未找到</span></span></div>
         </div>
       </div>
