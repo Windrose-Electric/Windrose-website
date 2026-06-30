@@ -6,7 +6,7 @@
   // Inject related-link styles once
   (function() {
     var s = document.createElement('style');
-    s.textContent = '.wr-related{font-size:0.78rem!important;padding:0.5rem 0.8rem!important;background:rgba(0,80,180,0.08)!important;border:1px solid rgba(0,150,255,0.15)!important;border-radius:8px!important;color:#8ab0d8!important;line-height:1.7!important;}.wr-related a{color:#60aaff!important;text-decoration:none!important;display:block!important;}.wr-related a:hover{color:#90ccff!important;text-decoration:underline!important;}.wr-related strong{color:#7ab!important;font-size:0.72rem!important;letter-spacing:0.05em!important;}';
+    s.textContent = '.wr-related{font-size:0.82rem!important;padding:0.5rem 0.75rem!important;background:rgba(0,30,80,0.35)!important;border:none!important;border-left:3px solid rgba(74,158,255,0.7)!important;border-radius:0 6px 6px 0!important;max-width:85%!important;align-self:flex-start!important;}.wr-related-lbl{display:block!important;font-size:0.68rem!important;letter-spacing:0.1em!important;text-transform:uppercase!important;color:rgba(140,180,255,0.5)!important;margin-bottom:0.4rem!important;font-family:Barlow Condensed,sans-serif!important;}.wr-related a{color:#90c8ff!important;text-decoration:none!important;display:block!important;padding:0.22rem 0!important;line-height:1.4!important;border-top:1px solid rgba(74,158,255,0.12)!important;}.wr-related a:first-of-type{border-top:none!important;}.wr-related a:hover{color:#c8e8ff!important;text-decoration:underline!important;}';
     document.head.appendChild(s);
   })();
 
@@ -187,20 +187,20 @@
   function addRelated(q) {
     var results = findRelated(q);
     if (!results.length) return;
-    var links = results.map(function(r) { return '<a href="' + r.u + '">📖 ' + r.t + '</a>'; }).join('');
-    addMsg('<strong>Related pages</strong>' + links, 'bot related', true);
+    var links = results.map(function(r) { return '<a href="' + r.u + '">→ ' + r.t + '</a>'; }).join('');
+    addMsg('<span class="wr-related-lbl">Related pages</span>' + links, 'bot related', true);
   }
 
   var LANG_NAMES = {
-    'en':'English\',\'es\':\'Spanish\',\'fr\':\'French\',\'de\':\'German\',\'zh\':\'Chinese (Simplified)',
-    'nl':'Dutch\',\'no\':\'Norwegian\',\'sv\':\'Swedish\',\'fi\':\'Finnish',
-    'da':'Danish\',\'pl\':\'Polish\',\'it\':\'Italian\',\'pt\':\'Portuguese',
-    'ja':'Japanese\',\'ko\':\'Korean'
+    'en':'English', 'es':'Spanish', 'fr':'French', 'de':'German',
+    'zh':'Chinese (Simplified)', 'nl':'Dutch', 'no':'Norwegian',
+    'sv':'Swedish', 'fi':'Finnish', 'da':'Danish', 'pl':'Polish',
+    'it':'Italian', 'pt':'Portuguese', 'ja':'Japanese', 'ko':'Korean'
   };
 
   window.FAQ_LANGS = window.FAQ_LANGS || {}; var FAQ_LANGS = {
     'range': {
-      'en': 'The Windrose E700 achieves 700 km fully loaded (single trailer, 49 tons). With a double trailer at 64 tons it achieves 500 km. Next generation targets 800+ km.',
+      'en': '• 700 km fully loaded — single trailer at 49 tons\n• 500 km with double trailer at 64 tons\n• Next generation targets 800+ km',
       'fr': 'Le Windrose E700 atteint 700 km en charge complète (semi-remorque simple, 49 tonnes). Avec un B-double à 64 tonnes : 500 km. La prochaine génération vise 800+ km.',
       'de': 'Der Windrose E700 erreicht 700 km vollbeladen (Einzelauflieger, 49 Tonnen). Mit B-Doppel bei 64 Tonnen: 500 km. Die nächste Generation soll 800+ km erreichen.',
       'zh': 'Windrose E700满载续航700公里(单挂49吨)。双挂64吨时续航500公里。下一代目标800+公里。',
@@ -216,7 +216,7 @@
       'ko': 'Windrose E700은 만재(싱글 트레일러, 49톤) 기준 700km를 달성합니다. 64톤 더블 트레일러는 500km. 차세대 목표는 800+km.',
     },
     'price': {
-      'en': 'Indicative prices: 🇪🇺 €198,000 · 🇬🇧 £220,000 (up to £81k UK grant) · 🇺🇸 $285,000 ($120k+ HVIP) · 🇦🇺 A$450,000. Monthly lease from €3,900/mo. Click a price card to enquire.',
+      'en': '• 🇪🇺 €198,000 excl. taxes — lease from €3,900/mo\n• 🇬🇧 £220,000 excl. VAT — up to £81k UK grant — from £2,200/mo after grant\n• 🇺🇸 $285,000 excl. taxes — $120k+ HVIP — from $3,100/mo after HVIP\n• 🇦🇺 A$450,000 excl. GST — from A$7,200/mo\n• Click a price card or email sales@windrose.ai to enquire',
       'fr': 'Prix indicatifs : 🇪🇺 250 000 € · 🇬🇧 220 000 £ (jusqu\'à 81 000 £ de subvention) · 🇺🇸 300 000 $ (120 000 $+ HVIP) · 🇦🇺 450 000 A$. Leasing à partir de 3 900 €/mois.',
       'de': 'Richtpreise: 🇪🇺 €250.000 · 🇬🇧 £220.000 (bis zu £81.000 Förderung) · 🇺🇸 $300.000 ($120.000+ HVIP) · 🇦🇺 A$450.000. Leasing ab €3.900/Monat.',
       'zh': '参考价格:🇪🇺 €198,000 · 🇬🇧 £220,000(最高 £81,000 英国补贴)· 🇺🇸 $285,000($120,000+ HVIP)· 🇦🇺 A$450,000。月租赁从€3,900起。点击价格卡片咨询。',
@@ -232,7 +232,7 @@
       'ko': '참고 가격: 🇪🇺 €198,000 · 🇬🇧 £220,000 (최대 £81,000 영국 보조금) · 🇺🇸 $285,000 (HVIP $120,000+) · 🇦🇺 A$450,000. 월 리스 €3,900부터. 가격 카드를 클릭하여 문의하세요.',
     },
     'delivery': {
-      'en': 'Q3 2026 with 60% advanced payment (priority allocation). Q4 2026 with standard 5% deposit, balance due before delivery.',
+      'en': '• Q3 2026 — 60% advanced payment for priority allocation\n• Q4 2026 — 5% deposit to reserve, balance due before delivery',
       'fr': 'T3 2026 avec 60% de paiement anticipé (allocation prioritaire). T4 2026 avec un acompte standard de 5%, solde dû avant livraison.',
       'de': 'Q3 2026 mit 60% Vorauszahlung (Prioritätsallokation). Q4 2026 mit Standard 5% Anzahlung, Restzahlung vor Lieferung.',
       'zh': '2026年第三季度交付:需60%预付款(优先分配)。2026年第四季度:5%订金预定,余款交付前付清。',
@@ -248,7 +248,7 @@
       'ko': '2026년 Q3 인도: 우선 배정을 위해 60% 선불 결제 필요. 2026년 Q4: 표준 5% 보증금으로 예약, 잔금은 인도 전 지불.',
     },
     'order': {
-      'en': 'Click any price card on this page to email our sales team, or write to sales@windrose.ai. You can also use the Reserve button at the top of the page.',
+      'en': '• Click any price card on this page to email our sales team\n• Or write directly to sales@windrose.ai\n• Or use the Reserve button at the top of the page',
       'fr': 'Cliquez sur n\'importe quelle carte de prix pour envoyer un e-mail à notre équipe commerciale, ou écrivez à sales@windrose.ai. Vous pouvez aussi utiliser le bouton Réserver en haut de la page.',
       'de': 'Klicken Sie auf eine Preiskarte, um unserem Vertriebsteam eine E-Mail zu senden, oder schreiben Sie an sales@windrose.ai. Sie können auch den Reservieren-Button oben auf der Seite verwenden.',
       'zh': '点击页面上任何价格卡片即可联系销售团队,或发送邮件至sales@windrose.ai。也可使用页面顶部的预定按钮。',
@@ -264,7 +264,7 @@
       'ko': '페이지의 가격 카드를 클릭하여 영업팀에 이메일을 보내거나 sales@windrose.ai로 문의하세요. 페이지 상단의 예약 버튼도 사용할 수 있습니다.',
     },
     'charge': {
-      'en': 'The Windrose E700 charges at 870 kW MCS — 20% to 80% in 38 minutes. 800V architecture with MCS, CCS2, CCS1, and GB/T standards. Validated at 100% of MCS sites in Europe with partners Milence, Kempower, EV Realty, and Greenlane (3 months free charging with every purchase).',
+      'en': '• 870 kW MCS — 20% to 80% in 38 minutes\n• 800V architecture supports MCS, CCS2, CCS1, and GB/T\n• Validated at 100% of MCS sites in Europe\n• Partners: Milence, Kempower, EV Realty, Greenlane\n• 3 months free charging included with every purchase',
       'fr': 'Le Windrose E700 se recharge à 870 kW MCS — 20% à 80% en 38 minutes. Architecture 800V avec les standards MCS, CCS2, CCS1 et GB/T. Validé sur 100% des sites MCS en Europe avec Milence, Kempower, EV Realty et Greenlane (3 mois de recharge gratuite à chaque achat).',
       'de': 'Der Windrose E700 lädt mit 870 kW MCS — 20% auf 80% in 38 Minuten. 800V-Architektur mit MCS, CCS2, CCS1 und GB/T. An 100% der MCS-Standorte in Europa validiert, mit Partnern Milence, Kempower, EV Realty und Greenlane (3 Monate kostenloses Laden bei jedem Kauf).',
       'nl': 'De Windrose E700 laadt op 870 kW MCS — 20% naar 80% in 38 minuten. 800V-architectuur met MCS, CCS2, CCS1 en GB/T-standaarden. Gevalideerd op 100% van de MCS-locaties in Europa met partners Milence, Kempower, EV Realty en Greenlane (3 maanden gratis laden bij elke aankoop).',
@@ -280,7 +280,7 @@
       'zh': 'Windrose E700采用870 kW MCS充电——38分钟内从20%充至80%。800V架构,支持MCS、CCS2、CCS1和GB/T标准。已在欧洲100%的MCS站点验证,合作伙伴包括Milence、Kempower、EV Realty和Greenlane(每次购买赠送3个月免费充电)。',
     },
     'specs': {
-      'en': 'Windrose E700: 705 kWh LFP battery at 800V, 1,400 hp (1,045 kW) motor, 120 km/h top speed, 7.5% climbing ability fully loaded. Dimensions 8.1m × 2.5m × 3.9m. Curb 11,835 kg, GCW 49,000 kg. Tested -32°C to +48°C, up to 4,700m altitude.',
+      'en': '• 705 kWh LFP battery at 800V\n• 1,400 hp (1,045 kW) motor, 120 km/h top speed\n• 7.5% climbing ability fully loaded\n• Dimensions: 8.1m × 2.5m × 3.9m — curb 11,835 kg, GCW 49,000 kg\n• Tested −32°C to +48°C, up to 4,700m altitude',
       'fr': 'Windrose E700 : batterie LFP 705 kWh à 800V, moteur 1 400 ch (1 045 kW), vitesse max 120 km/h, capacité de montée 7,5% en pleine charge. Dimensions 8,1m × 2,5m × 3,9m. Poids à vide 11 835 kg, PTRA 49 000 kg. Testé de -32°C à +48°C, jusqu\'à 4 700m d\'altitude.',
       'de': 'Windrose E700: 705-kWh-LFP-Batterie bei 800V, 1.400 PS (1.045 kW) Motor, 120 km/h Spitze, 7,5% Steigfähigkeit voll beladen. Maße 8,1m × 2,5m × 3,9m. Leergewicht 11.835 kg, GCW 49.000 kg. Getestet von -32°C bis +48°C, bis 4.700m Höhe.',
       'nl': 'Windrose E700: 705 kWh LFP-batterij op 800V, 1.400 pk (1.045 kW) motor, topsnelheid 120 km/u, klimvermogen 7,5% volledig beladen. Afmetingen 8,1m × 2,5m × 3,9m. Leeggewicht 11.835 kg, GCW 49.000 kg. Getest van -32°C tot +48°C, tot 4.700m hoogte.',
@@ -296,7 +296,7 @@
       'zh': 'Windrose E700:705 kWh LFP电池(800V)、1,400马力(1,045 kW)电机、最高时速120 km/h、满载爬坡能力7.5%。尺寸8.1m × 2.5m × 3.9m。整备质量11,835 kg,总重49,000 kg。测试温度-32°C至+48°C,海拔最高4,700米。',
     },
     'lease': {
-      'en': 'Lease estimates (5-year term, 20% residual): 🇪🇺 €3,900/mo, 🇬🇧 £2,200/mo after grant, 🇺🇸 $3,100/mo after HVIP, 🇦🇺 A$7,200/mo. Tailored financing: sales@windrose.ai.',
+      'en': '• 🇪🇺 €3,900/mo (5-year, 20% residual)\n• 🇬🇧 £2,200/mo after UK grant\n• 🇺🇸 $3,100/mo after HVIP\n• 🇦🇺 A$7,200/mo\n• Tailored financing: sales@windrose.ai',
       'fr': 'Estimations de location (5 ans, valeur résiduelle 20%) : 🇪🇺 3 900 €/mois, 🇬🇧 2 200 £/mois après subvention, 🇺🇸 3 100 $/mois après HVIP, 🇦🇺 7 200 A$/mois. Financement sur mesure : sales@windrose.ai.',
       'de': 'Leasing-Schätzungen (5 Jahre, 20% Restwert): 🇪🇺 3.900 €/Mon., 🇬🇧 2.200 £/Mon. nach Förderung, 🇺🇸 3.100 $/Mon. nach HVIP, 🇦🇺 7.200 A$/Mon. Individuelle Finanzierung: sales@windrose.ai.',
       'nl': 'Leaseramingen (5 jaar, 20% restwaarde): 🇪🇺 €3.900/mnd, 🇬🇧 £2.200/mnd na subsidie, 🇺🇸 $3.100/mnd na HVIP, 🇦🇺 A$7.200/mnd. Op maat gemaakte financiering: sales@windrose.ai.',
@@ -312,20 +312,20 @@
       'zh': '租赁估算(5年期,残值20%):🇪🇺 €3,900/月、🇬🇧 £2,200/月(补贴后)、🇺🇸 $3,100/月(HVIP后)、🇦🇺 A$7,200/月。定制融资请联系: sales@windrose.ai。',
     },
     'battery': {
-      'en': 'Windrose uses LFP (lithium iron phosphate) at 705 kWh, 800V — safe chemistry, long life. US version optional NMC at 486 kWh. Next-gen LMFP: 1.3x energy density, 2x lifetime (1 million km), 2x heat tolerance.',
-      'fr': 'Windrose utilise LFP (lithium fer phosphate) 705 kWh, 800V — chimie sûre, longue durée. Version US en option NMC 486 kWh. Prochaine génération LMFP : densité énergétique 1,3x, durée de vie 2x (1 million de km), tolérance thermique 2x.',
-      'de': 'Windrose verwendet LFP (Lithium-Eisen-Phosphat) mit 705 kWh, 800V — sichere Chemie, lange Lebensdauer. US-Version optional NMC mit 486 kWh. Nächste Generation LMFP: 1,3x Energiedichte, 2x Lebensdauer (1 Mio. km), 2x Hitzetoleranz.',
-      'nl': 'Windrose gebruikt LFP (lithium-ijzerfosfaat) van 705 kWh, 800V — veilige chemie, lange levensduur. Amerikaanse versie optioneel NMC 486 kWh. Volgende generatie LMFP: 1,3x energiedichtheid, 2x levensduur (1 miljoen km), 2x hittetolerantie.',
-      'no': 'Windrose bruker LFP (litium-jern-fosfat) på 705 kWh, 800V — trygg kjemi, lang levetid. USA-versjon valgfri NMC 486 kWh. Neste generasjon LMFP: 1,3x energitetthet, 2x levetid (1 million km), 2x varmebestandighet.','is':'522 kWh NMC rafhlaða með varmastjórnunarkerfi. Trygging: 80% getu eftir 1,000,000 km eða 10 ár.',
-      'sv': 'Windrose använder LFP (litiumjärnfosfat) vid 705 kWh, 800V — säker kemi, lång livslängd. USA-version valfri NMC 486 kWh. Nästa generation LMFP: 1,3x energitäthet, 2x livslängd (1 miljon km), 2x värmetålighet.',
-      'fi': 'Windrose käyttää LFP-akkua (litium-rautafosfaatti) 705 kWh, 800V — turvallinen kemia, pitkä käyttöikä. USA-versiossa valinnaisena NMC 486 kWh. Seuraavan sukupolven LMFP: 1,3x energiatiheys, 2x käyttöikä (1 miljoona km), 2x lämmönsietokyky.',
-      'da': 'Windrose bruger LFP (lithium-jernfosfat) ved 705 kWh, 800V — sikker kemi, lang levetid. US-version valgfri NMC 486 kWh. Næste generation LMFP: 1,3x energitæthed, 2x levetid (1 million km), 2x varmebestandighed.',
-      'pl': 'Windrose stosuje LFP (litowo-żelazo-fosforanowa) o pojemności 705 kWh, 800V — bezpieczna chemia, długa żywotność. Wersja amerykańska opcjonalnie NMC 486 kWh. Następna generacja LMFP: 1,3x gęstość energii, 2x żywotność (1 mln km), 2x odporność termiczna.',
-      'it': 'Windrose usa LFP (litio ferro fosfato) a 705 kWh, 800V — chimica sicura, lunga durata. Versione USA opzionale NMC 486 kWh. Prossima generazione LMFP: densità energetica 1,3x, durata di vita 2x (1 milione di km), tolleranza termica 2x.',
-      'pt': 'A Windrose usa LFP (lítio ferro fosfato) de 705 kWh, 800V — química segura, longa duração. Versão US opcional NMC 486 kWh. Próxima geração LMFP: 1,3x densidade energética, 2x vida útil (1 milhão km), 2x tolerância térmica.',
-      'ja': 'WindroseはLFP (リン酸鉄リチウム) 705 kWh、800Vを採用 — 安全な化学反応、長寿命。米国仕様はNMC 486 kWhもオプション。次世代LMFP: エネルギー密度1.3倍、寿命2倍 (100万km)、耐熱性2倍。',
-      'ko': 'Windrose는 LFP (인산철리튬) 705 kWh, 800V 사용 — 안전한 화학, 긴 수명. 미국 버전은 NMC 486 kWh 옵션. 차세대 LMFP: 에너지 밀도 1.3배, 수명 2배 (100만 km), 내열성 2배.',
-      'zh': 'Windrose采用705 kWh、800V LFP(磷酸铁锂)电池——化学性质安全,寿命长。美版可选NMC 486 kWh。下一代LMFP:能量密度1.3倍、寿命2倍(100万公里)、耐热性2倍。',
+      'en': 'Windrose uses LFP (lithium iron phosphate) at 705 kWh, 800V — safe chemistry, long life. Next-gen LMFP: 1.3x energy density, 2x lifetime (1 million km), 2x heat tolerance.',
+      'fr': 'Windrose utilise LFP (lithium fer phosphate) 705 kWh, 800V — chimie sûre, longue durée. Prochaine génération LMFP : densité énergétique 1,3x, durée de vie 2x (1 million de km), tolérance thermique 2x.',
+      'de': 'Windrose verwendet LFP (Lithium-Eisen-Phosphat) mit 705 kWh, 800V — sichere Chemie, lange Lebensdauer. Nächste Generation LMFP: 1,3x Energiedichte, 2x Lebensdauer (1 Mio. km), 2x Hitzetoleranz.',
+      'nl': 'Windrose gebruikt LFP (lithium-ijzerfosfaat) van 705 kWh, 800V — veilige chemie, lange levensduur. Volgende generatie LMFP: 1,3x energiedichtheid, 2x levensduur (1 miljoen km), 2x hittetolerantie.',
+      'no': 'Windrose bruker LFP (litium-jern-fosfat) på 705 kWh, 800V — trygg kjemi, lang levetid. Neste generasjon LMFP: 1,3x energitetthet, 2x levetid (1 million km), 2x varmebestandighet.','is':'522 kWh NMC rafhlaða með varmastjórnunarkerfi. Trygging: 80% getu eftir 1,000,000 km eða 10 ár.',
+      'sv': 'Windrose använder LFP (litiumjärnfosfat) vid 705 kWh, 800V — säker kemi, lång livslängd. Nästa generation LMFP: 1,3x energitäthet, 2x livslängd (1 miljon km), 2x värmetålighet.',
+      'fi': 'Windrose käyttää LFP-akkua (litium-rautafosfaatti) 705 kWh, 800V — turvallinen kemia, pitkä käyttöikä. Seuraavan sukupolven LMFP: 1,3x energiatiheys, 2x käyttöikä (1 miljoona km), 2x lämmönsietokyky.',
+      'da': 'Windrose bruger LFP (lithium-jernfosfat) ved 705 kWh, 800V — sikker kemi, lang levetid. Næste generation LMFP: 1,3x energitæthed, 2x levetid (1 million km), 2x varmebestandighed.',
+      'pl': 'Windrose stosuje LFP (litowo-żelazo-fosforanowa) o pojemności 705 kWh, 800V — bezpieczna chemia, długa żywotność. Następna generacja LMFP: 1,3x gęstość energii, 2x żywotność (1 mln km), 2x odporność termiczna.',
+      'it': 'Windrose usa LFP (litio ferro fosfato) a 705 kWh, 800V — chimica sicura, lunga durata. Prossima generazione LMFP: densità energetica 1,3x, durata di vita 2x (1 milione di km), tolleranza termica 2x.',
+      'pt': 'A Windrose usa LFP (lítio ferro fosfato) de 705 kWh, 800V — química segura, longa duração. Próxima geração LMFP: 1,3x densidade energética, 2x vida útil (1 milhão km), 2x tolerância térmica.',
+      'ja': 'WindroseはLFP (リン酸鉄リチウム) 705 kWh、800Vを採用 — 安全な化学反応、長寿命。次世代LMFP: エネルギー密度1.3倍、寿命2倍 (100万km)、耐熱性2倍。',
+      'ko': 'Windrose는 LFP (인산철리튬) 705 kWh, 800V 사용 — 안전한 화학, 긴 수명. 차세대 LMFP: 에너지 밀도 1.3배, 수명 2배 (100만 km), 내열성 2배.',
+      'zh': 'Windrose采用705 kWh、800V LFP(磷酸铁锂)电池——化学性质安全,寿命长。下一代LMFP:能量密度1.3倍、寿命2倍(100万公里)、耐热性2倍。',
     },
     'about': {
       'en': 'Windrose Electric is a global manufacturer of electric long-haul trucks. Founded in 2022, headquartered in Antwerp, Belgium. Deployed in 24 countries across 5 continents. Listed on NYSE. Recognized by TIME100 Most Influential Companies 2026.',
@@ -692,7 +692,7 @@
     return (FAQ_LANGS['fallback'] && FAQ_LANGS['fallback'][lang]) ? FAQ_LANGS['fallback'][lang] : FAQ_LANGS['fallback']['en'];
   }
 
-  var SYSTEM_BASE = `You are the customer assistant for Windrose Electric, a global electric long-haul truck company headquartered in Antwerp, Belgium. Be concise, warm, and helpful. Keep answers under 80 words. Always respond in {LANGUAGE}.\n\nPRODUCT:\n- Truck: Windrose E700 / Global E700\n- Range: 700 km fully loaded (single trailer at 49 tons), 500 km with double trailer at 64 tons\n- Battery: 705 kWh LFP at 800V — safe, long life. Motor: 1,400 hp (1,045 kW peak)\n- Charging: MCS 870 kW, CCS2, CCS1, GB/T — 38 min charge (20-80%)\n\nPRICING (indicative):\n- EUR: €198,000 excl. taxes — est. €3,900/mo lease\n- GBP: £220,000 excl. VAT — up to £81,000 UK grant — est. £2,200/mo after grant\n- USD: $285,000 excl. taxes — $120,000+ HVIP — est. $3,100/mo after HVIP\n- AUD: A$450,000 excl. GST — est. A$7,200/mo\n- All lease estimates: 5-year term, 20% residual\n\nDELIVERY:\n- Q3 2026: 60% advanced payment required\n- Q4 2026: 5% deposit to reserve, balance due before delivery\n\nCOMPANY:\n- Founded 2022 by Stanford graduate 韩文 (Wen Han)\n- HQ: Antwerp, Belgium — 24 countries, 5 continents\n- Investors: HSBC, Citi, Fountainvest, GSR Ventures, HITE Hedge, Goodman Group\n- Customers: CEVA, Kuehne+Nagel, KLN, Decathlon, Remy Cointreau, Nestle Wyeth, Bluescope, Danske Fragtmaend\n\nORDERING: Email sales@windrose.ai or click any price card. Reserve via Stripe at top of page.\nCHARGING PARTNERS: Milence (EU), ENGIE Vianeo (FR), Kempower (FI/US), EV Realty (US), Greenlane (US), Terawatt (US), Hubject (DE), Autel (NL), Sinexcel (AU), Transport & Energy (UK)\nIf unsure, suggest emailing sales@windrose.ai.
+  var SYSTEM_BASE = `You are the customer assistant for Windrose Electric, a global electric long-haul truck company headquartered in Antwerp, Belgium. Be warm and helpful. ALWAYS format every answer as bullet points starting with • — one key fact or step per bullet, never prose paragraphs. Even a single-sentence answer must be a bullet. Keep answers focused (3–6 bullets max). Always respond in {LANGUAGE}.\n\nPRODUCT:\n- Truck: Windrose E700 / Global E700\n- Range: 700 km fully loaded (single trailer at 49 tons), 500 km with double trailer at 64 tons\n- Battery: 705 kWh LFP at 800V — safe, long life. Motor: 1,400 hp (1,045 kW peak)\n- Charging: MCS 870 kW, CCS2, CCS1, GB/T — 38 min charge (20-80%)\n\nPRICING (indicative):\n- EUR: €198,000 excl. taxes — est. €3,900/mo lease\n- GBP: £220,000 excl. VAT — up to £81,000 UK grant — est. £2,200/mo after grant\n- USD: $285,000 excl. taxes — $120,000+ HVIP — est. $3,100/mo after HVIP\n- AUD: A$450,000 excl. GST — est. A$7,200/mo\n- All lease estimates: 5-year term, 20% residual\n\nDELIVERY:\n- Q3 2026: 60% advanced payment required\n- Q4 2026: 5% deposit to reserve, balance due before delivery\n\nCOMPANY:\n- Founded 2022 by Stanford graduate 韩文 (Wen Han)\n- HQ: Antwerp, Belgium — 24 countries, 5 continents\n- Investors: HSBC, Citi, Fountainvest, GSR Ventures, HITE Hedge, Goodman Group\n- Customers: CEVA, Kuehne+Nagel, KLN, Decathlon, Remy Cointreau, Nestle Wyeth, Bluescope, Danske Fragtmaend\n\nORDERING: Email sales@windrose.ai or click any price card. Reserve via Stripe at top of page.\nCHARGING PARTNERS: Milence (EU), ENGIE Vianeo (FR), Kempower (FI/US), EV Realty (US), Greenlane (US), Terawatt (US), Hubject (DE), Autel (NL), Sinexcel (AU), Transport & Energy (UK)\nIf unsure, suggest emailing sales@windrose.ai.
 
 REAL-WORLD MISSIONS (documented, not lab projections):
 - 2,600 km across 5 European countries
@@ -723,49 +723,98 @@ IPO: S-1 filed with SEC for NYSE listing ticker \"WDRS\". Investor inquiries: in
 
 ADVISORY BOARD: Kevin Fong (GSR Ventures, ex-Mayfield), Mikael Karlsson (ex-Volvo Trucks VP Autonomy), Fredrik Allard (ex-Scania SVP E-Mobility), Curt Ferguson (Ventech China, ex-Coca-Cola Greater China President)
 
-OWNER'S MANUAL (Windrose E700 — operational reference):
-Eco Driving: Maintain steady speed, avoid harsh acceleration/braking. Never coast in neutral (damages E-axle lubrication). Use eco mode for max range.
-Winter Driving: Use high-quality coolant; freezing point below local minimum. Keep battery fully charged to prevent freezing. Use snow chains/tires on ice/snow.
-Use of Snow Chains: Install on drive axle tires only. Remove when road is clear. Max speed 50 km/h with chains.
-Ramp Driving: If vehicle rolls back on incline, press brake immediately, engage EPB, then restart. Use low steady speed on climbs. Downshift before descending.
-Driving in Tropical/High-Temperature Areas: Check coolant level before driving. Do not leave flammable items (lighters, aerosols) on dashboard. Monitor temperature warnings.
-Overview of Vehicle Interior: Brake pedal, cup holders, instrument panel buttons, steering wheel, infotainment screen, regenerative braking paddles (left/right), instrument cluster, car control screen, phone wireless charging.
-Electric Sliding Door: Right-side electric sliding door, operable by multiple methods (button, remote, auto).
-Seat Belt: Driver and front passenger equipped with seat belts. Replace any belt subjected to collision impact.
-Power Window: Controlled via switches on left instrument panel or sleeper panel. Auto-closes when vehicle locks.
-Interior Sleeper: Sleeper area for driver and passengers. Privacy curtains available on select models.
-Rearview Mirror: Adjust via instrument panel Control Center > Outside interface. Left/right and up/down adjustment available.
-USB Charging: USB-A and USB-C ports on left instrument panel and front passenger armrest. 15W charging.
-Phone Wireless Charging: 15W wireless charger on right instrument panel.
-Charging Port: Charging ports on both sides of vehicle. Supports MCS (870 kW), CCS1, CCS2, GB/T.
-Driving Preparation: Before driving: check all connections/fasteners, verify motor/E-axle silent, check coolant level, check tire pressure, inspect lights.
-Instrument Cluster: Shows trip info, driving mode, gear, power consumption per 100 mi, estimated range, battery capacity, energy recovery level, speed.
-Wiper Control: Windshield washer stops immediately on button release; auto wipe after washing.
-Power ON/OFF: Unlock vehicle, open door, swipe NFC card at right instrument panel to power on. Press brake pedal, release EPB, select drive mode to drive.
-Electronic Parking Brake (EPB): EPB switch on instrument panel. Apply when parked. Auto-applies in certain conditions.
-Regenerative Braking: Left paddle reduces regen intensity (coasting). Right paddle increases. 4 levels available. Regen recovers energy into battery.
-Around View Monitor (AVM): 360° cameras stitch surround view on screen. Activates automatically at low speed/when reversing.
-Adaptive Cruise Control (ACC): Maintains set speed; automatically decelerates for vehicle ahead using radar. Set speed with steering wheel controls.
-Lane Departure Warning (LDW): Alerts driver visually/audibly when vehicle unintentionally crosses lane markings.
-Tire Pressure Monitoring (TPMS): Displays all tire pressures on instrument cluster. Alerts on low pressure or puncture.
-Vehicle Recovery and Towing: If vehicle cannot drive due to breakdown/accident, contact Windrose authorized service center. Do not attempt self-towing without authorization.
-Rescue of Vehicle on Fire: Assess fire severity immediately. Small fire: use extinguisher. Large fire: evacuate occupants, move away from vehicle, call emergency services. High-voltage battery fires require specialized firefighting.
-Fire Extinguisher: Located in cab. Inspect monthly.
-Coolant: Use recommended coolant with appropriate freezing point. Check level in reservoir (MIN-MAX marks) after temperature drops. Drain and replace via auxiliary water tank drain.
-Tire Pressure Gauge: 295/80R22.5 tires. Check inflation pressure per specifications. Rotate tires per maintenance schedule.
-Lighting Inspection: Vehicle has self-test function for all driving lamps. Check daily.
-Horns/Wipers: Press steering wheel horn button to test. Check wiper blade condition regularly.
-Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single trailer) / 64,000 kg (double trailer). Max speed 120 km/h. Climbing 7.5% fully loaded.`;
+OWNER'S MANUAL — COMPLETE REFERENCE (Windrose E700):
+SAFETY AND COMPLIANCE: The Windrose is a battery electric tractor unit. Operators must read the manual before first use and observe all warnings. Do not exceed 19 mph when entering non-motorized vehicle lanes, railroad crossings, sharp bends, narrow roads, bridges, when making U-turns or descending steep grades, in visibility under 164 ft due to fog/rain/snow/dust/hail, on icy/snow/muddy roads, or when towing a disabled vehicle. Never coast downhill in neutral - this removes drive motor braking and may cause loss of control. Replace any seat belt subjected to collision impact. NHTSA contact for US safety defects: 1-888-327-4236 or www.nhtsa.gov. Windrose warranty is voided by unauthorized modifications to high-voltage systems, electrical systems, braking, steering, or TBOX; by OBD tampering; by non-approved parts or fluids; or by failure to service at Windrose authorized centers. Vehicle scrapping and high-voltage battery recycling must be performed by Windrose or authorized recyclers - improper disposal may cause fire or environmental damage. For eco driving: maintain steady speed, avoid harsh acceleration/braking, never coast in neutral as this causes insufficient E-axle lubrication. For winter driving: use coolant with freezing point below local minimum, keep battery fully charged, use snow chains or snow tires, avoid sudden inputs, increase following distance. Snow chains must fit tire size, be fitted to outer tires of drive axle on both sides, and removed on roads without snow. On ramps: if the vehicle rolls back, depress brake and apply EPB immediately; never coast downhill in neutral; on long descents avoid continuous braking to prevent brake fade; avoid sharp steering inputs on downhill roads to reduce rollover risk. Data security: Windrose collects vehicle location, driving behavior, audio/video, and personal information per applicable laws; appropriate technical and organizational measures protect such data. Vehicle modification requires submitting documentation to Windrose including purpose, post-modification gross mass and axle loads, overall dimensions, body floor height, mounting method, and subframe drawing. High-voltage battery recycling must be performed by Windrose or its designated third-party organization only.
+
+VEHICLE OVERVIEW: The vehicle features front indicator/daytime running lamps, high/low beam headlamps, front fog/cornering lamps, front outline marker lamps, side marker combination lamps, and rear combination lamps. The VIN plate is located on the vehicle body; the motor nameplate identifies the drive motor specifications. Interior components include driver and passenger seats, sleeper berths, instrument cluster, and vehicle information screens.
+
+INTERIOR AND COMFORT: The electric sliding door on the right side operates electrically (flush door handle switch), manually, via the B-pillar interior switch, via vehicle information screen Control Center, or via central locking switch. The anti-pinch function is active only during electric closing - not manual operation. Emergency door release uses a cable behind the lower cover plate of the sliding door protection panel. Seat belts fit driver and front passenger; lap belt must lie low across hips not abdomen, shoulder belt across middle of shoulder not neck or under the arm. Never share one belt; replace damaged belts. Power windows operate via instrument panel switches or sleeper panel; one-click lifting is available; windows auto-close when powered off and locked. Panoramic sunroof is fixed/non-operable; the electric sunshade is controlled via the vehicle information screen. The windshield electric sunshade is raised/lowered via switches on the left instrument panel. Interior sleeper has upper and lower berths; the sleeper protection net with 8 tongues must be installed in 8 buckles before use to prevent occupant falls. Rearview mirrors are adjusted via Control Center > Outside; heating/defrost is available and auto-disables at power-off. USB ports are on the left instrument panel and front passenger seat armrest, Type-A and Type-C, 15W maximum. Phone wireless charging is on the right instrument panel at 15W, supports Qi-compatible devices, maximum 1 device at a time; keep metal objects away from the induction area. Power outlets in the sleeper lower left corner: 24V DC max 15A; 12V DC max 10A; 120V AC 1000W rated at 60Hz inverter socket - the 120V inverter only functions when connected to high voltage. The 24V trailer power outlet has a 2 kW maximum safe operating power. Ceiling lamp can be set to activate/deactivate automatically with door open/close. In-vehicle fragrance device mounts below driver seat right trim; bottles insert magnetically; unpacked fragrance lasts 1 year, packed fragrance lasts 3 months; concentration and flavor are adjustable via A/C interface. A/C system controls front and rear zones via vehicle information screen; air volume adjustable 0-7 gears; ECO mode, Auto mode, internal/external circulation, windshield defrost/defog, face/footwell/defrost modes available. Rear A/C also has a dedicated sleeper control panel. Storage: large above-sleeper storage box holds maximum 55.1 lb; small box holds maximum 33.1 lb.
+
+CHARGING AND PRE-DRIVE: Charging ports are on both sides of the vehicle; unlock via Control Center > Outside > Charging Port Unlock. Charging requires a device with voltage at or above 1000V - devices below this standard cannot charge the vehicle. Insert the charging plug until a "click" confirms connection; the electronic lock activates when charging starts. Charging indicators on top of windshield: below 30% SOC left indicator flashes; 30-90% SOC left indicator stays on; above 90% SOC left and middle on plus right flashing; 100% all three on. SOC below 20% triggers a low SOC alarm; below 5% the vehicle enters power limit mode with speed reduction. The battery operates best at 50-86 degrees F; charge once every half month if unused for extended periods. Emergency charging port unlock: push the unlocking mechanism from parallel to perpendicular to the vehicle forward direction. Pre-drive checklist: verify connections and fastening, motor and E-axle noise, accessories, oil levels in E-axle and steering tank, washer fluid and coolant levels, lubrication points, brake and steering function, electrical equipment, tire pressure, and driver tools. Driver seat adjustments: fore-and-aft, armrest height, backrest angle, 90-degree rotation, electric fore-and-aft, height, tilt, damping, heating (High/Medium/Low), massage (Level 1 bottom-to-top, Level 2 lower regional, Level 3 upper regional), lumbar support up/down, and ventilation (High/Medium/Low). NFC Card unlocks by swiping on flush door handle (1 flash = unlocked, 2 flashes = locked); powers on by swiping on right instrument panel NFC area; powers off by swiping or via screen Control Center > Setting > Power OFF. Mechanical key: press front of flush door handle, pull handle out, insert key in hole below handle and rotate right. Steering wheel: pull handle to unlock, adjust height and fore-aft distance, push handle to lock; never adjust while driving.
+
+INSTRUMENT CLUSTER AND CONTROLS: Instrument cluster displays: trip, estimated driving range, odometer, exterior temperature, driving mode, high-voltage battery SOC, current speed, vehicle ready status, current gear, energy recovery level, instantaneous power proportion, instantaneous power per 100 miles, and average power per 100 miles. Day/Night/Auto display modes selectable. Key warning lamps include: direction indicators (left/right/trailer), high beam, low beam, rear fog, front fog, seat belt reminder, low brake pressure, low washer fluid, tire pressure, LCC status, vehicle system fault, maintenance due, door open, mirror heating on, trailer ABS fault, brake shoe wear, ECAS fault, abnormal body height, steering system fault, AUTOHOLD on, HSA working, high-voltage battery fault/cut-off/low SOC, insulation fault, speeding, charging connection, drive motor fault, and TCU fault. Wiper control via left combination switch: hold washing button for continuous wash and wipe; low-speed continuous; high-speed continuous; auto wiping (sensitivity adjustable via screen); off; intermittent (frequency adjustable via screen). Light switch: activate via Control Center > Lighting (position lamp, low beam, or AUTO); light stalk forward = high beam on, backward = off; backward release = passing flash; stalk down = left turn, up = right turn. Daytime running lamps activate automatically when vehicle starts if low beam is off. Hazard warning lamp switch on right instrument panel; indicator flashes when active; use only in emergency conditions. Power ON: unlock vehicle, open door, swipe NFC Card on right instrument panel. Power OFF with EPB engaged: swipe NFC Card on right instrument panel, or via Control Center > Setting > Power OFF on right screen. Service brake: release accelerator first for deceleration; progressively depress brake to stop then switch to N and apply EPB; depress forcefully for emergency. EPB: manual release requires brake pedal pressed then EPB switch pressed; auto-releases on startup in D gear (not R); manual parking brake engagement by pulling EPB switch up. Temporary parking: press Temporary Parking Switch or hold brake pedal for 3+ seconds. EPB emergency braking if service brakes fail: pull up EPB switch slowly; system applies full parking brake when speed reaches 3 mph. Towing mode EPB release: hold EPB switch, tap Power OFF on screen (not via card), hold for 5+ seconds, release - EPB stays released after power-off. Emergency EPB release: power on and press EPB switch 5 times within 10 seconds of power-on. Shift: R gear requires stationary vehicle, brake pedal depressed, lever pushed up; N gear from R requires lever pushed down 1 gear held 1 second; D gear requires stationary vehicle, brake pedal depressed, lever pushed down; power off only in N gear. Regenerative braking: left KERS paddle decreases intensity, right KERS paddle increases intensity; levels 0-5 shown in lower right of instrument cluster; level 0 turns off regeneration; active when battery SOC below 95%. AR-HUD (optional): projects lane departure lines, navigation arrows, speed/mode, warning icons, ACC status onto windshield; adjustable brightness, height, display content via screen. Differential lock: engage only on slippery/muddy roads or heavy climbs; do not engage above 3 mph; do not turn while locked; release immediately after poor road conditions. Driving modes: ECO (lowest energy demand; auto-engages below 10% SOC), Normal (balanced power/economy for daily use), Power (maximum output torque and fastest motor response).
+
+ADAS SYSTEMS: AVM (Around View Monitor): cameras stitch 2D/3D 270-degree panoramic view; accessible via Home > AVM on screen or automatically in R gear; parking assist provides distance-based warnings during reversing. MOIS (Moving Off Information System): monitors pedestrians/cyclists in front blind spots at low speeds; visual-only alarm when stationary, visual plus audible when moving forward; auto-shuts down below 15 lux ambient light; controlled via Control Center > ADAS > MOIS. ACC (Adaptive Cruise Control): maintains set speed on clear roads or follows preceding vehicle at set following distance (5 levels; default level 3 at first power-on); scroll wheel up/down adjusts speed 1 mph per tap or 3 mph per hold; scroll wheel left/right adjusts following distance. ACC exits immediately if any door opens, seat belt unfastened, not in D gear, brake depressed, EPB applied, system not powered, ESC off, wheel speed invalid, speed out of range, AEB activates, or radar/camera blocked. ACC best suited to dry highways; not recommended for city streets. Low speed alarm device emits "ding-ding-ding" at low speed; "beep-beep-beep" in reverse. AEB (Automatic Emergency Braking): safe distance alarm (green display), Level 1 warning (yellow, low-frequency buzzer), Level 2 warning (red, high-frequency buzzer), then automatic brake application if driver takes no action; on by default; cannot detect oncoming/crossing vehicles, animals, traffic lights, or walls; ESC/EBS must be functional for AEB to work. EBS (Electronic Braking System): upgraded ABS/ESC system reducing brake response time and pressure build time; integrates ASR/HSA/ESC; yellow EBS lamp illuminates on fault. EBD (Electronic Brakeforce Distribution): regulates front/rear braking force for different load conditions, controls rear wheel slip for stability. ASR (Acceleration Slip Regulation): brakes slipping drive wheels during acceleration/startup to maintain directional stability; deactivated when ESC is turned off. LDW (Lane Departure Warning): operates at 37-75 mph; visual and audible alert when vehicle drifts from lane without intentional steering input; enabled by default; controlled via Control Center > ADAS > LDW; ineffective on roads without lane lines or in poor visibility. ESC (Electronic Stability Control): brakes individual wheels to correct oversteer/understeer; reduces motor torque or brakes to prevent rollover; on by default; turning off ESC also disables ASR. BSIS (Blind Spot Information System): detects pedestrians and cyclists in side blind spots; Level 1 yellow warning when cyclist at 3-12 mph enters detection area; Level 2 red warning plus audible alarm when vehicle is in forward gear with turn indicator active on target side; controlled via Control Center > ADAS > BSIS Alarm Sound. ADDW (Driver Distraction Warning System): warns when driver is distracted; can be turned off for the current power-on period. ISA (Intelligent Speed Assistance): uses front camera and offline maps to detect speed limit signs within 164 ft ahead and up to 23 ft height; flashes and sounds alarm when vehicle speed exceeds perceived speed limit; releasing accelerator or braking cancels audible warning; can be fully turned off via Control Center > ADAS > ISA. HSA (Hill Start Assist): prevents rollback on slopes; holds vehicle stationary after brake pedal release; driver must start within 3 seconds; off by default at startup; HSA indicator illuminates when active, flashes rapidly before deactivation. TESD (Tire Emergency Safety Device): passive safety device on front wheels preventing wheel hub from contacting ground during blowout to maintain steering and braking control; remove before tire replacement; reinstall with new bolts and nuts only. EHPS (Electro-Hydraulic Power Steering): speed-dependent steering assistance (more assist at low speed, less at high speed); active steering alignment after turns; hands-off detection (HOD) function; contact service center immediately on fault. ECAS (Electronically Controlled Air Suspension): remote control adjusts front/rear/lift axles independently with memory heights M1 and M2; vehicle information screen allows High/Standard/Low selection; High raises airbag 1.97 in; Low lowers 1.38 in from standard; front/rear airbag maximum raise 3.35 in, maximum lower 1.97 in; manual button control disabled above 6 mph; ECAS auto-returns to standard height when speed exceeds 6 mph if not at standard. TPMS (Tire Pressure Monitoring System): displays real-time tire pressure and temperature in Control Center > Monitoring; warning lamp plus popup and audible alert for abnormal pressure/temperature, sensor loss, or rapid leak. Multimedia: center display with radio, local music, phone interconnection, Bluetooth phone, application center; screen modes include screen cleaning, quiet enjoyment, and wait. Warning triangle placement: regular roads 164-328 ft from vehicle; expressways 492 ft; in rain/fog/snow 656.2 ft. Safety hammer stored on right side of sliding door; strike window corners/edges with pointed tip to break; use sleeper protection net as escape rope.
+
+EMERGENCY PROCEDURES: Fire extinguisher is located at lower left of the sleeper. For towing/rescue: install tow hook in front left or right mounting holes screwed fully in with no shaking; keep vehicle powered for steering and braking; turn on hazard lamps; maximum tow speed is 9 mph to prevent motor damage; disconnect trailer before towing; do not tow laterally in mud or soft dirt. Brake failure: activate hazard lamps, hold steering wheel firmly, slowly apply EPB using a spot-brake technique (do not lock all at once), use runaway truck lanes if available; do not immediately apply emergency brakes as this may cause sideslip or rollover. Steering failure on straight roads: release accelerator, activate hazards, apply brakes evenly; do not emergency brake immediately. On curves/mountains: release accelerator immediately, apply brakes quickly. Tire burst: hold steering wheel firmly, activate hazards, release accelerator, repeatedly and lightly depress brake, maintain straight line, then pull over safely when speed is reduced. Vehicle sideslip: release accelerator, turn wheel slightly toward slipping side and return; if sideslip is caused by braking, release brake immediately; do not brake and steer simultaneously; stabilize vehicle before applying intermittent braking. Accidental high-voltage power-off while driving: press hazard switch, try to restart; if unsuccessful, pull over using inertia force. Emergency evacuation when doors cannot open: pull emergency ring behind cover above left net bag to break left window glass; connect sleeper protection net to left side wall fixed point and use as escape rope to exit. Rescue personnel PPE requirements: Class 0 insulating gloves (1000V rated), impact-rated safety goggles, insulated tools rated for high-voltage, insulating rescue hooks, fire extinguisher rated for lithium battery fires; buddy system mandatory with one person supervising while other works; remove all metal jewelry before rescue operations. High-voltage system locations: battery under floor, right CCS1 charging port, left MCS charging port, orange high-voltage harness, drive motor. High-voltage cutoff from outside: park, apply EPB, pull hood release handle twice, remove low-voltage MSD from engine compartment. High-voltage cutoff from inside: park, apply EPB, open lower-left instrument panel trim, disconnect low-voltage MSD. In a vehicle collision the high-voltage system deactivates automatically. For vehicle fire: use dry powder/CO2/dry sand extinguisher for small fires; large fires or deformed/leaking battery require large continuous volumes of water; move all combustibles away from burning vehicle; inform emergency services the vehicle is a BEV with high-voltage battery presenting electric shock, chemical, and thermal runaway risks. Wading rescue: vehicle may have hidden high-voltage damage even without visible external damage; rescuers must wear full PPE; allow vehicle to dry completely before any further work.
+
+MAINTENANCE: Routine and scheduled maintenance is essential; all scheduled maintenance recommended at Windrose authorized service centers. SOC calibration procedure (monthly and after 3+ weeks storage): discharge to 20-25% SOC, charge fully, then discharge to 40-60% SOC. High-voltage battery is under the vehicle floor; avoid collisions on bumpy roads. If battery catches fire in crash: below 12 mph sliding door auto-unlocks; below 4 mph sliding door auto-opens; if driver does not decelerate within 4 minutes the system decelerates and stops automatically. Service mode switches (for inspection/filling only, must stay closed during normal driving): speed limit test, motor coolant pump, battery coolant pump, left/right battery pack compressor, active grille shutter. Lighting self-test: Control Center > Monitoring > Driving Light Self-Test illuminates all lamps simultaneously for inspection. Coolant inspection: check level between MIN and MAX marks; replace immediately if suspended matter, sediment, or discoloration is present; check freezing point regularly. Coolant filling: add slowly to MAX level, run water pump 10 minutes with vehicle powered on, power off and top to MAX, tighten cap; keep motor and room temperature at or below 113 degrees F during filling; rinse system minimum 3 times when first adding or draining; never mix different coolant types. Tire maintenance: replace after 6 years of service; wait for tires to cool before inflation/deflation; check tread depth, foreign objects, cracks, dents, and shoulder wear. Steering system: check free travel and looseness before each drive; shake steering wheel to confirm lock; heavy steering, shaking, or offset requires immediate service. High-voltage safety maintenance: only trained and qualified personnel may perform high-voltage work; remove metal jewelry; use insulated tools; disconnect low-voltage MSD before high-voltage component work; buddy system mandatory. Low-voltage battery: located in engine compartment; keep terminals clean and dry; apply acid-proof grease to clamp lower ends; use commercial detergent for corroded parts; battery electrolyte is corrosive - rinse eyes/skin immediately with water.
+
+SPECIFICATIONS: Vehicle dimensions: length 318.90 in, width 100.20 in, height 154.33 or 154.92 in, wheelbase 183.07 + 53.15 in. Drive motor model TZ230XSSW001: rated 228 hp at 6494 rpm; maximum torque 405.7 lb-ft at 4514 rpm; water-cooled; rear-mounted. LFP high-voltage battery: 705.2 kWh, 4 packs, DC charging at 920A and 868.7V, liquid-cooled. E-axle: Hande HDE10t transaxle, AMT operation; maximum output torque 25,814.7 lb-ft (3-motor) or 31,715.2 lb-ft (4-motor). Tire inflation pressures: 295/80R22.5 at 130.5 psi all positions; 315/70R22.5 at 130.5 psi; 12R22.5 at 134.9 psi. Standard rim 9.00x22.5; 385/65R22.5 uses 11.75x22.5. Wheel alignment: kingpin inclination 7.9 degrees +/-45 arcmin; wheel camber 0.25 degrees +/-45 arcmin; toe-in -0.04 to 0.08 in. Air reservoir: rated working pressure 174.0 psi, starting pressure 108.8 psi; air compressor max cut-off pressure 1.25 MPa; minimum design pressure for service brake 0.6 MPa. Gradability at GVW 46t - D1 gear (below 7 mph): 3-motor continuous 15% max 30% for 60s; 4-motor continuous 17% max 33% for 60s; D2 gear: 3-motor continuous 5% max 9%; 4-motor continuous 6% max 12%. Gradability at GVW 68t - D1 gear: 3-motor continuous 9% max 20%; 4-motor continuous 11% max 22%; D2 gear: 3-motor continuous 3% max 6%; 4-motor continuous 4% max 8%. Key fastening torques: slave rocker arm to subframe M14x2 at 154.9+/-14.8 lb-ft; tie rod ball joint M24x1.5 at 254.5+/-11.1 lb-ft; EHPS to subframe M20x1.5 at 405.7+/-14.8 lb-ft. Curb weights: LFP 3-motor 26,623.2 lb; LFP 4-motor 26,953.9 lb; maximum total mass 57,320.1 lb; 6x4 drive mode. Lamp power: headlamp high beam 32W, low beam 40W; daytime running lamp 14W; front indicator 14W; parking lamp 6.6W; ceiling lamp 9.5W; sleeper reading lamp 1.3W; ambient lamp 0.4W; rear working lamp 9W.
+
+STEERING WHEEL CONTROLS: Left scroll wheel: left/right = adjust ACC following distance (5 levels, default level 3); up/down = increase/decrease cruise speed (1 mph per tap, 3 mph per hold); press center = confirm. Right scroll wheel: up/down = volume up/down; left/right = previous/next track; press = confirm selection. ACC button: press to activate adaptive cruise control; press again to deactivate. LCC button (Lane Centering Control): press to activate lateral lane-centering assist; keeps vehicle centered within lane markings at highway speeds; requires ACC active and clear lane lines; LCC status indicator on instrument cluster; deactivate via same button or steering wheel input. Left KERS paddle: decreases regenerative braking intensity (5→0). Right KERS paddle: increases regenerative braking intensity (0→5). Bluetooth phone button: press to answer; press and hold to hang up or initiate call. Mute: press to mute audio; press again to restore. MODE: cycles radio/music/video sources. Return: returns to previous vehicle information screen. Horn: press center of steering wheel.
+
+ADDITIONAL FEATURES: Side toolbox (left exterior): unlock via Control Center > Outside > Toolbox Unlock; interior lamp auto-activates when opened; close manually from outside; keep closed while driving. Seat belt cleaning: mild soap and water on soft cloth only; air dry; never bleach, machine-wash, or wring. Sleeper privacy curtains: draw across for privacy and sun blocking; do not pull with excessive force. Sleeper reading lamps: pull front end to illuminate; push back to turn off; adjustable angle. Ambient lamps: multiple colors via Control Center > Lighting > Ambient Light; musical rhythm mode available; ensure selected color does not interfere with driving visibility. Follow-me-home lighting: keeps low beam on briefly after exit; configurable duration via Control Center > Lighting. Cup holders: on left/right instrument panel and front passenger armrest; use only securely-lidded containers. In-vehicle fragrance: concentration and flavor adjustable via Control Center > A/C; fragrance bottle installs magnetically; ceramic core must not contact plastic housing.
+
+SERVICE MANUAL — TECHNICAL REFERENCE (WH12 Series, US EPA/CARB):
+VEHICLE IDENTIFICATION: VIN is 17 digits. Positions 1-3: WEA (World Manufacturer Identifier). Position 4: series (4=WH12). Position 5: cab type (R=sleeper). Position 6: drive axle (A=6x4, B=8x4). Position 7: motor config (C=3-motor, D=4-motor). Position 8: battery type (F=LFP). Position 9: check digit. Position 10: model year. Position 11: plant code. Positions 12-17: serial number.
+
+VEHICLE WEIGHTS: LFP 3-motor curb weight 26,092 lb; LFP 4-motor 26,433 lb. GVWR 55,116 lb. Maximum total mass 57,320 lb.
+
+FLUID CAPACITIES: Final drive (E-axle) GL-5 75W/90 gear oil; motor cooling system ethylene glycol-based antifreeze down to −45°C (−49°F); battery cooling system uses dedicated battery coolant; EHPS (electro-hydraulic power steering) ATF3 fluid, capacity 4 liters; A/C refrigerant HFC-134a, charge 850 g ± 50 g.
+
+MAINTENANCE SCHEDULE: First maintenance at 10,000 km or 3 months (whichever comes first); thereafter every 20,000 km or 6 months for routine checks; every 40,000 km or 12 months for coolant, brake fluid, and filters; every 80,000 km or 24 months for transmission fluid and drivetrain; every 160,000 km or 48 months for major drivetrain components. All scheduled maintenance recommended at Windrose authorized service centers.
+
+FIRST MAINTENANCE (10,000 km / 3 months) — 12 system categories: (1) High-voltage battery: check SOC, inspect mounting, test BMS; (2) Drive motor: inspect mounting bolts, check cooling, test output; (3) E-axle: check oil level and leaks; (4) Braking: inspect pad thickness, disc runout, caliper function; (5) Steering: check free travel, fluid level, EHPS function; (6) Suspension: inspect air springs, linkages, ride height; (7) Electrical: test all lights, check harness routing, inspect connectors; (8) Cooling: check coolant level, inspect hoses and connections; (9) A/C: check refrigerant charge, inspect belt, test blower; (10) Tires: check pressure and tread depth, rotate if needed; (11) ADAS sensors: clean radar and camera lenses, verify calibration; (12) Chassis: inspect frame, cross-members, fastener torques.
+
+KEY FASTENER TORQUES: Slave rocker arm to subframe M14×2: 154.9 ± 14.8 lb-ft. Tie rod ball joint M24×1.5: 254.5 ± 11.1 lb-ft. EHPS to subframe M20×1.5: 405.7 ± 14.8 lb-ft. Wiper motor mounting M8: 18.5 ± 2 lb-ft.
+
+MECHANICAL FAULT DIAGNOSIS — KEY POINTS: Heavy or unresponsive steering → check EHPS fluid level, power supply, and pump pressure; inspect for air in system. Brake pulling to one side → inspect caliper for seizure, check pad wear balance, verify ABS sensor function. Abnormal tire wear: center wear = over-inflation; edge wear = under-inflation; one-sided wear = misalignment. Vehicle vibration at speed → check wheel balance, inspect hub bearings, verify driveshaft balance. Chassis noise → inspect air suspension components, check all mounting bolt torques.
+
+A/C REFRIGERANT SERVICE: (1) Connect manifold gauge set to service ports. (2) Recover existing refrigerant with approved recovery equipment — never vent to atmosphere. (3) Evacuate system for minimum 30 minutes to 500 microns. (4) Verify vacuum holds for 5 minutes. (5) Charge with HFC-134a to 850 g ± 50 g. Overcharging causes high-pressure cutout and compressor damage.
+
+HIGH-VOLTAGE POWER-DOWN (from outside): (1) Park on level surface and apply EPB. (2) Pull hood release handle twice to open hood. (3) Remove low-voltage MSD from engine compartment. Wait minimum 5 minutes before touching HV components. HIGH-VOLTAGE POWER-DOWN (from inside): (1) Park and apply EPB. (2) Open lower-left instrument panel trim. (3) Disconnect low-voltage MSD inside cab. Mandatory PPE for HV work: Class 0 insulating gloves (1000V rated), safety goggles, insulated tools, buddy system — no metal jewelry.
+
+VEHICLE LIFTING: Use only designated lift points on the frame rails. Never lift under battery pack, air tanks, or suspension components. Minimum jack capacity 15 tons per axle end. Place jack stands before working under vehicle. Chock wheels on opposite axle.
+
+TECHNICAL ABBREVIATIONS: BTMS=Battery Thermal Management System; CMS=Charging Management System; VTDR=Vehicle Travel Data Recorder; T-GW=Telematics Gateway; AVAS=Acoustic Vehicle Alerting System; UDS=Unified Diagnostic Services; IVI=In-Vehicle Infotainment; IPC=Instrument Panel Cluster; ESCL=Electronic Steering Column Lock; IBS=Intelligent Battery Sensor; VDC=Vehicle Dynamic Control; MCU=Motor Control Unit; TCU=Transmission Control Unit; BDCU=Battery Disconnect Control Unit; LFP=Lithium Iron Phosphate (battery chemistry); BSD=Blind Spot Detection; DOW=Door Opening Warning; TSR=Traffic Sign Recognition.`;
 
   window.wrChatToggle = function() {
     open = !open;
-    document.getElementById('wr-chat-panel').style.display = open ? 'flex' : 'none';
-    if (open) document.getElementById('wr-chat-input').focus();
+    var panel = document.getElementById('wr-chat-panel');
+    panel.style.display = open ? 'flex' : 'none';
+    if (open) {
+      document.getElementById('wr-chat-input').focus();
+      document.body.classList.add('wr-chat-open');
+    } else {
+      document.body.classList.remove('wr-chat-open');
+      // Clear anchored-to-searchbar positioning so next open via floating btn uses default position
+      if (panel.dataset.anchored) {
+        ['top','left','right','bottom','width','max-height'].forEach(function(p) { panel.style.removeProperty(p); });
+        delete panel.dataset.anchored;
+      }
+    }
   };
 
   window.wrAsk = function(q) {
     document.getElementById('wr-chat-input').value = q;
     window.wrSend({ preventDefault: function() {} });
+  };
+
+  // Unified entry point — called by the search bar AI button and Enter key in unified-search.js.
+  // Opens the chatbot panel anchored directly below the search box.
+  window.gsAskAI = function() {
+    var gsi = document.getElementById('gs-input');
+    var q = gsi ? gsi.value.trim() : '';
+    if (window.gsClose) window.gsClose();
+    var panel = document.getElementById('wr-chat-panel');
+    if (!panel) return;
+    // On desktop/tablet, anchor the panel below the search bar, centered horizontally
+    var gsWrap = document.getElementById('gs-wrap');
+    if (gsWrap && window.innerWidth >= 640) {
+      var rect = gsWrap.getBoundingClientRect();
+      var panelW = Math.min(600, window.innerWidth - 20);
+      var left = Math.round((window.innerWidth - panelW) / 2);
+      panel.style.setProperty('top', Math.round(rect.bottom + 6) + 'px', 'important');
+      panel.style.setProperty('left', left + 'px', 'important');
+      panel.style.setProperty('right', 'auto', 'important');
+      panel.style.setProperty('bottom', 'auto', 'important');
+      panel.style.setProperty('width', panelW + 'px', 'important');
+      panel.style.setProperty('max-height', 'calc(100vh - ' + Math.round(rect.bottom + 20) + 'px)', 'important');
+      panel.dataset.anchored = '1';
+    }
+    if (panel.style.display !== 'flex') wrChatToggle();
+    if (q) wrAsk(q);
   };
 
   // Map suggestion chip categories to actual question text
@@ -851,7 +900,7 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'claude-haiku-4-5-20251001',
-          max_tokens: 300,
+          max_tokens: 600,
           system: system,
           messages: convHistory
         })
@@ -885,11 +934,36 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
     }
   };
 
+  function renderMarkdown(text) {
+    function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function fmt(s) { return esc(s).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>'); }
+    var lines = text.split('\n');
+    var out = '', inList = false;
+    lines.forEach(function(line) {
+      var t = line.trim();
+      if (t.match(/^[•\-]\s+\S/)) {
+        if (!inList) { out += '<ul style="margin:4px 0 4px 0;padding:0 0 0 1.1em;line-height:1.5;list-style:none;">'; inList = true; }
+        out += '<li style="margin-bottom:2px;padding-left:0.1em;">' + fmt(t.replace(/^[•\-]\s+/,'')) + '</li>';
+      } else {
+        if (inList) { out += '</ul>'; inList = false; }
+        if (t) out += '<p style="margin:0 0 8px;">' + fmt(t) + '</p>';
+      }
+    });
+    if (inList) out += '</ul>';
+    return out;
+  }
+
   function addMsg(text, cls, isHTML) {
     var msgs = document.getElementById('wr-chat-msgs');
     var div = document.createElement('div');
     div.className = 'wr-msg ' + cls;
-    if (isHTML) { div.innerHTML = text; } else { div.textContent = text; }
+    if (isHTML) {
+      div.innerHTML = text;
+    } else if (cls.indexOf('bot') !== -1 && cls.indexOf('typing') === -1) {
+      div.innerHTML = renderMarkdown(text);
+    } else {
+      div.textContent = text;
+    }
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
     return div;
@@ -904,12 +978,12 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       var css = document.createElement('style');
       css.id = 'wr-chat-css';
       css.textContent =
-        '#wr-chat-btn{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:auto!important;height:48px!important;z-index:9999!important;background:#0a1f44!important;border:2px solid rgba(0,180,255,.5)!important;border-radius:24px!important;cursor:pointer!important;box-shadow:0 4px 16px rgba(0,120,255,.5)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:0 20px 0 16px!important;color:#fff!important;font-size:15px!important;font-weight:600!important;letter-spacing:.01em!important;white-space:nowrap!important;}' +
+        '#wr-chat-btn{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:auto!important;height:48px!important;z-index:9999!important;background:#0a1f44!important;border:2px solid rgba(0,180,255,.5)!important;border-radius:24px!important;cursor:pointer!important;box-shadow:0 4px 16px rgba(0,120,255,.5)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:0 20px 0 16px!important;color:#fff!important;font-size:15px!important;font-weight:600!important;letter-spacing:.01em!important;white-space:nowrap!important;transition:background .2s!important;}' +
         '#wr-chat-btn:hover{background:#0d2a5e!important;border-color:rgba(0,180,255,.8)!important;}' +
-        '#wr-chat-panel{position:fixed!important;bottom:5.5rem!important;right:1.5rem!important;z-index:9998!important;width:360px!important;max-width:calc(100vw - 3rem)!important;max-height:70vh!important;background:#0a1a30!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:12px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;flex-direction:column!important;overflow:hidden!important;font-family:DM Sans,sans-serif!important;}' +
+        '#wr-chat-panel{position:fixed!important;bottom:5.5rem!important;right:1.5rem!important;z-index:9998!important;width:520px!important;max-width:calc(100vw - 2rem)!important;max-height:82vh!important;background:#0a1a30!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:12px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;flex-direction:column!important;overflow:hidden!important;font-family:DM Sans,sans-serif!important;}' +
         '#wr-chat-header{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:.75rem 1rem!important;background:#061525!important;border-bottom:1px solid rgba(0,180,255,.2)!important;font-size:.875rem!important;font-weight:600!important;color:#a0c8ff!important;}' +
         '#wr-chat-close{background:none!important;border:none!important;color:#7a9abf!important;cursor:pointer!important;font-size:1rem!important;padding:0!important;}' +
-        '#wr-chat-msgs{flex:1!important;overflow-y:auto!important;padding:1rem!important;background:#0a1a30!important;display:flex!important;flex-direction:column!important;gap:.65rem!important;min-height:200px!important;max-height:50vh!important;}' +
+        '#wr-chat-msgs{flex:1!important;overflow-y:auto!important;padding:1rem!important;background:#0a1a30!important;display:flex!important;flex-direction:column!important;gap:.65rem!important;min-height:200px!important;max-height:65vh!important;}' +
         '#wr-chat-msgs .wr-msg{padding:.65rem .9rem!important;border-radius:10px!important;font-size:.875rem!important;line-height:1.5!important;max-width:85%!important;word-wrap:break-word!important;}' +
         '#wr-chat-msgs .wr-msg.bot{background:rgba(0,120,255,.12)!important;color:#d8e8ff!important;border:1px solid rgba(0,180,255,.15)!important;align-self:flex-start!important;}' +
         '#wr-chat-msgs .wr-msg.user{background:rgba(0,180,255,.25)!important;color:#fff!important;align-self:flex-end!important;}' +
@@ -920,12 +994,31 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
         '#wr-chat-input{flex:1!important;background:#06122a!important;border:1px solid rgba(0,180,255,.3)!important;border-radius:6px!important;color:#fff!important;font-size:.875rem!important;padding:.55rem .75rem!important;outline:none!important;}' +
         '#wr-chat-input:focus{border-color:rgba(0,180,255,.6)!important;}' +
         '#wr-chat-form button[type=submit]{background:#0078ff!important;border:none!important;border-radius:6px!important;color:#fff!important;padding:0 .85rem!important;cursor:pointer!important;font-size:.875rem!important;}' +
-        /* Topbar "Ask AI" — main site pages */
-        '#wr-topbar-chat{background:#fff!important;color:#060f1e!important;border:none!important;font-family:Barlow Condensed,sans-serif!important;font-size:.875rem!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:.3rem 1.1rem!important;cursor:pointer!important;white-space:nowrap!important;flex-shrink:0!important;line-height:1!important;}' +
-        '#wr-topbar-chat:hover{opacity:.85!important;}' +
-        /* Header "Ask AI" — owner's manual pages */
-        '#wr-header-chat{background:rgba(0,180,255,.15)!important;border:1px solid rgba(0,180,255,.4)!important;border-radius:4px!important;color:#a0c8ff!important;font-size:13px!important;font-weight:600!important;padding:5px 12px!important;cursor:pointer!important;white-space:nowrap!important;flex-shrink:0!important;}' +
-        '#wr-header-chat:hover{background:rgba(0,180,255,.28)!important;color:#fff!important;}';
+        /* Floating pill hidden — topbar button is the single entry point */
+        '#wr-chat-btn{display:none!important;}' +
+        '#wr-header-chat{display:none!important;}' +
+        /* Topbar Ask AI button style — shown in blue topbar on all pages */
+        '#wr-topbar-chat{display:flex!important;align-items:center!important;gap:5px!important;background:rgba(255,255,255,0.12)!important;border:1px solid rgba(255,255,255,0.28)!important;border-radius:4px!important;color:#fff!important;font-family:Barlow Condensed,Arial Narrow,Arial,sans-serif!important;font-size:0.85rem!important;font-weight:700!important;letter-spacing:0.07em!important;padding:3px 12px!important;cursor:pointer!important;white-space:nowrap!important;transition:background .15s,border-color .15s!important;}' +
+        '#wr-topbar-chat:hover{background:rgba(255,255,255,0.22)!important;border-color:rgba(255,255,255,0.5)!important;}' +
+        /* Language toggle in topbar — left side, all pages */
+        '#wr-lang-toggle{flex-shrink:0!important;background:rgba(255,255,255,0.10)!important;border:1px solid rgba(255,255,255,0.28)!important;border-radius:4px!important;color:#fff!important;font-family:Barlow Condensed,Arial Narrow,Arial,sans-serif!important;font-size:0.82rem!important;letter-spacing:0.04em!important;padding:3px 8px!important;cursor:pointer!important;outline:none!important;max-width:175px!important;transition:background .15s,border-color .15s!important;appearance:auto!important;}' +
+        '#wr-lang-toggle:hover{background:rgba(255,255,255,0.18)!important;border-color:rgba(255,255,255,0.5)!important;}' +
+        '#wr-lang-toggle option{background:#0d1f38!important;color:#f0f4ff!important;}' +
+        /* ── Mobile: full-screen chat experience ── */
+        '@media(max-width:960px){' +
+          /* Lock scroll behind the full-screen panel */
+          'body.wr-chat-open{overflow:hidden!important;}' +
+          /* Full-screen chat panel */
+          '#wr-chat-panel{top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:100%!important;height:100%!important;max-height:100%!important;border-radius:0!important;border:none!important;z-index:10000!important;}' +
+          /* Message area fills all available vertical space */
+          '#wr-chat-msgs{flex:1!important;max-height:none!important;padding:1.25rem!important;}' +
+          '#wr-chat-msgs .wr-msg{font-size:1rem!important;padding:.8rem 1rem!important;}' +
+          /* Bigger header and input */
+          '#wr-chat-header{padding:1.1rem 1.25rem!important;font-size:1.05rem!important;}' +
+          '#wr-chat-close{font-size:1.4rem!important;line-height:1!important;}' +
+          '#wr-chat-input{font-size:1rem!important;padding:.7rem .9rem!important;}' +
+          '#wr-chat-form{padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom))!important;}' +
+        '}';
       document.head.appendChild(css);
     }
 
@@ -935,7 +1028,7 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       panel.id = 'wr-chat-panel';
       panel.style.display = 'none';
       panel.innerHTML =
-        '<div id="wr-chat-header"><span>⚡ Windrose Assistant</span><button id="wr-chat-close" onclick="wrChatToggle()">✕</button></div>' +
+        '<div id="wr-chat-header"><span>⚡ Windrose Assistant <span style="font-size:.75em;opacity:.55;font-weight:400;letter-spacing:.02em;">· Powered by Claude</span></span><button id="wr-chat-close" onclick="wrChatToggle()">✕</button></div>' +
         '<div id="wr-chat-msgs"><div class="wr-msg bot">Hi! I\'m the Windrose AI assistant. Ask me anything about your E700 — charging, driving, specs, maintenance, or troubleshooting.</div></div>' +
         '<div id="wr-chat-suggestions">' +
           '<span class="wr-chip" onclick="wrAskChip(\'charge\')">Charging?</span>' +
@@ -953,19 +1046,20 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       btn.id = 'wr-chat-btn';
       btn.title = 'Ask the Windrose AI assistant';
       btn.setAttribute('onclick', 'wrChatToggle()');
-      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask AI';
+      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask AI <span style="font-size:.75em;opacity:.6;font-weight:400;">· Powered by Claude</span>';
       document.body.appendChild(btn);
     }
 
     function injectTopbarBtn() {
       if (document.getElementById('wr-topbar-chat')) return;
-      var topbar = document.getElementById('topbar');
+      var topbar = document.getElementById('topbar') || document.getElementById('manual-topbar');
       if (!topbar) return;
       var btn = document.createElement('button');
       btn.id = 'wr-topbar-chat';
-      btn.textContent = '⚡ Ask AI';
+      btn.title = 'Ask the Windrose AI assistant';
       btn.setAttribute('onclick', 'wrChatToggle()');
-      // Insert before the last child (Reserve button) so it sits beside it
+      btn.innerHTML = '⚡ Ask AI';
+      // Insert before the last child (Reserve / windrose.ai link) so it sits beside it
       var last = topbar.lastElementChild;
       last ? topbar.insertBefore(btn, last) : topbar.appendChild(btn);
     }
@@ -977,14 +1071,14 @@ Curb Weight/GVW: Curb weight ~24,747 lb (11,226 kg). Max GVW 49,000 kg (single t
       var searchDiv = header.querySelector('.header-search');
       var btn = document.createElement('button');
       btn.id = 'wr-header-chat';
-      btn.textContent = '⚡ Ask AI';
+      btn.innerHTML = '⚡ Ask AI <span style="font-size:.75em;opacity:.6;font-weight:400;letter-spacing:.02em;">· Powered by Claude</span>';
       btn.setAttribute('onclick', 'wrChatToggle()');
       searchDiv ? header.insertBefore(btn, searchDiv) : header.appendChild(btn);
     }
 
     function run() {
       injectPanelHTML();
-      injectHeaderBtn();
+      injectFloatingBtn();
     }
 
     if (document.readyState === 'loading') {

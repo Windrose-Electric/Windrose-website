@@ -33,12 +33,14 @@ exports.handler = async function (event) {
       headers: {
         'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'prompt-caching-2024-07-31',
         'content-type': 'application/json',
       },
       body: JSON.stringify({
         model: model || 'claude-haiku-4-5-20251001',
         max_tokens: max_tokens || 300,
-        system: system || '',
+        // Cache the system prompt — saves cost on large prompts reused across requests
+        system: system ? [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }] : '',
         messages,
       }),
     });

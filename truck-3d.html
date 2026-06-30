@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windrose E670 — Interactive 3D Model</title>
+<link rel="icon" type="image/svg+xml" href="/images/87dc15a92f.svg">
+<link rel="shortcut icon" href="/images/87dc15a92f.svg">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #060f1e; }
+
+  #c {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    display: block; touch-action: none;
+  }
+
+  /* Top bar */
+  #hud {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    height: 48px; background: rgba(6,15,30,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74,158,255,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.5rem; gap: 1rem;
+  }
+  #hud-logo {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em;
+    color: #4a9eff; text-decoration: none; white-space: nowrap;
+    text-transform: uppercase;
+  }
+  #hud-title {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(240,244,255,0.45); white-space: nowrap;
+  }
+  #hud-back {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(240,244,255,0.55); text-decoration: none;
+    border: 1px solid rgba(74,158,255,0.25); padding: 0.3rem 0.85rem;
+    transition: color 0.15s, border-color 0.15s; white-space: nowrap;
+  }
+  #hud-back:hover { color: #4a9eff; border-color: rgba(74,158,255,0.55); }
+
+  /* Loading overlay */
+  #load-overlay {
+    position: fixed; inset: 0; z-index: 20;
+    background: #060f1e;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 1.5rem;
+  }
+  #load-logo {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 2rem; font-weight: 700; letter-spacing: 0.12em;
+    color: #4a9eff; text-transform: uppercase;
+  }
+  #load-label {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(122,154,191,0.7);
+  }
+  #load-bar-wrap {
+    width: 220px; height: 2px; background: rgba(74,158,255,0.12);
+  }
+  #load-bar { height: 100%; width: 0%; background: #4a9eff; transition: width 0.25s ease; }
+
+  /* Controls hint */
+  #hint {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(122,154,191,0.45);
+    pointer-events: none; text-align: center;
+    transition: opacity 1s ease;
+  }
+
+  /* Error panel */
+  #error-panel {
+    display: none;
+    position: fixed; inset: 0; z-index: 30;
+    background: #060f1e;
+    align-items: center; justify-content: center; padding: 2rem;
+  }
+  #error-inner {
+    max-width: 520px; text-align: center;
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+  }
+  #error-inner h2 {
+    font-size: 1.5rem; letter-spacing: 0.06em; color: #f0f4ff;
+    margin-bottom: 1rem;
+  }
+  #error-inner p {
+    font-size: 0.92rem; line-height: 1.7; color: rgba(122,154,191,0.8);
+    margin-bottom: 1.25rem; font-family: system-ui, sans-serif; letter-spacing: 0;
+  }
+  #error-inner code {
+    display: block; background: rgba(74,158,255,0.07);
+    border: 1px solid rgba(74,158,255,0.18);
+    padding: 0.6rem 1rem; font-size: 0.78rem; color: #4a9eff;
+    font-family: 'DM Mono', monospace, system-ui;
+    word-break: break-all; margin-bottom: 1.5rem; text-align: left;
+  }
+  #error-inner a {
+    display: inline-block; background: rgba(74,158,255,0.15);
+    border: 1px solid rgba(74,158,255,0.4);
+    padding: 0.55rem 1.4rem; color: #5aaeff;
+    font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    #hud-title { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <a id="hud-logo" href="technology.html">WINDROSE</a>
+  <span id="hud-title">E670 — Interactive 3D Model</span>
+  <a id="hud-back" href="technology.html">← Technology</a>
+</div>
+
+<div id="load-overlay">
+  <div id="load-logo">WINDROSE</div>
+  <div id="load-label">Loading 3D model…</div>
+  <div id="load-bar-wrap"><div id="load-bar"></div></div>
+</div>
+
+<div id="hint">Drag to orbit &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-drag to pan</div>
+
+<div id="error-panel">
+  <div id="error-inner">
+    <h2>Model not available</h2>
+    <p>The 3D model file could not be loaded. This usually means the Google Drive file needs to be set to <strong style="color:#f0f4ff">"Anyone with the link"</strong> access.</p>
+    <p>Share the file publicly in Google Drive, or host the GLB at:</p>
+    <code>/models/windrose-truck.glb</code>
+    <a href="technology.html">← Back to Technology</a>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* ── Renderer ─────────────────────────────────────────── */
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+/* ── Scene ─────────────────────────────────────────────── */
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x060f1e);
+scene.fog = new THREE.FogExp2(0x060f1e, 0.018);
+
+/* ── Camera ────────────────────────────────────────────── */
+const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 400);
+camera.position.set(8, 3.5, 14);
+
+/* ── Controls ──────────────────────────────────────────── */
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.minDistance = 3;
+controls.maxDistance = 60;
+controls.maxPolarAngle = Math.PI / 1.85;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.5;
+
+/* ── Lights ────────────────────────────────────────────── */
+// Ambient fill
+const ambient = new THREE.AmbientLight(0x1a3a5c, 1.8);
+scene.add(ambient);
+
+// Key light — warm-white from upper-right
+const key = new THREE.DirectionalLight(0xd8eeff, 2.2);
+key.position.set(10, 18, 10);
+key.castShadow = true;
+key.shadow.mapSize.setScalar(2048);
+key.shadow.bias = -0.001;
+scene.add(key);
+
+// Rim — cool blue from behind
+const rim = new THREE.DirectionalLight(0x4a9eff, 1.0);
+rim.position.set(-12, 6, -10);
+scene.add(rim);
+
+// Ground bounce — subtle warm fill from below
+const bounce = new THREE.DirectionalLight(0x2a4a7f, 0.4);
+bounce.position.set(0, -6, 0);
+scene.add(bounce);
+
+// Accent spotlight on truck front
+const spot = new THREE.SpotLight(0x6ab4ff, 3.0, 60, Math.PI / 6, 0.5, 2);
+spot.position.set(6, 12, 8);
+scene.add(spot);
+
+/* ── Ground plane (subtle reflection) ──────────────────── */
+const groundGeo = new THREE.PlaneGeometry(200, 200);
+const groundMat = new THREE.MeshStandardMaterial({
+  color: 0x030912,
+  roughness: 0.8,
+  metalness: 0.3,
+});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+/* ── Grid overlay on ground ─────────────────────────────── */
+const grid = new THREE.GridHelper(80, 40, 0x4a9eff, 0x0d1f38);
+grid.material.opacity = 0.15;
+grid.material.transparent = true;
+scene.add(grid);
+
+/* ── Load model ─────────────────────────────────────────── */
+const loadBar = document.getElementById('load-bar');
+const loadOverlay = document.getElementById('load-overlay');
+const errorPanel = document.getElementById('error-panel');
+const hint = document.getElementById('hint');
+
+// Try local path first; fall back to Google Drive public URL
+const MODEL_URLS = [
+  '/models/windrose-truck.glb',
+  'https://drive.google.com/uc?export=download&id=1CJYpOrtPz49M2GHqgRWhc9fbY_cTR46t'
+];
+
+const draco = new DRACOLoader();
+draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/libs/draco/gltf/');
+const loader = new GLTFLoader();
+loader.setDRACOLoader(draco);
+
+let modelGroup = null;
+let autoRotate = true;
+let hintFadeTimer = null;
+
+function fitCameraToModel(obj) {
+  const box = new THREE.Box3().setFromObject(obj);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+
+  // Place ground at truck floor
+  ground.position.y = box.min.y;
+  grid.position.y = box.min.y + 0.01;
+
+  // Position controls target at center
+  controls.target.copy(center);
+
+  // Fit camera
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const fov = camera.fov * (Math.PI / 180);
+  const dist = (maxDim / 2) / Math.tan(fov / 2) * 1.6;
+  camera.position.set(center.x + dist * 0.55, center.y + dist * 0.28, center.z + dist * 0.8);
+  controls.minDistance = maxDim * 0.3;
+  controls.maxDistance = maxDim * 6;
+  controls.update();
+}
+
+function tryLoad(urls, idx) {
+  if (idx >= urls.length) {
+    loadOverlay.style.display = 'none';
+    errorPanel.style.display = 'flex';
+    return;
+  }
+  loader.load(
+    urls[idx],
+    function(gltf) {
+      const model = gltf.scene;
+
+      // Ensure transparent materials render correctly
+      model.traverse(function(child) {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          if (child.material) {
+            var mats = Array.isArray(child.material) ? child.material : [child.material];
+            mats.forEach(function(m) {
+              if (m.transparent) {
+                m.depthWrite = false;
+                m.side = THREE.FrontSide;
+              }
+              m.needsUpdate = true;
+            });
+          }
+        }
+      });
+
+      modelGroup = model;
+      scene.add(model);
+      fitCameraToModel(model);
+
+      // Fade out load overlay
+      loadOverlay.style.transition = 'opacity 0.6s ease';
+      loadOverlay.style.opacity = '0';
+      setTimeout(function() { loadOverlay.style.display = 'none'; }, 650);
+
+      // Fade out hint after 5s
+      hintFadeTimer = setTimeout(function() {
+        hint.style.opacity = '0';
+      }, 5000);
+    },
+    function(xhr) {
+      if (xhr.total) {
+        loadBar.style.width = (xhr.loaded / xhr.total * 100) + '%';
+      }
+    },
+    function() {
+      // This URL failed — try next
+      tryLoad(urls, idx + 1);
+    }
+  );
+}
+
+tryLoad(MODEL_URLS, 0);
+
+/* ── Pause auto-rotate on user interaction ──────────────── */
+controls.addEventListener('start', function() {
+  controls.autoRotate = false;
+  clearTimeout(hintFadeTimer);
+  hint.style.opacity = '0';
+});
+controls.addEventListener('end', function() {
+  // Resume auto-rotate after 4s of inactivity
+  clearTimeout(autoRotate);
+  autoRotate = setTimeout(function() {
+    controls.autoRotate = true;
+  }, 4000);
+});
+
+/* ── Resize ─────────────────────────────────────────────── */
+window.addEventListener('resize', function() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+/* ── Render loop ─────────────────────────────────────────── */
+(function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+})();
+</script>
+</body>
+</html>

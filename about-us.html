@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" lang="en">
+<html dir="ltr" lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDTHF9XR6R"></script>
@@ -342,6 +342,7 @@ html{scroll-behavior:smooth;}
   /* ── SECTION SPACING ── */
   section, .hero { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
   section { padding-top: 2rem !important; padding-bottom: 1.5rem !important; }
+  .press-page-wrap, .presentation-page-wrap { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
 
   /* ── TYPOGRAPHY ── */
   h2 { font-size: clamp(1.5rem, 5vw, 3.5rem); line-height: 1.1 !important; }
@@ -700,7 +701,8 @@ html{scroll-behavior:smooth;}
     }
     @media (max-width: 640px) {
       .exec-bio-photo { height: 260px; }
-      .exec-bio-text  { padding: 1.5rem !important; }
+      .exec-bio-row   { max-height: none !important; }
+      .exec-bio-text  { padding: 1.5rem !important; justify-content: flex-start !important; align-items: flex-start !important; }
     }
   
   /* ── Mobile stacking: all multi-column layouts collapse to single column ── */
@@ -896,15 +898,15 @@ function setLang(lang) {
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <span class="version-timestamp" style="font-size: 0.875rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;" data-i18n="label.updated"><span data-i18n="label.updated">Updated:</span> 27 June 2026</span>
-  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:340px;min-width:120px;">
+  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:460px;min-width:160px;display:flex;align-items:center;">
     <input id="gs-input" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search or ask anything…"
-      style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size: 0.875rem;letter-spacing:0.05em;padding:0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s;"
+      placeholder="Search or ask AI anything…"
+      style="width:100%;background:rgba(255,255,255,0.09);border:1px solid rgba(74,158,255,0.42);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size:0.875rem;letter-spacing:0.05em;padding:0.28rem 2.7rem 0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;"
       oninput="gsSearch(this.value)"
       onkeydown="gsKey(event)"
-      onfocus="this.style.borderColor='rgba(74,158,255,0.7)';this.style.background='rgba(255,255,255,0.11)'"
-      onblur="this.style.borderColor='rgba(74,158,255,0.25)';this.style.background='rgba(255,255,255,0.07)'">
+      onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
+      onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
   <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
@@ -957,9 +959,11 @@ function setLang(lang) {
   </li>
     <li><a href="how-to-service.html" data-i18n="nav.network">How to Service</a>
     <ul class="nav-dropdown">
-      <li><a href="how-to-service.html#locations" data-i18n="hc.24.countries.across.5">24 Countries</a></li>
-      <li><a href="how-to-service.html#warranty" data-i18n="hc.warranty.manual">Warranty Manual</a></li>
       <li><a href="/how-to-service-locations" data-i18n="how-to-service-locations">Service Locations</a></li>
+      <li><a href="/how-to-service-warranty" data-i18n="svc.warranty">Warranty</a></li>
+      <li><a href="/how-to-service-maintenance" data-i18n="svc.maintenance">Maintenance</a></li>
+      <li><a href="/how-to-service-repairs" data-i18n="svc.repairs">Repairs</a></li>
+      <li><a href="/how-to-service-manuals" data-i18n="svc.manuals">Owner Manuals</a></li>
     </ul>
   </li>
     <li><a href="technology.html" data-i18n="nav.technology">Technology</a>
@@ -974,6 +978,13 @@ function setLang(lang) {
     <ul class="nav-dropdown">
       <li><a href="how-to-build.html#manufacturing" data-i18n="mfg.label">Manufacturing</a></li>
       <li><a href="how-to-build.html#assembly" data-i18n="assembly.label">Local Assembly</a></li>
+    </ul>
+  </li>
+  <li><a href="certification.html">Certification</a>
+    <ul class="nav-dropdown">
+      <li><a href="certification.html#homologation">Market Access</a></li>
+      <li><a href="certification.html#homologation">EU WVTA</a></li>
+      <li><a href="certification.html#homologation">US FMVSS</a></li>
     </ul>
   </li>
     <li><a href="about-us.html" class="nav-link active" data-i18n="nav.about">About Us</a>
@@ -2842,188 +2853,142 @@ document.addEventListener("DOMContentLoaded", function() {
   </style>
   <h2 style="font-size:clamp(1.0rem, 3vw, 1.25rem); line-height:1.15; margin-bottom:3rem;"><a href="/about-us" class="org-anchor" data-i18n="about.corp.h" onclick="event.preventDefault();window.wrScrollTo&&window.wrScrollTo('organisation');return false;">Group Organisation</a><a href="/about-us" class="org-anchor-hash" aria-label="Jump to the Group Organisation section" title="Link to this section" onclick="event.preventDefault();window.wrScrollTo&&window.wrScrollTo('organisation');return false;">#</a></h2>
 
-    <style>
-    /* ── node cards (visuals unchanged) ── */
-    .org-card { overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--card-radius); display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; position: relative; z-index: 1; height: 100%; }
-    .org-card:hover { border-color:var(--accent); transform:scale(1.09); box-shadow:0 12px 32px rgba(0,0,0,0.5); z-index:6; }
-    .org-card.root  { border-color:var(--accent); border-width:2px; }
-    .org-media { width:100%; height:120px; background:#060f1e; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; }
-    .org-media img   { width:100%; height:100%; object-fit:contain; display:block; }
-    .org-media-flag  { font-size: 1.75rem; line-height:1; }
-    .org-body  { padding:0.85rem 1.1rem; text-align:center; flex: 1; }
-    .org-name  { font-family:Barlow Condensed, sans-serif; font-size: 0.875rem; letter-spacing: 0.06em; color:var(--off-white); line-height:1.3; margin-bottom:0.2rem; text-align:center; }
-    .org-card.root .org-name { color:var(--accent); }
-    .org-loc   { font-size: 0.875rem; color:var(--muted); letter-spacing:0.04em; }
-    .org-role  { font-size: 0.875rem; color:rgba(74,158,255,0.55); letter-spacing:0.08em; text-transform:uppercase; margin-top: auto; }
-
-    /* ── branching tree scaffold ── */
-    .orgx-wrap { width:100%; overflow-x:auto; padding:0.25rem 0 0.5rem; }
-    .orgx, .orgx ul { list-style:none; margin:0; padding:0; }
-    .orgx { width:max-content; margin:0 auto; min-width:100%; box-sizing:border-box; display:flex; justify-content:center; }
-    .orgx ul { position:relative; display:flex; justify-content:center; padding-top:28px; }
-    .orgx li { position:relative; display:flex; flex-direction:column; align-items:center; padding:28px 14px 0; }
-    .orgx .org-card, .orgx > li > a { width:210px; }
-    .orgx > li > a { text-decoration:none; display:block; }
-    /* horizontal connector across siblings + vertical drop into each */
-    .orgx li::before, .orgx li::after { content:""; position:absolute; top:0; width:50%; height:28px; border-top:2px solid var(--border); }
-    .orgx li::before { right:50%; }
-    .orgx li::after  { left:50%; border-left:2px solid var(--border); }
-    .orgx li:only-child { padding-top:0; }
-    .orgx li:only-child::before, .orgx li:only-child::after { display:none; }
-    .orgx li:first-child::before, .orgx li:last-child::after { border-top:0; }
-    .orgx li:last-child::before { border-right:2px solid var(--border); }
-    /* vertical drop from a parent node down to its children's row */
-    .orgx ul::before { content:""; position:absolute; top:0; left:50%; width:0; height:28px; border-left:2px solid var(--border); }
-    /* root has no parent above it */
-    .orgx > li { padding-top:0; }
-    .orgx > li::before, .orgx > li::after { display:none; }
-    @media(max-width:700px){ .orgx li { padding-left:8px; padding-right:8px; } .orgx .org-card, .orgx > li > a { width:180px; } }
+  <style>
+    .orgt { width:100%; border-collapse:collapse; font-family:'DM Sans',sans-serif; }
+    .orgt tr { border-bottom:1px solid rgba(74,158,255,0.08); }
+    .orgt tr:last-child { border-bottom:none; }
+    .orgt tr:hover td { background:rgba(74,158,255,0.04); }
+    .orgt td { padding:0.65rem 0.75rem; vertical-align:middle; }
+    .orgt td:first-child { padding-left:0; }
+    .org-indent { display:flex; align-items:center; gap:0.5rem; }
+    .org-pipe   { display:inline-flex; flex-direction:column; align-items:center; width:18px; flex-shrink:0; }
+    .org-pipe-line { width:1px; background:rgba(74,158,255,0.2); flex:1; min-height:100%; }
+    .org-branch { display:inline-block; width:18px; height:1em; border-left:1px solid rgba(74,158,255,0.25); border-bottom:1px solid rgba(74,158,255,0.25); border-radius:0 0 0 3px; flex-shrink:0; margin-bottom:2px; }
+    .org-ename  { font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; font-weight:700; letter-spacing:0.04em; color:var(--off-white); white-space:nowrap; }
+    .org-ename.is-root { color:var(--accent); }
+    .org-ename a { color:inherit; text-decoration:none; }
+    .org-ename a:hover { text-decoration:underline; text-underline-offset:3px; }
+    .org-flag  { font-size:1.1rem; flex-shrink:0; }
+    .org-loc   { font-size:0.8rem; color:var(--muted); white-space:nowrap; }
+    .org-role  { font-family:'Barlow Condensed',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(74,158,255,0.55); white-space:nowrap; }
+    @media(max-width:600px){ .org-role { display:none; } .org-loc { display:none; } }
   </style>
 
-  <div class="orgx-wrap">
-    <ul class="orgx">
-      <li>
-        <a href="https://www.companyweb.be/en/1017756464/windrose-holdings-limited" target="_blank" rel="noopener">
-          <div class="org-card root">
-            <div class="org-media">
-              <img loading="lazy" src="og/windrose-holdings-hq.jpg" alt="Windrose Holdings HQ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-              <span class="org-media-flag" style="display:none;">🇧🇪</span>
-            </div>
-            <div class="org-body">
-              <div class="org-name">Windrose Holdings Limited NV</div>
-              <div class="org-loc" data-i18n="about.corp.holdings.location">Incorporated in Belgium</div>
-              <div class="org-role" data-i18n="about.corp.holdings.role">Parent Company · Company Profile ↗</div>
-            </div>
-          </div>
-        </a>
-        <ul>
+  <table class="orgt" aria-label="Group organisation chart">
+    <tbody>
 
-          <!-- US branch: Inc → Antwerp NV + Dutch + Australian trading + HK trading -->
-          <li>
-            <div class="org-card">
-              <div class="org-media">
-                <img loading="lazy" src="og/windrose-nyse.jpg" alt="Windrose Technology Inc — New York Stock Exchange" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                <span class="org-media-flag" style="display:none;">🇺🇸</span>
-              </div>
-              <div class="org-body">
-                <div class="org-name">Windrose Technology Inc</div>
-                <div class="org-loc" data-i18n="about.corp.us.location">United States</div>
-                <div class="org-role" data-i18n="about.corp.us.role">US Operations</div>
-              </div>
-            </div>
-            <ul>
-              <li>
-                <div class="org-card">
-                    <div class="org-media">
-                      <img loading="lazy" src="og/windrose-antwerp.jpg" alt="Windrose Technology Antwerp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                      <span class="org-media-flag" style="display:none;">🇧🇪</span>
-                    </div>
-                    <div class="org-body">
-                      <div class="org-name">Windrose Technology Antwerp NV</div>
-                      <div class="org-loc" data-i18n="about.corp.antwerp.location">Belgium</div>
-                      <div class="org-role" data-i18n="about.corp.antwerp.role">European Operations</div>
-                    </div>
-                  </div>
-              </li>
-              <li>
-              <div class="org-card">
-                <div class="org-media"><span class="org-media-flag">🇳🇱</span></div>
-                <div class="org-body">
-                  <div class="org-name" data-i18n="about.corp.nl.name">Dutch Entity</div>
-                  <div class="org-loc" data-i18n="about.corp.nl.location">Netherlands</div>
-                  <div class="org-role">&nbsp;</div>
-                </div>
-              </div>
-              </li>
-              <li>
-              <div class="org-card">
-                <div class="org-media"><span class="org-media-flag">🇦🇺</span></div>
-                <div class="org-body">
-                  <div class="org-name" data-i18n="about.corp.autr.name">Australian Trading Entity</div>
-                  <div class="org-loc" data-i18n="about.corp.autr.location">Australia</div>
-                  <div class="org-role">&nbsp;</div>
-                </div>
-              </div>
-              </li>
-              <li>
-              <div class="org-card">
-                <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-                <div class="org-body">
-                  <div class="org-name" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</div>
-                  <div class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</div>
-                  <div class="org-role">&nbsp;</div>
-                </div>
-              </div>
-              </li>
-              <li>
-              <div class="org-card">
-                <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-                <div class="org-body">
-                  <div class="org-name">Windrose Electric HK Limited</div>
-                  <div class="org-loc">Hong Kong, China</div>
-                  <div class="org-role">Chile Market Commerce</div>
-                </div>
-              </div>
-              </li>
-            </ul>
-          </li>
+      <!-- ── Root ── -->
+      <tr>
+        <td><div class="org-indent">
+          <span class="org-flag">🇧🇪</span>
+          <span class="org-ename is-root"><a href="https://www.companyweb.be/en/1017756464/windrose-holdings-limited" target="_blank" rel="noopener" data-i18n="about.corp.holdings.name">Windrose Holdings Limited NV ↗</a></span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.holdings.location">Incorporated in Belgium</span></td>
+        <td><span class="org-role" data-i18n="about.corp.holdings.role">Parent Company</span></td>
+      </tr>
 
-          <!-- HK branch: HK → Shanghai → Anhui + Siwei -->
-          <li>
-            <div class="org-card">
-              <div class="org-media"><span class="org-media-flag">🇭🇰</span></div>
-              <div class="org-body">
-                <div class="org-name">Windrose HK Holdings Limited</div>
-                <div class="org-loc" data-i18n="about.corp.hk.location">Hong Kong, China</div>
-                <div class="org-role" data-i18n="about.corp.hk.role">Greater China Holdings</div>
-              </div>
-            </div>
-            <ul>
-              <li>
-                <div class="org-card">
-                  <div class="org-media"><span class="org-media-flag">🇨🇳</span></div>
-                  <div class="org-body">
-                    <div class="org-name">Shanghai Windrose Automotive Technology</div>
-                    <div class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</div>
-                    <div class="org-role">&nbsp;</div>
-                  </div>
-                </div>
-                <ul>
-                  <li>
-                    <div class="org-card">
-                      <div class="org-media">
-                        <img loading="lazy" src="og/windrose-anhui.jpg" alt="Anhui Windrose Holdings" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <span class="org-media-flag" style="display:none;">🇨🇳</span>
-                      </div>
-                      <div class="org-body">
-                        <div class="org-name">Anhui Windrose Holdings</div>
-                        <div class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</div>
-                        <div class="org-role">&nbsp;</div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="org-card">
-                      <div class="org-media">
-                        <img loading="lazy" src="og/windrose-suzhou.jpg" alt="Jiangsu Siwei Industries" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <span class="org-media-flag" style="display:none;">🇨🇳</span>
-                      </div>
-                      <div class="org-body">
-                        <div class="org-name">Jiangsu Siwei Industries</div>
-                        <div class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</div>
-                        <div class="org-role">&nbsp;</div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+      <!-- ── L1: US Inc ── -->
+      <tr>
+        <td><div class="org-indent" style="padding-left:1.25rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇺🇸</span>
+          <span class="org-ename">Windrose Technology Inc</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.us.location">United States</span></td>
+        <td><span class="org-role" data-i18n="about.corp.us.role">US Operations</span></td>
+      </tr>
 
-        </ul>
-      </li>
-    </ul>
-  </div>
+      <!-- ── L2: children of US Inc ── -->
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇧🇪</span>
+          <span class="org-ename">Windrose Technology Antwerp NV</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.antwerp.location">Belgium</span></td>
+        <td><span class="org-role" data-i18n="about.corp.antwerp.role">European Operations</span></td>
+      </tr>
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇳🇱</span>
+          <span class="org-ename" data-i18n="about.corp.nl.name">Dutch Entity</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.nl.location">Netherlands</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇦🇺</span>
+          <span class="org-ename" data-i18n="about.corp.autr.name">Australian Trading Entity</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.autr.location">Australia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇭🇰</span>
+          <span class="org-ename" data-i18n="about.corp.hktr.name">Hong Kong Trading Entity</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.hktr.location">Hong Kong, China</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇭🇰</span>
+          <span class="org-ename">Windrose Electric HK Limited</span>
+        </div></td>
+        <td><span class="org-loc">Hong Kong, China</span></td>
+        <td><span class="org-role">Chile Market Commerce</span></td>
+      </tr>
+
+      <!-- ── L1: HK Holdings ── -->
+      <tr>
+        <td><div class="org-indent" style="padding-left:1.25rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇭🇰</span>
+          <span class="org-ename">Windrose HK Holdings Limited</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.hk.location">Hong Kong, China</span></td>
+        <td><span class="org-role" data-i18n="about.corp.hk.role">Greater China Holdings</span></td>
+      </tr>
+
+      <!-- ── L2: Shanghai ── -->
+      <tr>
+        <td><div class="org-indent" style="padding-left:2.75rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇨🇳</span>
+          <span class="org-ename">Shanghai Windrose Automotive Technology</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.shanghai.location">Shanghai, China</span></td>
+        <td></td>
+      </tr>
+
+      <!-- ── L3: children of Shanghai ── -->
+      <tr>
+        <td><div class="org-indent" style="padding-left:4.25rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇨🇳</span>
+          <span class="org-ename">Anhui Windrose Holdings</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.anhui.location">Hefei, China</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="org-indent" style="padding-left:4.25rem;">
+          <span class="org-branch"></span>
+          <span class="org-flag">🇨🇳</span>
+          <span class="org-ename">Jiangsu Siwei Industries</span>
+        </div></td>
+        <td><span class="org-loc" data-i18n="about.corp.siwei.location">Suzhou, China</span></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
 </section>
 
 <!-- IN THE NEWS -->
@@ -3040,11 +3005,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="mx-h mx-hcol" data-i18n="mx.region.latam">Latin America</div>
 <div class="mx-h" data-i18n="mx.topic.charging">Charging</div>
 <div class="mx-cell"><a class="mx-card" href="https://www.drivegreenlane.com/news/windrose-to-offer-3-months-of-complementary-charging-on-the-greenlane-network-with-every-electric-truck-purchase/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.drivegreenlane.com/wp-content/uploads/2026/01/image-63-680x510.jpeg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">3 months free charging · 2026</div></a><a class="mx-card" href="https://www.terawattinfrastructure.com/blog/windrose-and-terawatt-strengthen-strategic-partnership-through-high-power-charging-demonstrations-and-software-integration" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://cdn.prod.website-files.com/659e849830d60c075b939085/683f331f7ad6644fa1831afe_Terawatt_Infrastructure_and_Windrose_Technology.avif" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Terawatt — Strategic Partnership</div></a><a class="mx-card" href="https://kempower.com/news/first-kempower-mega-satellite-mcs-in-north-america-charged-successfully-under-real-world-conditions-at-ev-realtys-san-bernardino-hub-in-california/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://earj6jxwkhd.exactdn.com/wp-content/uploads/2026/03/windrose-mcs-charge-evrealty_1.jpg?strip=all" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">EV Realty — MCS Interoperability</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="https://www.businesswire.com/news/home/20260313298350/en/Windrose-and-Autel-Validate-Real-World-Megawatt-Charging-Under-MCS-Standard-in-the-Netherlands" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://mms.businesswire.com/media/20260313298350/en/2746647/4/Image_20260313144722_4558_12.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇳🇱 Netherlands</div><div class="mx-title">1.2 MW MCS charging · 2026</div></a><a class="mx-card" href="https://www.hubject.com/blog-posts/hubject-and-windrose-partner-to-enable-plug-charge-for-next-generation-electric-trucks" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇩🇪 Germany</div><div class="mx-title">ISO 15118-20 Plug&Charge · 2026</div></a><a class="mx-card" href="https://www.engie-vianeo.com/en/news/engie-vianeo-and-windrose-join-forces-to-accelerate-the-electrification-of-heavy-duty-transport/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.engie-vianeo.com/wp-content/uploads/2026/03/ENGIEVianeo_windrose2.webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇷 France</div><div class="mx-title">ENGIE Vianeo — Heavy-Duty Electrification</div></a><a class="mx-card" href="press/uk-fastest-charging.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">UK Fastest Charging Session</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://www.businesswire.com/news/home/20260313298350/en/Windrose-and-Autel-Validate-Real-World-Megawatt-Charging-Under-MCS-Standard-in-the-Netherlands" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://mms.businesswire.com/media/20260313298350/en/2746647/4/Image_20260313144722_4558_12.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇳🇱 Netherlands</div><div class="mx-title">1.2 MW MCS charging · 2026</div></a><a class="mx-card" href="https://www.hubject.com/blog-posts/hubject-and-windrose-partner-to-enable-plug-charge-for-next-generation-electric-trucks" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://cdn.prod.website-files.com/6047809d3e2d000064d0aba9/69a8094843957338fb377af1_PR-Hubject-x-windrose.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇩🇪 Germany</div><div class="mx-title">ISO 15118-20 Plug&Charge · 2026</div></a><a class="mx-card" href="https://www.engie-vianeo.com/en/news/engie-vianeo-and-windrose-join-forces-to-accelerate-the-electrification-of-heavy-duty-transport/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.engie-vianeo.com/wp-content/uploads/2026/03/ENGIEVianeo_windrose2.webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇷 France</div><div class="mx-title">ENGIE Vianeo — Heavy-Duty Electrification</div></a><a class="mx-card" href="https://windrose.ai/press/uk-fastest-charging.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">UK Fastest Charging Session</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="https://en.sinexcel.com/about/detail.php?id=5&amp;bid=5250&amp;cid=315" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://en.sinexcel.com/uploads/image/20241031/1730366988.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇦🇺 Australia</div><div class="mx-title">Sinexcel — Australia Charging</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-h" data-i18n="mx.topic.dealers">Dealers</div>
-<div class="mx-cell"><a class="mx-card" href="https://www.ttnews.com/articles/windroses-us-deliveries-may" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.ttnews.com/sites/default/files/styles/article_full_width_webp/public/2026-03/Windrose-1200.jpg.webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">US deliveries begin May 2026</div></a><a class="mx-card" href="press/windrose-canada-launch.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇦 Canada</div><div class="mx-title">Canada launch · 677 km range · from C$399,000</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://www.ttnews.com/articles/windroses-us-deliveries-may" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.ttnews.com/sites/default/files/styles/article_full_width_webp/public/2026-03/Windrose-1200.jpg.webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">US deliveries begin May 2026</div></a><a class="mx-card" href="https://windrose.ai/press/windrose-canada-launch.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇦 Canada</div><div class="mx-title">Canada launch · 677 km range · from C$399,000</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="https://www.linkedin.com/posts/wenwindrosetrucks_windrose-evtruck-teamverksted-share-7442509739542065152-NJyk" target="_blank" rel="noopener"><div class="mx-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇳🇴 Norway</div><div class="mx-title">Windrose Electric Truck Arrives in Norway</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-cell"><a class="mx-card" href="https://www.tiempo21.cl/100-electrico-llega-a-chile-el-camion-de-largo-alcance-mas-moderno-del-mundo/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/1fhczNbcv0s/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇱 Chile</div><div class="mx-title">100% Eléctrico: Llega a Chile el Camión de Largo Alcance</div></a></div>
@@ -3054,17 +3019,17 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-h" data-i18n="mx.topic.manufacturing">Manufacturing</div>
-<div class="mx-cell"><a class="mx-card" href="press/aertssen-assembly-usa.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Aertssen + Windrose — USA Assembly Sites</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="press/antwerp-port-assembly.html"><div class="mx-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇧🇪 Belgium</div><div class="mx-title">European assembly HQ · 2025</div></a><a class="mx-card" href="press/horiba-mira-uk.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">HORIBA MIRA UK — Validation Complete</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://windrose.ai/press/aertssen-assembly-usa.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Aertssen + Windrose — USA Assembly Sites</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://windrose.ai/press/antwerp-port-assembly.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇧🇪 Belgium</div><div class="mx-title">European assembly HQ · 2025</div></a><a class="mx-card" href="https://windrose.ai/press/horiba-mira-uk.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">HORIBA MIRA UK — Validation Complete</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="how-to-build.html#supplier-hande"><div class="mx-thumb"><img src="/images/drive-axle.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Shiyan</div><div class="mx-title">Hande — Electric Drive Axle</div></a><a class="mx-card" href="how-to-build.html#supplier-calb"><div class="mx-thumb"><img src="/images/battery-pack.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Hefei</div><div class="mx-title">CALB — Battery System</div></a><a class="mx-card" href="how-to-build.html#supplier-zhenghe"><div class="mx-thumb"><img src="og/windrose-antwerp.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China · Shanghai</div><div class="mx-title">Zhenghe — Truck Cab</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-h" data-i18n="mx.topic.customers">Customers</div>
 <div class="mx-cell"><a class="mx-card" href="https://www.linkedin.com/posts/angel-narvaez-a15811110_el-paso-tx-get-ready-to-plug-into-the-activity-7465886947836600320-ulCi" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸🇲🇽 United States & Mexico</div><div class="mx-title">DSV — Zero-emission cross-border, El Paso</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="https://www.cevalogistics.com/en/news-and-media/newsroom/press-release/ceva-successfully-tests-its-first-100-percent-electric-heavy-duty-long-distance-truck-on-algeciras-madrid-route" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/fGsr7zJaH9U/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇪🇸 Spain</div><div class="mx-title">1,383 km round trip · November 2025</div></a><a class="mx-card" href="press/atc-2600km-netherlands-hungary.html"><div class="mx-thumb"><img src="https://img.youtube.com/vi/JtqWG2kgOKE/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇳🇱🇭🇺 Netherlands–Hungary</div><div class="mx-title">2,600 km · 5 countries · April 2025</div></a><a class="mx-card" href="press/tja-portugal.html"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇵🇹 Portugal</div><div class="mx-title">TJA Portugal — Electric Truck Trial</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://www.cevalogistics.com/en/news-and-media/newsroom/press-release/ceva-successfully-tests-its-first-100-percent-electric-heavy-duty-long-distance-truck-on-algeciras-madrid-route" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/fGsr7zJaH9U/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇪🇸 Spain</div><div class="mx-title">1,383 km round trip · November 2025</div></a><a class="mx-card" href="https://windrose.ai/press/atc-2600km-netherlands-hungary.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/JtqWG2kgOKE/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇳🇱🇭🇺 Netherlands–Hungary</div><div class="mx-title">2,600 km · 5 countries · April 2025</div></a><a class="mx-card" href="https://windrose.ai/press/tja-portugal.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇵🇹 Portugal</div><div class="mx-title">TJA Portugal — Electric Truck Trial</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="https://www.cevalogistics.com/en/news-and-media/newsroom/press-release/ceva-and-lenovo-complete-long-haul-electric-truck-pilot-along-china-kazakhstan-corridor" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://www.cevalogistics.com/_ipx/w_5120&f_jpeg/images-spx/ratio_100_x_large_picture/ceva_EV-Trial-Run-with-Lenovo_3.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳🇰🇿 China–Kazakhstan</div><div class="mx-title">6,000 km · 46% CO₂ reduction · April 2026</div></a><a class="mx-card" href="https://www.einpresswire.com/article/857872151/windrose-pioneers-low-carbon-logistics-with-kuehne-nagel-china-using-electric-truck-for-successful-long-haul-delivery" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://img.youtube.com/vi/fGsr7zJaH9U/maxresdefault.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇳 China</div><div class="mx-title">1,300 km · 45 tonnes · 2025</div></a><a class="mx-card" href="https://thedriven.io/2026/06/16/windrose-secures-key-regulatory-approval-for-electric-prime-mover-in-australia/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://thedriven.io/wp-content/uploads/2026/06/windrose-australia.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇦🇺 Australia</div><div class="mx-title">Regulatory approval secured — electric prime mover · June 2026</div></a></div>
-<div class="mx-cell"><a class="mx-card" href="press/walmart-chile.html"><div class="mx-thumb"><img src="/images/32ac54fd3f12.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇱 Chile</div><div class="mx-title">Walmart Chile Omnichannel Supply Chain · 2025</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://windrose.ai/press/walmart-chile.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/32ac54fd3f12.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇨🇱 Chile</div><div class="mx-title">Walmart Chile Omnichannel Supply Chain · 2025</div></a></div>
 <div class="mx-h" data-i18n="mx.topic.news">News & Media</div>
-<div class="mx-cell"><a class="mx-card" href="https://www.nytimes.com/2025/03/31/business/windrose-electric-trucks-ipo.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://static01.nyt.com/images/2025/03/31/multimedia/31biz-chiona-trucks-05-kmwh/31biz-chiona-trucks-05-kmwh-superJumbo.jpg?quality=75&auto=webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on NYT ↗</div></a><a class="mx-card" href="press/time100.html"><div class="mx-thumb"><img src="/time100-og.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on TIME ↗</div></a><a class="mx-card" href="https://www.forbes.com/sites/alanohnsman/2026/03/23/tesla-semis-biggest-rival-might-be-its-chinese-twin/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/f39434ae4a29.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on Forbes ↗</div></a></div>
+<div class="mx-cell"><a class="mx-card" href="https://www.nytimes.com/2025/03/31/business/windrose-electric-trucks-ipo.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://static01.nyt.com/images/2025/03/31/multimedia/31biz-chiona-trucks-05-kmwh/31biz-chiona-trucks-05-kmwh-superJumbo.jpg?quality=75&auto=webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on NYT ↗</div></a><a class="mx-card" href="https://windrose.ai/press/time100.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/time100-og.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on TIME ↗</div></a><a class="mx-card" href="https://www.forbes.com/sites/alanohnsman/2026/03/23/tesla-semis-biggest-rival-might-be-its-chinese-twin/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/f39434ae4a29.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇺🇸 United States</div><div class="mx-title">Read on Forbes ↗</div></a></div>
 <div class="mx-cell"><a class="mx-card" href="https://www.reuters.com/business/autos-transportation/european-freight-truck-makers-brace-wave-low-cost-chinese-rivals-2026-03-10/" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇬🇧 United Kingdom</div><div class="mx-title">Read on Reuters ↗</div></a><a class="mx-card" href="https://www.lemonde.fr/economie/article/2024/03/28/le-constructeur-de-camions-electriques-chinois-windrose-pret-a-investir-300-millions-d-euros-pour-une-usine-en-belgique_6224689_3234.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇫🇷 France</div><div class="mx-title">Lire sur Le Monde ↗</div></a><a class="mx-card" href="https://www.faz.net/aktuell/wirtschaft/unternehmen/nach-e-autos-knoepft-china-sich-jetzt-elektro-lkws-vor-19702018.html" target="_blank" rel="noopener"><div class="mx-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇩🇪 Germany</div><div class="mx-title">Lesen auf FAZ ↗</div></a><a class="mx-card" href="https://youtu.be/Xl_uCivQ-2o?si=A7mT5kgHV7AJsfqg" target="_blank" rel="noopener"><div class="mx-thumb"><img src="https://images.hln.be/NmJjNDYyNjEyMzc5ZTEzZGJmODkvZGlvLzI0MzE1MzM1Ny9maWxsLzEzNTAvOTAw/bart-de-wever-kroop-in-het-sportpaleis-achter-het-stuur-van-de-elektrische-vrachtwagen-van-de-chinese-truckbouwer-windrose-het-bedrijf-overweegt-een-investering-van-zo-n-300-miljoen-euro-in-de-antwerpse-haven" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div><div class="mx-country">🇧🇪 Belgium</div><div class="mx-title">Windrose becomes Antwerp Giants sponsor ↗</div></a></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
 <div class="mx-cell"><span class="mx-empty">·</span></div>
@@ -3086,7 +3051,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="index.html" class="footer-toc-head" data-i18n="nav.home">Home</a>
         <ul class="footer-toc-list"><li><a href="home-generations.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="home-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="home-news.html" class="toc-link" data-i18n="news.label">News</a></li></ul>
         <a href="how-to-buy.html" class="footer-toc-head" data-i18n="nav.pricing">How to Buy</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">Lease &amp; TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
       </div>
       <div>
         <a href="how-to-use.html" class="footer-toc-head" data-i18n="nav.howtouse">How to Use</a>
@@ -3096,13 +3061,17 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
       <div>
         <a href="technology.html" class="footer-toc-head" data-i18n="nav.technology">Technology</a>
-        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology-roadmap.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
+        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology.html#platform" class="toc-link" data-i18n="tech.platform.label">Platform Architecture</a></li><li><a href="technology.html#patented" class="toc-link" data-i18n="tech.proprietary.label">Proprietary Technology</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
         <a href="how-to-build.html" class="footer-toc-head" data-i18n="nav.manufacturing">How to Build</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
+      </div>
+      <div>
+        <a href="certification.html" class="footer-toc-head">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.award.badge">Recognition</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.truck.label">E700 Truck</a></li></ul>
       </div>
     </div>
     </div>
@@ -3730,15 +3699,9 @@ function openStripeModal() { openReserveModal(); }
     if(!li.querySelector('.nav-dropdown')) return;
     var a = li.querySelector(':scope > a');
     if(!a) return;
-    a.addEventListener('click', function(e){
-      if(li.classList.contains('nav-open')){
-        li.classList.remove('nav-open');
-        // second click navigates — don't prevent default
-      } else {
-        e.preventDefault();
-        document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
-        li.classList.add('nav-open');
-      }
+    a.addEventListener('click', function(){
+      document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
+      li.classList.add('nav-open');
     });
   });
   document.addEventListener('click', function(e){

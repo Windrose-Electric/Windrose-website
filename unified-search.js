@@ -225,7 +225,7 @@
     var html = r.html;
 
     // "Ask AI" footer / no-results prompt
-    var askBtn = '<button onclick="window.gsAskAI()" style="font-family:Barlow Condensed,sans-serif;font-size:0.8rem;letter-spacing:0.07em;padding:0.28rem 0.7rem;background:rgba(74,158,255,0.1);border:1px solid rgba(74,158,255,0.28);border-radius:4px;color:#7ab4ff;cursor:pointer;transition:background .15s;" onmouseover="this.style.background=\'rgba(74,158,255,0.18)\'" onmouseout="this.style.background=\'rgba(74,158,255,0.1)\'">Ask AI ↵</button>';
+    var askBtn = '<button onclick="window.gsAskAI()" style="font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;background:rgba(74,158,255,0.22);border:1px solid rgba(74,158,255,0.55);border-radius:4px;color:#8ec8ff;cursor:pointer;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background=\'rgba(74,158,255,0.36)\';this.style.color=\'#b8daff\';this.style.borderColor=\'rgba(74,158,255,0.75)\'" onmouseout="this.style.background=\'rgba(74,158,255,0.22)\';this.style.color=\'#8ec8ff\';this.style.borderColor=\'rgba(74,158,255,0.55)\'">✦ Ask AI</button>';
 
     if (!r.hasHits) {
       box.innerHTML = '<div style="padding:0.75rem 1rem;display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;">'
@@ -269,6 +269,14 @@
     showAIAnswer(q);
   };
 
+  window.gsShowResults = function () {
+    var q = GS_LAST_Q;
+    var inp = document.getElementById('gs-input');
+    if (inp && inp.value.trim()) q = inp.value.trim();
+    if (!q) return;
+    renderDropdown(q);
+  };
+
   function mdToHtml(text) {
     // Convert **bold** to <strong> and *italic* to <em>, escape HTML first
     return esc(text)
@@ -286,7 +294,7 @@
       + '<div id="gs-ai-text" style="font-size:0.875rem;color:#c8d8f0;line-height:1.65;">'
       + '<span style="opacity:0.45;">Thinking…</span></div>'
       + '<div style="margin-top:0.5rem;">'
-      + '<button onclick="window.gsSearch(document.getElementById(\'gs-input\').value)" style="font-family:Barlow Condensed,sans-serif;font-size:0.78rem;letter-spacing:0.06em;padding:0.2rem 0.55rem;background:none;border:1px solid rgba(74,158,255,0.2);border-radius:3px;color:#4a6a8a;cursor:pointer;">← Show page results</button>'
+      + '<button onclick="window.gsShowResults()" style="font-family:Barlow Condensed,sans-serif;font-size:0.78rem;letter-spacing:0.06em;padding:0.2rem 0.55rem;background:none;border:1px solid rgba(74,158,255,0.2);border-radius:3px;color:#4a6a8a;cursor:pointer;">← Show page results</button>'
       + '</div>'
       + '</div>';
 

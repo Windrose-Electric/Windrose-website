@@ -37,3 +37,19 @@
 
 /specs    /technology    301
 /specs.html    /technology.html    301
+
+# Price sub-page redirects
+/how-to-buy-price-aud    /how-to-buy    301
+/how-to-buy-price-aud.html    /how-to-buy.html    301
+/how-to-buy-price-eur    /how-to-buy    301
+/how-to-buy-price-eur.html    /how-to-buy.html    301
+/how-to-buy-price-gbp    /how-to-buy    301
+/how-to-buy-price-gbp.html    /how-to-buy.html    301
+/how-to-buy-price-usd    /how-to-buy    301
+/how-to-buy-price-usd.html    /how-to-buy.html    301
+
+# Legacy full pages — belt-and-suspenders for .html extension
+/news    /about-us    301
+/news.html    /about-us.html    301
+/pricing    /how-to-buy    301
+/pricing.html    /how-to-buy.html    301

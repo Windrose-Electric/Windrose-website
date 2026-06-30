@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" lang="en">
+<html dir="ltr" lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDTHF9XR6R"></script>
@@ -824,15 +824,15 @@ function setLang(lang) {
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <span class="version-timestamp" style="font-size: 0.875rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;" data-i18n="label.updated"><span data-i18n="label.updated">Updated:</span> 27 June 2026</span>
-  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:340px;min-width:120px;">
+  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:460px;min-width:160px;display:flex;align-items:center;">
     <input id="gs-input" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search or ask anything…"
-      style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size: 0.875rem;letter-spacing:0.05em;padding:0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s;"
+      placeholder="Search or ask AI anything…"
+      style="width:100%;background:rgba(255,255,255,0.09);border:1px solid rgba(74,158,255,0.42);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size:0.875rem;letter-spacing:0.05em;padding:0.28rem 2.7rem 0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;"
       oninput="gsSearch(this.value)"
       onkeydown="gsKey(event)"
-      onfocus="this.style.borderColor='rgba(74,158,255,0.7)';this.style.background='rgba(255,255,255,0.11)'"
-      onblur="this.style.borderColor='rgba(74,158,255,0.25)';this.style.background='rgba(255,255,255,0.07)'">
+      onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
+      onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
   <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
@@ -885,9 +885,11 @@ function setLang(lang) {
   </li>
       <li><a data-i18n='nav.network' href='/how-to-service'>How to Service</a>
     <ul class="nav-dropdown">
-      <li><a data-i18n='hc.24.countries.across.5' href='/how-to-service#locations'>24 Countries</a></li>
-      <li><a data-i18n='hc.warranty.manual' href='/how-to-service#warranty'>Warranty Manual</a></li>
       <li><a href="/how-to-service-locations" data-i18n="how-to-service-locations">Service Locations</a></li>
+      <li><a href="/how-to-service-warranty" data-i18n="svc.warranty">Warranty</a></li>
+      <li><a href="/how-to-service-maintenance" data-i18n="svc.maintenance">Maintenance</a></li>
+      <li><a href="/how-to-service-repairs" data-i18n="svc.repairs">Repairs</a></li>
+      <li><a href="/how-to-service-manuals" data-i18n="svc.manuals">Owner Manuals</a></li>
     </ul>
   </li>
       <li><a data-i18n='nav.technology' href='/technology'>Technology</a>
@@ -904,6 +906,13 @@ function setLang(lang) {
       <li><a data-i18n='assembly.label' href='/how-to-build#assembly'>Local Assembly</a></li>
     </ul>
   </li>
+      <li><a href="certification.html">Certification</a>
+    <ul class="nav-dropdown">
+      <li><a href="certification.html#homologation">Market Access</a></li>
+      <li><a href="certification.html#homologation">EU WVTA</a></li>
+      <li><a href="certification.html#homologation">US FMVSS</a></li>
+    </ul>
+  </li>
       <li><a data-i18n='nav.about' href='/about-us'>About Us</a>
     <ul class="nav-dropdown">
       <li><a href="/home-news" data-i18n="news.label">Press & News</a></li>
@@ -912,7 +921,7 @@ function setLang(lang) {
     </ul>
   </li>
     </ul>
-    
+
   </nav>
 <!-- PAGE HEADER -->
 <div style="background:var(--dark); border-bottom:1px solid var(--border); padding:3rem clamp(1.5rem,5vw,4rem) 0.5rem;">
@@ -1014,8 +1023,7 @@ function setLang(lang) {
   .rc-result-label { font-family:DM Sans, sans-serif; font-size:0.875rem; color:var(--muted); margin-top:0.25rem; }
   .rc-result-note { font-family:DM Sans, sans-serif; font-size:0.85rem; color:rgba(122,154,191,0.6); margin-top:0.5rem; font-style:italic; }
 
-  #rc-map { width:100%; height:calc(100vh - 160px); border-radius:0 0 8px 8px; overflow:hidden; z-index:1; min-height:500px; box-sizing:border-box; }
-  @media(max-width:600px){ #rc-map { height:calc(100vh - 180px); min-height:300px; } }
+  #rc-map { width:100%; border-radius:0 0 8px 8px; overflow:hidden; z-index:1; box-sizing:border-box; }
 
   /* Override Leaflet popup to match theme */
   .leaflet-popup-content-wrapper { background:#0d1f38; border:1px solid var(--border); border-radius:4px; color:var(--off-white); box-shadow:0 4px 20px rgba(0,0,0,0.6); }
@@ -1135,6 +1143,37 @@ function setLang(lang) {
 
 </div><!-- /rc-wrap -->
 </section><!-- /RANGE CALCULATOR -->
+
+<!-- CHARGING LOCATIONS -->
+<section style="background:#060f1e; border-top:1px solid var(--border); padding:3rem clamp(1.5rem,5vw,4rem);">
+  <style>
+    .chg-dir-country { margin-bottom: 0.5rem; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .chg-dir-country summary { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; cursor: pointer; list-style: none; background: #0a1628; user-select: none; transition: background 0.15s; }
+    .chg-dir-country summary::-webkit-details-marker { display: none; }
+    .chg-dir-country summary:hover { background: rgba(74,158,255,0.07); }
+    .chg-dir-country[open] summary { border-bottom: 1px solid var(--border); }
+    .chg-dir-country-flag { font-size: 1.1rem; line-height: 1; }
+    .chg-dir-country-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; color: var(--off-white); flex: 1; }
+    .chg-dir-country-count { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
+    .chg-dir-country-chevron { color: var(--muted); font-size: 0.8rem; transition: transform 0.2s; }
+    .chg-dir-country[open] .chg-dir-country-chevron { transform: rotate(180deg); }
+  </style>
+  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Charging Locations</p>
+  <h2 style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.25rem,3vw,1.6rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0 0 1.5rem;">Find a charging site near you</h2>
+
+  <div id="htu-chg-map" style="margin:0 calc(-1 * clamp(1.5rem,5vw,4rem)) 2.5rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);"></div>
+
+  <div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);">All Charging Sites</span>
+      <span style="flex:1;height:1px;background:var(--border);"></span>
+      <span id="chg-site-count" style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;letter-spacing:0.1em;color:var(--muted);"></span>
+    </div>
+    <div id="chg-site-directory"></div>
+  </div>
+</section>
+<!-- /CHARGING LOCATIONS -->
+
 <!-- /CHARGING HIGHLIGHTS -->
 
 
@@ -1535,6 +1574,63 @@ document.addEventListener('DOMContentLoaded', function(){
       globeApi.drawCircle(state.lat, state.lng, km, 'rgba(74,158,255,0.15)');
       globeApi.rotateTo(state.lat, state.lng, 0);
     }
+  });
+
+  /* ── Charging locations map ─────────────────────────────── */
+  function buildSiteDirectory() {
+    if (!window.WindroseGlobe || !window.WindroseGlobe.CHARGING) return;
+    var sites = window.WindroseGlobe.CHARGING;
+    document.getElementById('chg-site-count').textContent = sites.length + ' locations';
+    var groups = {}, order = [];
+    sites.forEach(function(s) {
+      var key = s.co || 'Other';
+      if (!groups[key]) { groups[key] = { flag: s.flag || '', sites: [] }; order.push(key); }
+      groups[key].sites.push(s);
+    });
+    var tableHead = '<table style="width:100%;border-collapse:collapse;font-family:\'DM Sans\',sans-serif;font-size:0.85rem;">'
+      + '<thead><tr style="background:#0a1628;border-bottom:1px solid var(--border);">'
+      + '<th style="text-align:left;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;">Site</th>'
+      + '<th style="text-align:left;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;">Operator</th>'
+      + '<th style="text-align:right;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;">Power</th>'
+      + '<th style="text-align:right;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;">Bays</th>'
+      + '<th style="text-align:left;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;">Connector</th>'
+      + '<th style="text-align:left;padding:10px 14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">Details</th>'
+      + '</tr></thead>';
+    var html = order.map(function(country) {
+      var g = groups[country];
+      var rows = g.sites.map(function(s, i) {
+        var isMCS = s.con && s.con.indexOf('MCS') !== -1;
+        var rowBg = i % 2 === 0 ? 'background:var(--card-bg);' : 'background:rgba(74,158,255,0.02);';
+        var conTag = isMCS
+          ? '<span style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);border-radius:3px;padding:1px 6px;">' + s.con + '</span>'
+          : '<span style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;background:rgba(96,165,250,0.12);color:#60a5fa;border:1px solid rgba(96,165,250,0.25);border-radius:3px;padding:1px 6px;">' + s.con + '</span>';
+        return '<tr style="' + rowBg + 'border-bottom:1px solid rgba(74,158,255,0.07);">'
+          + '<td style="padding:9px 14px;color:var(--off-white);font-weight:500;white-space:nowrap;">' + s.name + '</td>'
+          + '<td style="padding:9px 14px;color:' + s.color + ';white-space:nowrap;">' + s.op + '</td>'
+          + '<td style="padding:9px 14px;text-align:right;color:var(--off-white);font-variant-numeric:tabular-nums;white-space:nowrap;">' + s.kw.toLocaleString() + ' kW</td>'
+          + '<td style="padding:9px 14px;text-align:right;color:rgba(200,220,255,0.6);font-variant-numeric:tabular-nums;">' + s.units + '</td>'
+          + '<td style="padding:9px 14px;">' + conTag + '</td>'
+          + '<td style="padding:9px 14px;color:rgba(180,200,240,0.55);font-size:0.8rem;max-width:320px;">' + (s.note || '') + '</td>'
+          + '</tr>';
+      }).join('');
+      return '<details class="chg-dir-country">'
+        + '<summary>'
+        + '<span class="chg-dir-country-flag">' + g.flag + '</span>'
+        + '<span class="chg-dir-country-name">' + country + '</span>'
+        + '<span class="chg-dir-country-count">' + g.sites.length + ' site' + (g.sites.length !== 1 ? 's' : '') + '</span>'
+        + '<span class="chg-dir-country-chevron">▼</span>'
+        + '</summary>'
+        + '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">'
+        + tableHead + '<tbody>' + rows + '</tbody></table>'
+        + '</div>'
+        + '</details>';
+    }).join('');
+    document.getElementById('chg-site-directory').innerHTML = html;
+  }
+  WindroseGlobe.init('htu-chg-map', {
+    flat: true, cluster: true, searchable: true, regions: true,
+    layers: ['mcs','ccs'], defaultLayers: ['mcs','ccs'],
+    onReady: function() { buildSiteDirectory(); }
   });
 
     /* ── Update display ─────────────────────────────────────── */
@@ -2624,7 +2720,7 @@ function openStripeModal() { openReserveModal(); }
         <a href="index.html" class="footer-toc-head" data-i18n="nav.home">Home</a>
         <ul class="footer-toc-list"><li><a href="home-generations.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="home-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="home-news.html" class="toc-link" data-i18n="news.label">News</a></li></ul>
         <a href="how-to-buy.html" class="footer-toc-head" data-i18n="nav.pricing">How to Buy</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">Lease &amp; TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
       </div>
       <div>
         <a href="how-to-use.html" class="footer-toc-head" data-i18n="nav.howtouse">How to Use</a>
@@ -2634,13 +2730,17 @@ function openStripeModal() { openReserveModal(); }
       </div>
       <div>
         <a href="technology.html" class="footer-toc-head" data-i18n="nav.technology">Technology</a>
-        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology-roadmap.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
+        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology.html#platform" class="toc-link" data-i18n="tech.platform.label">Platform Architecture</a></li><li><a href="technology.html#patented" class="toc-link" data-i18n="tech.proprietary.label">Proprietary Technology</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
         <a href="how-to-build.html" class="footer-toc-head" data-i18n="nav.manufacturing">How to Build</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
+      </div>
+      <div>
+        <a href="certification.html" class="footer-toc-head">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.award.badge">Recognition</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.truck.label">E700 Truck</a></li></ul>
       </div>
     </div>
     </div>
@@ -2817,15 +2917,9 @@ function openStripeModal() { openReserveModal(); }
     if(!li.querySelector('.nav-dropdown')) return;
     var a = li.querySelector(':scope > a');
     if(!a) return;
-    a.addEventListener('click', function(e){
-      if(li.classList.contains('nav-open')){
-        li.classList.remove('nav-open');
-        // second click navigates — don't prevent default
-      } else {
-        e.preventDefault();
-        document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
-        li.classList.add('nav-open');
-      }
+    a.addEventListener('click', function(){
+      document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
+      li.classList.add('nav-open');
     });
   });
   document.addEventListener('click', function(e){

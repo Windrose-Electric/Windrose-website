@@ -185,19 +185,19 @@
   var MFG_CITIES = {
     shiyan:   {lon:110.8,  lat:32.6,  role:'cn',  label:'Shiyan',          lx:-55, ly:0,   partner:'Hande',   partnerRole:'Electric Drive Axle'},
     hefei:    {lon:117.3,  lat:31.9,  role:'cn',  label:'Hefei',           lx:-55, ly:14,  partner:'CALB',    partnerRole:'Battery System'},
-    shanghai: {lon:121.5,  lat:31.2,  role:'hub', label:'Suzhou/Shanghai', lx:14,  ly:-18, partner:'Zhenghe', partnerRole:'Truck Cab'},
+    shanghai: {lon:121.5,  lat:31.2,  role:'hub', label:'Suzhou/Shanghai', lx:14,  ly:-18, partner:'Zhenghe', partnerRole:'Truck Cab',       assembly:true},
     australia:{lon:134,    lat:-24,   role:'au',  label:'Australia',       lx:12,  ly:18},
     chile:    {lon:-70.7,  lat:-33.4, role:'au',  label:'Chile',           lx:-14, ly:18},
     vancouver:{lon:-123.1, lat:49.3,  role:'us',  label:'Vancouver',       lx:10,  ly:-30, partner:'Canada Launch', partnerRole:'Market Entry'},
-    la:       {lon:-118.2, lat:34,    role:'hub', label:'Los Angeles',     lx:10,  ly:18},
-    antwerp:  {lon:4.4,    lat:51.2,  role:'hub', label:'Antwerp',         lx:14,  ly:-28, partner:'Antwerp Port',  partnerRole:'European Assembly'},
-    uk:       {lon:-1.5,   lat:52.5,  role:'eu',  label:'UK',              lx:-22, ly:-14, partner:'HORIBA MIRA',   partnerRole:'Validation & Testing'},
+    la:       {lon:-118.2, lat:34,    role:'hub', label:'Los Angeles',     lx:10,  ly:18,  assembly:true},
+    antwerp:  {lon:4.4,    lat:51.2,  role:'hub', label:'Antwerp',         lx:14,  ly:-28, partner:'Antwerp Port',  partnerRole:'European Assembly', assembly:true},
+    uk:       {lon:-1.5,   lat:52.5,  role:'eu',  label:'UK',              lx:-22, ly:-14, partner:'HORIBA MIRA',   partnerRole:'Validation & Testing', assembly:true},
     finland:  {lon:25,     lat:62,    role:'eu',  label:'Finland',         lx:10,  ly:-18},
     oslo:     {lon:10.7,   lat:59.9,  role:'eu',  label:'Oslo',            lx:14,  ly:-14},
-    france:   {lon:2.3,    lat:48.9,  role:'eu',  label:'France',          lx:-22, ly:22},
-    seattle:  {lon:-122.3, lat:47.6,  role:'us',  label:'Seattle',         lx:-55, ly:14,  partner:'Aertssen', partnerRole:'Manufacturing'},
+    france:   {lon:3.52,   lat:50.36, role:'eu',  label:'Valenciennes',    lx:-22, ly:22,  assembly:true},
+    seattle:  {lon:-122.44, lat:47.25, role:'us',  label:'Tacoma',          lx:-55, ly:14,  partner:'Aertssen', partnerRole:'Manufacturing', assembly:true},
     laredo:   {lon:-99.5,  lat:27.5,  role:'us',  label:'Laredo TX',       lx:10,  ly:44},
-    savannah: {lon:-81.1,  lat:32.1,  role:'us',  label:'Savannah',        lx:10,  ly:28,  partner:'Aertssen', partnerRole:'Manufacturing'}
+    savannah: {lon:-81.1,  lat:32.1,  role:'us',  label:'Savannah',        lx:10,  ly:28,  partner:'Aertssen', partnerRole:'Manufacturing', assembly:true}
   };
 
   var MFG_HUB_COL = {hub:'#4a9eff', cn:'#f59e0b', eu:'#34d399', us:'#a78bfa', au:'#fb923c'};
@@ -251,8 +251,8 @@
     var suezFwd = [[120,27],[119,24],[116,21],[112,17],[109,13],[107,9],[105,3],[103.8,1.3],[101,2],[99.5,3.5],[98,5],[96,7],[91,8],[87,7],[83,6],[80,6],[76,8],[71,12],[66,14],[62,16],[57,21],[53,13],[49,12],[46,12],[43,12.5],[41,15],[38,18],[36,22],[34,26],[33,28],[32.5,29.9],[32.3,30.6],[32.3,31.3],[30,32],[27,34],[26,36],[23,35],[18,36],[14,37],[12,37],[6,38],[1,39],[-4,36.5],[-5.4,35.9],[-8,37],[-9,43],[-8,47],[-5,48],[-2,50],[2,51.5]];
     // Europe ↔ Aden (Suez Canal + Red Sea leg)
     var euToAden = [[2,51.5],[-2,50],[-5,48],[-8,47],[-9,43],[-8,37],[-5.4,35.9],[-4,36.5],[1,39],[6,38],[12,37],[14,37],[18,36],[23,35],[26,36],[27,34],[30,32],[32.3,31.3],[32.3,30.6],[32.5,29.9],[33,28],[34,26],[36,22],[38,18],[41,15],[43,12.5],[46,12],[49,12],[53,13],[57,21]];
-    // Aden → Australian west coast (Indian Ocean)
-    var adenToAusW = [[60,16],[63,11],[65,7],[68,3],[71,-1],[74,-4],[78,-7],[82,-8],[86,-8],[90,-7],[94,-5],[98,-4],[102,-5],[106,-8],[109,-12],[112,-18],[114,-26]];
+    // Aden → Australian west coast: south through open Indian Ocean, bypassing Indonesia
+    var adenToAusW = [[60,16],[62,12],[65,8],[67,3],[69,-1],[72,-5],[75,-8],[78,-10],[82,-13],[86,-16],[90,-18],[94,-19],[98,-21],[102,-24],[106,-27],[110,-30],[113,-32],[115,-32]];
     // Western Australia → eastern Australia leg
     var ausWToE = [[118,-30],[123,-34],[130,-36],[135,-37],[140,-37]];
     if ((polR==='east-asia'||polR==='se-asia') && podR==='europe') { mid = suezFwd; }
@@ -268,15 +268,25 @@
       var fromAus = (polR==='aus-east') ? ausWToE.slice().reverse().concat(adenToAusW.slice().reverse()) : adenToAusW.slice().reverse();
       mid = fromAus.concat(euToAden.slice().reverse());
     } else if ((polR==='east-asia'||polR==='se-asia') && podR==='aus-west') {
-      // Via South China Sea → Malacca Strait → Timor Sea
-      mid = [[118,22],[114,16],[110,10],[107,5],[104,2],[102,0],[101,-2],[99,-5],[97,-7],[97,-10],[99,-13],[102,-16],[105,-18],[109,-18],[112,-22],[113,-27]];
+      // South China Sea → Java Sea → Lombok Strait → Indian Ocean
+      mid = [[118,22],[115,16],[112,10],[110,5],[111,-1],[113,-5],[115,-8],[115,-12],[114,-17],[113,-23],[113,-29],[114,-32]];
     } else if (polR==='aus-west' && (podR==='east-asia'||podR==='se-asia')) {
-      mid = [[113,-27],[112,-22],[109,-18],[105,-18],[102,-16],[99,-13],[97,-10],[97,-7],[99,-5],[101,-2],[102,0],[104,2],[107,5],[110,10],[114,16],[118,22]];
+      mid = [[114,-32],[113,-29],[113,-23],[114,-17],[115,-12],[115,-8],[113,-5],[111,-1],[110,5],[112,10],[115,16],[118,22]];
     } else if ((polR==='east-asia'||polR==='se-asia') && podR==='aus-east') {
-      // Via Coral Sea south
-      mid = [[120,25],[118,18],[116,12],[115,8],[115,3],[116,-2],[117,-7],[118,-12],[118,-18],[120,-23],[122,-28],[126,-33],[132,-36],[137,-37],[140,-37]];
+      // Via Philippine Sea and Coral Sea, east of the Philippine islands
+      mid = [[124,26],[128,20],[132,14],[136,9],[140,4],[144,0],[148,-4],[151,-9],[153,-16],[153,-24],[152,-30],[149,-35],[146,-38],[143,-38],[141,-38]];
     } else if (polR==='aus-east' && (podR==='east-asia'||podR==='se-asia')) {
-      mid = [[140,-37],[137,-37],[132,-36],[126,-33],[122,-28],[120,-23],[118,-18],[118,-12],[117,-7],[116,-2],[115,3],[115,8],[116,12],[118,18],[120,25]];
+      mid = [[141,-38],[143,-38],[146,-38],[149,-35],[152,-30],[153,-24],[153,-16],[151,-9],[148,-4],[144,0],[140,4],[136,9],[132,14],[128,20],[124,26]];
+    } else if (polR==='europe' && podR==='us-east') {
+      // North Atlantic: Bay of Biscay → open Atlantic → US East Coast
+      mid = [[-2,51],[-6,49],[-9,46],[-12,42],[-18,39],[-27,36],[-38,34],[-50,33],[-60,32],[-68,31],[-74,31],[-79,32]];
+    } else if (polR==='us-east' && podR==='europe') {
+      mid = [[-79,32],[-74,31],[-68,31],[-60,32],[-50,33],[-38,34],[-27,36],[-18,39],[-12,42],[-9,46],[-6,49],[-2,51]];
+    } else if ((polR==='east-asia'||polR==='se-asia') && podR==='south-america') {
+      // South Pacific: Philippine Sea → Central Pacific → Chile
+      mid = [[124,26],[128,20],[132,14],[138,8],[145,2],[155,-4],[165,-8],[175,-12],[-175,-16],[-165,-20],[-155,-24],[-145,-27],[-135,-29],[-125,-31],[-115,-31],[-100,-32],[-85,-33],[-75,-33]];
+    } else if (polR==='south-america' && (podR==='east-asia'||podR==='se-asia')) {
+      mid = [[-75,-33],[-85,-33],[-100,-32],[-115,-31],[-125,-31],[-135,-29],[-145,-27],[-155,-24],[-165,-20],[-175,-16],[175,-12],[165,-8],[155,-4],[145,2],[138,8],[132,14],[128,20],[124,26]];
     }
     var coords = [[polLng,polLat]].concat(mid, [[podLng,podLat]]);
     return {type:'Feature', geometry:{type:'LineString', coordinates:coords}};
@@ -289,7 +299,7 @@
     seaRoute(121.5,31.2, 144.9,-37.8),      // Shanghai → Melbourne (Coral Sea)
     seaRoute(4.4,51.2, -81.1,32.1),         // Antwerp → Savannah (North Atlantic)
     seaRoute(4.4,51.2, 115.7,-32),          // Antwerp → Fremantle (Suez + Indian Ocean)
-    seaRoute(-118.2,34, -70.7,-33.4)        // Los Angeles → Valparaíso (Pacific)
+    seaRoute(121.5,31.2, -70.7,-33.4)        // China/Korea → Valparaíso (South Pacific)
   ];
 
   /* ═══════════════════════════════════════════════════════════════════════════
@@ -354,6 +364,8 @@
     service:  {label:'🔧 After-Sales Service', color:'#4affb0'},
     parts:    {label:'📦 Spare Parts',         color:'#b07aff'},
     shipping: {label:'🚢 Supply Chain',        color:'#f59e0b'},
+    assembly: {label:'🏭 Assembly Sites',      color:'#4a9eff'},
+    logistics:{label:'🚢 Logistics Destinations',color:'#34d399'},
     dealers:  {label:'🏢 Dealers',             color:'#f59e0b'},
     customers:{label:'🚛 Customers',           color:'#4affb0'}
   };
@@ -514,9 +526,11 @@
         .attr('pointer-events','none')
         .text(name);
     });
-    var routeLayer  = g.append('g').attr('class','wg-routes');
-    var arcticLayer = g.append('g').attr('class','wg-arctic');
-    var cityLayer   = g.append('g').attr('class','wg-cities');
+    var routeLayer    = g.append('g').attr('class','wg-routes');
+    var arcticLayer   = g.append('g').attr('class','wg-arctic');
+    var assemblyLayer = g.append('g').attr('class','wg-assembly');
+    var logisticsLayer= g.append('g').attr('class','wg-logistics');
+    var cityLayer     = g.append('g').attr('class','wg-cities'); // kept for legacy; unused in new maps
     var ptLayer     = g.append('g').attr('class','wg-points');
     var circleLayer      = g.append('g').attr('class','wg-circle');
     var drivingRouteLayer = g.append('g').attr('class','wg-driving-route');
@@ -599,12 +613,14 @@
       .attr('stroke-dasharray','6 8').attr('opacity',0.7)
       .attr('d', pathFn);
 
-    // Manufacturing cities
+    // Manufacturing cities — split into assembly (hub/cn) and logistics (eu/us/au) layers
     var cityEntries = Object.keys(MFG_CITIES).map(function(k){ var c=MFG_CITIES[k]; c.key=k; return c; });
     cityEntries.forEach(function(c) {
-      var col = MFG_HUB_COL[c.role] || '#4a9eff';
+      var isAssembly = c.assembly === true;
+      var targetLayer = isAssembly ? assemblyLayer : logisticsLayer;
+      var col = isAssembly ? '#4a9eff' : '#34d399';
       var r = c.role === 'hub' ? 7 : 5;
-      cityLayer.append('circle')
+      targetLayer.append('circle')
         .datum(c).attr('r', r)
         .attr('fill', col).attr('stroke','rgba(255,255,255,0.8)').attr('stroke-width',1.2)
         .style('cursor','pointer')
@@ -657,15 +673,17 @@
           .attr('display', vis ? null : 'none');
       });
 
-      // City dots and labels
-      cityLayer.selectAll('circle').each(function(d) {
-        if (!d) return;
-        var xy = proj([d.lon, d.lat]);
-        var vis = xy && isVisible(d.lon, d.lat);
-        d3.select(this)
-          .attr('cx', xy ? xy[0] : -999)
-          .attr('cy', xy ? xy[1] : -999)
-          .attr('display', vis ? null : 'none');
+      // City dots — assembly and logistics layers
+      [assemblyLayer, logisticsLayer, cityLayer].forEach(function(lyr) {
+        lyr.selectAll('circle').each(function(d) {
+          if (!d) return;
+          var xy = proj([d.lon, d.lat]);
+          var vis = xy && isVisible(d.lon, d.lat);
+          d3.select(this)
+            .attr('cx', xy ? xy[0] : -999)
+            .attr('cy', xy ? xy[1] : -999)
+            .attr('display', vis ? null : 'none');
+        });
       });
       cityLayer.selectAll('text').each(function(d) {
         if (!d) return;
@@ -697,9 +715,14 @@
       serviceDots.style('display',  activeLayers.has('service')  ? null : 'none');
       partsDots.style('display',    activeLayers.has('parts')    ? null : 'none');
       var shippingVis = activeLayers.has('shipping') ? null : 'none';
-      routeLayer.style('display',   shippingVis);
-      arcticLayer.style('display',  shippingVis);
-      cityLayer.style('display',    shippingVis);
+      var hasAssembly  = activeLayers.has('assembly');
+      var hasLogistics = activeLayers.has('logistics');
+      var routeVis = (shippingVis === null || hasAssembly || hasLogistics) ? null : 'none';
+      routeLayer.style('display',    routeVis);
+      arcticLayer.style('display',   routeVis);
+      cityLayer.style('display',     shippingVis);
+      assemblyLayer.style('display', hasAssembly  ? null : 'none');
+      logisticsLayer.style('display',hasLogistics ? null : 'none');
     }
     applyLayerVisibility();
     svgEl.addEventListener('layertoggle', function() { applyLayerVisibility(); });
@@ -1565,6 +1588,13 @@
       ptLayer.selectAll('circle')
         .attr('r', function() { return this.__baseR / k; })
         .attr('stroke-width', function() { return this.__baseSW / k; });
+      // Keep circle ring outline and center dot constant visual size
+      circleLayer.selectAll('path')
+        .attr('stroke-width', 1.5 / k)
+        .attr('stroke-dasharray', (6 / k) + ' ' + (4 / k));
+      circleLayer.selectAll('circle')
+        .attr('r', 5 / k)
+        .attr('stroke-width', 1 / k);
     }
     var zoomBehavior = d3.zoom()
       .scaleExtent([0.5, 20])
@@ -1630,13 +1660,25 @@
         var deg = radiusKm / 111.32;
         var circlePoly = d3.geoCircle().center([lng, lat]).radius(deg)();
         var strokeColor = color ? color.replace('0.15)', '0.8)').replace('0.12)', '0.8)') : '#4a9eff';
+        var k = d3.zoomTransform(svgEl).k;
         circleLayer.append('path')
           .datum(circlePoly)
           .attr('fill', color || 'rgba(74,158,255,0.15)')
           .attr('stroke', strokeColor)
-          .attr('stroke-width', 1.5)
-          .attr('stroke-dasharray', '6 4')
+          .attr('stroke-width', 1.5 / k)
+          .attr('stroke-dasharray', (6 / k) + ' ' + (4 / k))
           .attr('d', pathFn);
+        // Center dot — stays constant size via scaleDots on zoom
+        var xy = proj([lng, lat]);
+        if (xy) {
+          circleLayer.append('circle')
+            .attr('data-lng', lng).attr('data-lat', lat)
+            .attr('cx', xy[0]).attr('cy', xy[1])
+            .attr('r', 5 / k)
+            .attr('fill', strokeColor)
+            .attr('stroke', 'rgba(255,255,255,0.8)')
+            .attr('stroke-width', 1 / k);
+        }
       },
       clearCircle: function() { circleLayer.selectAll('*').remove(); },
       rotateTo: function(lat, lng, duration) {

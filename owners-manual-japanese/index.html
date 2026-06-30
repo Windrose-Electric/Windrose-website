@@ -8,42 +8,45 @@
 <link href="styles.css" rel="stylesheet"/>
 <script src="../owners-manual-lang.js"></script>
 
-<style>
-  #wr-chat-btn { position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important; width: 48px !important; height: 48px !important; z-index: 9999 !important; background: #0a1f44 !important; border: 2px solid rgba(0,180,255,0.5) !important; border-radius: 50% !important; cursor: pointer !important; box-shadow: 0 4px 16px rgba(0,120,255,0.5) !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0 !important; }
-  #wr-chat-btn:hover { background: #0d2a5e !important; }
-  #wr-chat-panel { position: fixed !important; bottom: 5rem !important; right: 1.5rem !important; z-index: 9998 !important; width: 360px !important; max-width: calc(100vw - 3rem) !important; max-height: 70vh !important; background: #0a1a30 !important; border: 1px solid rgba(0,180,255,0.3) !important; border-radius: 12px !important; box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important; flex-direction: column !important; overflow: hidden !important; font-family: 'DM Sans', sans-serif !important; }
-  #wr-chat-header { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 0.75rem 1rem !important; background: #061525 !important; border-bottom: 1px solid rgba(0,180,255,0.2) !important; font-size: 0.875rem !important; font-weight: 600 !important; color: #a0c8ff !important; }
-  #wr-chat-close { background: none !important; border: none !important; color: #7a9abf !important; cursor: pointer !important; font-size: 1rem !important; padding: 0 !important; }
-  #wr-chat-msgs { flex: 1 !important; overflow-y: auto !important; padding: 1rem !important; background: #0a1a30 !important; display: flex !important; flex-direction: column !important; gap: 0.65rem !important; min-height: 200px !important; max-height: 50vh !important; }
-  #wr-chat-msgs .wr-msg { padding: 0.65rem 0.9rem !important; border-radius: 10px !important; font-size: 0.875rem !important; line-height: 1.5 !important; max-width: 85% !important; word-wrap: break-word !important; }
-  #wr-chat-msgs .wr-msg.bot { background: rgba(0,120,255,0.12) !important; color: #d8e8ff !important; border: 1px solid rgba(0,180,255,0.15) !important; align-self: flex-start !important; }
-  #wr-chat-msgs .wr-msg.user { background: rgba(0,180,255,0.25) !important; color: #fff !important; align-self: flex-end !important; }
-  #wr-chat-suggestions { display: flex !important; flex-wrap: wrap !important; gap: 0.4rem !important; padding: 0.5rem 1rem 0.75rem !important; background: #0a1a30 !important; }
-  #wr-chat-suggestions .wr-chip { font-size: 0.875rem !important; padding: 0.35rem 0.7rem !important; background: rgba(0,180,255,0.1) !important; border: 1px solid rgba(0,180,255,0.3) !important; border-radius: 4px !important; color: #a0c8ff !important; cursor: pointer !important; transition: all 0.15s !important; }
-  #wr-chat-suggestions .wr-chip:hover { background: rgba(0,180,255,0.2) !important; color: #fff !important; }
-  #wr-chat-form { display: flex !important; gap: 0.5rem !important; padding: 0.75rem 1rem 1rem !important; background: #0a1a30 !important; border-top: 1px solid rgba(0,180,255,0.15) !important; }
-  #wr-chat-input { flex: 1 !important; background: #06122a !important; border: 1px solid rgba(0,180,255,0.3) !important; border-radius: 6px !important; color: #fff !important; font-size: 0.875rem !important; padding: 0.55rem 0.75rem !important; outline: none !important; }
-  #wr-chat-input:focus { border-color: rgba(0,180,255,0.6) !important; }
-  #wr-chat-form button[type=submit] { background: #0078ff !important; border: none !important; border-radius: 6px !important; color: #fff !important; padding: 0 0.85rem !important; cursor: pointer !important; font-size: 0.875rem !important; }
-  .manual-ai-bar { display: flex; align-items: center; gap: 0.75rem; background: rgba(0,120,255,0.08); border: 1px solid rgba(0,180,255,0.2); border-radius: 8px; padding: 0.65rem 1rem; margin: 0 0 1.25rem; }
-  .manual-ai-bar p { margin: 0; font-size: 0.85rem; color: var(--text, #d0e0f0); flex: 1; }
-  .manual-ai-bar button { background: #0078ff; border: none; border-radius: 6px; color: #fff; font-size: 0.8rem; padding: 0.4rem 0.85rem; cursor: pointer; white-space: nowrap; }
-  .manual-ai-bar button:hover { background: #0060cc; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site-header">
-<div class="header-left">
-<button aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
-<h1>Windrose – オーナーズマニュアル</h1>
+
+<!-- ── MANUAL HEADER: topbar + lang-row + topnav ── -->
+<div id="manual-topbar">
+  <span class="manual-edition-name">Windrose – オーナーズマニュアル</span>
+  <a href="https://windrose.ai" target="_blank" rel="noopener">windrose.ai ↗</a>
 </div>
-<div class="header-search">
-<input autocomplete="off" id="searchInput" placeholder="マニュアルを検索… (例: 充電, EPB, 登坂能力, タイヤ空気圧)" type="search"/>
-<div class="search-results" id="searchResults"></div>
+<div id="manual-lang-row">
+  <div id="manual-edition-select-wrap"></div>
 </div>
-</header>
+<nav id="manual-topnav">
+  <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="logo">Windrose</a>
+  <ul class="nav-links">
+    <li><a href="../how-to-buy.html">How to Buy</a></li>
+    <li><a href="../how-to-use.html">How to Use</a></li>
+    <li><a href="../how-to-service.html">How to Service</a></li>
+    <li><a href="../technology.html">Technology</a></li>
+    <li><a href="../how-to-build.html">How to Build</a></li>
+    <li><a href="../about-us.html">About Us</a></li>
+  </ul>
+</nav>
 <nav class="sidebar" id="sidebar">
 <div class="sidebar-inner">
+<div class="ai-search" id="aiSearchPanel">
+<form class="ai-search-form" id="aiSearchForm">
+<input autocomplete="off" id="searchInput" placeholder="マニュアルを検索… (例: 充電, EPB, 登坂能力, タイヤ空気圧)" type="search"/>
+<button class="ai-search-btn" id="aiSearchBtn" title="Ask AI" type="submit">&#10022;</button>
+</form>
+<div class="search-results" id="searchResults"></div>
+<div class="ai-answer" id="aiAnswer">
+<div class="ai-answer-hd"><span>&#10022; AI</span><button class="ai-close" id="aiClose" type="button">&times;</button></div>
+<div class="ai-answer-body" id="aiAnswerBody"></div>
+</div>
+</div>
+
 <div class="nav-filter">
 <input id="navFilter" placeholder="セクションを絞り込む…" type="text"/>
 </div><ul class="nav-chapters">
@@ -99,7 +102,6 @@
 <li class="nav-l2"><a href="#an-electric-sliding-door-is-installed-on-the-right-side-of-the-vehicle.-the-door-can-be-opened-or-closed-using-several-operating-methods.">電動スライドドアは車両の右側に装着されており、複数の操作方法で開閉できます。</a></li>
 <li class="nav-l2"><a href="#operating-instructions">操作方法</a></li>
 <li class="nav-l2"><a href="#enter-the-vehicle">乗車方法</a></li>
-<li class="nav-l2"><a href="#section"></a></li>
 <li class="nav-l2"><a href="#precautions">注意事項</a></li>
 </ul></li>
 <li class="nav-chapter"><a class="nav-chapter-title" data-toggle="seat-belt" href="#seat-belt">シートベルト</a><ul class="nav-sections" id="nav-seat-belt">
@@ -212,8 +214,6 @@
 <li class="nav-chapter"><a class="nav-chapter-title" data-toggle="a-c-vent-adjustment" href="#ac-vent-adjustment">空調吹き出し口の調整</a><ul class="nav-sections" id="nav-a-c-vent-adjustment">
 <li class="nav-l2"><a href="#function-introduction-23">機能説明</a></li>
 <li class="nav-l2"><a href="#operating-instructions-20">操作方法</a></li>
-<li class="nav-l2"><a href="#section-1"></a></li>
-<li class="nav-l2"><a href="#section-2"></a></li>
 <li class="nav-l2"><a href="#precautions-20">注意事項</a></li>
 </ul></li>
 <li class="nav-chapter"><a class="nav-chapter-title" data-toggle="in-vehicle-fragrance" href="#in-vehicle-fragrance">車内フレグランス</a><ul class="nav-sections" id="nav-in-vehicle-fragrance">
@@ -302,7 +302,7 @@
 <li class="nav-l2"><a href="#operating-instructions-34">操作方法</a></li>
 <li class="nav-l2"><a href="#precautions-35">注意事項</a></li>
 </ul></li>
-<li class="nav-chapter"><a class="nav-chapter-title" data-toggle="energy-recovery" href="#energy-recovery">回生ブレーキ</a><ul class="nav-sections" id="nav-energy-recovery">
+<li class="nav-chapter"><a class="nav-chapter-title" data-toggle="regenerative-braking" href="#regenerative-braking">回生ブレーキ</a><ul class="nav-sections" id="nav-regenerative-braking">
 <li class="nav-l2"><a href="#function-introduction-41">機能説明</a></li>
 <li class="nav-l2"><a href="#operating-instructions-35">操作方法</a></li>
 <li class="nav-l2"><a href="#precautions-36">注意事項</a></li>
@@ -486,7 +486,7 @@
 </ul></li>
 <li class="nav-chapter"><a class="nav-chapter-title" data-toggle="steering-system" href="#steering-system">ステアリングシステム</a><ul class="nav-sections" id="nav-steering-system">
 </ul></li>
-<li class="nav-chapter"><a class="nav-chapter-title" data-toggle="high-voltage-security-maintenance" href="#high-voltage-security-maintenance">高電圧安全整備</a><ul class="nav-sections" id="nav-high-voltage-security-maintenance">
+<li class="nav-chapter"><a class="nav-chapter-title" data-toggle="high-voltage-safety-maintenance" href="#high-voltage-safety-maintenance">高電圧安全整備</a><ul class="nav-sections" id="nav-high-voltage-safety-maintenance">
 <li class="nav-l2"><a href="#principles-of-safe-operation-under-high-voltage">高電圧下の安全作業原則</a></li>
 <li class="nav-l2"><a href="#personnel-requirements">要員要件</a></li>
 <li class="nav-l2"><a href="#maintenance-requirements">整備要件</a></li>
@@ -522,10 +522,6 @@
 </nav>
 <main class="main-content" id="mainContent">
 <div class="manual-updated" style="font-size:11px;color:var(--text-muted,#888);text-align:right;padding:0 0 10px;">最終更新: <time datetime="2026-06-27">2026年6月27日</time></div>
-<div class="manual-ai-bar">
-  <p>⚡ Have a question? The Windrose AI assistant knows this manual.</p>
-  <button onclick="if(typeof wrChatToggle==='function'){wrChatToggle();}else{var iv=setInterval(function(){if(typeof wrChatToggle==='function'){wrChatToggle();clearInterval(iv);}},100);}">Ask AI</button>
-</div>
 
 <section class="manual-section preamble-section" id="preamble">
 <blockquote>
@@ -546,41 +542,41 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="notes-to-users">
-          <summary class="toc-chapter-title"><a href="#notes-to-users"><span class="toc-chapter-label">1A</span>ご使用の方へ</a></summary>
+          <summary class="toc-chapter-title"><a href="#notes-to-users"><span class="toc-chapter-label">1.A</span>ご使用の方へ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="warning-description">
-          <summary class="toc-chapter-title"><a href="#warning-description"><span class="toc-chapter-label">1B</span>警告の説明</a></summary>
+          <summary class="toc-chapter-title"><a href="#warning-description"><span class="toc-chapter-label">1.B</span>警告の説明</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="notice">
-                <summary class="toc-sub-title"><a href="#notice">注意</a></summary>
+                <summary class="toc-sub-title"><a href="#notice"><span class="toc-chapter-label">1.B.1</span>注意</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="note">
-                <summary class="toc-sub-title"><a href="#note">補足</a></summary>
+                <summary class="toc-sub-title"><a href="#note"><span class="toc-chapter-label">1.B.2</span>補足</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="environmental-protection">
-                <summary class="toc-sub-title"><a href="#environmental-protection">環境保護</a></summary>
+                <summary class="toc-sub-title"><a href="#environmental-protection"><span class="toc-chapter-label">1.B.3</span>環境保護</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="asterisk">
-                <summary class="toc-sub-title"><a href="#asterisk">アスタリスク</a></summary>
+                <summary class="toc-sub-title"><a href="#asterisk"><span class="toc-chapter-label">1.B.4</span>アスタリスク</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="illustration-information">
-                <summary class="toc-sub-title"><a href="#illustration-information">図の説明</a></summary>
+                <summary class="toc-sub-title"><a href="#illustration-information"><span class="toc-chapter-label">1.B.5</span>図の説明</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -589,35 +585,35 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="environmental-protection-1">
-          <summary class="toc-chapter-title"><a href="#environmental-protection-1"><span class="toc-chapter-label">1C</span>環境保護</a></summary>
+          <summary class="toc-chapter-title"><a href="#environmental-protection-1"><span class="toc-chapter-label">1.C</span>環境保護</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="operation-safety-and-permit">
-          <summary class="toc-chapter-title"><a href="#operation-safety-and-permit"><span class="toc-chapter-label">1D</span>安全運転</a></summary>
+          <summary class="toc-chapter-title"><a href="#operation-safety-and-permit"><span class="toc-chapter-label">1.D</span>安全運転</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="original-parts">
-          <summary class="toc-chapter-title"><a href="#original-parts"><span class="toc-chapter-label">1E</span>純正部品</a></summary>
+          <summary class="toc-chapter-title"><a href="#original-parts"><span class="toc-chapter-label">1.E</span>純正部品</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="data-security">
-          <summary class="toc-chapter-title"><a href="#data-security"><span class="toc-chapter-label">1F</span>データセキュリティ</a></summary>
+          <summary class="toc-chapter-title"><a href="#data-security"><span class="toc-chapter-label">1.F</span>データセキュリティ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="vehicle-modification">
-          <summary class="toc-chapter-title"><a href="#vehicle-modification"><span class="toc-chapter-label">1G</span>車両改造</a></summary>
+          <summary class="toc-chapter-title"><a href="#vehicle-modification"><span class="toc-chapter-label">1.G</span>車両改造</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="materials-required-prior-to-modification">
-                <summary class="toc-sub-title"><a href="#materials-required-prior-to-modification">改造前に必要な書類</a></summary>
+                <summary class="toc-sub-title"><a href="#materials-required-prior-to-modification"><span class="toc-chapter-label">1.G.1</span>改造前に必要な書類</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -626,11 +622,11 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="vehicle-scrapping">
-          <summary class="toc-chapter-title"><a href="#vehicle-scrapping"><span class="toc-chapter-label">1H</span>車両廃棄</a></summary>
+          <summary class="toc-chapter-title"><a href="#vehicle-scrapping"><span class="toc-chapter-label">1.H</span>車両廃棄</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="recycle-of-high-voltage-battery">
-                <summary class="toc-sub-title"><a href="#recycle-of-high-voltage-battery">高電圧バッテリーのリサイクル</a></summary>
+                <summary class="toc-sub-title"><a href="#recycle-of-high-voltage-battery"><span class="toc-chapter-label">1.H.1</span>高電圧バッテリーのリサイクル</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -639,29 +635,29 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="eco-driving">
-          <summary class="toc-chapter-title"><a href="#eco-driving"><span class="toc-chapter-label">1I</span>エコドライブ</a></summary>
+          <summary class="toc-chapter-title"><a href="#eco-driving"><span class="toc-chapter-label">1.I</span>エコドライブ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="winter-driving">
-          <summary class="toc-chapter-title"><a href="#winter-driving"><span class="toc-chapter-label">1J</span>冬季走行</a></summary>
+          <summary class="toc-chapter-title"><a href="#winter-driving"><span class="toc-chapter-label">1.J</span>冬季走行</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="preparation-for-winter-driving">
-                <summary class="toc-sub-title"><a href="#preparation-for-winter-driving">冬季走行の準備</a></summary>
+                <summary class="toc-sub-title"><a href="#preparation-for-winter-driving"><span class="toc-chapter-label">1.J.1</span>冬季走行の準備</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="use-of-vehicle-coolant-in-winter">
-                <summary class="toc-sub-title"><a href="#use-of-vehicle-coolant-in-winter">冬季における冷却液の使用</a></summary>
+                <summary class="toc-sub-title"><a href="#use-of-vehicle-coolant-in-winter"><span class="toc-chapter-label">1.J.2</span>冬季における冷却液の使用</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-for-winter-driving">
-                <summary class="toc-sub-title"><a href="#precautions-for-winter-driving">冬季走行上の注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-for-winter-driving"><span class="toc-chapter-label">1.J.3</span>冬季走行上の注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -670,23 +666,23 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="use-of-snow-chains">
-          <summary class="toc-chapter-title"><a href="#use-of-snow-chains"><span class="toc-chapter-label">1K</span>タイヤチェーンの使用</a></summary>
+          <summary class="toc-chapter-title"><a href="#use-of-snow-chains"><span class="toc-chapter-label">1.K</span>タイヤチェーンの使用</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="driving-in-tropical-and-high-temperature-areas">
-          <summary class="toc-chapter-title"><a href="#driving-in-tropical-and-high-temperature-areas"><span class="toc-chapter-label">1L</span>高温・熱帯地域での走行</a></summary>
+          <summary class="toc-chapter-title"><a href="#driving-in-tropical-and-high-temperature-areas"><span class="toc-chapter-label">1.L</span>高温・熱帯地域での走行</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="ramp-driving">
-          <summary class="toc-chapter-title"><a href="#ramp-driving"><span class="toc-chapter-label">1M</span>坂道走行</a></summary>
+          <summary class="toc-chapter-title"><a href="#ramp-driving"><span class="toc-chapter-label">1.M</span>坂道走行</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="precautions-for-uphill-driving">
-                <summary class="toc-sub-title"><a href="#precautions-for-uphill-driving">上り坂走行の注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-for-uphill-driving"><span class="toc-chapter-label">1.M.1</span>上り坂走行の注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -695,7 +691,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="reporting-safety-defects">
-          <summary class="toc-chapter-title"><a href="#reporting-safety-defects"><span class="toc-chapter-label">1N</span>安全上の不具合の報告</a></summary>
+          <summary class="toc-chapter-title"><a href="#reporting-safety-defects"><span class="toc-chapter-label">1.N</span>安全上の不具合の報告</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
@@ -706,25 +702,25 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="overview-of-vehicle-exterior">
-          <summary class="toc-chapter-title"><a href="#overview-of-vehicle-exterior"><span class="toc-chapter-label">2A</span>車両外観の概要</a></summary>
+          <summary class="toc-chapter-title"><a href="#overview-of-vehicle-exterior"><span class="toc-chapter-label">2.A</span>車両外観の概要</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="overview-of-vehicle-interior">
-          <summary class="toc-chapter-title"><a href="#overview-of-vehicle-interior"><span class="toc-chapter-label">2B</span>車内の概要</a></summary>
+          <summary class="toc-chapter-title"><a href="#overview-of-vehicle-interior"><span class="toc-chapter-label">2.B</span>車内の概要</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="vehicle-nameplate-and-vin">
-          <summary class="toc-chapter-title"><a href="#vehicle-nameplate-and-vin"><span class="toc-chapter-label">2C</span>車両銘板とVIN</a></summary>
+          <summary class="toc-chapter-title"><a href="#vehicle-nameplate-and-vin"><span class="toc-chapter-label">2.C</span>車両銘板とVIN</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="location-of-motor-nameplate-and-code">
-          <summary class="toc-chapter-title"><a href="#location-of-motor-nameplate-and-code"><span class="toc-chapter-label">2D</span>モーター銘板およびコードの位置</a></summary>
+          <summary class="toc-chapter-title"><a href="#location-of-motor-nameplate-and-code"><span class="toc-chapter-label">2.D</span>モーター銘板およびコードの位置</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
@@ -735,7 +731,7 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="electric-sliding-door">
-          <summary class="toc-chapter-title"><a href="#electric-sliding-door"><span class="toc-chapter-label">3A</span>電動スライドドア</a></summary>
+          <summary class="toc-chapter-title"><a href="#electric-sliding-door"><span class="toc-chapter-label">3.A</span>電動スライドドア</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction">
@@ -751,19 +747,19 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions">
-                <summary class="toc-sub-title"><a href="#operating-instructions">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions"><span class="toc-chapter-label">3.A.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="enter-the-vehicle">
-                <summary class="toc-sub-title"><a href="#enter-the-vehicle">乗車方法</a></summary>
+                <summary class="toc-sub-title"><a href="#enter-the-vehicle"><span class="toc-chapter-label">3.A.2</span>乗車方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions">
-                <summary class="toc-sub-title"><a href="#precautions">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions"><span class="toc-chapter-label">3.A.3</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -772,7 +768,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="seat-belt">
-          <summary class="toc-chapter-title"><a href="#seat-belt"><span class="toc-chapter-label">3B</span>シートベルト</a></summary>
+          <summary class="toc-chapter-title"><a href="#seat-belt"><span class="toc-chapter-label">3.B</span>シートベルト</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-1">
@@ -788,13 +784,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-1">
-                <summary class="toc-sub-title"><a href="#operating-instructions-1">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-1"><span class="toc-chapter-label">3.B.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-1">
-                <summary class="toc-sub-title"><a href="#precautions-1">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-1"><span class="toc-chapter-label">3.B.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -803,7 +799,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="power-window">
-          <summary class="toc-chapter-title"><a href="#power-window"><span class="toc-chapter-label">3C</span>パワーウィンドウ</a></summary>
+          <summary class="toc-chapter-title"><a href="#power-window"><span class="toc-chapter-label">3.C</span>パワーウィンドウ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-2">
@@ -813,13 +809,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-2">
-                <summary class="toc-sub-title"><a href="#operating-instructions-2">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-2"><span class="toc-chapter-label">3.C.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-2">
-                <summary class="toc-sub-title"><a href="#precautions-2">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-2"><span class="toc-chapter-label">3.C.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -828,7 +824,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="sleeper-privacy-curtain">
-          <summary class="toc-chapter-title"><a href="#sleeper-privacy-curtain"><span class="toc-chapter-label">3D</span>仮眠スペースプライバシーカーテン*</a></summary>
+          <summary class="toc-chapter-title"><a href="#sleeper-privacy-curtain"><span class="toc-chapter-label">3.D</span>仮眠スペースプライバシーカーテン*</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-3">
@@ -838,13 +834,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-3">
-                <summary class="toc-sub-title"><a href="#operating-instructions-3">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-3"><span class="toc-chapter-label">3.D.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-3">
-                <summary class="toc-sub-title"><a href="#precautions-3">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-3"><span class="toc-chapter-label">3.D.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -853,7 +849,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="panoramic-sunroof">
-          <summary class="toc-chapter-title"><a href="#panoramic-sunroof"><span class="toc-chapter-label">3E</span>パノラミックサンルーフ</a></summary>
+          <summary class="toc-chapter-title"><a href="#panoramic-sunroof"><span class="toc-chapter-label">3.E</span>パノラミックサンルーフ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-4">
@@ -863,7 +859,7 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-4">
-                <summary class="toc-sub-title"><a href="#operating-instructions-4">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-4"><span class="toc-chapter-label">3.E.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -872,7 +868,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="windshield-electric-sunshade">
-          <summary class="toc-chapter-title"><a href="#windshield-electric-sunshade"><span class="toc-chapter-label">3F</span>フロントガラス電動サンシェード</a></summary>
+          <summary class="toc-chapter-title"><a href="#windshield-electric-sunshade"><span class="toc-chapter-label">3.F</span>フロントガラス電動サンシェード</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-5">
@@ -882,7 +878,7 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-5">
-                <summary class="toc-sub-title"><a href="#operating-instructions-5">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-5"><span class="toc-chapter-label">3.F.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -891,7 +887,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="interior-sleeper">
-          <summary class="toc-chapter-title"><a href="#interior-sleeper"><span class="toc-chapter-label">3G</span>車内仮眠スペース</a></summary>
+          <summary class="toc-chapter-title"><a href="#interior-sleeper"><span class="toc-chapter-label">3.G</span>車内仮眠スペース</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-6">
@@ -901,7 +897,7 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-6">
-                <summary class="toc-sub-title"><a href="#operating-instructions-6">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-6"><span class="toc-chapter-label">3.G.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -910,7 +906,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="rearview-mirror">
-          <summary class="toc-chapter-title"><a href="#rearview-mirror"><span class="toc-chapter-label">3H</span>バックミラー</a></summary>
+          <summary class="toc-chapter-title"><a href="#rearview-mirror"><span class="toc-chapter-label">3.H</span>バックミラー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-7">
@@ -923,7 +919,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="cup-holder">
-          <summary class="toc-chapter-title"><a href="#cup-holder"><span class="toc-chapter-label">3I</span>カップホルダー</a></summary>
+          <summary class="toc-chapter-title"><a href="#cup-holder"><span class="toc-chapter-label">3.I</span>カップホルダー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-8">
@@ -933,7 +929,7 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-4">
-                <summary class="toc-sub-title"><a href="#precautions-4">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-4"><span class="toc-chapter-label">3.I.1</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -942,7 +938,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ash-tray">
-          <summary class="toc-chapter-title"><a href="#ash-tray"><span class="toc-chapter-label">3J</span>灰皿</a></summary>
+          <summary class="toc-chapter-title"><a href="#ash-tray"><span class="toc-chapter-label">3.J</span>灰皿</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-9">
@@ -952,13 +948,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-7">
-                <summary class="toc-sub-title"><a href="#operating-instructions-7">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-7"><span class="toc-chapter-label">3.J.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-5">
-                <summary class="toc-sub-title"><a href="#precautions-5">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-5"><span class="toc-chapter-label">3.J.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -967,7 +963,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="side-toolbox">
-          <summary class="toc-chapter-title"><a href="#side-toolbox"><span class="toc-chapter-label">3K</span>サイドツールボックス</a></summary>
+          <summary class="toc-chapter-title"><a href="#side-toolbox"><span class="toc-chapter-label">3.K</span>サイドツールボックス</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-10">
@@ -977,13 +973,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-8">
-                <summary class="toc-sub-title"><a href="#operating-instructions-8">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-8"><span class="toc-chapter-label">3.K.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-6">
-                <summary class="toc-sub-title"><a href="#precautions-6">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-6"><span class="toc-chapter-label">3.K.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -992,7 +988,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="interior-storage-device">
-          <summary class="toc-chapter-title"><a href="#interior-storage-device"><span class="toc-chapter-label">3L</span>車内収納装置</a></summary>
+          <summary class="toc-chapter-title"><a href="#interior-storage-device"><span class="toc-chapter-label">3.L</span>車内収納装置</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-11">
@@ -1002,13 +998,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-9">
-                <summary class="toc-sub-title"><a href="#operating-instructions-9">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-9"><span class="toc-chapter-label">3.L.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-7">
-                <summary class="toc-sub-title"><a href="#precautions-7">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-7"><span class="toc-chapter-label">3.L.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1017,7 +1013,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="net-bag">
-          <summary class="toc-chapter-title"><a href="#net-bag"><span class="toc-chapter-label">3M</span>ネットバッグ</a></summary>
+          <summary class="toc-chapter-title"><a href="#net-bag"><span class="toc-chapter-label">3.M</span>ネットバッグ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-12">
@@ -1027,13 +1023,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-10">
-                <summary class="toc-sub-title"><a href="#operating-instructions-10">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-10"><span class="toc-chapter-label">3.M.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-8">
-                <summary class="toc-sub-title"><a href="#precautions-8">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-8"><span class="toc-chapter-label">3.M.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1042,7 +1038,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="newspapers-and-periodicals-device">
-          <summary class="toc-chapter-title"><a href="#newspapers-and-periodicals-device"><span class="toc-chapter-label">3N</span>新聞・雑誌ホルダー</a></summary>
+          <summary class="toc-chapter-title"><a href="#newspapers-and-periodicals-device"><span class="toc-chapter-label">3.N</span>新聞・雑誌ホルダー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-13">
@@ -1052,7 +1048,7 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-9">
-                <summary class="toc-sub-title"><a href="#precautions-9">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-9"><span class="toc-chapter-label">3.N.1</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1061,7 +1057,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="coat-hook">
-          <summary class="toc-chapter-title"><a href="#coat-hook"><span class="toc-chapter-label">3O</span>コートフック</a></summary>
+          <summary class="toc-chapter-title"><a href="#coat-hook"><span class="toc-chapter-label">3.O</span>コートフック</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-14">
@@ -1071,13 +1067,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-11">
-                <summary class="toc-sub-title"><a href="#operating-instructions-11">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-11"><span class="toc-chapter-label">3.O.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-10">
-                <summary class="toc-sub-title"><a href="#precautions-10">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-10"><span class="toc-chapter-label">3.O.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1086,7 +1082,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="hanging-device">
-          <summary class="toc-chapter-title"><a href="#hanging-device"><span class="toc-chapter-label">3P</span>ハンギング装置</a></summary>
+          <summary class="toc-chapter-title"><a href="#hanging-device"><span class="toc-chapter-label">3.P</span>ハンギング装置</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-15">
@@ -1096,13 +1092,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-12">
-                <summary class="toc-sub-title"><a href="#operating-instructions-12">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-12"><span class="toc-chapter-label">3.P.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-11">
-                <summary class="toc-sub-title"><a href="#precautions-11">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-11"><span class="toc-chapter-label">3.P.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1111,7 +1107,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="usb-charging">
-          <summary class="toc-chapter-title"><a href="#usb-charging"><span class="toc-chapter-label">3Q</span>USB充電</a></summary>
+          <summary class="toc-chapter-title"><a href="#usb-charging"><span class="toc-chapter-label">3.Q</span>USB充電</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-16">
@@ -1121,13 +1117,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-13">
-                <summary class="toc-sub-title"><a href="#operating-instructions-13">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-13"><span class="toc-chapter-label">3.Q.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-12">
-                <summary class="toc-sub-title"><a href="#precautions-12">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-12"><span class="toc-chapter-label">3.Q.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1136,17 +1132,17 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="phone-wireless-charging">
-          <summary class="toc-chapter-title"><a href="#phone-wireless-charging"><span class="toc-chapter-label">3R</span>スマートフォンワイヤレス充電</a></summary>
+          <summary class="toc-chapter-title"><a href="#phone-wireless-charging"><span class="toc-chapter-label">3.R</span>スマートフォンワイヤレス充電</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="precautions-13">
-                <summary class="toc-sub-title"><a href="#precautions-13">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-13"><span class="toc-chapter-label">3.R.1</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-14">
-                <summary class="toc-sub-title"><a href="#operating-instructions-14">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-14"><span class="toc-chapter-label">3.R.2</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1155,7 +1151,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="power-outlet">
-          <summary class="toc-chapter-title"><a href="#power-outlet"><span class="toc-chapter-label">3S</span>電源コンセント</a></summary>
+          <summary class="toc-chapter-title"><a href="#power-outlet"><span class="toc-chapter-label">3.S</span>電源コンセント</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-17">
@@ -1165,13 +1161,13 @@
             </li>
             <li>
               <details class="toc-sub" data-sec="operating-instructions-15">
-                <summary class="toc-sub-title"><a href="#operating-instructions-15">操作方法</a></summary>
+                <summary class="toc-sub-title"><a href="#operating-instructions-15"><span class="toc-chapter-label">3.S.1</span>操作方法</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
             <li>
               <details class="toc-sub" data-sec="precautions-14">
-                <summary class="toc-sub-title"><a href="#precautions-14">注意事項</a></summary>
+                <summary class="toc-sub-title"><a href="#precautions-14"><span class="toc-chapter-label">3.S.2</span>注意事項</a></summary>
                 <div class="toc-content-slot"></div>
               </details>
             </li>
@@ -1180,7 +1176,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ceiling-lamp">
-          <summary class="toc-chapter-title"><a href="#ceiling-lamp"><span class="toc-chapter-label">3T</span>天井ランプ</a></summary>
+          <summary class="toc-chapter-title"><a href="#ceiling-lamp"><span class="toc-chapter-label">3.T</span>天井ランプ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-18">
@@ -1205,7 +1201,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="courtesy-lamp">
-          <summary class="toc-chapter-title"><a href="#courtesy-lamp"><span class="toc-chapter-label">3U</span>ウェルカムランプ</a></summary>
+          <summary class="toc-chapter-title"><a href="#courtesy-lamp"><span class="toc-chapter-label">3.U</span>ウェルカムランプ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-19">
@@ -1218,7 +1214,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="reading-lamp">
-          <summary class="toc-chapter-title"><a href="#reading-lamp"><span class="toc-chapter-label">3V</span>読書灯</a></summary>
+          <summary class="toc-chapter-title"><a href="#reading-lamp"><span class="toc-chapter-label">3.V</span>読書灯</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-20">
@@ -1243,7 +1239,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ambient-lamp">
-          <summary class="toc-chapter-title"><a href="#ambient-lamp"><span class="toc-chapter-label">3W</span>アンビエントランプ</a></summary>
+          <summary class="toc-chapter-title"><a href="#ambient-lamp"><span class="toc-chapter-label">3.W</span>アンビエントランプ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-21">
@@ -1268,7 +1264,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ac-control-system">
-          <summary class="toc-chapter-title"><a href="#ac-control-system"><span class="toc-chapter-label">3X</span>空調制御システム</a></summary>
+          <summary class="toc-chapter-title"><a href="#ac-control-system"><span class="toc-chapter-label">3.X</span>空調制御システム</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-22">
@@ -1293,7 +1289,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ac-vent-adjustment">
-          <summary class="toc-chapter-title"><a href="#ac-vent-adjustment"><span class="toc-chapter-label">3Y</span>空調吹き出し口の調整</a></summary>
+          <summary class="toc-chapter-title"><a href="#ac-vent-adjustment"><span class="toc-chapter-label">3.Y</span>空調吹き出し口の調整</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-23">
@@ -1318,7 +1314,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="in-vehicle-fragrance">
-          <summary class="toc-chapter-title"><a href="#in-vehicle-fragrance"><span class="toc-chapter-label">3Z</span>車内フレグランス</a></summary>
+          <summary class="toc-chapter-title"><a href="#in-vehicle-fragrance"><span class="toc-chapter-label">3.Z</span>車内フレグランス</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-24">
@@ -1348,7 +1344,7 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="charging-port">
-          <summary class="toc-chapter-title"><a href="#charging-port"><span class="toc-chapter-label">4A</span>充電ポート</a></summary>
+          <summary class="toc-chapter-title"><a href="#charging-port"><span class="toc-chapter-label">4.A</span>充電ポート</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-25">
@@ -1373,7 +1369,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="charging-preparation">
-          <summary class="toc-chapter-title"><a href="#charging-preparation"><span class="toc-chapter-label">4B</span>充電の準備</a></summary>
+          <summary class="toc-chapter-title"><a href="#charging-preparation"><span class="toc-chapter-label">4.B</span>充電の準備</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-26">
@@ -1398,13 +1394,13 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="driving-preparation">
-          <summary class="toc-chapter-title"><a href="#driving-preparation"><span class="toc-chapter-label">4C</span>走行前の準備</a></summary>
+          <summary class="toc-chapter-title"><a href="#driving-preparation"><span class="toc-chapter-label">4.C</span>走行前の準備</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="driver-seat">
-          <summary class="toc-chapter-title"><a href="#driver-seat"><span class="toc-chapter-label">4D</span>運転席</a></summary>
+          <summary class="toc-chapter-title"><a href="#driver-seat"><span class="toc-chapter-label">4.D</span>運転席</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-27">
@@ -1429,7 +1425,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="front-passenger-seat">
-          <summary class="toc-chapter-title"><a href="#front-passenger-seat"><span class="toc-chapter-label">4E</span>助手席</a></summary>
+          <summary class="toc-chapter-title"><a href="#front-passenger-seat"><span class="toc-chapter-label">4.E</span>助手席</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-28">
@@ -1454,7 +1450,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="nfc-card">
-          <summary class="toc-chapter-title"><a href="#nfc-card"><span class="toc-chapter-label">4F</span>NFCカード</a></summary>
+          <summary class="toc-chapter-title"><a href="#nfc-card"><span class="toc-chapter-label">4.F</span>NFCカード</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-29">
@@ -1479,7 +1475,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="mechanical-key">
-          <summary class="toc-chapter-title"><a href="#mechanical-key"><span class="toc-chapter-label">4G</span>メカニカルキー</a></summary>
+          <summary class="toc-chapter-title"><a href="#mechanical-key"><span class="toc-chapter-label">4.G</span>メカニカルキー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-30">
@@ -1492,7 +1488,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="adjustment-of-steering-wheel">
-          <summary class="toc-chapter-title"><a href="#adjustment-of-steering-wheel"><span class="toc-chapter-label">4H</span>ステアリングホイールの調整</a></summary>
+          <summary class="toc-chapter-title"><a href="#adjustment-of-steering-wheel"><span class="toc-chapter-label">4.H</span>ステアリングホイールの調整</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-31">
@@ -1505,7 +1501,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="buttons-on-steering-wheel">
-          <summary class="toc-chapter-title"><a href="#buttons-on-steering-wheel"><span class="toc-chapter-label">4I</span>ステアリングホイール上のボタン</a></summary>
+          <summary class="toc-chapter-title"><a href="#buttons-on-steering-wheel"><span class="toc-chapter-label">4.I</span>ステアリングホイール上のボタン</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-32">
@@ -1535,13 +1531,13 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="overview-of-instrument-cluster">
-          <summary class="toc-chapter-title"><a href="#overview-of-instrument-cluster"><span class="toc-chapter-label">5A</span>メータークラスターの概要</a></summary>
+          <summary class="toc-chapter-title"><a href="#overview-of-instrument-cluster"><span class="toc-chapter-label">5.A</span>メータークラスターの概要</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="indicators-and-warning-lamps">
-          <summary class="toc-chapter-title"><a href="#indicators-and-warning-lamps"><span class="toc-chapter-label">5B</span>インジケーターおよび警告灯</a></summary>
+          <summary class="toc-chapter-title"><a href="#indicators-and-warning-lamps"><span class="toc-chapter-label">5.B</span>インジケーターおよび警告灯</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
@@ -1552,7 +1548,7 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="wiper-control">
-          <summary class="toc-chapter-title"><a href="#wiper-control"><span class="toc-chapter-label">6A</span>ワイパー操作</a></summary>
+          <summary class="toc-chapter-title"><a href="#wiper-control"><span class="toc-chapter-label">6.A</span>ワイパー操作</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-33">
@@ -1577,7 +1573,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="light-switch">
-          <summary class="toc-chapter-title"><a href="#light-switch"><span class="toc-chapter-label">6B</span>ライトスイッチ</a></summary>
+          <summary class="toc-chapter-title"><a href="#light-switch"><span class="toc-chapter-label">6.B</span>ライトスイッチ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-34">
@@ -1602,7 +1598,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="hazard-warning-lamp-switch">
-          <summary class="toc-chapter-title"><a href="#hazard-warning-lamp-switch"><span class="toc-chapter-label">6C</span>ハザードランプスイッチ</a></summary>
+          <summary class="toc-chapter-title"><a href="#hazard-warning-lamp-switch"><span class="toc-chapter-label">6.C</span>ハザードランプスイッチ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-35">
@@ -1627,7 +1623,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="power-onoff">
-          <summary class="toc-chapter-title"><a href="#power-onoff"><span class="toc-chapter-label">6D</span>電源ON/OFF</a></summary>
+          <summary class="toc-chapter-title"><a href="#power-onoff"><span class="toc-chapter-label">6.D</span>電源ON/OFF</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-36">
@@ -1646,7 +1642,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="service-brake">
-          <summary class="toc-chapter-title"><a href="#service-brake"><span class="toc-chapter-label">6E</span>常用ブレーキ</a></summary>
+          <summary class="toc-chapter-title"><a href="#service-brake"><span class="toc-chapter-label">6.E</span>常用ブレーキ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-37">
@@ -1671,7 +1667,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electronic-parking-brake-epb">
-          <summary class="toc-chapter-title"><a href="#electronic-parking-brake-epb"><span class="toc-chapter-label">6F</span>電子式駐車ブレーキ（EPB）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electronic-parking-brake-epb"><span class="toc-chapter-label">6.F</span>電子式駐車ブレーキ（EPB）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-38">
@@ -1696,7 +1692,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="emergency-braking---driving">
-          <summary class="toc-chapter-title"><a href="#emergency-braking---driving"><span class="toc-chapter-label">6G</span>緊急制動 – 走行中</a></summary>
+          <summary class="toc-chapter-title"><a href="#emergency-braking---driving"><span class="toc-chapter-label">6.G</span>緊急制動 – 走行中</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-39">
@@ -1715,7 +1711,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="shift-operation">
-          <summary class="toc-chapter-title"><a href="#shift-operation"><span class="toc-chapter-label">6H</span>シフト操作</a></summary>
+          <summary class="toc-chapter-title"><a href="#shift-operation"><span class="toc-chapter-label">6.H</span>シフト操作</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-40">
@@ -1739,8 +1735,8 @@
         </details>
       </li>
       <li>
-        <details class="toc-chapter" data-sec="energy-recovery">
-          <summary class="toc-chapter-title"><a href="#energy-recovery"><span class="toc-chapter-label">6I</span>回生ブレーキ</a></summary>
+        <details class="toc-chapter" data-sec="regenerative-braking">
+          <summary class="toc-chapter-title"><a href="#regenerative-braking"><span class="toc-chapter-label">6.I</span>回生ブレーキ</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-41">
@@ -1765,7 +1761,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="ar-hud">
-          <summary class="toc-chapter-title"><a href="#ar-hud"><span class="toc-chapter-label">6J</span>AR-HUD*</a></summary>
+          <summary class="toc-chapter-title"><a href="#ar-hud"><span class="toc-chapter-label">6.J</span>AR-HUD*</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-42">
@@ -1790,7 +1786,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="differential-lock">
-          <summary class="toc-chapter-title"><a href="#differential-lock"><span class="toc-chapter-label">6K</span>デフロック</a></summary>
+          <summary class="toc-chapter-title"><a href="#differential-lock"><span class="toc-chapter-label">6.K</span>デフロック</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-43">
@@ -1815,7 +1811,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="driving-mode">
-          <summary class="toc-chapter-title"><a href="#driving-mode"><span class="toc-chapter-label">6L</span>走行モード</a></summary>
+          <summary class="toc-chapter-title"><a href="#driving-mode"><span class="toc-chapter-label">6.L</span>走行モード</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-44">
@@ -1839,7 +1835,7 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="around-view-monitor-avm">
-          <summary class="toc-chapter-title"><a href="#around-view-monitor-avm"><span class="toc-chapter-label">7A</span>アラウンドビューモニター（AVM）</a></summary>
+          <summary class="toc-chapter-title"><a href="#around-view-monitor-avm"><span class="toc-chapter-label">7.A</span>アラウンドビューモニター（AVM）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-45">
@@ -1864,7 +1860,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="moving-off-information-system-mois">
-          <summary class="toc-chapter-title"><a href="#moving-off-information-system-mois"><span class="toc-chapter-label">7B</span>発進情報システム（MOIS）</a></summary>
+          <summary class="toc-chapter-title"><a href="#moving-off-information-system-mois"><span class="toc-chapter-label">7.B</span>発進情報システム（MOIS）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-46">
@@ -1883,7 +1879,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="low-speed-alarm-and-reverse">
-          <summary class="toc-chapter-title"><a href="#low-speed-alarm-and-reverse"><span class="toc-chapter-label">7C</span>低速警報および後退</a></summary>
+          <summary class="toc-chapter-title"><a href="#low-speed-alarm-and-reverse"><span class="toc-chapter-label">7.C</span>低速警報および後退</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="reversing-status">
@@ -1896,7 +1892,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electronic-braking-system-ebs">
-          <summary class="toc-chapter-title"><a href="#electronic-braking-system-ebs"><span class="toc-chapter-label">7D</span>電子式ブレーキシステム（EBS）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electronic-braking-system-ebs"><span class="toc-chapter-label">7.D</span>電子式ブレーキシステム（EBS）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-49">
@@ -1915,7 +1911,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electronic-brakeforce-distribution-ebd">
-          <summary class="toc-chapter-title"><a href="#electronic-brakeforce-distribution-ebd"><span class="toc-chapter-label">7E</span>電子制動力配分（EBD）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electronic-brakeforce-distribution-ebd"><span class="toc-chapter-label">7.E</span>電子制動力配分（EBD）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-50">
@@ -1928,7 +1924,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="acceleration-slip-regulation-asr">
-          <summary class="toc-chapter-title"><a href="#acceleration-slip-regulation-asr"><span class="toc-chapter-label">7F</span>加速スリップ制御（ASR）</a></summary>
+          <summary class="toc-chapter-title"><a href="#acceleration-slip-regulation-asr"><span class="toc-chapter-label">7.F</span>加速スリップ制御（ASR）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-51">
@@ -1941,7 +1937,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electronic-stability-control-esc">
-          <summary class="toc-chapter-title"><a href="#electronic-stability-control-esc"><span class="toc-chapter-label">7G</span>電子スタビリティコントロール（ESC）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electronic-stability-control-esc"><span class="toc-chapter-label">7.G</span>電子スタビリティコントロール（ESC）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="operating-instructions-44">
@@ -1960,7 +1956,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="hill-start-assist-hsa">
-          <summary class="toc-chapter-title"><a href="#hill-start-assist-hsa"><span class="toc-chapter-label">7H</span>ヒルスタートアシスト（HSA）</a></summary>
+          <summary class="toc-chapter-title"><a href="#hill-start-assist-hsa"><span class="toc-chapter-label">7.H</span>ヒルスタートアシスト（HSA）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-55">
@@ -1985,7 +1981,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="steering-wheel-tire-emergency-safety-device-tesd">
-          <summary class="toc-chapter-title"><a href="#steering-wheel-tire-emergency-safety-device-tesd"><span class="toc-chapter-label">7I</span>ステアリングホイール タイヤ緊急安全装置（TESD）</a></summary>
+          <summary class="toc-chapter-title"><a href="#steering-wheel-tire-emergency-safety-device-tesd"><span class="toc-chapter-label">7.I</span>ステアリングホイール タイヤ緊急安全装置（TESD）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-56">
@@ -2004,7 +2000,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electro-hydraulic-power-steering-ehps">
-          <summary class="toc-chapter-title"><a href="#electro-hydraulic-power-steering-ehps"><span class="toc-chapter-label">7J</span>電動油圧パワーステアリング（EHPS）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electro-hydraulic-power-steering-ehps"><span class="toc-chapter-label">7.J</span>電動油圧パワーステアリング（EHPS）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-57">
@@ -2023,7 +2019,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="electronic-controlled-air-suspension-ecas">
-          <summary class="toc-chapter-title"><a href="#electronic-controlled-air-suspension-ecas"><span class="toc-chapter-label">7K</span>電子制御エアサスペンション（ECAS）</a></summary>
+          <summary class="toc-chapter-title"><a href="#electronic-controlled-air-suspension-ecas"><span class="toc-chapter-label">7.K</span>電子制御エアサスペンション（ECAS）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-58">
@@ -2048,7 +2044,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="tire-pressure-monitoring-system-tpms">
-          <summary class="toc-chapter-title"><a href="#tire-pressure-monitoring-system-tpms"><span class="toc-chapter-label">7L</span>タイヤ空気圧監視システム（TPMS）</a></summary>
+          <summary class="toc-chapter-title"><a href="#tire-pressure-monitoring-system-tpms"><span class="toc-chapter-label">7.L</span>タイヤ空気圧監視システム（TPMS）</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-59">
@@ -2073,7 +2069,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="multimedia-overview">
-          <summary class="toc-chapter-title"><a href="#multimedia-overview"><span class="toc-chapter-label">7M</span>マルチメディア概要</a></summary>
+          <summary class="toc-chapter-title"><a href="#multimedia-overview"><span class="toc-chapter-label">7.M</span>マルチメディア概要</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-60">
@@ -2092,13 +2088,13 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="drivers-tools">
-          <summary class="toc-chapter-title"><a href="#drivers-tools"><span class="toc-chapter-label">7N</span>ドライバー用工具</a></summary>
+          <summary class="toc-chapter-title"><a href="#drivers-tools"><span class="toc-chapter-label">7.N</span>ドライバー用工具</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="safety-hammer">
-          <summary class="toc-chapter-title"><a href="#safety-hammer"><span class="toc-chapter-label">7O</span>緊急用ハンマー</a></summary>
+          <summary class="toc-chapter-title"><a href="#safety-hammer"><span class="toc-chapter-label">7.O</span>緊急用ハンマー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-61">
@@ -2140,13 +2136,13 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="fire-extinguisher">
-          <summary class="toc-chapter-title"><a href="#fire-extinguisher"><span class="toc-chapter-label">8A</span>消火器</a></summary>
+          <summary class="toc-chapter-title"><a href="#fire-extinguisher"><span class="toc-chapter-label">8.A</span>消火器</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="towing-trailer">
-          <summary class="toc-chapter-title"><a href="#towing-trailer"><span class="toc-chapter-label">8B</span>トレーラーの牽引</a></summary>
+          <summary class="toc-chapter-title"><a href="#towing-trailer"><span class="toc-chapter-label">8.B</span>トレーラーの牽引</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="towing-rescue">
@@ -2165,7 +2161,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="brake-failure">
-          <summary class="toc-chapter-title"><a href="#brake-failure"><span class="toc-chapter-label">8C</span>ブレーキ故障</a></summary>
+          <summary class="toc-chapter-title"><a href="#brake-failure"><span class="toc-chapter-label">8.C</span>ブレーキ故障</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation">
@@ -2190,7 +2186,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="out-of-control-steering-or-steering-failure">
-          <summary class="toc-chapter-title"><a href="#out-of-control-steering-or-steering-failure"><span class="toc-chapter-label">8D</span>ステアリング不能またはステアリング故障</a></summary>
+          <summary class="toc-chapter-title"><a href="#out-of-control-steering-or-steering-failure"><span class="toc-chapter-label">8.D</span>ステアリング不能またはステアリング故障</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation-1">
@@ -2203,7 +2199,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="tire-burst">
-          <summary class="toc-chapter-title"><a href="#tire-burst"><span class="toc-chapter-label">8E</span>タイヤバースト</a></summary>
+          <summary class="toc-chapter-title"><a href="#tire-burst"><span class="toc-chapter-label">8.E</span>タイヤバースト</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation-2">
@@ -2222,7 +2218,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="vehicle-sideslip">
-          <summary class="toc-chapter-title"><a href="#vehicle-sideslip"><span class="toc-chapter-label">8F</span>車両横滑り</a></summary>
+          <summary class="toc-chapter-title"><a href="#vehicle-sideslip"><span class="toc-chapter-label">8.F</span>車両横滑り</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation-3">
@@ -2247,7 +2243,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="accidental-removal-of-high-voltage">
-          <summary class="toc-chapter-title"><a href="#accidental-removal-of-high-voltage"><span class="toc-chapter-label">8G</span>高電圧の誤遮断</a></summary>
+          <summary class="toc-chapter-title"><a href="#accidental-removal-of-high-voltage"><span class="toc-chapter-label">8.G</span>高電圧の誤遮断</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation-4">
@@ -2272,7 +2268,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="emergency-evacuation">
-          <summary class="toc-chapter-title"><a href="#emergency-evacuation"><span class="toc-chapter-label">8H</span>緊急避難</a></summary>
+          <summary class="toc-chapter-title"><a href="#emergency-evacuation"><span class="toc-chapter-label">8.H</span>緊急避難</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="emergency-operation-5">
@@ -2291,19 +2287,19 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="protective-equipment-for-emergency-rescue-personnel">
-          <summary class="toc-chapter-title"><a href="#protective-equipment-for-emergency-rescue-personnel"><span class="toc-chapter-label">8I</span>救急救助員のための保護装備</a></summary>
+          <summary class="toc-chapter-title"><a href="#protective-equipment-for-emergency-rescue-personnel"><span class="toc-chapter-label">8.I</span>救急救助員のための保護装備</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="high-voltage-system-information">
-          <summary class="toc-chapter-title"><a href="#high-voltage-system-information"><span class="toc-chapter-label">8J</span>高電圧システムの情報</a></summary>
+          <summary class="toc-chapter-title"><a href="#high-voltage-system-information"><span class="toc-chapter-label">8.J</span>高電圧システムの情報</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="deactivation-method-of-high-voltage-system">
-          <summary class="toc-chapter-title"><a href="#deactivation-method-of-high-voltage-system"><span class="toc-chapter-label">8K</span>高電圧システムの遮断方法</a></summary>
+          <summary class="toc-chapter-title"><a href="#deactivation-method-of-high-voltage-system"><span class="toc-chapter-label">8.K</span>高電圧システムの遮断方法</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="high-voltage-cutoff-from-outside">
@@ -2322,19 +2318,19 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="rescue-of-vehicle-on-fire">
-          <summary class="toc-chapter-title"><a href="#rescue-of-vehicle-on-fire"><span class="toc-chapter-label">8L</span>車両火災時の救助</a></summary>
+          <summary class="toc-chapter-title"><a href="#rescue-of-vehicle-on-fire"><span class="toc-chapter-label">8.L</span>車両火災時の救助</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="rescue-of-wading-vehicle">
-          <summary class="toc-chapter-title"><a href="#rescue-of-wading-vehicle"><span class="toc-chapter-label">8M</span>水没車両の救助</a></summary>
+          <summary class="toc-chapter-title"><a href="#rescue-of-wading-vehicle"><span class="toc-chapter-label">8.M</span>水没車両の救助</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="necessity-of-maintenance">
-          <summary class="toc-chapter-title"><a href="#necessity-of-maintenance"><span class="toc-chapter-label">8N</span>整備の必要性</a></summary>
+          <summary class="toc-chapter-title"><a href="#necessity-of-maintenance"><span class="toc-chapter-label">8.N</span>整備の必要性</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
@@ -2345,25 +2341,25 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="service-mode">
-          <summary class="toc-chapter-title"><a href="#service-mode"><span class="toc-chapter-label">9A</span>サービスモード</a></summary>
+          <summary class="toc-chapter-title"><a href="#service-mode"><span class="toc-chapter-label">9.A</span>サービスモード</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="inspection-of-electric-drive-system">
-          <summary class="toc-chapter-title"><a href="#inspection-of-electric-drive-system"><span class="toc-chapter-label">9B</span>電動駆動システムの点検</a></summary>
+          <summary class="toc-chapter-title"><a href="#inspection-of-electric-drive-system"><span class="toc-chapter-label">9.B</span>電動駆動システムの点検</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="tire-pressure-monitoring">
-          <summary class="toc-chapter-title"><a href="#tire-pressure-monitoring"><span class="toc-chapter-label">9C</span>タイヤ空気圧の監視</a></summary>
+          <summary class="toc-chapter-title"><a href="#tire-pressure-monitoring"><span class="toc-chapter-label">9.C</span>タイヤ空気圧の監視</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="lighting-inspection">
-          <summary class="toc-chapter-title"><a href="#lighting-inspection"><span class="toc-chapter-label">9D</span>照明点検</a></summary>
+          <summary class="toc-chapter-title"><a href="#lighting-inspection"><span class="toc-chapter-label">9.D</span>照明点検</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="function-introduction-62">
@@ -2388,13 +2384,13 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="inspection-of-horns-and-wipers">
-          <summary class="toc-chapter-title"><a href="#inspection-of-horns-and-wipers"><span class="toc-chapter-label">9E</span>ホーンおよびワイパーの点検</a></summary>
+          <summary class="toc-chapter-title"><a href="#inspection-of-horns-and-wipers"><span class="toc-chapter-label">9.E</span>ホーンおよびワイパーの点検</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="high-voltage-battery">
-          <summary class="toc-chapter-title"><a href="#high-voltage-battery"><span class="toc-chapter-label">9F</span>高電圧バッテリー</a></summary>
+          <summary class="toc-chapter-title"><a href="#high-voltage-battery"><span class="toc-chapter-label">9.F</span>高電圧バッテリー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="position-of-high-voltage-battery">
@@ -2413,7 +2409,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="coolant">
-          <summary class="toc-chapter-title"><a href="#coolant"><span class="toc-chapter-label">9G</span>冷却液</a></summary>
+          <summary class="toc-chapter-title"><a href="#coolant"><span class="toc-chapter-label">9.G</span>冷却液</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="coolant-selection">
@@ -2456,19 +2452,19 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="tire">
-          <summary class="toc-chapter-title"><a href="#tire"><span class="toc-chapter-label">9H</span>タイヤ</a></summary>
+          <summary class="toc-chapter-title"><a href="#tire"><span class="toc-chapter-label">9.H</span>タイヤ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="steering-system">
-          <summary class="toc-chapter-title"><a href="#steering-system"><span class="toc-chapter-label">9I</span>ステアリングシステム</a></summary>
+          <summary class="toc-chapter-title"><a href="#steering-system"><span class="toc-chapter-label">9.I</span>ステアリングシステム</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
-        <details class="toc-chapter" data-sec="high-voltage-security-maintenance">
-          <summary class="toc-chapter-title"><a href="#high-voltage-security-maintenance"><span class="toc-chapter-label">9J</span>高電圧安全整備</a></summary>
+        <details class="toc-chapter" data-sec="high-voltage-safety-maintenance">
+          <summary class="toc-chapter-title"><a href="#high-voltage-safety-maintenance"><span class="toc-chapter-label">9.J</span>高電圧安全整備</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="principles-of-safe-operation-under-high-voltage">
@@ -2499,7 +2495,7 @@
       </li>
       <li>
         <details class="toc-chapter" data-sec="battery">
-          <summary class="toc-chapter-title"><a href="#battery"><span class="toc-chapter-label">9K</span>バッテリー</a></summary>
+          <summary class="toc-chapter-title"><a href="#battery"><span class="toc-chapter-label">9.K</span>バッテリー</a></summary>
           <ul class="toc-subsections">
             <li>
               <details class="toc-sub" data-sec="cleaning-of-battery">
@@ -2517,67 +2513,67 @@
     <ul class="toc-chapters">
       <li>
         <details class="toc-chapter" data-sec="vehicle-outline-size">
-          <summary class="toc-chapter-title"><a href="#vehicle-outline-size"><span class="toc-chapter-label">10A</span>車両外形寸法</a></summary>
+          <summary class="toc-chapter-title"><a href="#vehicle-outline-size"><span class="toc-chapter-label">10.A</span>車両外形寸法</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="parameters-of-power-system">
-          <summary class="toc-chapter-title"><a href="#parameters-of-power-system"><span class="toc-chapter-label">10B</span>パワーシステムの諸元</a></summary>
+          <summary class="toc-chapter-title"><a href="#parameters-of-power-system"><span class="toc-chapter-label">10.B</span>パワーシステムの諸元</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="fastening-torque">
-          <summary class="toc-chapter-title"><a href="#fastening-torque"><span class="toc-chapter-label">10C</span>締め付けトルク</a></summary>
+          <summary class="toc-chapter-title"><a href="#fastening-torque"><span class="toc-chapter-label">10.C</span>締め付けトルク</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="tire-pressure-gauge">
-          <summary class="toc-chapter-title"><a href="#tire-pressure-gauge"><span class="toc-chapter-label">10D</span>タイヤ空気圧一覧</a></summary>
+          <summary class="toc-chapter-title"><a href="#tire-pressure-gauge"><span class="toc-chapter-label">10.D</span>タイヤ空気圧一覧</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="wheel-alignment-parameters">
-          <summary class="toc-chapter-title"><a href="#wheel-alignment-parameters"><span class="toc-chapter-label">10E</span>ホイールアライメント諸元</a></summary>
+          <summary class="toc-chapter-title"><a href="#wheel-alignment-parameters"><span class="toc-chapter-label">10.E</span>ホイールアライメント諸元</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="gradability">
-          <summary class="toc-chapter-title"><a href="#gradability"><span class="toc-chapter-label">10F</span>登坂能力</a></summary>
+          <summary class="toc-chapter-title"><a href="#gradability"><span class="toc-chapter-label">10.F</span>登坂能力</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="working-pressure-of-air-reservoir">
-          <summary class="toc-chapter-title"><a href="#working-pressure-of-air-reservoir"><span class="toc-chapter-label">10G</span>エアタンク作動圧力</a></summary>
+          <summary class="toc-chapter-title"><a href="#working-pressure-of-air-reservoir"><span class="toc-chapter-label">10.G</span>エアタンク作動圧力</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="lamp-power-meter">
-          <summary class="toc-chapter-title"><a href="#lamp-power-meter"><span class="toc-chapter-label">10H</span>ランプ電力一覧</a></summary>
+          <summary class="toc-chapter-title"><a href="#lamp-power-meter"><span class="toc-chapter-label">10.H</span>ランプ電力一覧</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="data-of-protection-device">
-          <summary class="toc-chapter-title"><a href="#data-of-protection-device"><span class="toc-chapter-label">10I</span>保護装置データ</a></summary>
+          <summary class="toc-chapter-title"><a href="#data-of-protection-device"><span class="toc-chapter-label">10.I</span>保護装置データ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="curb-mass-total-mass-axle-load-drive-mode">
-          <summary class="toc-chapter-title"><a href="#curb-mass-total-mass-axle-load-drive-mode"><span class="toc-chapter-label">10J</span>車両重量・総重量・軸荷重・駆動方式</a></summary>
+          <summary class="toc-chapter-title"><a href="#curb-mass-total-mass-axle-load-drive-mode"><span class="toc-chapter-label">10.J</span>車両重量・総重量・軸荷重・駆動方式</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
       <li>
         <details class="toc-chapter" data-sec="barometric-pressure-characterization-data">
-          <summary class="toc-chapter-title"><a href="#barometric-pressure-characterization-data"><span class="toc-chapter-label">10K</span>大気圧特性データ</a></summary>
+          <summary class="toc-chapter-title"><a href="#barometric-pressure-characterization-data"><span class="toc-chapter-label">10.K</span>大気圧特性データ</a></summary>
           <div class="toc-content-slot"></div>
         </details>
       </li>
@@ -2586,7 +2582,7 @@
 </div>
 </section>
 <section class="manual-section level-1" data-category="safety" id="notes-to-users">
-<h1 id="notes-to-users"><span class="sec-label">1A</span>ご使用の方へ</h1>
+<h1 id="notes-to-users"><span class="sec-label">1.A</span>ご使用の方へ</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>本車両はバッテリー電気式トラクターユニットです。</p>
@@ -2603,7 +2599,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="safety" id="warning-description">
-<h1 id="warning-description"><span class="sec-label">1B</span>警告の説明</h1>
+<h1 id="warning-description"><span class="sec-label">1.B</span>警告の説明</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>本書では、以下のシグナルワードおよびシンボルを使用しています。</p>
@@ -2613,7 +2609,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="overview" id="notice">
-<h2 id="notice">注意</h2>
+<h2 id="notice"><span class="sec-label">1.B.1</span>注意</h2>
 <blockquote>
 <div class="callout notice"><div class="callout-title">注意</div><div class="callout-body">
 <p>車両またはその部品に損傷を与える可能性がある状況を示します。</p>
@@ -2621,7 +2617,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="procedure" id="note">
-<h2 id="note">補足</h2>
+<h2 id="note"><span class="sec-label">1.B.2</span>補足</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
 <p>追加の有益な情報または操作上のガイダンスを提供します。</p>
@@ -2629,7 +2625,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="overview" id="environmental-protection">
-<h2 id="environmental-protection">環境保護</h2>
+<h2 id="environmental-protection"><span class="sec-label">1.B.3</span>環境保護</h2>
 <blockquote>
 <div class="callout env-protection"><div class="callout-title">環境保護</div><div class="callout-body">
 <p>環境保護またはエネルギー効率に関する情報を示します。</p>
@@ -2637,14 +2633,14 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="overview" id="asterisk">
-<h2 id="asterisk">アスタリスク</h2>
+<h2 id="asterisk"><span class="sec-label">1.B.4</span>アスタリスク</h2>
 <blockquote>
 <p>機能名の後にアスタリスク（*）が付いている場合、その機能は特定の車両モデルまたはオプション設定にのみ適用されることを示します。</p>
 </blockquote>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="overview" id="illustration-information">
-<h2 id="illustration-information"><br/>
+<h2 id="illustration-information"><br/><span class="sec-label">1.B.5</span>
 図の説明</h2>
 <blockquote>
 <p><img class="manual-img" loading="lazy" src="images/image9.jpeg"/>この矢印は、図に示された対象物の正確な位置を示します。</p>
@@ -2655,7 +2651,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="environmental-protection-1">
-<h1 id="environmental-protection-1"><span class="sec-label">1C</span>環境保護</h1>
+<h1 id="environmental-protection-1"><span class="sec-label">1.C</span>環境保護</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>Windroseは、持続可能な開発と環境保護に取り組んでいます。本車両は、エネルギー効率の向上と排出量の削減を目的として設計されています。責任ある運転とエネルギー効率の高い方法で車両を操作することで、環境保護に貢献していただけます。</p>
@@ -2663,7 +2659,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="procedure" id="operation-safety-and-permit">
-<h1 id="operation-safety-and-permit"><span class="sec-label">1D</span>安全運転</h1>
+<h1 id="operation-safety-and-permit"><span class="sec-label">1.D</span>安全運転</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>常に最大許容総重量および軸荷重を遵守してください。過積載は、車両の損傷、制御不能、または人身傷害を招く可能性があります。</p>
@@ -2695,7 +2691,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="troubleshooting" id="original-parts">
-<h1 id="original-parts"><span class="sec-label">1E</span>純正部品</h1>
+<h1 id="original-parts"><span class="sec-label">1.E</span>純正部品</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>Windroseは、以下の状況下では部品の保証を提供しません。</p>
@@ -2710,7 +2706,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="data-security">
-<h1 id="data-security"><span class="sec-label">1F</span>データセキュリティ</h1>
+<h1 id="data-security"><span class="sec-label">1.F</span>データセキュリティ</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>適用法令に従い、Windroseは位置情報、運転行動データ、音声・映像記録、および個人情報を含む車両データを収集・処理します。</p>
@@ -2719,11 +2715,11 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="vehicle-modification">
-<h1 id="vehicle-modification"><span class="sec-label">1G</span>車両改造</h1>
+<h1 id="vehicle-modification"><span class="sec-label">1.G</span>車両改造</h1>
 <p>運転前に</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="materials-required-prior-to-modification">改造前に必要な書類</h2>
+<h2 id="materials-required-prior-to-modification"><span class="sec-label">1.G.1</span>改造前に必要な書類</h2>
 <blockquote>
 <p>車両の改造はすべて、適用される技術的および法令上の要件に準拠する必要があります。改造前に、関連する技術書類をWindroseに提出しなければなりません。</p>
 <p>提出書類には、少なくとも以下の項目を含める必要があります。</p>
@@ -2753,7 +2749,7 @@ Windroseサービスホットライン：</p>
 
 <section class="manual-section level-1" data-category="safety" id="vehicle-scrapping">
 <h1 id="vehicle-scrapping"><br/>
-<span class="sec-label">1H</span>車両廃棄</h1>
+<span class="sec-label">1.H</span>車両廃棄</h1>
 <p>運転前に</p>
 <blockquote>
 <p>道路走行の要件を満たさなくなった車両は、適用される環境規制に従って廃棄処理しなければなりません。</p>
@@ -2764,7 +2760,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="recycle-of-high-voltage-battery">
-<h2 id="recycle-of-high-voltage-battery">高電圧バッテリーのリサイクル</h2>
+<h2 id="recycle-of-high-voltage-battery"><span class="sec-label">1.H.1</span>高電圧バッテリーのリサイクル</h2>
 <blockquote>
 <p>Windroseは、高電圧バッテリーの容量および状態を検査し、その時点の適用法令および市場状況に従って高電圧バッテリーをリサイクルします。</p>
 <p>高電圧バッテリーのリサイクル：リサイクルおよびその後の処理は、Windroseまたは Windroseが指定するサードパーティのリサイクル業者が行う必要があります。</p>
@@ -2782,7 +2778,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="maintenance" id="eco-driving">
-<h1 id="eco-driving"><span class="sec-label">1I</span>エコドライブ</h1>
+<h1 id="eco-driving"><span class="sec-label">1.I</span>エコドライブ</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>以下の実践により、走行距離とエネルギー効率を最大化できます。</p>
@@ -2797,13 +2793,13 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="winter-driving">
-<h1 id="winter-driving"><span class="sec-label">1J</span>冬季走行</h1>
+<h1 id="winter-driving"><span class="sec-label">1.J</span>冬季走行</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 </blockquote>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="preparation-for-winter-driving">冬季走行の準備</h2>
+<h2 id="preparation-for-winter-driving"><span class="sec-label">1.J.1</span>冬季走行の準備</h2>
 <ul>
 <li><p>最低気温に合わせた高品質の冷却液を使用し、冷却液の凝固点が当地の最低気温よりも低くなるようにしてください。</p></li>
 <li><p>低温下でバッテリーが凍結しないよう、常にバッテリーを満充電の状態に保ってください。</p></li>
@@ -2812,14 +2808,14 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-2" data-category="maintenance" id="use-of-vehicle-coolant-in-winter">
-<h2 id="use-of-vehicle-coolant-in-winter">冬季における冷却液の使用</h2>
+<h2 id="use-of-vehicle-coolant-in-winter"><span class="sec-label">1.J.2</span>冬季における冷却液の使用</h2>
 <blockquote>
 <p>寒冷期または車両を寒冷な場所に駐車する場合は、冷却液の不凍性能を確保してください。Windroseが推奨する冷却液をお使いください。</p>
 </blockquote>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="procedure" id="precautions-for-winter-driving">
-<h2 id="precautions-for-winter-driving">冬季走行上の注意事項</h2>
+<h2 id="precautions-for-winter-driving"><span class="sec-label">1.J.3</span>冬季走行上の注意事項</h2>
 <ul>
 <li><p>スノーチェーンまたはスタッドレスタイヤの使用を推奨します。</p>
 <ul>
@@ -2837,7 +2833,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="maintenance" id="use-of-snow-chains">
-<h1 id="use-of-snow-chains"><span class="sec-label">1K</span>タイヤチェーンの使用</h1>
+<h1 id="use-of-snow-chains"><span class="sec-label">1.K</span>タイヤチェーンの使用</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>タイヤチェーンを使用する際は、以下の点に注意してください。</p>
@@ -2859,7 +2855,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="safety" id="driving-in-tropical-and-high-temperature-areas">
-<h1 id="driving-in-tropical-and-high-temperature-areas"><span class="sec-label">1L</span>高温・熱帯地域での走行</h1>
+<h1 id="driving-in-tropical-and-high-temperature-areas"><span class="sec-label">1.L</span>高温・熱帯地域での走行</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>走行前に車両の状態を確認してください。</p>
@@ -2905,13 +2901,13 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="ramp-driving">
-<h1 id="ramp-driving"><span class="sec-label">1M</span>坂道走行</h1>
+<h1 id="ramp-driving"><span class="sec-label">1.M</span>坂道走行</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 </blockquote>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="precautions-for-uphill-driving">上り坂走行の注意事項</h2>
+<h2 id="precautions-for-uphill-driving"><span class="sec-label">1.M.1</span>上り坂走行の注意事項</h2>
 <ul>
 <li><p>坂道発進時に車両が後退した場合は、直ちにブレーキペダルを踏み、電子式駐車ブレーキをかけてから発進操作をやり直してください。</p></li>
 <li><p>上り坂では低速を維持し、一定のペースで走行してください。アクセルペダルは徐々に踏み込み、急加速や急ブレーキを避けてください。</p></li>
@@ -2930,7 +2926,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-1" data-category="overview" id="reporting-safety-defects">
-<h1 id="reporting-safety-defects"><span class="sec-label">1N</span>安全上の不具合の報告</h1>
+<h1 id="reporting-safety-defects"><span class="sec-label">1.N</span>安全上の不具合の報告</h1>
 <blockquote>
 <p><u>運転前に</u></p>
 <p>車両に安全関連の不具合があると疑われる場合は、可能な限り速やかに安全な場所に停車し、直ちにWindrose カスタマーサポートまたはWindrose正規サービスステーションにご連絡ください。</p>
@@ -2942,7 +2938,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="overview-of-vehicle-exterior">
-<h1 id="overview-of-vehicle-exterior"><span class="sec-label">2A</span>車両外観の概要</h1>
+<h1 id="overview-of-vehicle-exterior"><span class="sec-label">2.A</span>車両外観の概要</h1>
 <blockquote>
 <p><u>車両識別</u></p>
 </blockquote>
@@ -3032,7 +3028,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="overview-of-vehicle-interior">
-<h1 id="overview-of-vehicle-interior"><span class="sec-label">2B</span>車内の概要</h1>
+<h1 id="overview-of-vehicle-interior"><span class="sec-label">2.B</span>車内の概要</h1>
 <blockquote>
 <p><u>車両識別</u></p>
 </blockquote>
@@ -3179,7 +3175,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="vehicle-nameplate-and-vin">
-<h1 id="vehicle-nameplate-and-vin"><span class="sec-label">2C</span>車両銘板とVIN</h1>
+<h1 id="vehicle-nameplate-and-vin"><span class="sec-label">2.C</span>車両銘板とVIN</h1>
 <blockquote>
 <p><u>車両識別</u></p>
 <p>車両銘板</p>
@@ -3205,7 +3201,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="overview" id="location-of-motor-nameplate-and-code">
-<h1 id="location-of-motor-nameplate-and-code"><span class="sec-label">2D</span>モーター銘板およびコードの位置</h1>
+<h1 id="location-of-motor-nameplate-and-code"><span class="sec-label">2.D</span>モーター銘板およびコードの位置</h1>
 <blockquote>
 <p><u>車両識別</u></p>
 </blockquote>
@@ -3239,7 +3235,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="electric-sliding-door">
-<h1 id="electric-sliding-door"><span class="sec-label">3A</span>電動スライドドア</h1>
+<h1 id="electric-sliding-door"><span class="sec-label">3.A</span>電動スライドドア</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3250,7 +3246,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-2" data-category="procedure" id="operating-instructions">
-<h2 id="operating-instructions">操作方法</h2>
+<h2 id="operating-instructions"><span class="sec-label">3.A.1</span>操作方法</h2>
 <blockquote>
 <p>車外からの操作</p>
 </blockquote>
@@ -3266,7 +3262,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="enter-the-vehicle">
-<h2 id="enter-the-vehicle">乗車方法</h2>
+<h2 id="enter-the-vehicle"><span class="sec-label">3.A.2</span>乗車方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image21.jpeg"/></p>
 <blockquote>
 <p>電動スライドドアが開いた後、以下の手順でキャブに乗り込んでください。</p>
@@ -3383,7 +3379,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </div></div></section>
 <section class="manual-section level-2" data-category="safety" id="precautions">
-<h2 id="precautions">注意事項</h2>
+<h2 id="precautions"><span class="sec-label">3.A.3</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 <p>挟み込み防止機能は<strong>電動閉扉操作中のみ</strong>有効です。手動操作時は作動しません。</p>
@@ -3391,7 +3387,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="seat-belt">
-<h1 id="seat-belt"><span class="sec-label">3B</span>シートベルト</h1>
+<h1 id="seat-belt"><span class="sec-label">3.B</span>シートベルト</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3402,7 +3398,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-1">
-<h2 id="operating-instructions-1">操作方法</h2>
+<h2 id="operating-instructions-1"><span class="sec-label">3.B.1</span>操作方法</h2>
 <blockquote>
 <p><strong>運転席シートベルト</strong>は運転席の左側にあり、直接引き出して装着できます。</p>
 <p><img class="manual-img" loading="lazy" src="images/image28.jpeg"/></p>
@@ -3430,7 +3426,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-1">
-<h2 id="precautions-1">注意事項</h2>
+<h2 id="precautions-1"><span class="sec-label">3.B.2</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 <p>車両の走行中は、すべての乗員がシートベルトを正しく着用しなければなりません。シートベルトの正しい使用は、急ブレーキや衝突時の傷害リスクを大幅に低減します。</p>
@@ -3447,7 +3443,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="power-window">
-<h1 id="power-window"><span class="sec-label">3C</span>パワーウィンドウ</h1>
+<h1 id="power-window"><span class="sec-label">3.C</span>パワーウィンドウ</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3458,7 +3454,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-2">
-<h2 id="operating-instructions-2"><br/>
+<h2 id="operating-instructions-2"><br/><span class="sec-label">3.C.1</span>
 操作方法</h2>
 <blockquote>
 <p>複合ボタンによるウィンドウ調整</p>
@@ -3482,7 +3478,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-2">
-<h2 id="precautions-2">注意事項</h2>
+<h2 id="precautions-2"><span class="sec-label">3.C.2</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 </div></div></blockquote>
@@ -3504,7 +3500,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="sleeper-privacy-curtain">
-<h1 id="sleeper-privacy-curtain"><span class="sec-label">3D</span>仮眠スペースプライバシーカーテン*</h1>
+<h1 id="sleeper-privacy-curtain"><span class="sec-label">3.D</span>仮眠スペースプライバシーカーテン*</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3515,7 +3511,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="procedure" id="operating-instructions-3">
-<h2 id="operating-instructions-3">操作方法</h2>
+<h2 id="operating-instructions-3"><span class="sec-label">3.D.1</span>操作方法</h2>
 <blockquote>
 <p><img class="manual-img" loading="lazy" src="images/image31.jpeg"/>仮眠スペースプライバシーカーテンレール</p>
 <p>カーテンレールは仮眠スペース上部の天井に取り付けられています。プライバシーカーテンは必要に応じてレールに取り付けることができます。</p>
@@ -3528,7 +3524,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="overview" id="precautions-3">
-<h2 id="precautions-3">注意事項</h2>
+<h2 id="precautions-3"><span class="sec-label">3.D.2</span>注意事項</h2>
 <blockquote>
 <div class="callout notice"><div class="callout-title">注意</div><div class="callout-body">
 <p>プライバシーカーテンが落下しないよう、強く引っ張らないでください。</p>
@@ -3536,7 +3532,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="panoramic-sunroof">
-<h1 id="panoramic-sunroof"><span class="sec-label">3E</span>パノラミックサンルーフ</h1><figure><img class="manual-img" loading="lazy" src="images/image33.jpeg"/></figure>
+<h1 id="panoramic-sunroof"><span class="sec-label">3.E</span>パノラミックサンルーフ</h1><figure><img class="manual-img" loading="lazy" src="images/image33.jpeg"/></figure>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3546,7 +3542,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="procedure" id="operating-instructions-4">
-<h2 id="operating-instructions-4">操作方法</h2>
+<h2 id="operating-instructions-4"><span class="sec-label">3.E.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image34.jpeg"/></p>
 <blockquote>
 <p>パノラミックルーフのサンシェードは車両情報スクリーンから操作できます。</p>
@@ -3577,7 +3573,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="windshield-electric-sunshade">
-<h1 id="windshield-electric-sunshade"><span class="sec-label">3F</span>フロントガラス電動サンシェード</h1>
+<h1 id="windshield-electric-sunshade"><span class="sec-label">3.F</span>フロントガラス電動サンシェード</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3588,7 +3584,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-5">
-<h2 id="operating-instructions-5">操作方法</h2>
+<h2 id="operating-instructions-5"><span class="sec-label">3.F.1</span>操作方法</h2>
 <blockquote>
 <p>フロントガラス電動サンシェードは、インストルメントパネル左側のコントロールスイッチで操作できます。</p>
 <p><img class="manual-img" loading="lazy" src="images/image36.jpeg"/></p>
@@ -3617,7 +3613,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="interior-sleeper">
-<h1 id="interior-sleeper"><span class="sec-label">3G</span>車内仮眠スペース</h1>
+<h1 id="interior-sleeper"><span class="sec-label">3.G</span>車内仮眠スペース</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3627,7 +3623,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="procedure" id="operating-instructions-6">
-<h2 id="operating-instructions-6">操作方法</h2>
+<h2 id="operating-instructions-6"><span class="sec-label">3.G.1</span>操作方法</h2>
 <blockquote>
 <p><img class="manual-img" loading="lazy" src="images/image37.jpeg"/></p>
 <p>仮眠スペースの右上クッションは手動で左側に折りたたんで助手席のスペースを確保できます。車両右側に高さ調整可能な仮眠スペースが装着されている場合、右側仮眠スペースの上部クッションを手動で持ち上げて固定し、複数段調整可能な仮眠ヘッドレストとして使用できます。仮眠スペースを下げるには、右側仮眠スペースの上部クッションを最高位置まで持ち上げてから解放します。</p>
@@ -3645,7 +3641,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="rearview-mirror">
-<h1 id="rearview-mirror"><span class="sec-label">3H</span>バックミラー</h1>
+<h1 id="rearview-mirror"><span class="sec-label">3.H</span>バックミラー</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3678,7 +3674,7 @@ Windroseサービスホットライン：</p>
 </ul>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="cup-holder">
-<h1 id="cup-holder"><span class="sec-label">3I</span>カップホルダー</h1>
+<h1 id="cup-holder"><span class="sec-label">3.I</span>カップホルダー</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3698,7 +3694,7 @@ Windroseサービスホットライン：</p>
 </ul>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-4">
-<h2 id="precautions-4">注意事項</h2>
+<h2 id="precautions-4"><span class="sec-label">3.I.1</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 <p>しっかりと蓋のされていない熱い飲み物はカップホルダーに置かないでください。車両が揺れた場合にこぼれて人身傷害または車両部品の損傷を招く可能性があります。</p>
@@ -3715,7 +3711,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="ash-tray">
-<h1 id="ash-tray"><span class="sec-label">3J</span>灰皿</h1>
+<h1 id="ash-tray"><span class="sec-label">3.J</span>灰皿</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3725,7 +3721,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="driving-assistance" id="operating-instructions-7">
-<h2 id="operating-instructions-7"><br/>
+<h2 id="operating-instructions-7"><br/><span class="sec-label">3.J.1</span>
 操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image43.jpeg"/></p>
 <blockquote>
@@ -3734,7 +3730,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-5">
-<h2 id="precautions-5">注意事項</h2>
+<h2 id="precautions-5"><span class="sec-label">3.J.2</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 </div></div></blockquote>
@@ -3752,7 +3748,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="side-toolbox">
-<h1 id="side-toolbox"><span class="sec-label">3K</span>サイドツールボックス</h1>
+<h1 id="side-toolbox"><span class="sec-label">3.K</span>サイドツールボックス</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3763,7 +3759,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-8">
-<h2 id="operating-instructions-8">操作方法</h2>
+<h2 id="operating-instructions-8"><span class="sec-label">3.K.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image45.jpeg"/></p>
 <blockquote>
 <p>インストルメントパネルの車両情報スクリーンで「コントロールセンター」を選択し、「車外」インターフェースに切り替え、「ツールボックスロック解除」ボタンをクリックすることでツールボックスを解錠できます。ツールボックスは車外から手動で閉じます。</p>
@@ -3772,7 +3768,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-6">
-<h2 id="precautions-6"><br/>
+<h2 id="precautions-6"><br/><span class="sec-label">3.K.2</span>
 注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
@@ -3781,7 +3777,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="interior-storage-device">
-<h1 id="interior-storage-device"><span class="sec-label">3L</span>車内収納装置</h1>
+<h1 id="interior-storage-device"><span class="sec-label">3.L</span>車内収納装置</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3791,7 +3787,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-9">
-<h2 id="operating-instructions-9">操作方法</h2>
+<h2 id="operating-instructions-9"><span class="sec-label">3.L.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image46.jpeg"/></p>
 <blockquote>
 <p>インストルメントパネル右下に物を収納できる収納ボックスがあります。</p>
@@ -3811,7 +3807,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-7">
-<h2 id="precautions-7">注意事項</h2>
+<h2 id="precautions-7"><span class="sec-label">3.L.2</span>注意事項</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
 <p>走行中に物が高所から落下して損傷や人身傷害を招かないよう、走行前に必ず収納ボックスを閉めてください。</p>
@@ -3819,7 +3815,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="net-bag">
-<h1 id="net-bag"><span class="sec-label">3M</span>ネットバッグ</h1>
+<h1 id="net-bag"><span class="sec-label">3.M</span>ネットバッグ</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3829,14 +3825,14 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="overview" id="operating-instructions-10">
-<h2 id="operating-instructions-10">操作方法</h2>
+<h2 id="operating-instructions-10"><span class="sec-label">3.M.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image50.jpeg"/></p>
 <ul>
 <li><p>ネットバッグ</p></li>
 </ul>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="precautions-8"><br/>
+<h2 id="precautions-8"><br/><span class="sec-label">3.M.2</span>
 注意事項</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
@@ -3846,7 +3842,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-1" data-category="driving-assistance" id="newspapers-and-periodicals-device">
-<h1 id="newspapers-and-periodicals-device"><span class="sec-label">3N</span>新聞・雑誌ホルダー</h1>
+<h1 id="newspapers-and-periodicals-device"><span class="sec-label">3.N</span>新聞・雑誌ホルダー</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3866,7 +3862,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="overview" id="precautions-9">
-<h2 id="precautions-9">注意事項</h2>
+<h2 id="precautions-9"><span class="sec-label">3.N.1</span>注意事項</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
 <p>仮眠スペースに取り付けられた新聞・雑誌ホルダーには新聞・雑誌類のみ収納できます。小物を入れると取り出せなくなります。</p>
@@ -3874,7 +3870,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="coat-hook">
-<h1 id="coat-hook"><span class="sec-label">3O</span>コートフック</h1>
+<h1 id="coat-hook"><span class="sec-label">3.O</span>コートフック</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3884,14 +3880,14 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="overview" id="operating-instructions-11">
-<h2 id="operating-instructions-11">操作方法</h2>
+<h2 id="operating-instructions-11"><span class="sec-label">3.O.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image53.jpeg"/></p>
 <ul>
 <li><p>コートフック</p></li>
 </ul>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="precautions-10"><br/>
+<h2 id="precautions-10"><br/><span class="sec-label">3.O.2</span>
 注意事項</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
@@ -3901,7 +3897,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-1" data-category="driving-assistance" id="hanging-device">
-<h1 id="hanging-device"><span class="sec-label">3P</span>ハンギング装置</h1>
+<h1 id="hanging-device"><span class="sec-label">3.P</span>ハンギング装置</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3911,7 +3907,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="overview" id="operating-instructions-12">
-<h2 id="operating-instructions-12">操作方法</h2>
+<h2 id="operating-instructions-12"><span class="sec-label">3.P.1</span>操作方法</h2>
 <blockquote>
 <p><img class="manual-img" loading="lazy" src="images/image54.jpeg"/></p>
 </blockquote>
@@ -3922,7 +3918,7 @@ Windroseサービスホットライン：</p>
 </ul>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 
-<h2 id="precautions-11"><br/>
+<h2 id="precautions-11"><br/><span class="sec-label">3.P.2</span>
 注意事項</h2>
 <blockquote>
 <div class="callout note"><div class="callout-title">補足</div><div class="callout-body">
@@ -3932,7 +3928,7 @@ Windroseサービスホットライン：</p>
 </section>
 
 <section class="manual-section level-1" data-category="charging" id="usb-charging">
-<h1 id="usb-charging"><span class="sec-label">3Q</span>USB充電</h1>
+<h1 id="usb-charging"><span class="sec-label">3.Q</span>USB充電</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -3942,7 +3938,7 @@ Windroseサービスホットライン：</p>
 </blockquote>
 </section>
 <section class="manual-section level-2" data-category="controls" id="operating-instructions-13">
-<h2 id="operating-instructions-13">操作方法</h2>
+<h2 id="operating-instructions-13"><span class="sec-label">3.Q.1</span>操作方法</h2>
 <p><img class="manual-img" loading="lazy" src="images/image55.jpeg"/></p>
 <ul>
 <li><p>インストルメントパネル左側USBポート</p></li>
@@ -3958,7 +3954,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-12">
-<h2 id="precautions-12">注意事項</h2>
+<h2 id="precautions-12"><span class="sec-label">3.Q.2</span>注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
 <p>ポートに液体をこぼさないでください。</p>
@@ -3968,14 +3964,14 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="charging" id="phone-wireless-charging">
-<h1 id="phone-wireless-charging"><span class="sec-label">3R</span>スマートフォンワイヤレス充電</h1>
+<h1 id="phone-wireless-charging"><span class="sec-label">3.R</span>スマートフォンワイヤレス充電</h1>
 <blockquote>
 <p>右側インストルメントパネルにはワイヤレス充電装置が搭載されており、15Wの充電出力でスマートフォンをワイヤレス充電できます。</p>
 </blockquote>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-13">
-<h2 id="precautions-13"><br/>
+<h2 id="precautions-13"><br/><span class="sec-label">3.R.2</span>
 注意事項</h2>
 <blockquote>
 <div class="callout warning"><div class="callout-title">警告</div><div class="callout-body">
@@ -3985,7 +3981,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="charging" id="operating-instructions-14">
-<h2 id="operating-instructions-14">操作方法</h2>
+<h2 id="operating-instructions-14"><span class="sec-label">3.R.1</span>操作方法</h2>
 <blockquote>
 <p><img alt="図はスマートフォン用とタブレット用のワイヤレス充電パッド付き2つの黒いプラスチック区画を示す車両サイドパネルを示しています。AIが生成したコンテンツのため誤りが含まれる場合があります。" class="manual-img" loading="lazy" src="images/image57.jpeg"/></p>
 </blockquote>
@@ -4022,7 +4018,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-1" data-category="driving-assistance" id="power-outlet">
-<h1 id="power-outlet"><span class="sec-label">3S</span>電源コンセント</h1>
+<h1 id="power-outlet"><span class="sec-label">3.S</span>電源コンセント</h1>
 <blockquote>
 <p><u>車両へのアクセス</u></p>
 </blockquote>
@@ -4045,7 +4041,7 @@ Windroseサービスホットライン：</p>
 </ul>
 </section>
 <section class="manual-section level-2" data-category="overview" id="operating-instructions-15">
-<h2 id="operating-instructions-15">操作方法</h2>
+<h2 id="operating-instructions-15"><span class="sec-label">3.S.1</span>操作方法</h2>
 <blockquote>
 <p><img alt="図は電気回路の三方向スイッチ構成を示しており、2つのスイッチが1つの光源への電源を制御しています。AIが生成したコンテンツのため誤りが含まれる場合があります。" class="manual-img" loading="lazy" src="images/image58.jpeg"/></p>
 </blockquote>
@@ -4064,7 +4060,7 @@ Windroseサービスホットライン：</p>
 <a class="back-to-top" href="#top" title="ページトップへ">↑ トップ</a>
 </section>
 <section class="manual-section level-2" data-category="safety" id="precautions-14">
-<h2 id="precautions-14">注意事項</h2>
+<h2 id="precautions-14"><span class="sec-label">3.S.2</span>注意事項</h2>
 <blockquote>
 <div class="callout notice"><div class="callout-title">注意</div><div class="callout-body">
 <p>230Vインバーターは車両が高電圧に接続されている場合にのみ使用できます。車両の電源がオフの場合は、12V電源または24V電源のみ使用可能です。</p>

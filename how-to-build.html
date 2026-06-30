@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" lang="en">
+<html dir="ltr" lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDTHF9XR6R"></script>
@@ -1177,15 +1177,15 @@ function setLang(lang) {
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <span class="version-timestamp" style="font-size: 0.875rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;" data-i18n="label.updated"><span data-i18n="label.updated">Updated:</span> 27 June 2026</span>
-  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:340px;min-width:120px;">
+  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:460px;min-width:160px;display:flex;align-items:center;">
     <input id="gs-input" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search or ask anything…"
-      style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size: 0.875rem;letter-spacing:0.05em;padding:0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s;"
+      placeholder="Search or ask AI anything…"
+      style="width:100%;background:rgba(255,255,255,0.09);border:1px solid rgba(74,158,255,0.42);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size:0.875rem;letter-spacing:0.05em;padding:0.28rem 2.7rem 0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;"
       oninput="gsSearch(this.value)"
       onkeydown="gsKey(event)"
-      onfocus="this.style.borderColor='rgba(74,158,255,0.7)';this.style.background='rgba(255,255,255,0.11)'"
-      onblur="this.style.borderColor='rgba(74,158,255,0.25)';this.style.background='rgba(255,255,255,0.07)'">
+      onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
+      onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
   <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
@@ -1238,9 +1238,11 @@ function setLang(lang) {
   </li>
     <li><a href="how-to-service.html" data-i18n="nav.network">How to Service</a>
     <ul class="nav-dropdown">
-      <li><a href="how-to-service.html#locations" data-i18n="hc.24.countries.across.5">24 Countries</a></li>
-      <li><a href="how-to-service.html#warranty" data-i18n="hc.warranty.manual">Warranty Manual</a></li>
       <li><a href="/how-to-service-locations" data-i18n="how-to-service-locations">Service Locations</a></li>
+      <li><a href="/how-to-service-warranty" data-i18n="svc.warranty">Warranty</a></li>
+      <li><a href="/how-to-service-maintenance" data-i18n="svc.maintenance">Maintenance</a></li>
+      <li><a href="/how-to-service-repairs" data-i18n="svc.repairs">Repairs</a></li>
+      <li><a href="/how-to-service-manuals" data-i18n="svc.manuals">Owner Manuals</a></li>
     </ul>
   </li>
     <li><a href="technology.html" data-i18n="nav.technology">Technology</a>
@@ -1257,7 +1259,14 @@ function setLang(lang) {
       <li><a href="how-to-build.html#assembly" data-i18n="assembly.label">Local Assembly</a></li>
     </ul>
   </li>
-    <li><a href="about-us.html" data-i18n="nav.about">About Us</a>
+    <li><a href="certification.html">Certification</a>
+    <ul class="nav-dropdown">
+      <li><a href="certification.html#homologation">Market Access</a></li>
+      <li><a href="certification.html#homologation">EU WVTA</a></li>
+      <li><a href="certification.html#homologation">US FMVSS</a></li>
+    </ul>
+  </li>
+  <li><a href="about-us.html" data-i18n="nav.about">About Us</a>
     <ul class="nav-dropdown">
       <li><a href="/home-news" data-i18n="news.label">Press & News</a></li>
       <li><a href="about-us.html" data-i18n="about.award.badge">Recognition</a></li>
@@ -1331,15 +1340,15 @@ document.addEventListener('DOMContentLoaded', function(){
     shiyan:   'supplier-hande',
     hefei:    'supplier-calb',
     shanghai: 'supplier-zhenghe',
-    seattle:  'supplier-aertssen',
-    savannah: 'supplier-aertssen'
+    antwerp:  'supplier-antwerp',
+    france:   'supplier-france',
+    seattle:  'supplier-tacoma',
+    savannah: 'supplier-savannah'
   };
-  var CITY_URL_MAP = {
-    antwerp: 'https://newsroom.portofantwerpbruges.com/en/press-releases/port-of-antwerp-bruges-welcomes-windrose-for-european-assembly-of-electric-trucks'
-  };
+  var CITY_URL_MAP = {};
   WindroseGlobe.init('sc-map', {
-    layers: ['shipping'],
-    defaultLayers: ['shipping'],
+    layers: ['assembly', 'logistics'],
+    defaultLayers: ['assembly', 'logistics'],
     onCityClick: function(key) {
       if (CITY_URL_MAP[key]) { window.open(CITY_URL_MAP[key], '_blank', 'noopener'); return; }
       var id = CITY_CARD_MAP[key];
@@ -1359,7 +1368,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </section>
 
 <!-- MANUFACTURING PARTNERS ROW -->
-<section style="background:var(--dark); border-top:1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;" id="manufacturing-partners">
+<section style="background:var(--dark); border-top:1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;" id="manufacturing">
   <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Manufacturing Partners</p>
   <h2 style="font-size: 1.25rem; line-height:1.15; margin-bottom:0.6rem;">5 Assembly &amp; Production Sites Across 3 Continents</h2>
   <p style="font-size:0.875rem; color:var(--muted); max-width:52rem; line-height:1.65; margin-bottom:2rem;">Each region is served by a dedicated local manufacturing partner — enabling domestic delivery, regulatory compliance, and job creation in-market.</p>
@@ -1376,7 +1385,7 @@ document.addEventListener('DOMContentLoaded', function(){
   </style>
   <div class="mfg-partner-row">
 
-    <a class="mfg-card" href="press/horiba-mira-uk.html">
+    <a class="mfg-card" href="https://windrose.ai/press/horiba-mira-uk.html" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="mfg-country">🇬🇧 United Kingdom</div>
       <div class="mfg-title">HORIBA MIRA UK — Validation Complete</div>
@@ -1388,7 +1397,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="mfg-title">Hande — Electric Drive Axle</div>
     </a>
 
-    <a class="mfg-card" href="press/antwerp-port-assembly.html">
+    <a class="mfg-card" href="https://windrose.ai/press/antwerp-port-assembly.html" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="mfg-country">🇧🇪 Belgium</div>
       <div class="mfg-title">European assembly HQ · 2025</div>
@@ -1400,7 +1409,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="mfg-title">ENGIE Vianeo — Heavy-Duty Electrification</div>
     </a>
 
-    <a class="mfg-card" href="press/aertssen-assembly-usa.html">
+    <a class="mfg-card" href="https://windrose.ai/press/aertssen-assembly-usa.html" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="mfg-country">🇺🇸 United States</div>
       <div class="mfg-title">Aertssen + Windrose — USA Assembly Sites</div>
@@ -1449,19 +1458,44 @@ document.addEventListener('DOMContentLoaded', function(){
       <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">Zhenghe cab structure — European cab homologation certified</p><!-- zhenghe-photo-added -->
       <p class="sc-desc" data-i18n="suppliers.zhenghe.desc">Driver cab structures and bodywork for the tractor unit.</p>
     </div>
-    <div class="supplier-card" id="supplier-aertssen">
-      <div class="sc-role">US Manufacturing</div>
+    <div class="supplier-card" id="supplier-antwerp">
+      <div class="sc-role">Belgium Assembly</div>
+      <div class="sc-name">Antwerp</div>
+      <div style="margin:0.4rem 0 0.6rem;padding:0.35rem 0.6rem;background:rgba(74,158,255,0.07);border:1px solid rgba(74,158,255,0.18);border-radius:6px;display:flex;align-items:center;gap:0.4rem;">
+        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;">Developer</span>
+        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;">Van Wellen Group</span>
+      </div>
+      <p class="sc-desc">European assembly hub at the Port of Antwerp-Bruges, serving Van Wellen Group's fleet operations.</p>
+    </div>
+    <div class="supplier-card" id="supplier-france">
+      <div class="sc-role">France Assembly</div>
+      <div class="sc-name">Valenciennes</div>
+      <div style="margin:0.4rem 0 0.6rem;padding:0.35rem 0.6rem;background:rgba(74,158,255,0.07);border:1px solid rgba(74,158,255,0.18);border-radius:6px;display:flex;align-items:center;gap:0.4rem;">
+        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;">Developer</span>
+        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;">PRD</span>
+      </div>
+      <p class="sc-desc">Assembly site in Valenciennes, northern France, serving PRD's logistics operations.</p>
+    </div>
+    <div class="supplier-card" id="supplier-tacoma">
+      <div class="sc-role">US Assembly · Tacoma, WA</div>
       <div class="sc-name">Aertssen</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">Dual-coast assembly — Rincon, Georgia &amp; Tacoma, Washington</p>
-      <p class="sc-desc">Final assembly of North American units at two US sites, enabling domestic delivery and Buy America compliance.</p>
+      <p class="sc-desc">Final assembly of North American units at Tacoma, Washington, enabling domestic delivery and Buy America compliance.</p>
+    </div>
+    <div class="supplier-card" id="supplier-savannah">
+      <div class="sc-role">US Assembly · Savannah, GA</div>
+      <div class="sc-name">Aertssen</div>
+      <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+        <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
+      </div>
+      <p class="sc-desc">Final assembly of North American units at Rincon, Georgia (Savannah metro), enabling domestic delivery and Buy America compliance.</p>
     </div>
   </div>
 </section>
 <!-- LOCAL ASSEMBLY STEPS -->
-<section style="background:var(--dark); border-top:1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;">
+<section id="assembly" style="background:var(--dark); border-top:1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;">
   <style>
     .asm-grid {
       display: grid;
@@ -2104,7 +2138,7 @@ function openStripeModal() { openReserveModal(); }
         <a href="index.html" class="footer-toc-head" data-i18n="nav.home">Home</a>
         <ul class="footer-toc-list"><li><a href="home-generations.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="home-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="home-news.html" class="toc-link" data-i18n="news.label">News</a></li></ul>
         <a href="how-to-buy.html" class="footer-toc-head" data-i18n="nav.pricing">How to Buy</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">Lease &amp; TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
       </div>
       <div>
         <a href="how-to-use.html" class="footer-toc-head" data-i18n="nav.howtouse">How to Use</a>
@@ -2114,13 +2148,17 @@ function openStripeModal() { openReserveModal(); }
       </div>
       <div>
         <a href="technology.html" class="footer-toc-head" data-i18n="nav.technology">Technology</a>
-        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology-roadmap.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
+        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology.html#platform" class="toc-link" data-i18n="tech.platform.label">Platform Architecture</a></li><li><a href="technology.html#patented" class="toc-link" data-i18n="tech.proprietary.label">Proprietary Technology</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
         <a href="how-to-build.html" class="footer-toc-head" data-i18n="nav.manufacturing">How to Build</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
+      </div>
+      <div>
+        <a href="certification.html" class="footer-toc-head">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.award.badge">Recognition</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.truck.label">E700 Truck</a></li></ul>
       </div>
     </div>
     </div>
@@ -2295,15 +2333,9 @@ function openStripeModal() { openReserveModal(); }
     if(!li.querySelector('.nav-dropdown')) return;
     var a = li.querySelector(':scope > a');
     if(!a) return;
-    a.addEventListener('click', function(e){
-      if(li.classList.contains('nav-open')){
-        li.classList.remove('nav-open');
-        // second click navigates — don't prevent default
-      } else {
-        e.preventDefault();
-        document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
-        li.classList.add('nav-open');
-      }
+    a.addEventListener('click', function(){
+      document.querySelectorAll('.nav-links > li.nav-open').forEach(function(el){ el.classList.remove('nav-open'); });
+      li.classList.add('nav-open');
     });
   });
   document.addEventListener('click', function(e){
@@ -2467,7 +2499,7 @@ var SITE_SEARCH = [
   {t:'Pricing — Diesel Parity Everywhere',u:'how-to-buy.html',p:'Pricing',d:'EUR AUD GBP USD CNY diesel parity pricing electric truck cost per km TCO total cost ownership'},
   {t:'Network — Global Dealer & Service',u:'how-to-service.html',p:'Network',d:'dealer service partner global network Cox Automotive Raskone Big Wheels Alliance Automotive Raskone Xos'},
   {t:'Roadmap — Every Generation Better',u:'roadmap.html',p:'Roadmap',d:'Generation 2 3 4 E670 E960 R700 MCS CCS battery kWh motor suspension EPS autonomous L4'},
-  {t:'Customers Around the World',u:'commercialization.html',p:'Customers',d:'CEVA Kuehne Nagel KLN Decathlon ATC Danske Fragtmand Bluescope New Energy Transport'},
+  {t:'Developers Around the World',u:'commercialization.html',p:'Developers',d:'CEVA Kuehne Nagel KLN Decathlon ATC Danske Fragtmand Bluescope New Energy Transport'},
   {t:'Technology',u:'technology.html',p:'Technology',d:'technology specifications battery range kWh motor torque axle weight dimensions charging CCS MCS'},
   {t:'News & Media Coverage',u:'news.html',p:'News',d:'New York Times Forbes Reuters France 24 Le Monde FAZ interviews press releases'},
   {t:'Manufacturing',u:'how-to-build.html',p:'Manufacturing',d:'Suzhou China Antwerp Belgium Hauts-de-France manufacturing assembly multi-continent'},

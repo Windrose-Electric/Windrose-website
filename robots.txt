@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /about-us-edit.html
+Disallow: /how-to-build-edit.html
+Disallow: /how-to-buy-edit.html
+Disallow: /how-to-service-edit.html
+Disallow: /how-to-use-edit.html
+Disallow: /index-edit.html
+Disallow: /technology-edit.html
+Disallow: /check.js
+Disallow: /test_splash_click.js
+Disallow: /verify_nav.js
+
+Sitemap: https://windrose.ai/sitemap.xml

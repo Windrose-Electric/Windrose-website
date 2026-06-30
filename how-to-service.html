@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 
 <html dir="ltr" lang="en" lang="en">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YDTHF9XR6R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YDTHF9XR6R');
-</script>
-<script>
+<head><script>
 (function(){
   try {
     // Only honour saved language if it's a recognised value
@@ -180,7 +170,7 @@
   /* Nav click-to-expand: overrides mobile hide, all sizes */
   .nav-links li.nav-open > .nav-dropdown { display: block !important; }
   /* ▾ indicator on items that have a dropdown */
-  
+  .nav-links li:has(.nav-dropdown) > a::after { content: " ▾"; font-size: 0.65em; opacity: 0.55; vertical-align: middle; pointer-events: none; }
 
 
   /* ── Responsive ────────────────────────────────────────────────────── */
@@ -1340,6 +1330,108 @@ p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
 .badge-us   { background: rgba(20,40,100,0.3); color: #7ab2ff; border: 1px solid rgba(20,40,100,0.45); }
 .badge-au   { background: rgba(0,80,50,0.3);   color: #6ec99a; border: 1px solid rgba(0,100,60,0.45); }
 .badge-lang { background: rgba(74,158,255,0.08); color: var(--muted); border: 1px solid var(--border); }
+.badge-ca   { background: rgba(220,30,30,0.18); color: #ff8a8a; border: 1px solid rgba(220,30,30,0.35); }
+.badge-cn   { background: rgba(220,30,30,0.18); color: #ff8a8a; border: 1px solid rgba(220,30,30,0.35); }
+.badge-me   { background: rgba(0,130,80,0.22);  color: #6ecf9e; border: 1px solid rgba(0,130,80,0.4); }
+
+/* Featured service manual card (US live) */
+.sm-featured {
+  grid-column: 1 / -1;
+  max-width: 380px;
+}
+
+/* Coming-soon compact block */
+.sm-soon-block {
+  grid-column: 1 / -1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sm-soon-block-header {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); padding: 0.6rem 1rem;
+  background: rgba(74,158,255,0.04);
+  border-bottom: 1px solid var(--border);
+}
+.sm-soon-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.sm-soon-row:last-child { border-bottom: none; }
+.sm-soon-region {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.08em;
+  color: var(--muted); flex: 0 0 130px;
+}
+.sm-soon-markets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sm-chip {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.04em;
+  color: var(--muted); opacity: 0.7;
+  background: rgba(74,158,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 4px; padding: 0.15rem 0.5rem;
+}
+@media (max-width: 600px) {
+  .sm-soon-region { flex: 0 0 90px; font-size: 0.7rem; }
+  .sm-chip { font-size: 0.72rem; }
+}
+
+/* Two-level service manual picker (country → language) */
+.sm-picker { grid-column: 1 / -1; max-width: 720px; }
+.sm-picker-steps { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.sm-step { flex: 1 1 280px; display: flex; flex-direction: column; gap: 0.5rem; }
+.sm-step-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 0.5rem;
+}
+.sm-step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(74,158,255,0.12); border: 1px solid rgba(74,158,255,0.35);
+  color: var(--accent); font-size: 0.72rem; font-weight: 600;
+}
+.sm-select {
+  background: #0d1f38; border: 1px solid rgba(74,158,255,0.25);
+  border-radius: 6px; color: #f0f4ff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  padding: 9px 12px; cursor: pointer; width: 100%; outline: none; appearance: auto;
+}
+.sm-select:disabled { opacity: 0.45; cursor: not-allowed; }
+.sm-select:focus { border-color: var(--accent); }
+.sm-picker-result { margin-top: 1.25rem; min-height: 1px; }
+.sm-result-open {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(74,158,255,0.12); border: 1px solid rgba(74,158,255,0.4);
+  color: var(--accent); padding: 0.6rem 1.1rem; border-radius: 6px;
+  text-decoration: none; transition: background 0.18s, transform 0.18s;
+}
+.sm-result-open:hover { background: rgba(74,158,255,0.2); transform: translateY(-1px); }
+.sm-result-open svg { width: 14px; height: 14px; stroke: currentColor; }
+.sm-result-soon {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(74,158,255,0.04); border: 1px dashed var(--border);
+  border-radius: 6px; padding: 0.6rem 1rem;
+}
+.sm-result-soon .sm-soon-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px;
+  background: #d8a23a; box-shadow: 0 0 8px rgba(216,162,58,0.6);
+}
+.sm-result-note {
+  margin-top: 0.55rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+  color: var(--muted); line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .sm-picker-steps { flex-direction: column; gap: 1.1rem; }
+}
 
 /* Language-matched card highlight */
 .om-card.om-match {
@@ -1662,8 +1754,7 @@ function setLang(lang) {
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <span class="version-timestamp" style="font-size: 0.875rem; letter-spacing:0.1em; color:rgba(200,220,255,0.45); white-space:nowrap; flex-shrink:0;" data-i18n="label.updated"><span data-i18n="label.updated">Updated:</span> 27 June 2026</span>
-  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:340px;min-width:120px;">
+  <div id="gs-wrap" style="position:relative;flex:1 1 auto;max-width:460px;min-width:160px;display:flex;align-items:center;">
     <input id="gs-input" type="text" autocomplete="off" spellcheck="false"
       placeholder="Search or ask anything…"
       style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#e8f0ff;font-family:DM Mono, monospace;font-size: 0.875rem;letter-spacing:0.05em;padding:0.28rem 0.65rem;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s;"
@@ -1718,13 +1809,17 @@ function setLang(lang) {
     <ul class="nav-dropdown">
       <li><a href="/how-to-use-range-calc" data-i18n="rc.label">Range Calculator</a></li>
       <li><a href="/how-to-use-scenarios" data-i18n="rc.scenarios.label">Range by Scenario</a></li>
+      <li><a href="/how-to-use-charging" data-i18n="chg.label">Charging Partners</a></li>
     </ul>
   </li>
     <li><a href="how-to-service.html" class="nav-link active" data-i18n="nav.network">How to Service</a>
     <ul class="nav-dropdown">
-      <li><a href="how-to-service.html#locations" data-i18n="hc.24.countries.across.5">24 Countries</a></li>
-      <li><a href="how-to-service.html#warranty" data-i18n="hc.warranty.manual">Warranty Manual</a></li>
       <li><a href="/how-to-service-locations" data-i18n="how-to-service-locations">Service Locations</a></li>
+      <li><a href="/how-to-service-warranty" data-i18n="svc.warranty">Warranty</a></li>
+      <li><a href="/how-to-service-maintenance" data-i18n="svc.maintenance">Maintenance</a></li>
+      <li><a href="/how-to-service-repairs" data-i18n="svc.repairs">Repairs</a></li>
+      <li><a href="/how-to-service-manuals" data-i18n="svc.manuals">Owner Manuals</a></li>
+      <li><a href="how-to-service.html#service-manual-nav">Service Manual</a></li>
     </ul>
   </li>
     <li><a href="technology.html" data-i18n="nav.technology">Technology</a>
@@ -1732,7 +1827,6 @@ function setLang(lang) {
       <li><a href="technology.html#specs-matrix" data-i18n="technology.label">Tech Specs</a></li>
       <li><a href="technology.html#platform" data-i18n="tech.platform.label">Platform Architecture</a></li>
       <li><a href="technology.html#patented" data-i18n="tech.proprietary.label">Proprietary Technology</a></li>
-      <li><a href="technology.html#charging-partners" data-i18n="chg.label">Charging Partners</a></li>
     </ul>
   </li>
     <li><a href="how-to-build.html" data-i18n="nav.manufacturing">How to Build</a>
@@ -2013,7 +2107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="locations" style="padding:1rem 0 1.5rem; scroll-margin-top:120px;"><div id="wr-cat-toggles" style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.5rem;"><button class="wr-cat-tgl" id="wr-tgl-svc" aria-pressed="true" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:999px;color:var(--off-white);font-family:Barlow Condensed, sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:opacity .15s;"><span style="width:11px;height:11px;border-radius:50%;background:#4affb0;flex-shrink:0;"></span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-2.4 2.6-2.6Z"/></svg><span data-i18n="svc.toggle.service">Service Locations</span></button><button class="wr-cat-tgl" id="wr-tgl-parts" aria-pressed="true" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:999px;color:var(--off-white);font-family:Barlow Condensed, sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:opacity .15s;"><span style="width:11px;height:11px;border-radius:50%;background:#b07aff;flex-shrink:0;"></span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><span data-i18n="svc.toggle.parts">Spare Parts Distribution</span></button><button class="wr-cat-tgl" id="wr-tgl-chg" aria-pressed="true" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:999px;color:var(--off-white);font-family:Barlow Condensed, sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:opacity .15s;"><span style="width:11px;height:11px;border-radius:50%;background:#60a5fa;flex-shrink:0;"></span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span data-i18n="svc.toggle.charging">Charging Stations</span></button></div></div><div style="position:relative; width:100%;">
 <div id="wr-tip" style="position:absolute; background:var(--card-bg); border:1px solid var(--border); border-radius:6px; padding: 6px clamp(1.5rem, 5vw, 4rem); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.1em; text-transform:uppercase; color:#4a9eff; pointer-events:none; opacity:0; transition:opacity 0.15s; white-space:nowrap; z-index:30; line-height:1.6;"></div>
 <style>.service-pin circle { transition: r 0.15s; } .service-pin:hover circle { opacity: 1; }</style>
-<div id="svc-map" style="width:100%; height:clamp(480px,58vw,820px); position:relative; z-index:1;"></div>
+<div id="svc-map" style="width:100%; height:calc(100vh - 160px); min-height:500px; position:relative; z-index:1;"></div>
 <!-- Floating side panel — sits over map on desktop, below map on mobile -->
 <div id="wr-panel" style="display:none; position:absolute; width:420px; background:var(--card-bg); border:1px solid var(--border); z-index:20; overflow-y:auto; max-height:100%;">
 <div style="display:flex; align-items:center; justify-content:space-between; padding: 0.9rem clamp(1.5rem, 5vw, 4rem); border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--card-bg); z-index:1;">
@@ -2301,7 +2395,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <a class="news-card" href="https://www.instagram.com/p/DOGIeLQikQ7/" target="_blank" rel="noopener" style="text-decoration:none;">
       <div class="card-country-badge">🇫🇮 Finland · Nordic</div>
-      <div class="news-thumb"><img loading="lazy" src="/images/31cc724485.svg" alt="Windrose electric truck Nordic service Raskone" style="object-fit:contain;background:#0a1628;"></div>
+      <div class="news-thumb"><img loading="lazy" src="https://img.youtube.com/vi/1fhczNbcv0s/maxresdefault.jpg" alt="Windrose electric truck Nordic service Raskone" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-thumb-placeholder" style="display:none;"><svg viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       
       <div class="news-body">
@@ -2320,9 +2414,9 @@ document.addEventListener("DOMContentLoaded", function() {
     </a>
 
   
-<div class="news-card" style="cursor:pointer;" onclick="window.open('https://www.linkedin.com/posts/big-wheels-truck-alignment-australia-is-proud-share-7430417470383009795-iAXa/','_blank')">
+    <div class="news-card" style="cursor:default;">
       <div class="card-country-badge">🇦🇺 Australia · Oceania</div>
-      <div class="news-thumb"><img loading="lazy" src="1771549574652.jpeg" alt="Windrose electric truck Australia Big Wheels" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
+      <div class="news-thumb"><img loading="lazy" src="og/australia-dealer.png" alt="Windrose electric truck Australia Big Wheels" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-thumb-placeholder" style="display:none;"><svg viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="news-body">
         <h3 class="news-title" data-i18n="hc.bigwheels.windrose.official.australian">Big Wheels — Windrose's Official Australian Service Partner</h3>
@@ -2338,307 +2432,295 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="om-nav-header">
   <div class="eyebrow">Owner's Manual</div>
   <h2>Choose Your Edition</h2>
-  <p>Full vehicle handbook in your local language, units, and regulations. Each edition opens in a new tab.</p>
-  <div style="margin-top:1rem;">
-    <select id="om-lang-select" aria-label="Filter by language edition"
-      style="background:#0d1f38;border:1px solid rgba(74,158,255,0.25);border-radius:6px;color:#f0f4ff;font-family:DM Sans,sans-serif;font-size:0.875rem;padding:6px 12px;cursor:pointer;min-width:200px;outline:none;appearance:auto;">
-      <option value="">🌐 All editions</option>
-      <option value="en">🌍 English (Global)</option>
-      <option value="en_us">🇺🇸 English</option>
-      <option value="en_uk">🇬🇧 English</option>
-      <option value="en_au">🇦🇺 English</option>
-      <option value="de">🇩🇪 Deutsch</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="nl">🇳🇱 Nederlands</option>
-      <option value="no">🇳🇴 Norsk</option>
-      <option value="is">🇮🇸 Íslenska</option>
-      <option value="sv">🇸🇪 Svenska</option>
-      <option value="fi">🇫🇮 Suomi</option>
-      <option value="da">🇩🇰 Dansk</option>
-      <option value="pl">🇵🇱 Polski</option>
-      <option value="it">🇮🇹 Italiano</option>
-      <option value="es">🇪🇸 Español</option>
-      <option value="pt">🇵🇹 Português</option>
-      <option value="zh">🇨🇳 简体中文</option>
-      <option value="zh_tw">🇭🇰 繁體中文</option>
-      <option value="ja">🇯🇵 日本語</option>
-      <option value="ko">🇰🇷 한국어</option>
-      <option value="tr">🇹🇷 Türkçe</option>
-      <option value="he">🇮🇱 עברית</option>
-      <option value="ar">🇸🇦 العربية</option>
-    </select>
-  </div>
+  <p>Select your country, then your language. Each edition is localised for that market’s units, regulations, and emergency numbers — and opens in a new tab.</p>
 </div>
 <div class="om-nav-grid" id="om-nav-grid">
 
-  <div class="om-group-label">English — Regional Editions</div>
-
-  <a class="om-card" data-edition="en" href="/owners-manual-eu/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🌍</div>
-    <div class="om-card-badge badge-eu">EU / Global</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. ECE/UNECE, EU directives.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-gb" href="/owners-manual-uk/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇬🇧</div>
-    <div class="om-card-badge badge-uk">UK Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. DVSA, GBWVTA, Construction &amp; Use Regs 1986. 999 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-us" href="/owners-manual-us/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇺🇸</div>
-    <div class="om-card-badge badge-us">US Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Imperial units (mph, miles, psi, °F, hp). NHTSA, FMVSS. 911 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="en-au" href="/owners-manual-au/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Your language</div>
-    <div class="om-card-flag">🇦🇺</div>
-    <div class="om-card-badge badge-au">AU Edition</div>
-    <div class="om-card-title">English</div>
-    <div class="om-card-sub">Metric. NHVR, ADR, RVSA 2018, GVM. 000 emergency.</div>
-    <div class="om-card-arrow">Open <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Central &amp; Western Europe</div>
-
-  <a class="om-card" data-edition="de" href="/owners-manual-german/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ihre Sprache</div>
-    <div class="om-card-flag">🇩🇪</div>
-    <div class="om-card-badge badge-lang">Deutsch</div>
-    <div class="om-card-title">Deutsch</div>
-    <div class="om-card-sub">Metrisch. EU-Vorschriften (ECE/UNECE). Notruf 112.</div>
-    <div class="om-card-arrow">Öffnen <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="nl" href="/owners-manual-dutch/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Uw taal</div>
-    <div class="om-card-flag">🇳🇱</div>
-    <div class="om-card-badge badge-lang">Nederlands</div>
-    <div class="om-card-title">Nederlands</div>
-    <div class="om-card-sub">Metrisch. EU-regelgeving (ECE/UNECE). Noodnummer 112.</div>
-    <div class="om-card-arrow">Openen <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="fr" href="/owners-manual-french/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Votre langue</div>
-    <div class="om-card-flag">🇫🇷</div>
-    <div class="om-card-badge badge-lang">Français</div>
-    <div class="om-card-title">Français</div>
-    <div class="om-card-sub">Métrique. Réglementation européenne (ECE/UNECE). Urgence 112.</div>
-    <div class="om-card-arrow">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="it" href="/owners-manual-italian/" target="_blank" rel="noopener">
-    <div class="om-match-pill">La tua lingua</div>
-    <div class="om-card-flag">🇮🇹</div>
-    <div class="om-card-badge badge-lang">Italiano</div>
-    <div class="om-card-title">Italiano</div>
-    <div class="om-card-sub">Metrico. Normativa UE (ECE/UNECE). Emergenza 112.</div>
-    <div class="om-card-arrow">Apri <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="es" href="/owners-manual-spanish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Tu idioma</div>
-    <div class="om-card-flag">🇪🇸</div>
-    <div class="om-card-badge badge-lang">Español</div>
-    <div class="om-card-title">Español</div>
-    <div class="om-card-sub">Métrico. Normativa europea (ECE/UNECE). Emergencia 112.</div>
-    <div class="om-card-arrow">Abrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="pt" href="/owners-manual-portuguese/" target="_blank" rel="noopener">
-    <div class="om-match-pill">O seu idioma</div>
-    <div class="om-card-flag">🇵🇹</div>
-    <div class="om-card-badge badge-lang">Português</div>
-    <div class="om-card-title">Português</div>
-    <div class="om-card-sub">Métrico. Regulamentação europeia (ECE/UNECE). Emergência 112.</div>
-    <div class="om-card-arrow">Abrir <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="pl" href="/owners-manual-polish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Twój język</div>
-    <div class="om-card-flag">🇵🇱</div>
-    <div class="om-card-badge badge-lang">Polski</div>
-    <div class="om-card-title">Polski</div>
-    <div class="om-card-sub">Metryczny. Regulacje UE (ECE/UNECE). Numer alarmowy 112.</div>
-    <div class="om-card-arrow">Otwórz <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Nordic &amp; Baltic</div>
-
-  <a class="om-card" data-edition="no" href="/owners-manual-norsk/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ditt språk</div>
-    <div class="om-card-flag">🇳🇴</div>
-    <div class="om-card-badge badge-lang">Norsk</div>
-    <div class="om-card-title">Norsk</div>
-    <div class="om-card-sub">Metrisk. EU/EØS-regelverk. Nødnummer 112.</div>
-    <div class="om-card-arrow">Åpne <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="sv" href="/owners-manual-swedish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Ditt språk</div>
-    <div class="om-card-flag">🇸🇪</div>
-    <div class="om-card-badge badge-lang">Svenska</div>
-    <div class="om-card-title">Svenska</div>
-    <div class="om-card-sub">Metriskt. EU-regelverk (ECE/UNECE). Nödnummer 112.</div>
-    <div class="om-card-arrow">Öppna <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="da" href="/owners-manual-danish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Dit sprog</div>
-    <div class="om-card-flag">🇩🇰</div>
-    <div class="om-card-badge badge-lang">Dansk</div>
-    <div class="om-card-title">Dansk</div>
-    <div class="om-card-sub">Metrisk. EU-regulering (ECE/UNECE). Nødnummer 112.</div>
-    <div class="om-card-arrow">Åbn <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="fi" href="/owners-manual-finnish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Kielesi</div>
-    <div class="om-card-flag">🇫🇮</div>
-    <div class="om-card-badge badge-lang">Suomi</div>
-    <div class="om-card-title">Suomi</div>
-    <div class="om-card-sub">Metrinen. EU-säädökset (ECE/UNECE). Hätänumero 112.</div>
-    <div class="om-card-arrow">Avaa <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="is" href="/owners-manual-icelandic/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Þitt tungumál</div>
-    <div class="om-card-flag">🇮🇸</div>
-    <div class="om-card-badge badge-lang">Íslenska</div>
-    <div class="om-card-title">Íslenska</div>
-    <div class="om-card-sub">Metrakerfi. EES-reglugerðir (ECE/UNECE). Neyðarlína 112.</div>
-    <div class="om-card-arrow">Opna <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">Middle East</div>
-
-  <a class="om-card" data-edition="ar" href="/owners-manual-arabic/" target="_blank" rel="noopener" dir="ltr">
-    <div class="om-match-pill">لغتك</div>
-    <div class="om-card-flag">🇸🇦</div>
-    <div class="om-card-badge badge-lang">العربية</div>
-    <div class="om-card-title">العربية</div>
-    <div class="om-card-sub">متري. لوائح أوروبية (ECE/UNECE). الطوارئ 112.</div>
-    <div class="om-card-arrow">فتح <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="he" href="/owners-manual-hebrew/" target="_blank" rel="noopener" dir="ltr">
-    <div class="om-match-pill">השפה שלך</div>
-    <div class="om-card-flag">🇮🇱</div>
-    <div class="om-card-badge badge-lang">עברית</div>
-    <div class="om-card-title">עברית</div>
-    <div class="om-card-sub">מטרי. תקנות אירופיות. חירום 112.</div>
-    <div class="om-card-arrow">פתח <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="tr" href="/owners-manual-turkish/" target="_blank" rel="noopener">
-    <div class="om-match-pill">Diliniz</div>
-    <div class="om-card-flag">🇹🇷</div>
-    <div class="om-card-badge badge-lang">Türkçe</div>
-    <div class="om-card-title">Türkçe</div>
-    <div class="om-card-sub">Metrik. Avrupa yönetmelikleri (ECE/UNECE). Acil 112.</div>
-    <div class="om-card-arrow">Aç <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <div class="om-group-label">East Asia</div>
-
-  <a class="om-card" data-edition="ja" href="/owners-manual-japanese/" target="_blank" rel="noopener">
-    <div class="om-match-pill">あなたの言語</div>
-    <div class="om-card-flag">🇯🇵</div>
-    <div class="om-card-badge badge-lang">日本語</div>
-    <div class="om-card-title">日本語</div>
-    <div class="om-card-sub">メートル法。MLIT（国土交通省）基準。緊急110/119。</div>
-    <div class="om-card-arrow">開く <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="ko" href="/owners-manual-korean/" target="_blank" rel="noopener">
-    <div class="om-match-pill">귀하의 언어</div>
-    <div class="om-card-flag">🇰🇷</div>
-    <div class="om-card-badge badge-lang">한국어</div>
-    <div class="om-card-title">한국어</div>
-    <div class="om-card-sub">미터법. 국토교통부(MOLIT) 기준. 긴급 112/119.</div>
-    <div class="om-card-arrow">열기 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="zh" href="/windrose-user-manual-zh.html" target="_blank" rel="noopener">
-    <div class="om-match-pill">您的语言</div>
-    <div class="om-card-flag">🇨🇳</div>
-    <div class="om-card-badge badge-lang">中文（简体）</div>
-    <div class="om-card-title">中文（简体）</div>
-    <div class="om-card-sub">公制。中国标准（GB）。紧急 110/119。</div>
-    <div class="om-card-arrow">打开 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
-
-  <a class="om-card" data-edition="zh_tw" href="/owners-manual-chinese-traditional/" target="_blank" rel="noopener">
-    <div class="om-match-pill">您的語言</div>
-    <div class="om-card-flag">🇭🇰</div>
-    <div class="om-card-badge badge-lang">中文（繁體）</div>
-    <div class="om-card-title">中文（繁體）香港</div>
-    <div class="om-card-sub">公制。香港運輸署（HKSAR）標準。緊急 999。</div>
-    <div class="om-card-arrow">開啟 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-  </a>
+  <div class="sm-picker" id="om-picker">
+    <div class="sm-picker-steps">
+      <div class="sm-step">
+        <label class="sm-step-label" for="om-country-select"><span class="sm-step-num">1</span> Country / Region</label>
+        <select id="om-country-select" class="sm-select" aria-label="Select country or region">
+          <option value="">Select a country…</option>
+        </select>
+      </div>
+      <div class="sm-step">
+        <label class="sm-step-label" for="om-lang-select2"><span class="sm-step-num">2</span> Language</label>
+        <select id="om-lang-select2" class="sm-select" aria-label="Select language" disabled>
+          <option value="">Choose a country first</option>
+        </select>
+      </div>
+    </div>
+    <div class="sm-picker-result" id="om-picker-result"></div>
+  </div>
 
 </div>
 </section>
+
+<!-- SERVICE MANUAL NAV MAP -->
+<section class="om-nav-section" id="service-manual-nav">
+<div class="om-nav-header">
+  <div class="eyebrow">Service Manual</div>
+  <h2>Choose Your Market</h2>
+  <p>Select your country, then your language. Each edition covers the homologated vehicle model for that market — regulations, units, and component specifications vary by region.</p>
+</div>
+<div class="om-nav-grid" id="sm-nav-grid">
+
+  <!-- ── Two-level picker: country → language ───────────── -->
+  <div class="sm-picker" id="sm-picker">
+    <div class="sm-picker-steps">
+      <div class="sm-step">
+        <label class="sm-step-label" for="sm-country-select"><span class="sm-step-num">1</span> Country / Region</label>
+        <select id="sm-country-select" class="sm-select" aria-label="Select country or region">
+          <option value="">Select a country…</option>
+        </select>
+      </div>
+      <div class="sm-step">
+        <label class="sm-step-label" for="sm-lang-select"><span class="sm-step-num">2</span> Language</label>
+        <select id="sm-lang-select" class="sm-select" aria-label="Select language" disabled>
+          <option value="">Choose a country first</option>
+        </select>
+      </div>
+    </div>
+    <div class="sm-picker-result" id="sm-picker-result"></div>
+  </div>
+
+</div>
+</section>
+
 <script>
+/* Service Manual — two-level country → language picker */
 (function(){
-  var map = {
-    'en':'en','en_us':'en-us','en_uk':'en-gb','en_au':'en-au','de':'de','fr':'fr','es':'es','zh':'zh','zh_tw':'zh_tw',
-    'ja':'ja','ko':'ko','nl':'nl','pt':'pt','it':'it','no':'no',
-    'da':'da','fi':'fi','sv':'sv','pl':'pl','is':'is','ar':'ar','he':'he','tr':'tr'
-  };
-  function applyMatch() {
-    var lang = '';
-    try { lang = localStorage.getItem('wr-lang') || ''; } catch(e){}
-    var edition = map[lang] || '';
-    var hasLang = lang && map[lang];
-    document.querySelectorAll('#om-nav-grid .om-card').forEach(function(c){
-      c.classList.remove('om-match');
-      c.style.display = hasLang ? (c.getAttribute('data-edition') === edition ? '' : 'none') : '';
+  var SM_MARKETS = [
+    { region: "North America", countries: [
+      { flag:"🇺🇸", name:"United States", langs:[ {label:"English (US)", url:"/service-manual-us/"} ] },
+      { flag:"🇨🇦", name:"Canada", langs:[ {label:"English"}, {label:"Français"} ] },
+      { flag:"🇲🇽", name:"Mexico", langs:[ {label:"Español"}, {label:"English"} ] }
+    ]},
+    { region: "South America", countries: [
+      { flag:"🇨🇱", name:"Chile", langs:[ {label:"Español"} ] }
+    ]},
+    { region: "Europe", countries: [
+      { flag:"🇪🇺", name:"European Union", langs:[ {label:"English"},{label:"Deutsch"},{label:"Français"},{label:"Italiano"},{label:"Español"},{label:"Português"},{label:"Nederlands"},{label:"Polski"},{label:"Svenska"},{label:"Norsk"},{label:"Dansk"},{label:"Suomi"},{label:"Íslenska"} ] },
+      { flag:"🇬🇧", name:"United Kingdom", langs:[ {label:"English (UK)"} ] }
+    ]},
+    { region: "Asia Pacific", countries: [
+      { flag:"🇦🇺", name:"Australia", langs:[ {label:"English (AU)"} ] },
+      { flag:"🇳🇿", name:"New Zealand", langs:[ {label:"English"} ] },
+      { flag:"🇨🇳", name:"China", langs:[ {label:"中文（简体）"} ] }
+    ]},
+    { region: "Middle East and Africa", countries: [
+      { flag:"🇦🇪", name:"GCC / UAE", langs:[ {label:"العربية"},{label:"English"} ] },
+      { flag:"🇮🇱", name:"Israel", langs:[ {label:"עברית"},{label:"English"} ] }
+    ]}
+  ];
+
+  var countrySel = document.getElementById('sm-country-select');
+  var langSel = document.getElementById('sm-lang-select');
+  var result = document.getElementById('sm-picker-result');
+  if (!countrySel || !langSel || !result) return;
+
+  // Step 1 — build region-grouped country options
+  SM_MARKETS.forEach(function(grp, ri){
+    var og = document.createElement('optgroup');
+    og.label = grp.region;
+    grp.countries.forEach(function(c, ci){
+      var opt = document.createElement('option');
+      opt.value = ri + '-' + ci;
+      opt.textContent = c.flag + '  ' + c.name;
+      og.appendChild(opt);
     });
-    document.querySelectorAll('#om-nav-grid .om-group-label').forEach(function(l){
-      l.style.display = hasLang ? 'none' : '';
-    });
-    if (hasLang) {
-      var card = document.querySelector('#om-nav-grid .om-card[data-edition="' + edition + '"]');
-      if (card) card.classList.add('om-match');
-    }
-    // Keep om-lang-select in sync
-    var omSel = document.getElementById('om-lang-select');
-    if (omSel) {
-      for (var i = 0; i < omSel.options.length; i++) {
-        if (omSel.options[i].value === lang) { omSel.selectedIndex = i; break; }
-        if (i === omSel.options.length - 1) omSel.selectedIndex = 0; // fallback to "All"
-      }
+    countrySel.appendChild(og);
+  });
+
+  function getCountry(val){
+    if (!val) return null;
+    var p = val.split('-');
+    return SM_MARKETS[+p[0]].countries[+p[1]];
+  }
+
+  function renderResult(country, lang){
+    result.innerHTML = '';
+    if (!country || !lang) return;
+    if (lang.url){
+      var a = document.createElement('a');
+      a.className = 'sm-result-open';
+      a.href = lang.url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = 'Open ' + country.name + ' · ' + lang.label +
+        ' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>';
+      result.appendChild(a);
+    } else {
+      var d = document.createElement('div');
+      d.className = 'sm-result-soon';
+      d.innerHTML = '<span class="sm-soon-dot"></span><span>' + country.name + ' · ' + lang.label + ' — coming soon</span>';
+      result.appendChild(d);
     }
   }
-  document.addEventListener('DOMContentLoaded', function(){
-    applyMatch();
-    var omSel = document.getElementById('om-lang-select');
-    if (omSel) {
-      omSel.addEventListener('change', function(){
-        var v = this.value;
-        if (v && window.setLang) { window.setLang(v); }
-        else if (!v) {
-          // "All editions" — clear lang filter but keep site language as-is
-          try { localStorage.removeItem('wr-lang'); } catch(e){}
-          applyMatch();
-        }
-      });
+
+  // Step 2 — populate languages for the chosen country
+  function populateLangs(country){
+    langSel.innerHTML = '';
+    if (!country){
+      langSel.disabled = true;
+      var o0 = document.createElement('option');
+      o0.value = ''; o0.textContent = 'Choose a country first';
+      langSel.appendChild(o0);
+      return;
+    }
+    langSel.disabled = false;
+    if (country.langs.length > 1){
+      var ph = document.createElement('option');
+      ph.value = ''; ph.textContent = 'Select a language…';
+      langSel.appendChild(ph);
+    }
+    country.langs.forEach(function(l, li){
+      var o = document.createElement('option');
+      o.value = String(li);
+      o.textContent = l.label + (l.url ? '  ✓ Available now' : '  · Coming soon');
+      langSel.appendChild(o);
+    });
+  }
+
+  countrySel.addEventListener('change', function(){
+    var country = getCountry(this.value);
+    populateLangs(country);
+    result.innerHTML = '';
+    // Single-language markets: auto-select to save a click
+    if (country && country.langs.length === 1){
+      langSel.selectedIndex = 0;
+      renderResult(country, country.langs[0]);
     }
   });
-  window.addEventListener('storage', function(e){
-    if (e.key === 'wr-lang') applyMatch();
+
+  langSel.addEventListener('change', function(){
+    var country = getCountry(countrySel.value);
+    if (!country || this.value === ''){ result.innerHTML = ''; return; }
+    renderResult(country, country.langs[+this.value]);
+  });
+})();
+</script>
+
+<script>
+/* Owner's Manual — two-level country → language picker */
+(function(){
+  var OM_MARKETS = [
+    { region: "North America", countries: [
+      { flag:"🇺🇸", name:"United States", langs:[ {label:"English (US)", url:"/owners-manual-us/", note:"Imperial units. NHTSA / FMVSS. Emergency 911."} ] },
+      { flag:"🇨🇦", name:"Canada", langs:[ {label:"English", url:"/owners-manual-us/", note:"Served by the US English edition."}, {label:"Français", url:"/owners-manual-french/", note:"Édition française."} ] },
+      { flag:"🇲🇽", name:"Mexico", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Edición en español."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] }
+    ]},
+    { region: "South America", countries: [
+      { flag:"🇨🇱", name:"Chile", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Edición en español."} ] }
+    ]},
+    { region: "Europe", countries: [
+      { flag:"🇪🇺", name:"European Union", langs:[ {label:"English", url:"/owners-manual-eu/", note:"Metric. ECE/UNECE, EU directives. Emergency 112."} ] },
+      { flag:"🇬🇧", name:"United Kingdom", langs:[ {label:"English (UK)", url:"/owners-manual-uk/", note:"Metric. DVSA, GBWVTA. Emergency 999."} ] },
+      { flag:"🇩🇪", name:"Germany", langs:[ {label:"Deutsch", url:"/owners-manual-german/", note:"Metrisch. EU (ECE/UNECE). Notruf 112."} ] },
+      { flag:"🇫🇷", name:"France", langs:[ {label:"Français", url:"/owners-manual-french/", note:"Métrique. ECE/UNECE. Urgence 112."} ] },
+      { flag:"🇮🇹", name:"Italy", langs:[ {label:"Italiano", url:"/owners-manual-italian/", note:"Metrico. UE (ECE/UNECE). Emergenza 112."} ] },
+      { flag:"🇪🇸", name:"Spain", langs:[ {label:"Español", url:"/owners-manual-spanish/", note:"Métrico. ECE/UNECE. Emergencia 112."} ] },
+      { flag:"🇵🇹", name:"Portugal", langs:[ {label:"Português", url:"/owners-manual-portuguese/", note:"Métrico. ECE/UNECE. Emergência 112."} ] },
+      { flag:"🇳🇱", name:"Netherlands", langs:[ {label:"Nederlands", url:"/owners-manual-dutch/", note:"Metrisch. EU (ECE/UNECE). Noodnummer 112."} ] },
+      { flag:"🇵🇱", name:"Poland", langs:[ {label:"Polski", url:"/owners-manual-polish/", note:"Metryczny. UE (ECE/UNECE). Alarmowy 112."} ] },
+      { flag:"🇳🇴", name:"Norway", langs:[ {label:"Norsk", url:"/owners-manual-norsk/", note:"Metrisk. EU/EØS. Nødnummer 112."} ] },
+      { flag:"🇸🇪", name:"Sweden", langs:[ {label:"Svenska", url:"/owners-manual-swedish/", note:"Metriskt. EU (ECE/UNECE). Nödnummer 112."} ] },
+      { flag:"🇩🇰", name:"Denmark", langs:[ {label:"Dansk", url:"/owners-manual-danish/", note:"Metrisk. EU (ECE/UNECE). Nødnummer 112."} ] },
+      { flag:"🇫🇮", name:"Finland", langs:[ {label:"Suomi", url:"/owners-manual-finnish/", note:"Metrinen. EU (ECE/UNECE). Hätänumero 112."} ] },
+      { flag:"🇮🇸", name:"Iceland", langs:[ {label:"Íslenska", url:"/owners-manual-icelandic/", note:"Metrakerfi. EES (ECE/UNECE). Neyðarlína 112."} ] }
+    ]},
+    { region: "Asia Pacific", countries: [
+      { flag:"🇦🇺", name:"Australia", langs:[ {label:"English (AU)", url:"/owners-manual-au/", note:"Metric. NHVR, ADR, RVSA 2018. Emergency 000."} ] },
+      { flag:"🇳🇿", name:"New Zealand", langs:[ {label:"English", url:"/owners-manual-au/", note:"Served by the Australian edition."} ] },
+      { flag:"🇨🇳", name:"China", langs:[ {label:"中文（简体）", url:"/windrose-user-manual-zh.html", note:"公制。中国标准（GB）。紧急 110/119。"} ] },
+      { flag:"🇭🇰", name:"Hong Kong", langs:[ {label:"中文（繁體）", url:"/owners-manual-chinese-traditional/", note:"公制。香港運輸署標準。緊急 999。"} ] },
+      { flag:"🇯🇵", name:"Japan", langs:[ {label:"日本語", url:"/owners-manual-japanese/", note:"メートル法。MLIT基準。緊急 110/119。"} ] },
+      { flag:"🇰🇷", name:"South Korea", langs:[ {label:"한국어", url:"/owners-manual-korean/", note:"미터법. MOLIT 기준. 긴급 112/119."} ] }
+    ]},
+    { region: "Middle East and Africa", countries: [
+      { flag:"🇦🇪", name:"GCC / UAE", langs:[ {label:"العربية", url:"/owners-manual-arabic/", note:"متري. لوائح أوروبية (ECE/UNECE)."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] },
+      { flag:"🇸🇦", name:"Saudi Arabia", langs:[ {label:"العربية", url:"/owners-manual-arabic/", note:"متري. لوائح أوروبية (ECE/UNECE)."} ] },
+      { flag:"🇮🇱", name:"Israel", langs:[ {label:"עברית", url:"/owners-manual-hebrew/", note:"מטרי. תקנות אירופיות. חירום 112."}, {label:"English", url:"/owners-manual-eu/", note:"Global English edition."} ] },
+      { flag:"🇹🇷", name:"Turkey", langs:[ {label:"Türkçe", url:"/owners-manual-turkish/", note:"Metrik. Avrupa yönetmelikleri (ECE/UNECE). Acil 112."} ] }
+    ]}
+  ];
+
+  var countrySel = document.getElementById('om-country-select');
+  var langSel = document.getElementById('om-lang-select2');
+  var result = document.getElementById('om-picker-result');
+  if (!countrySel || !langSel || !result) return;
+
+  OM_MARKETS.forEach(function(grp, ri){
+    var og = document.createElement('optgroup');
+    og.label = grp.region;
+    grp.countries.forEach(function(c, ci){
+      var opt = document.createElement('option');
+      opt.value = ri + '-' + ci;
+      opt.textContent = c.flag + '  ' + c.name;
+      og.appendChild(opt);
+    });
+    countrySel.appendChild(og);
+  });
+
+  function getCountry(val){
+    if (!val) return null;
+    var p = val.split('-');
+    return OM_MARKETS[+p[0]].countries[+p[1]];
+  }
+
+  function renderResult(country, lang){
+    result.innerHTML = '';
+    if (!country || !lang) return;
+    var a = document.createElement('a');
+    a.className = 'sm-result-open';
+    a.href = lang.url; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = 'Open ' + country.name + ' · ' + lang.label +
+      ' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>';
+    result.appendChild(a);
+    if (lang.note){
+      var n = document.createElement('div');
+      n.className = 'sm-result-note';
+      n.textContent = lang.note;
+      result.appendChild(n);
+    }
+  }
+
+  function populateLangs(country){
+    langSel.innerHTML = '';
+    if (!country){
+      langSel.disabled = true;
+      var o0 = document.createElement('option');
+      o0.value = ''; o0.textContent = 'Choose a country first';
+      langSel.appendChild(o0);
+      return;
+    }
+    langSel.disabled = false;
+    if (country.langs.length > 1){
+      var ph = document.createElement('option');
+      ph.value = ''; ph.textContent = 'Select a language…';
+      langSel.appendChild(ph);
+    }
+    country.langs.forEach(function(l, li){
+      var o = document.createElement('option');
+      o.value = String(li);
+      o.textContent = l.label;
+      langSel.appendChild(o);
+    });
+  }
+
+  countrySel.addEventListener('change', function(){
+    var country = getCountry(this.value);
+    populateLangs(country);
+    result.innerHTML = '';
+    if (country && country.langs.length === 1){
+      langSel.selectedIndex = 0;
+      renderResult(country, country.langs[0]);
+    }
+  });
+
+  langSel.addEventListener('change', function(){
+    var country = getCountry(countrySel.value);
+    if (!country || this.value === ''){ result.innerHTML = ''; return; }
+    renderResult(country, country.langs[+this.value]);
   });
 })();
 </script>
@@ -6075,6 +6157,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 <footer style="background:#040b14; border-top:1px solid var(--border); padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem) 0;">
+<div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem; margin-bottom:3rem;">
+<a class="logo" href="#" style="font-size: 1.25rem;">Home</a>
+<p data-i18n="footer.tagline" style="font-size: 0.875rem; color:var(--muted); max-width:340px; line-height:1.65;">Building the electric trucks that move the world — cleaner, smarter, and further.</p>
+</div>
 
   <!-- TABLE OF CONTENTS -->
   <div aria-label="Site map" role="navigation" style="border-top:1px solid var(--border); padding-top:3rem; margin-bottom:3rem;">
@@ -6084,23 +6170,23 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="index.html" class="footer-toc-head" data-i18n="nav.home">Home</a>
         <ul class="footer-toc-list"><li><a href="home-generations.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="home-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="home-news.html" class="toc-link" data-i18n="news.label">News</a></li></ul>
         <a href="how-to-buy.html" class="footer-toc-head" data-i18n="nav.pricing">How to Buy</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-buy-pricing.html" class="toc-link" data-i18n="pricing.label">Pricing</a></li><li><a href="how-to-buy-tco.html" class="toc-link" data-i18n="tco.label">Lease &amp; TCO Calculator</a></li><li><a href="how-to-buy-dealers.html" class="toc-link" data-i18n="buy.dealers.label">Dealers</a></li></ul>
       </div>
       <div>
         <a href="how-to-use.html" class="footer-toc-head" data-i18n="nav.howtouse">How to Use</a>
-        <ul class="footer-toc-list"><li><a href="how-to-use-range-calc.html" class="toc-link" data-i18n="rc.label">Range Calculator</a></li><li><a href="how-to-use-scenarios.html" class="toc-link" data-i18n="rc.scenarios.label">Range by Scenario</a></li></ul>
+        <ul class="footer-toc-list"><li><a href="how-to-use-range-calc.html" class="toc-link" data-i18n="rc.label">Range Calculator</a></li><li><a href="how-to-use-scenarios.html" class="toc-link" data-i18n="rc.scenarios.label">Range by Scenario</a></li><li><a href="how-to-use-charging.html" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
         <a href="how-to-service.html" class="footer-toc-head" data-i18n="nav.network">How to Service</a>
         <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-service-locations.html" class="toc-link" data-i18n="how-to-service-locations">Service Locations</a></li><li><a href="how-to-service-warranty.html" class="toc-link" data-i18n="svc.warranty">Warranty</a></li><li><a href="how-to-service-maintenance.html" class="toc-link" data-i18n="svc.maintenance">Maintenance</a></li><li><a href="how-to-service-repairs.html" class="toc-link" data-i18n="svc.repairs">Repairs</a></li><li><a href="how-to-service-manuals.html" class="toc-link" data-i18n="svc.manuals">Owner Manuals</a></li></ul>
       </div>
       <div>
         <a href="technology.html" class="footer-toc-head" data-i18n="nav.technology">Technology</a>
-        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology-roadmap.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li><li><a href="technology.html#charging-partners" class="toc-link" data-i18n="chg.label">Charging Partners</a></li></ul>
+        <ul class="footer-toc-list"><li><a href="technology-specs.html" class="toc-link" data-i18n="technology.label">Tech Specs</a></li><li><a href="technology-roadmap.html" class="toc-link" data-i18n="gen.label">Platform Roadmap</a></li></ul>
         <a href="how-to-build.html" class="footer-toc-head" data-i18n="nav.manufacturing">How to Build</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
-        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li></ul>
+        <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="home-news.html" class="toc-link" data-i18n="press.label">Press &amp; News</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.award.badge">Recognition</a></li><li><a href="about-us.html" class="toc-link" data-i18n="about.truck.label">E700 Truck</a></li></ul>
       </div>
     </div>
   </div>
@@ -7106,23 +7192,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Click or Escape to skip
-  splash.addEventListener('click', function(e){
+  splash.addEventListener('click', function(){
     document.body.style.overflow = '';
     dismiss();
-    // Pass through to a link underneath if the user clicked on one
-    splash.style.pointerEvents = 'none';
-    var el = document.elementFromPoint(e.clientX, e.clientY);
-    splash.style.pointerEvents = '';
-    if (el) {
-      var a = el.closest ? el.closest('a[href]') : null;
-      if (!a && el.tagName === 'A' && el.href) a = el;
-      if (a && a.href) {
-        var dest = a.getAttribute('href');
-        if (dest && dest !== '#' && !dest.startsWith('#')) {
-          window.location.href = a.href;
-        }
-      }
-    }
   });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){ document.body.style.overflow = ''; dismiss(); }
@@ -7142,7 +7214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Windrose Globe: service & parts layers -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-<script src="./windrose-globe.js?v=7"></script>
+<script src="./windrose-globe.js"></script>
 <script>
 (function(){
   function ready(fn){ if(document.readyState!=='loading')fn(); else document.addEventListener('DOMContentLoaded',fn); }
@@ -7151,9 +7223,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if(!el || el.dataset.ready) return;
     el.dataset.ready='1';
 
-    // Initialise globe showing service + parts by default
+    // Initialise flat map showing service + parts by default
     var globeApi = null;
     WindroseGlobe.init('svc-map', {
+      flat: true,
       layers: ['service','parts','mcs','ccs'],
       defaultLayers: ['service','parts'],
       showLayerBar: false,
