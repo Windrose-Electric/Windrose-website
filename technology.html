@@ -105,7 +105,7 @@
 
   /* Nav */
   nav {
-    position: fixed; top: 74px; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
     height: 44px; background: rgba(6,15,30,0.97);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: stretch;
@@ -248,7 +248,7 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    padding-top: 118px;
+    padding-top: 88px;
   }
   button,input,select,textarea{font-family:inherit;}
 
@@ -410,7 +410,7 @@
   }
   
   .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .news-thumb { width: 100%; aspect-ratio: 4/3; max-height: 220px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
+  .news-thumb { width: 100%; aspect-ratio: 1/1; max-height: 280px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
   .news-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .news-thumb-placeholder {
     width: 100%; height: 120px; flex-shrink: 0;
@@ -456,7 +456,7 @@
   .video-card { display: flex; text-decoration: none; background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; border-radius: var(--card-radius); flex-direction: column; height: 100%; }
   .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
   .video-thumb-wrap {
-    position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+    position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
   }
   .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .vthumb-fallback {
@@ -631,7 +631,7 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
   /* ══ ROADMAP PAGE MOBILE ══════════════════════════════════════════════ */
 
 
-  body { padding-top: 118px; }
+  body { padding-top: 88px; }
 
   /* ── Hamburger menu (tablet + mobile) ───────────────────────────── */
   
@@ -725,14 +725,14 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
   .lang-btn { font-size: 0.875rem; min-width: 48px; padding: 0 0.4rem; height: 36px; letter-spacing: 0.02em; }
 
   /* ── NAV ── */
-  nav { top: 72px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav { top: 36px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   nav::-webkit-scrollbar { display: none; }
   .logo { font-size: 1.0rem; padding: 0 0.8rem; flex-shrink: 0; }
   .nav-links li { flex: 0 0 auto; min-width: auto; }
   .nav-links a { font-size: 0.875rem; padding: 0 0.8rem; white-space: nowrap; letter-spacing: 0.04em; }
 
   /* ── BODY OFFSET ── */
-  body { padding-top: 116px; }
+  body { padding-top: 80px; }
 
   /* ── SECTION SPACING ── */
   section, .hero { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
@@ -847,13 +847,11 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   body.scrolled-down #topbar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-  body.scrolled-down #lang-row { transform: translateY(-38px); }
-  body.scrolled-down nav { transform: translateY(-38px); }
-  body.scrolled-down { padding-top: 80px !important; }
+  body.scrolled-down nav { transform: translateY(-44px); }
+  body.scrolled-down { padding-top: 44px !important; }
   @media (max-width: 600px) {
-    body.scrolled-down #lang-row { transform: translateY(-36px); }
     body.scrolled-down nav { transform: translateY(-36px); }
-    body.scrolled-down { padding-top: 80px !important; }
+    body.scrolled-down { padding-top: 44px !important; }
   }
 
   /* Page load fade-in */
@@ -4242,9 +4240,9 @@ function setLang(lang) {
 <script src="https://js.stripe.com/v3/" async></script>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <link rel="preload" href="/assets/Frame.glb" as="fetch" crossorigin>
-<link rel="preload" href="/models/windrose-truck.glb" as="fetch" crossorigin>
+<link rel="preload" href="/assets/Windrose-truck-3D.glb" as="fetch" crossorigin>
 
-<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:120px;}</style>
+<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:96px;}</style>
 </head>
 <body>
 <script>
@@ -4336,13 +4334,7 @@ function setLang(lang) {
       onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
     <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
-  <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
-</div>
-
-<!-- LANG ROW -->
-<div id="platform" style="position:relative;top:-60px;"></div><div id="lang-row" style="background:rgba(6,15,30,0.97);border-bottom:1px solid var(--border);padding:3px clamp(1rem,3vw,2rem);display:flex;align-items:center;gap:0.75rem;overflow-x:auto;white-space:nowrap;scrollbar-width:none;">
-  <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language"
-    style="background:#0d1f38;border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#f0f4ff;font-family:DM Sans, sans-serif;font-size:0.875rem;padding:4px 10px;cursor:pointer;min-width:160px;max-width:220px;outline:none;appearance:auto;">
+  <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language" style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.35);border-radius:4px;color:#e8f0ff;font-family:DM Sans,sans-serif;font-size:0.82rem;padding:3px 6px;cursor:pointer;outline:none;appearance:auto;flex-shrink:0;max-width:175px;">
     <option value="en">🌍 English (Global)</option>
     <option value="en_us">🇺🇸 English</option>
     <option value="en_uk">🇬🇧 English</option>
@@ -4367,7 +4359,11 @@ function setLang(lang) {
     <option value="he">🇮🇱 עברית</option>
     <option value="ar">🇸🇦 العربية</option>
   </select>
+  <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
+
+<!-- LANG ROW -->
+<div id="platform" style="position:relative;top:-60px;"></div><div id="lang-row" style="display:none;"></div>
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo" data-i18n="nav.home">Home</a>
@@ -4426,14 +4422,12 @@ function setLang(lang) {
 </nav>
 
 
-<!-- HOMOLOGATION MOVED TO CERTIFICATION PAGE -->
+<!-- HOMOLOGATION & CERTIFICATIONS with embedded world map -->
 <section id="homologation" style="background:var(--dark); border-top:1px solid var(--border);">
   <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;">
     <div>
       <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">HOMOLOGATION &amp; CERTIFICATIONS</p>
-      <h2 style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.4rem,3vw,1.75rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0 0 0.75rem;">Certification &amp; Global Market Access</h2>
-      <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;max-width:600px;">Full homologation details, the interactive 104-market world map, country-by-country requirements, and EU WVTA / US FMVSS / GB/T / ADR certification cards have moved to the dedicated Certification page.</p>
-      <a href="certification.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.4);border-radius:6px;padding:0.6rem 1.25rem;color:#5aaeff;font-family:Barlow Condensed, sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:background .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.25)';this.style.borderColor='rgba(74,158,255,0.65)'" onmouseout="this.style.background='rgba(74,158,255,0.15)';this.style.borderColor='rgba(74,158,255,0.4)'">View Certification &rarr;</a>
+      <h2 style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.4rem,3vw,1.75rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0 0 0.75rem;" data-i18n="technology.cert.h2">Windrose is fully homologated in Europe, US, China, Chile, and Australia</h2>
     </div>
     <div style="display:flex;gap:2rem;flex-wrap:wrap;padding:1rem 1.5rem;background:rgba(74,158,255,0.06);border:1px solid rgba(74,158,255,0.12);border-radius:8px;">
       <div style="text-align:center;"><div style="font-family:Barlow Condensed, sans-serif;font-size:2.5rem;font-weight:700;color:#4aff9e;line-height:1;">104</div><div style="font-family:Barlow Condensed, sans-serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">markets</div></div>
@@ -4441,7 +4435,801 @@ function setLang(lang) {
       <div style="text-align:center;"><div style="font-family:Barlow Condensed, sans-serif;font-size:2.5rem;font-weight:700;color:var(--off-white);line-height:1;">5</div><div style="font-family:Barlow Condensed, sans-serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">continents</div></div>
     </div>
   </div>
+
+  <!-- Homologation world map — full section width, bleeds past section padding -->
+  <div style="margin:0 calc(-1 * clamp(1.5rem,5vw,4rem)) 2rem;padding:0 clamp(1.5rem,5vw,4rem);">
+    <div style="display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+      <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);" data-i18n="specs.cert.map.label">Global market access map</div>
+      <div style="display:flex;align-items:baseline;gap:0.5rem;">
+        <span style="font-family:Barlow Condensed, sans-serif;font-size:1.2rem;font-weight:700;color:#4aff9e;" data-i18n="specs.cert.map.total">104 markets</span>
+        <span style="font-family:DM Sans, sans-serif;font-size:0.85rem;color:var(--muted);" data-i18n="specs.cert.map.subtitle">35 direct · 69 indirect</span>
+      </div>
+    </div>
+    <!-- Map tooltip -->
+    <div id="homolog-tooltip" style="display:none;position:absolute;z-index:100;background:rgba(6,15,30,0.97);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:0.6rem 0.9rem;max-width:300px;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+      <div id="homolog-tt-name" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;color:var(--off-white);margin-bottom:0.2rem;"></div>
+      <div id="homolog-tt-type" style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;"></div>
+      <div id="homolog-tt-note" style="font-size:0.85rem;color:var(--muted);line-height:1.5;"></div>
+    </div>
+      <div id="homolog-map" style="width:100%;height:clamp(480px,58vw,820px);background:rgba(6,15,30,0.6);border:1px solid rgba(74,158,255,0.12);border-radius:8px;overflow:hidden;position:relative;"></div>
+  </div>
+
+  <div style="margin-top:0.5rem;">
+    <a href="certification.html" style="color:#4a9eff;font-family:Barlow Condensed, sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Full certification details →</a>
+  </div>
+
+  <script>
+var CERT = {
+        'AT':'eu_direct',
+        'BE':'eu_direct',
+        'BG':'eu_direct',
+        'CY':'eu_direct',
+        'CZ':'eu_direct',
+        'DE':'eu_direct',
+        'DK':'eu_direct',
+        'EE':'eu_direct',
+        'ES':'eu_direct',
+        'FI':'eu_direct',
+        'FR':'eu_direct',
+        'GR':'eu_direct',
+        'HR':'eu_direct',
+        'HU':'eu_direct',
+        'IE':'eu_direct',
+        'IT':'eu_direct',
+        'LT':'eu_direct',
+        'LU':'eu_direct',
+        'LV':'eu_direct',
+        'MT':'eu_direct',
+        'NL':'eu_direct',
+        'PL':'eu_direct',
+        'PT':'eu_direct',
+        'RO':'eu_direct',
+        'SE':'eu_direct',
+        'SI':'eu_direct',
+        'SK':'eu_direct',
+        'NO':'eu_direct',
+        'IS':'eu_direct',
+        'LI':'eu_direct',
+        'CH':'eu_direct',
+        'GB':'eu_recog',
+        'TR':'eu_recog_multi',
+        'IL':'eu_recog_multi',
+        'MA':'eu_recog',
+        'TN':'eu_recog',
+        'DZ':'eu_recog',
+        'RS':'eu_recog',
+        'BA':'eu_recog',
+        'MK':'eu_recog',
+        'AL':'eu_recog',
+        'ME':'eu_recog',
+        'XK':'eu_recog',
+        'JO':'eu_recog',
+        'LB':'eu_recog',
+        'EG':'eu_recog_multi',
+        'US':'us_direct',
+        'CA':'us_recog_multi',
+        'MX':'us_recog_multi',
+        'AU':'au_direct_multi',
+        'NZ':'au_recog_multi',
+        'PG':'au_recog',
+        'KR':'us_recog_multi',
+        'SA':'us_recog_multi',
+        'AE':'us_recog_multi',
+        'QA':'us_recog',
+        'KW':'us_recog',
+        'BH':'us_recog',
+        'OM':'us_recog',
+        'CL':'us_recog',
+        'PE':'us_recog',
+        'CO':'us_recog',
+        'CN':'cn_direct',
+        'TW':'cn_direct',
+        'RU':'cn_recog_multi',
+        'KZ':'cn_recog',
+        'BY':'cn_recog',
+        'AM':'cn_recog',
+        'KG':'cn_recog',
+        'TH':'cn_recog_multi',
+        'VN':'cn_recog',
+        'ID':'cn_recog',
+        'MY':'cn_recog',
+        'PH':'cn_recog',
+        'SG':'cn_recog_multi',
+        'MM':'cn_recog',
+        'KH':'cn_recog',
+        'LA':'cn_recog',
+        'PK':'cn_recog',
+        'BD':'cn_recog',
+        'LK':'cn_recog',
+        'ET':'cn_recog',
+        'KE':'cn_recog_multi',
+        'TZ':'cn_recog',
+        'UG':'cn_recog',
+        'NG':'cn_recog',
+        'GH':'cn_recog',
+        'ZA':'cn_recog_multi',
+        'ZM':'cn_recog',
+        'ZW':'cn_recog',
+        'MZ':'cn_recog',
+        'AO':'cn_recog',
+        'SD':'cn_recog',
+        'SS':'cn_recog',
+        'CD':'cn_recog',
+        'CM':'cn_recog',
+        'SN':'cn_recog',
+        'IR':'cn_recog',
+        'IQ':'cn_recog',
+        'AF':'cn_recog',
+        'BO':'cn_recog',
+        'EC':'cn_recog',
+        'PY':'cn_recog',
+        'VE':'cn_recog'
+      };
+var COUNTRY_DATA = {
+          'AT': {flag:'🇦🇹',name:'Austria',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA (Reg. 2018/858) is automatically valid across all EU member states. Registered with Austro Control / KFZ authority. No additional approval required.',derivedFrom:'EU WVTA',reqs:['Register with KFZ authority','§57a periodic inspection','Austrian StVO licence plates']},
+          'BE': {flag:'🇧🇪',name:'Belgium',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid across all Belgian regions. Administered by FPS Mobility & Public Works.',derivedFrom:'EU WVTA',reqs:['DIV (Directie Inschrijvingen Voertuigen) registration','Annual contrôle technique','Belgian licence plates']},
+          'BG': {flag:'🇧🇬',name:'Bulgaria',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA automatically valid. Registered with Bulgarian Road Infrastructure Agency.',derivedFrom:'EU WVTA',reqs:['KAT (traffic police) registration','Annual technical inspection','Bulgarian plates']},
+          'HR': {flag:'🇭🇷',name:'Croatia',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Croatian law (NN 85/2013). Registered with MUP (Ministry of Interior).',derivedFrom:'EU WVTA',reqs:['MUP vehicle registration','Annual tehnički pregled','Croatian plates']},
+          'CY': {flag:'🇨🇾',name:'Cyprus',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid. Administered by Department of Road Transport.',derivedFrom:'EU WVTA',reqs:['Dept of Road Transport registration','Annual inspection','Cyprus plates']},
+          'CZ': {flag:'🇨🇿',name:'Czech Republic',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Czech law (Act 56/2001). Administered by Ministry of Transport.',derivedFrom:'EU WVTA',reqs:['Ministerstvo dopravy registration','Annual STK (technical inspection)','Czech plates']},
+          'DK': {flag:'🇩🇰',name:'Denmark',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid. Administered by Færdselsstyrelsen (Danish Road Directorate).',derivedFrom:'EU WVTA',reqs:['Motorstyrelsen registration','Periodic syn (inspection)','Danish plates']},
+          'EE': {flag:'🇪🇪',name:'Estonia',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Estonian Traffic Act. Administered by Maanteeamet.',derivedFrom:'EU WVTA',reqs:['Maanteeamet registration','Annual tehnoülevaatus','Estonian plates']},
+          'FI': {flag:'🇫🇮',name:'Finland',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Finnish Vehicle Act (1090/2002). Administered by Traficom.',derivedFrom:'EU WVTA',reqs:['Traficom vehicle registration','Annual katsastus (inspection)','Finnish plates']},
+          'FR': {flag:'🇫🇷',name:'France',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under French vehicle code. Certificat de conformité required for individual registration. DREAL administers type approval.',derivedFrom:'EU WVTA',reqs:['Certificat de conformité (CoC)','Préfecture registration','Contrôle technique every 2 years','French immatriculation plates']},
+          'DE': {flag:'🇩🇪',name:'Germany',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under StVZO and EG-FGV. KBA (Kraftfahrt-Bundesamt) administers. CoC (Übereinstimmungsbescheinigung) required.',derivedFrom:'EU WVTA',reqs:['KBA EG-Übereinstimmungsbescheinigung (CoC)','KFZ-Zulassungsstelle registration','HU (Hauptuntersuchung) every 2 years','German plates']},
+          'GR': {flag:'🇬🇷',name:'Greece',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid. Administered by ΥΜΕΔΔ (Ministry of Infrastructure).',derivedFrom:'EU WVTA',reqs:['ΚΤΕΟ registration','Periodic technical inspection','Greek plates']},
+          'HU': {flag:'🇭🇺',name:'Hungary',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Hungarian Act on Road Traffic (1988/I). Administered by Közlekedési Hatóság.',derivedFrom:'EU WVTA',reqs:['Közlekedési Hatóság registration','Annual műszaki vizsga','Hungarian plates']},
+          'IE': {flag:'🇮🇪',name:'Ireland',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under S.I. No. 157/2016. Road Safety Authority (RSA) administers.',derivedFrom:'EU WVTA',reqs:['RSA certificate of conformity','NVDF registration','NCT-equivalent commercial test','Irish plates']},
+          'IT': {flag:'🇮🇹',name:'Italy',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under D.Lgs. 6/2019. Administered by Ministero delle Infrastrutture (MIT). Carta di circolazione required.',derivedFrom:'EU WVTA',reqs:['MIT carta di circolazione','ACI registration','Revisione periodica','Italian targa']},
+          'LV': {flag:'🇱🇻',name:'Latvia',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Road Traffic Law. CSDD (Road Traffic Safety Directorate) administers.',derivedFrom:'EU WVTA',reqs:['CSDD registration','Annual technical inspection','Latvian plates']},
+          'LI': {flag:'🇱🇮',name:'Liechtenstein',cert:'eu_direct',access:'Full direct market access',basis:'EEA member — EU WVTA automatically valid. Administered by Amt für Volkswirtschaft.',derivedFrom:'EU WVTA (via EEA)',reqs:['LVA (Fahrzeugkontrolle) registration','Periodic MFK inspection','Liechtenstein plates']},
+          'LT': {flag:'🇱🇹',name:'Lithuania',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Lithuanian Law on Road Transport. VKTI administers.',derivedFrom:'EU WVTA',reqs:['REGITRA registration','Annual technical inspection','Lithuanian plates']},
+          'LU': {flag:'🇱🇺',name:'Luxembourg',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid. Administered by SNCA (Service National de la Circulation Automobile).',derivedFrom:'EU WVTA',reqs:['SNCA CoC and registration','Annual contrôle technique (CETREL)','Luxembourg plates']},
+          'MT': {flag:'🇲🇹',name:'Malta',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid. Transport Malta administers.',derivedFrom:'EU WVTA',reqs:['Transport Malta registration','Annual VRT test','Maltese plates']},
+          'NL': {flag:'🇳🇱',name:'Netherlands',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Vehicle Regulations Act. RDW (Dienst Wegverkeer) administers.',derivedFrom:'EU WVTA',reqs:['RDW registratie','Annual APK keuring','Dutch kentekens']},
+          'PL': {flag:'🇵🇱',name:'Poland',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Polish Road Traffic Act. CEPiK registers commercial vehicles.',derivedFrom:'EU WVTA',reqs:['CEPiK vehicle registration','Annual przegląd techniczny','Polish plates']},
+          'PT': {flag:'🇵🇹',name:'Portugal',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under DL 291/2001. IMT (Instituto da Mobilidade e Transportes) administers.',derivedFrom:'EU WVTA',reqs:['IMT certificate of conformity','Periodinspection (IPO)','Portuguese plates']},
+          'RO': {flag:'🇷🇴',name:'Romania',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Romanian Road Traffic Law (195/2002). RAR administers.',derivedFrom:'EU WVTA',reqs:['RAR registration and CoC','Annual ITP (inspecție tehnică)','Romanian plates']},
+          'SK': {flag:'🇸🇰',name:'Slovakia',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Slovak Act 106/2018. MDSR administers.',derivedFrom:'EU WVTA',reqs:['MDSR vehicle registration','Annual STK (technická kontrola)','Slovak plates']},
+          'SI': {flag:'🇸🇮',name:'Slovenia',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Slovenian Road Transport Act. MzI administers.',derivedFrom:'EU WVTA',reqs:['MzI vehicle registration','Annual tehnični pregled','Slovenian plates']},
+          'ES': {flag:'🇪🇸',name:'Spain',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under RD 750/2010. DGT (Dirección General de Tráfico) administers. Certificate of Conformity required.',derivedFrom:'EU WVTA',reqs:['DGT certificate of conformity (CoC)','DVUM registration','Annual ITV inspection','Spanish plates']},
+          'SE': {flag:'🇸🇪',name:'Sweden',cert:'eu_direct',access:'Full direct market access',basis:'EU WVTA valid under Swedish Vehicles Act. Transportstyrelsen administers.',derivedFrom:'EU WVTA',reqs:['Transportstyrelsen registration','Annual besiktning','Swedish plates']},
+          'IS': {flag:'🇮🇸',name:'Iceland',cert:'eu_direct',access:'Full direct market access',basis:'EEA member — EU WVTA automatically valid under EEA Agreement. Samgöngustofa (Icelandic Transport Authority) administers.',derivedFrom:'EU WVTA (via EEA)',reqs:['Samgöngustofa registration','Annual skoðun','Icelandic plates']},
+          'NO': {flag:'🇳🇴',name:'Norway',cert:'eu_direct',access:'Full direct market access',basis:'EEA member — EU WVTA automatically valid. Statens vegvesen (Norwegian Public Roads Administration) administers.',derivedFrom:'EU WVTA (via EEA)',reqs:['Statens vegvesen EU-godkjenning','Annual EU-kontroll','Norwegian plates']},
+          'CH': {flag:'🇨🇭',name:'Switzerland',cert:'eu_direct',access:'Full direct market access',basis:'EU–Switzerland bilateral MRA (Mutual Recognition Agreement) on conformity assessments. EU WVTA directly accepted by METAS/ASTRA without retesting.',derivedFrom:'EU WVTA (via bilateral MRA)',reqs:['METAS/ASTRA certificate of conformity','Kantonspolizei registration','Annual MFK inspection','Swiss plates']},
+          'GB': {flag:'🇬🇧',name:'United Kingdom',cert:'eu_recog',access:'EU WVTA accepted as basis for UK Type Approval',basis:'Post-Brexit, GB requires UKTA under the Road Vehicles (Approval) Regulations 2020. Windrose submits EU WVTA test reports to DVSA, which issues GB UKTA without retesting. Northern Ireland retains direct EU WVTA under the Windsor Framework.',derivedFrom:'EU WVTA → UKTA (DVSA)',reqs:['DVSA GB Type Approval (EU test reports accepted)','DVLA vehicle registration','Annual MOT test','GB number plates']},
+          'TR': {flag:'🇹🇷',name:'Turkey',cert:'eu_recog',access:'Directly accepted — Turkey fully harmonised with EU 2018/858',basis:'Turkey transposed EU 2018/858 into national law (OG 31241). EU WVTA issued anywhere in the EU is directly valid in Turkey — the same certificate covers both markets with no additional process.',derivedFrom:'EU WVTA (direct equivalence)',reqs:['Turkish trade ministry import declaration','TÜVTURK registration and plates']},
+          'IL': {flag:'🇮🇱',name:'Israel',cert:'eu_recog',access:'Accepted with minor local addenda',basis:'Israel adopts UN/ECE regulations which underpin EU WVTA. Windrose submits EU WVTA and UN/ECE test reports to SII (Israeli Standards Institute). Israel issues local vehicle approval with minor supplemental requirements.',derivedFrom:'EU WVTA + UN/ECE reports → SII approval',reqs:['SII (מכון התקנים) type approval','Ministry of Transport registration','Annual roadworthiness test','Israeli plates']},
+          'MA': {flag:'🇲🇦',name:'Morocco',cert:'eu_recog',access:'Accepted under EU–Morocco Association Agreement',basis:'Morocco–EU Association Agreement (2000) incorporates EU technical standards. CNRP (Centre National de Réception des Véhicules) accepts EU WVTA as the basis for Moroccan homologation without retesting.',derivedFrom:'EU WVTA → CNRP homologation',reqs:['CNRP type approval application','Certificat de conformité marocain','DGSN registration','Moroccan plates']},
+          'TN': {flag:'🇹🇳',name:'Tunisia',cert:'eu_recog',access:'Accepted under EU–Tunisia Association Agreement',basis:'ANTT (Agence Nationale des Transports Terrestres) accepts EU WVTA as equivalent under the Tunisia–EU Association Agreement.',derivedFrom:'EU WVTA → ANTT homologation',reqs:['ANTT type approval application','Customs declaration','MTPC registration','Tunisian plates']},
+          'DZ': {flag:'🇩🇿',name:'Algeria',cert:'eu_recog',access:'Accepted under EU–Algeria Association Agreement',basis:'CDTA (Centre de Développement des Technologies Avancées) accepts EU WVTA for commercial vehicles under the Algeria–EU Association Agreement.',derivedFrom:'EU WVTA → CDTA homologation',reqs:['CDTA technical approval','Customs clearance','DGSN registration','Algerian plates']},
+          'RS': {flag:'🇷🇸',name:'Serbia',cert:'eu_recog',access:'EU accession candidate — EU WVTA directly accepted',basis:'Serbia adopted EU vehicle type approval legislation as part of EU accession (Chapter 14). Serbian homologation authority accepts EU WVTA as equivalent without retesting.',derivedFrom:'EU WVTA → Serbian homologation (Chapter 14)',reqs:['Serbian type approval (MUP)','Annual SAT inspection','Serbian plates']},
+          'BA': {flag:'🇧🇦',name:'Bosnia & Herzegovina',cert:'eu_recog',access:'EU accession candidate — EU WVTA accepted as basis',basis:'Bosnia adopted EU vehicle standards under the Stabilisation and Association Agreement (SAA). EU WVTA accepted as the technical basis by BiH transport authorities.',derivedFrom:'EU WVTA → BiH homologation (SAA)',reqs:['BiH Ministry of Communications type approval','Annual roadworthiness test','BiH plates']},
+          'MK': {flag:'🇲🇰',name:'N. Macedonia',cert:'eu_recog',access:'EU accession candidate — EU WVTA accepted',basis:'North Macedonia harmonised vehicle regulations with EU acquis under SAA. EU WVTA accepted by MK type approval authority.',derivedFrom:'EU WVTA → MK homologation (SAA)',reqs:['MK type approval authority application','Annual pregled','Macedonian plates']},
+          'AL': {flag:'🇦🇱',name:'Albania',cert:'eu_recog',access:'EU accession candidate — EU WVTA accepted',basis:'Albania aligned vehicle regulations with EU under SAA. EU WVTA accepted by DPSHSH (transport police).',derivedFrom:'EU WVTA → Albanian approval (SAA)',reqs:['DPSHSH application','Annual kontrola teknike','Albanian plates']},
+          'ME': {flag:'🇲🇪',name:'Montenegro',cert:'eu_recog',access:'EU accession candidate — EU WVTA accepted',basis:'Montenegro in Chapter 14 of EU accession. Vehicle regulations aligned with EU. EU WVTA accepted by Montenegrin transport authority.',derivedFrom:'EU WVTA → Montenegrin approval (Chapter 14)',reqs:['Uprava za saobraćaj registration','Annual teknička kontrola','Montenegrin plates']},
+          'XK': {flag:'🇽🇰',name:'Kosovo',cert:'eu_recog',access:'EU accession candidate — EU WVTA accepted',basis:'Kosovo adopted EU vehicle standards under SAA framework. EU WVTA accepted by MTI (Ministry of Trade and Industry).',derivedFrom:'EU WVTA → Kosovo MTI approval (SAA)',reqs:['MTI type approval','Annual vehicle inspection','Kosovo plates']},
+          'JO': {flag:'🇯🇴',name:'Jordan',cert:'eu_recog',access:'Accepted via EU–Jordan Association Agreement',basis:'Jordan–EU Association Agreement. RJRS (Royal Jordanian Road Safety) accepts EU WVTA for commercial vehicle imports with local registration inspection.',derivedFrom:'EU WVTA → RJRS import approval',reqs:['RJRS import inspection','Customs clearance','JTI registration','Jordanian plates']},
+          'LB': {flag:'🇱🇧',name:'Lebanon',cert:'eu_recog',access:'Accepted via EU–Lebanon Association Agreement',basis:'EU WVTA accepted by Lebanon\'s Directorate General of Land and Maritime Transport as basis for import approval.',derivedFrom:'EU WVTA → Lebanese transport directorate',reqs:['Directorate of Land & Maritime Transport approval','Customs declaration','ISF vehicle registration','Lebanese plates']},
+          'EG': {flag:'🇪🇬',name:'Egypt',cert:'eu_recog',access:'Accepted via EU–Egypt Association Agreement',basis:'GOEIC (General Organization for Export & Import Control) accepts EU WVTA for commercial vehicles. NTC (National Transport Centre) issues import permit.',derivedFrom:'EU WVTA → GOEIC/NTC import permit',reqs:['GOEIC conformity certificate','NTC inspection','Egyptian registration plates']},
+          'US': {flag:'🇺🇸',name:'United States',cert:'us_direct',access:'Full direct market access — all 50 states + territories',basis:'Federal self-certification under 49 U.S.C. §30115. Windrose self-certifies FMVSS compliance. No government pre-approval required — NHTSA audits post-market. EPA ZEV exemption from GHG Phase 3. CARB ACT (Advanced Clean Trucks) qualified.',derivedFrom:'FMVSS self-certification (49 CFR Part 571)',reqs:['FMVSS self-certification declaration','EPA ZEV registration','CARB ACT compliance filing','State DMV registration (each state)','FMCSA operator registration (carriers)']},
+          'CA': {flag:'🇨🇦',name:'Canada',cert:'us_recog',access:'Accepted as equivalent — Transport Canada',basis:'Canadian CMVSS (SOR/2007-180) is nearly identical to FMVSS. Transport Canada accepts US NHTSA-certified vehicles under "equivalent standard" provisions. Windrose files a Declaration of Compliance (DoC) — no retesting required for most standards.',derivedFrom:'US FMVSS → Transport Canada DoC',reqs:['Transport Canada Declaration of Compliance (DoC)','RIV (Registrar of Imported Vehicles) clearance','Provincial MTO/SAAQ registration','Canadian plates']},
+          'MX': {flag:'🇲🇽',name:'Mexico',cert:'us_recog',access:'Accepted under USMCA',basis:'Mexico NOM standards for commercial vehicles substantially mirror FMVSS. Under USMCA Chapter 32, US-certified vehicles are accepted. SCT (Secretaría de Comunicaciones) administers.',derivedFrom:'US FMVSS → NOM equivalency (USMCA)',reqs:['SCT type approval (FMVSS CoC accepted)','Aduana México customs','REPUVE vehicle registry','Mexican placas']},
+          'KR': {flag:'🇰🇷',name:'South Korea',cert:'us_recog',access:'Accepted under KORUS FTA',basis:'KORUS FTA (2012) Article 9.2 establishes mutual recognition. US FMVSS certification accepted by KATRI (Korea Automotive Testing & Research Institute) for most vehicle categories.',derivedFrom:'US FMVSS → KATRI recognition (KORUS FTA)',reqs:['KATRI type approval (US test reports accepted)','KEITI EV import approval','MOLIT vehicle registration','Korean number plates']},
+          'SA': {flag:'🇸🇦',name:'Saudi Arabia',cert:'us_recog',access:'Accepted via SASO Certificate of Conformity',basis:'SASO (Saudi Standards & Metrology Organization) accepts US FMVSS-certified vehicles. SASO CoC required at port of entry — based on FMVSS documentation. No re-type approval needed.',derivedFrom:'US FMVSS → SASO CoC',reqs:['SASO Certificate of Conformity','Saudi Customs clearance','MOMRA vehicle registration','Saudi plates']},
+          'AE': {flag:'🇦🇪',name:'UAE',cert:'us_recog',access:'Accepted via ESMA Certificate of Conformity',basis:'UAE ESMA (Emirates Authority for Standardization) accepts US-certified vehicles. RTA (Roads and Transport Authority) registration. No full re-type approval for FMVSS-certified trucks.',derivedFrom:'US FMVSS → ESMA CoC',reqs:['ESMA Certificate of Conformity','RTA/DMT registration','Annual Murur roadworthiness test','UAE plates']},
+          'QA': {flag:'🇶🇦',name:'Qatar',cert:'us_recog',access:'Accepted via Qatar Ministry of Transport',basis:'Qatar Ministry of Transport accepts US-certified commercial vehicles. Ashghal and Hukoomi issue import approvals based on FMVSS documentation.',derivedFrom:'US FMVSS → Qatar MOT approval',reqs:['Qatar MOT import permit','Hukoomi vehicle approval','Muroor registration','Qatar plates']},
+          'KW': {flag:'🇰🇼',name:'Kuwait',cert:'us_recog',access:'Accepted via Kuwait General Traffic Department',basis:'Kuwait General Traffic Department accepts US-certified vehicles. KAFI (Kuwait Authority for Partnership Activity) issues CoC based on FMVSS documentation.',derivedFrom:'US FMVSS → Kuwait GTD approval',reqs:['KAFI CoC','Kuwait GTD inspection','MOI vehicle registration','Kuwait plates']},
+          'BH': {flag:'🇧🇭',name:'Bahrain',cert:'us_recog',access:'Accepted via BSMO Certificate of Conformity',basis:'Bahrain BSMO (Standards & Metrology Organisation) accepts US FMVSS-certified vehicles via CoC. MOIE (Ministry of Industry and Commerce) administers.',derivedFrom:'US FMVSS → BSMO CoC',reqs:['BSMO Certificate of Conformity','MOIE registration','BDF traffic registration','Bahrain plates']},
+          'OM': {flag:'🇴🇲',name:'Oman',cert:'us_recog',access:'Accepted via ROP / MOCIIP approval',basis:'Oman Royal Oman Police (Traffic Department) accepts US-certified commercial vehicles. MOCIIP issues import permit based on FMVSS documentation.',derivedFrom:'US FMVSS → ROP/MOCIIP approval',reqs:['MOCIIP import permit','ROP traffic department registration','Annual vehicle inspection','Omani plates']},
+          'CL': {flag:'🇨🇱',name:'Chile',cert:'us_recog',access:'Accepted under US–Chile FTA (TBT provisions)',basis:'US–Chile FTA (2004) Chapter 8. Chile MTT (Ministry of Transport) accepts FMVSS as basis for homologación. SEC approves EV charging systems.',derivedFrom:'US FMVSS → MTT homologación (US–Chile FTA)',reqs:['MTT type approval (FMVSS docs accepted)','SEC EV charging approval','SERVIU registration','Chilean patentes']},
+          'PE': {flag:'🇵🇪',name:'Peru',cert:'us_recog',access:'Accepted under US–Peru Trade Promotion Agreement',basis:'US–Peru Trade Promotion Agreement (2009). Peru MTC (Ministry of Transport) accepts FMVSS standards as equivalent for commercial vehicles.',derivedFrom:'US FMVSS → MTC Peru (US–Peru TPA)',reqs:['MTC type approval (FMVSS CoC accepted)','Sunat customs clearance','SAT vehicle registration','Peruvian placas']},
+          'CO': {flag:'🇨🇴',name:'Colombia',cert:'us_recog',access:'Accepted under US–Colombia Trade Promotion Agreement',basis:'US–Colombia TPA (2012). MinTransporte accepts FMVSS-certified vehicles under TBT provisions.',derivedFrom:'US FMVSS → MinTransporte (US–Colombia TPA)',reqs:['MinTransporte type approval (FMVSS docs)','DIAN customs clearance','RUNT vehicle registration','Colombian placas']},
+          'CN': {flag:'🇨🇳',name:'China',cert:'cn_direct',access:'Full direct market access',basis:'MIIT (Ministry of Industry and Information Technology) type approval via GB/T national standards. Windrose holds MIIT vehicle announcement listing (工信部公告). CCC (China Compulsory Certification) for EV components. NEV subsidy eligibility confirmed.',derivedFrom:'GB/T standards + MIIT 公告',reqs:['MIIT vehicle announcement listing','CCC certification (battery, charger)','SAMR product registration','GAQSIQ customs clearance','Traffic bureau (交管局) registration','EV licence plate quota (some cities)']},
+          'TW': {flag:'🇹🇼',name:'Taiwan',cert:'cn_direct',access:'Market access via GB/T harmonisation',basis:'Taiwan ARTC (Automotive Research & Testing Center) harmonises with GB/T for heavy commercial vehicles. China MIIT approval and GB/T test reports are accepted as the technical basis for Taiwan type approval.',derivedFrom:'GB/T / MIIT → ARTC Taiwan approval',reqs:['ARTC vehicle type approval (GB/T reports accepted)','MOTC registration','Annual roadworthiness inspection','Taiwan plates (車牌)']},
+          'RU': {flag:'🇷🇺',name:'Russia',cert:'cn_recog',access:'Accepted under EEU Technical Regulations',basis:'Russia is in the Eurasian Economic Union. EEU TR TS 018/2011 and TR TS 020/2011 are harmonised with GB/T for commercial vehicles. Windrose submits GB/T test reports to an EEU-accredited laboratory for EEU type approval declaration (EAC mark).',derivedFrom:'GB/T → EEU TR TS declaration (EAC mark)',reqs:['EEU type approval declaration (EAC mark)','FBU customs clearance','GIBDD (traffic police) registration','Russian number plates']},
+          'KZ': {flag:'🇰🇿',name:'Kazakhstan',cert:'cn_recog',access:'Accepted under EEU Technical Regulations',basis:'Kazakhstan EEU member. EEU TR TS 018/2011 applies. GB/T test reports accepted for EEU declaration.',derivedFrom:'GB/T → EEU declaration (Kazakhstan)',reqs:['EEU declaration','Kazakhstan Customs Union clearance','MVDN vehicle registration','Kazakhstani plates']},
+          'BY': {flag:'🇧🇾',name:'Belarus',cert:'cn_recog',access:'Accepted under EEU Technical Regulations',basis:'Belarus EEU member. EEU TR TS 018/2011 applies. GB/T documentation accepted for EEU declaration.',derivedFrom:'GB/T → EEU declaration (Belarus)',reqs:['EEU declaration','BelGISS inspection','MRTS registration','Belarusian plates']},
+          'AM': {flag:'🇦🇲',name:'Armenia',cert:'cn_recog',access:'Accepted under EEU Technical Regulations',basis:'Armenia EEU member. EEU TR TS 018/2011 applies. GB/T test reports accepted.',derivedFrom:'GB/T → EEU declaration (Armenia)',reqs:['EEU declaration','Armenian customs clearance','Road Police registration','Armenian plates']},
+          'KG': {flag:'🇰🇬',name:'Kyrgyzstan',cert:'cn_recog',access:'Accepted under EEU Technical Regulations',basis:'Kyrgyzstan EEU member. EEU TR TS 018/2011 applies. GB/T test reports accepted.',derivedFrom:'GB/T → EEU declaration (Kyrgyzstan)',reqs:['EEU declaration','GORT customs clearance','GAI registration','Kyrgyz plates']},
+          'TH': {flag:'🇹🇭',name:'Thailand',cert:'cn_recog',access:'Accepted with DLT inspection — no full re-type approval',basis:'Thailand DLT (Department of Land Transport) accepts GB/T-certified heavy EVs for import. Local DLT technical inspection required, but no full re-type approval needed for GB/T-certified trucks.',derivedFrom:'GB/T → DLT Thailand import inspection',reqs:['DLT import inspection (GB/T docs accepted)','Customs Dept clearance','NEDA EV registration','Thai licence plates']},
+          'VN': {flag:'🇻🇳',name:'Vietnam',cert:'cn_recog',access:'Accepted with local conformity check',basis:'Vietnam MOST (Ministry of Science and Technology) and Vietnam Register accept GB/T-certified vehicles. Local conformity check required but no full re-type approval.',derivedFrom:'GB/T → Vietnam Register conformity check',reqs:['Vietnam Register inspection','MOST quality conformity certification','Customs clearance','Vietnamese licence plates']},
+          'ID': {flag:'🇮🇩',name:'Indonesia',cert:'cn_recog',access:'Accepted with KEMENPERIN import approval',basis:'Indonesia KEMENPERIN (Ministry of Industry) accepts GB/T documentation for heavy EV imports. Samsat registers commercial vehicles.',derivedFrom:'GB/T → KEMENPERIN import approval',reqs:['KEMENPERIN type approval (GB/T docs)','Bea Cukai customs','Samsat registration','Indonesian licence plates']},
+          'MY': {flag:'🇲🇾',name:'Malaysia',cert:'cn_recog',access:'Accepted with JPJ inspection',basis:'Malaysia JPJ (Jabatan Pengangkutan Jalan) accepts GB/T-certified trucks for import with local inspection. SIRIM type approval required for electrical components.',derivedFrom:'GB/T → JPJ Malaysia inspection',reqs:['JPJ import permit','SIRIM type approval (EV components)','Customs clearance','Malaysian plates']},
+          'PH': {flag:'🇵🇭',name:'Philippines',cert:'cn_recog',access:'Accepted with LTO inspection',basis:'Philippines LTO (Land Transportation Office) accepts Chinese GB/T-certified commercial EVs. EMB (Environmental Management Bureau) approval for ZEV required.',derivedFrom:'GB/T → LTO Philippines inspection',reqs:['LTO type approval (GB/T docs)','EMB ZEV certification','Bureau of Customs clearance','Philippine plates']},
+          'SG': {flag:'🇸🇬',name:'Singapore',cert:'cn_recog',access:'Accepted with LTA technical inspection',basis:'Singapore LTA (Land Transport Authority) accepts GB/T-certified vehicles following LTA own technical inspection. NEA EV type approval also required.',derivedFrom:'GB/T → LTA Singapore inspection',reqs:['LTA vehicle type approval','NEA EV approval','ICA import clearance','Singapore plates']},
+          'PK': {flag:'🇵🇰',name:'Pakistan',cert:'cn_recog',access:'Accepted under Pakistan EV Policy 2020–2025',basis:'NEECA (National Energy Efficiency & Conservation Authority) and NTRC accept Chinese GB/T-certified EVs under Pakistan EV Policy 2020–2025. Port inspection at Karachi required.',derivedFrom:'GB/T → NTRC/NEECA approval',reqs:['NTRC type approval (GB/T docs)','FBR customs clearance (Karachi)','Excise & Taxation registration','Pakistani plates']},
+          'BD': {flag:'🇧🇩',name:'Bangladesh',cert:'cn_recog',access:'Accepted with BRTA inspection',basis:'Bangladesh BRTA (Bangladesh Road Transport Authority) accepts Chinese-certified commercial vehicles with port inspection. GB/T documentation speeds customs clearance.',derivedFrom:'GB/T → BRTA Bangladesh inspection',reqs:['BRTA vehicle registration','NBR customs (Chittagong port)','BSTI product conformity','Bangladesh plates']},
+          'LK': {flag:'🇱🇰',name:'Sri Lanka',cert:'cn_recog',access:'Accepted with DMT inspection',basis:'Sri Lanka DMT (Department of Motor Traffic) accepts Chinese GB/T-certified commercial vehicles with port inspection at Colombo.',derivedFrom:'GB/T → DMT Sri Lanka inspection',reqs:['DMT vehicle registration','SL Customs (Colombo port)','NTC transport permit','Sri Lanka plates']},
+          'ET': {flag:'🇪🇹',name:'Ethiopia',cert:'cn_recog',access:'Accepted via port inspection — no formal type approval',basis:'Ethiopia has no formal type approval system for commercial vehicles. ERA (Ethiopian Roads Authority) and ERCA (Revenue & Customs Authority) accept GB/T-certified trucks based on port inspection and documentation at Djibouti.',derivedFrom:'GB/T documentation → ERA/ERCA port inspection',reqs:['ERCA customs (Djibouti port)','ERA acceptance letter','AACTB (transport bureau) registration','Ethiopian plates']},
+          'KE': {flag:'🇰🇪',name:'Kenya',cert:'cn_recog',access:'Accepted with KEBS PVoC + NTSA inspection',basis:'Kenya KEBS (Kenya Bureau of Standards) requires PVoC (Pre-Export Verification of Conformity) documentation. NTSA (National Transport and Safety Authority) registers commercial trucks. No formal GB/T type approval — inspection at Mombasa port.',derivedFrom:'GB/T → KEBS PVoC + NTSA inspection',reqs:['KEBS PVoC certificate (pre-export)','KRA customs (Mombasa)','NTSA vehicle inspection','Kenyan plates']},
+          'TZ': {flag:'🇹🇿',name:'Tanzania',cert:'cn_recog',access:'Accepted with TBS Certificate of Conformity',basis:'Tanzania TBS (Tanzania Bureau of Standards) accepts Chinese commercial vehicles with CoC. SUMATRA (Surface & Marine Transport Regulatory Authority) registers commercial trucks.',derivedFrom:'GB/T → TBS CoC + SUMATRA inspection',reqs:['TBS CoC (Chinese docs accepted)','TRA customs (Dar es Salaam)','SUMATRA registration','Tanzania plates']},
+          'NG': {flag:'🇳🇬',name:'Nigeria',cert:'cn_recog',access:'Accepted with SON Certificate of Conformity',basis:'Nigeria SON (Standards Organisation of Nigeria) accepts Chinese commercial vehicles with CoC. FRSC (Federal Road Safety Corps) registers trucks. Port inspection at Apapa required.',derivedFrom:'GB/T → SON CoC + FRSC registration',reqs:['SON Certificate of Conformity','NCS customs (Apapa port)','FRSC vehicle registration','Nigerian plates']},
+          'ZA': {flag:'🇿🇦',name:'South Africa',cert:'cn_recog',access:'Accepted via NRCS Letter of Authority',basis:'South Africa NRCS (National Regulator for Compulsory Specifications) evaluates GB/T test reports against SANS standards and issues a Letter of Authority (LoA). No full re-type approval required.',derivedFrom:'GB/T → NRCS Letter of Authority (LoA)',reqs:['NRCS Letter of Authority (LoA)','SARS customs clearance','eNaTIS vehicle registration','South African plates']},
+          'IR': {flag:'🇮🇷',name:'Iran',cert:'cn_recog',access:'Accepted under Iran–China cooperation agreement',basis:'Iran–China comprehensive cooperation agreement. ISQI (Iran Standard and Industrial Research) accepts GB/T documentation. Local inspection by VIO (Vehicle Inspection Organization) required.',derivedFrom:'GB/T → ISQI/VIO Iran approval',reqs:['ISQI type approval (GB/T docs)','IRICA customs clearance','Road Maintenance Organisation registration','Iranian plates']},
+          'IQ': {flag:'🇮🇶',name:'Iraq',cert:'cn_recog',access:'Accepted under Iraq–China bilateral trade',basis:'Iraqi Ministry of Transport accepts Chinese-certified commercial vehicles with local inspection. COSQC (Central Organization for Standardization and Quality Control) issues import approval.',derivedFrom:'GB/T → COSQC Iraq import approval',reqs:['COSQC conformity certificate','Iraqi Customs clearance','Ministry of Interior vehicle registration','Iraqi plates']},
+          'AF': {flag:'🇦🇫',name:'Afghanistan',cert:'cn_recog',access:'Accepted via ACD customs inspection',basis:'Afghanistan–China bilateral trade. Afghan Ministry of Commerce accepts Chinese-certified vehicles. ACD (Afghanistan Customs Department) inspection required.',derivedFrom:'GB/T documentation → ACD customs inspection',reqs:['ACD customs clearance','Ministry of Interior registration','Afghan plates']},
+          'BO': {flag:'🇧🇴',name:'Bolivia',cert:'cn_recog',access:'Accepted via local homologation reciprocity',basis:'Bolivia MTOP (Ministry of Public Works) accepts Chinese GB/T-certified commercial vehicles under bilateral trade reciprocity. Local SENAMECA inspection required.',derivedFrom:'GB/T → SENAMECA Bolivia inspection',reqs:['SENAMECA technical inspection','Aduana Nacional customs','DIPROVE vehicle registration','Bolivian plates']},
+          'EC': {flag:'🇪🇨',name:'Ecuador',cert:'cn_recog',access:'Accepted via INEN/ANT Ecuador approval',basis:'Ecuador MIPRO and ANT (Agencia Nacional de Tránsito) accept Chinese GB/T vehicles. INEN (Instituto Ecuatoriano de Normalización) CoC required.',derivedFrom:'GB/T → INEN/ANT Ecuador approval',reqs:['INEN conformity certificate','SENAE customs clearance','ANT vehicle registration','Ecuadorian plates']},
+          'PY': {flag:'🇵🇾',name:'Paraguay',cert:'cn_recog',access:'Accepted via MOPC approval',basis:'Paraguay SET and MOPC (Ministry of Public Works) accept Chinese GB/T trucks with local inspection.',derivedFrom:'GB/T → MOPC Paraguay approval',reqs:['MOPC homologation','DNA Aduana customs','MOPC vehicle registration','Paraguayan plates']},
+          'PG': {flag:'🇵🇬',name:'Papua New Guinea',cert:'cn_recog',access:'Accepted via port inspection',basis:'PNG Department of Transport accepts Chinese commercial vehicles with port inspection at Lae or Port Moresby.',derivedFrom:'GB/T documentation → PNG DOT inspection',reqs:['PNG Customs clearance','Dept of Transport inspection','Motor Traffic Authority registration','PNG plates']},
+          'AU': {flag:'🇦🇺',name:'Australia',cert:'au_direct',access:'Full direct market access — all 8 states & territories',basis:'ADR (Australian Design Rules) type approval under the Road Vehicle Standards Act 2018 (RVSA 2018), administered by DITRDCA. Windrose holds RVSA approval covering all 8 Australian states and territories — no individual state re-approval required.',derivedFrom:'ADR / RVSA 2018 (DITRDCA)',reqs:['RVSA type approval (DITRDCA)','State/territory registration (RMS NSW / VicRoads / TMR QLD etc.)','Annual vehicle inspection (state-level)','Australian licence plates (state-issued)']},
+          'NZ': {flag:'🇳🇿',name:'New Zealand',cert:'au_recog',access:'Automatic access via Trans-Tasman Mutual Recognition',basis:'Australia and New Zealand operate the Trans-Tasman Mutual Recognition Arrangement (TTMRA). A vehicle type-approved in Australia under ADR/RVSA is automatically accepted for registration in New Zealand by NZTA — no additional testing or approval required.',derivedFrom:'ADR/RVSA 2018 → NZTA (TTMRA)',reqs:['NZTA entry certification (based on Australian RVSA)','NZ Customs clearance','NZTA vehicle registration','New Zealand plates']},
+        };
+var MULTI_CERT = {"TR": [["eu_recog", "EU WVTA (direct equivalence)", "Fully harmonised with EU 2018/858 — primary route"], ["us_recog", "US FMVSS (partial)", "Some US standards recognised for select import categories"]], "KR": [["us_recog", "US FMVSS (KORUS FTA)", "US FMVSS accepted for most categories — primary route"], ["eu_recog", "EU WVTA (partial)", "EU regulations partially adopted via EU-Korea FTA"]], "AU": [["au_direct", "Australian ADR (primary)", "Full RVSA 2018 type approval"], ["us_recog", "US FMVSS (select standards)", "ADR accepts FMVSS for select brake/safety standards"]], "NZ": [["au_recog", "Australian ADR — TTMRA (primary)", "Full Trans-Tasman Mutual Recognition"], ["us_recog", "US FMVSS (partial)", "NZTA accepts FMVSS for some vehicle categories"]], "CA": [["us_recog", "US FMVSS (primary)", "CMVSS mirrors FMVSS, accepted as equivalent"], ["eu_recog", "EU WVTA (some provinces)", "BC and Quebec accept EU-certified vehicles"]], "MX": [["us_recog", "US FMVSS (primary)", "NOM standards align with FMVSS under USMCA"], ["eu_recog", "EU WVTA (partial)", "EU-Mexico FTA: some EU standards recognised"]], "IL": [["eu_recog", "EU WVTA + UN/ECE (primary)", "EU WVTA accepted with minor local addenda"], ["us_recog", "US FMVSS (partial)", "US standards recognised for certain truck categories"]], "ZA": [["cn_recog", "GB/T NRCS LoA (primary)", "NRCS evaluates GB/T reports against SANS standards"], ["eu_recog", "EU WVTA (partial)", "EU-certified vehicles also accepted via NRCS"]], "SG": [["cn_recog", "GB/T LTA inspection (primary)", "LTA accepts GB/T-certified vehicles with inspection"], ["eu_recog", "EU WVTA (partial)", "EU type approval partially recognised by LTA"], ["us_recog", "US FMVSS (partial)", "US standards accepted for select categories"]], "TH": [["cn_recog", "GB/T DLT inspection (primary)", "Accept GB/T trucks with local DLT inspection"], ["eu_recog", "EU WVTA (partial)", "EU standards partially adopted under ASEAN harmonisation"]], "KE": [["cn_recog", "GB/T KEBS PVoC (primary)", "KEBS PVoC certificate required"], ["eu_recog", "EU WVTA (partial)", "EU-certified vehicles also accepted via KEBS CoC"]], "EG": [["eu_recog", "EU WVTA (primary)", "Accepted via EU-Egypt Association Agreement"], ["us_recog", "US FMVSS (partial)", "US standards recognised for some import categories"]], "SA": [["us_recog", "US FMVSS SASO CoC (primary)", "SASO accepts US FMVSS documentation"], ["eu_recog", "EU WVTA SASO CoC", "SASO also accepts EU-certified vehicles"]], "AE": [["us_recog", "US FMVSS ESMA CoC (primary)", "ESMA accepts US FMVSS documentation"], ["eu_recog", "EU WVTA ESMA CoC", "ESMA also accepts EU-certified vehicles"]], "RU": [["cn_recog", "GB/T EEU TR TS (primary)", "EEU technical regulations accept GB/T"], ["eu_recog", "EU WVTA (partial)", "Some EU standards accepted under EEU harmonisation"]]};
+var NUM2A2 = {
+          4:'AF',8:'AL',12:'DZ',24:'AO',32:'AR',36:'AU',40:'AT',50:'BD',56:'BE',
+          64:'BT',68:'BO',70:'BA',76:'BR',100:'BG',104:'MM',112:'BY',116:'KH',
+          120:'CM',124:'CA',140:'CF',144:'LK',152:'CL',156:'CN',170:'CO',180:'CD',
+          188:'CR',191:'HR',196:'CY',203:'CZ',208:'DK',218:'EC',818:'EG',222:'SV',
+          231:'ET',246:'FI',250:'FR',276:'DE',288:'GH',300:'GR',320:'GT',332:'HT',
+          340:'HN',348:'HU',356:'IN',360:'ID',364:'IR',368:'IQ',372:'IE',376:'IL',
+          380:'IT',388:'JM',392:'JP',400:'JO',398:'KZ',404:'KE',408:'KP',410:'KR',
+          414:'KW',418:'LA',422:'LB',428:'LV',440:'LT',442:'LU',450:'MG',454:'MW',
+          458:'MY',484:'MX',504:'MA',508:'MZ',516:'NA',524:'NP',528:'NL',540:'NC',
+          554:'NZ',558:'NI',562:'NE',566:'NG',578:'NO',586:'PK',591:'PA',598:'PG',
+          600:'PY',604:'PE',608:'PH',616:'PL',620:'PT',630:'PR',634:'QA',642:'RO',
+          643:'RU',682:'SA',686:'SN',694:'SL',706:'SO',710:'ZA',724:'ES',729:'SD',
+          752:'SE',756:'CH',760:'SY',762:'TJ',764:'TH',788:'TN',792:'TR',800:'UG',
+          804:'UA',784:'AE',826:'GB',840:'US',858:'UY',860:'UZ',862:'VE',704:'VN',
+          887:'YE',894:'ZM',716:'ZW',191:'HR',246:'FI',372:'IE',703:'SK',705:'SI',
+          233:'EE',428:'LV',440:'LT',470:'MT',196:'CY',100:'BG',642:'RO',498:'MD',
+          499:'ME',807:'MK',688:'RS',70:'BA',8:'AL',414:'KW',48:'BH',512:'OM',
+          275:'PS',320:'GT',214:'DO',332:'HT',380:'IT',792:'TR',756:'CH',438:'LI',
+          352:'IS',578:'NO',44:'BS',52:'BB',84:'BZ',191:'HR',646:'RW',231:'ET',
+          266:'GA',686:'SN',204:'BJ',288:'GH',324:'GN',854:'BF',466:'ML',562:'NE',
+          148:'TD',818:'EG',706:'SO',630:'PR',334:'HM',612:'PN',258:'PF',242:'FJ',
+          558:'NI',388:'JM',630:'PR',840:'US',858:'UY',68:'BO',218:'EC',600:'PY',
+          170:'CO',152:'CL',32:'AR',76:'BR',862:'VE',604:'PE',
+          156:'CN',158:'TW',344:'HK',446:'MO',764:'TH',
+          392:'JP',410:'KR',50:'BD',356:'IN',524:'NP',64:'BT',
+          144:'LK',462:'MV',104:'MM',418:'LA',116:'KH',704:'VN',
+          360:'ID',458:'MY',608:'PH',702:'SG',96:'BN',626:'TL',
+          4:'AF',760:'SY',368:'IQ',364:'IR',887:'YE',682:'SA',400:'JO',
+          422:'LB',784:'AE',48:'BH',634:'QA',414:'KW',512:'OM',
+          404:'KE',800:'UG',834:'TZ',231:'ET',706:'SO',508:'MZ',454:'MW',
+          894:'ZM',716:'ZW',710:'ZA',516:'NA',24:'AO',140:'CF',
+          180:'CD',120:'CM',566:'NG',288:'GH',686:'SN',204:'BJ',
+          729:'SD',728:'SS',404:'KE',8:'AL',688:'RS',70:'BA',807:'MK',499:'ME',
+          792:'TR',376:'IL',504:'MA',788:'TN',12:'DZ',434:'LY',266:'GA',
+          76:'BR',170:'CO',68:'BO',218:'EC',600:'PY',862:'VE',32:'AR',152:'CL',
+          858:'UY',604:'PE',740:'SR',328:'GY',642:'RO',498:'MD',112:'BY',804:'UA',
+          398:'KZ',417:'KG',860:'UZ',762:'TJ',795:'TM',31:'AZ',268:'GE',51:'AM'
+        };
+var COLORS = {
+        eu_direct:       '#4a9eff',
+        eu_recog:        'rgba(74,158,255,0.38)',
+        eu_direct_multi: 'url(#hatch-eu)',
+        eu_recog_multi:  'url(#hatch-eu)',
+        us_direct:       '#34d399',
+        us_recog:        'rgba(52,211,153,0.38)',
+        us_direct_multi: 'url(#hatch-us)',
+        us_recog_multi:  'url(#hatch-us)',
+        cn_direct:       '#f59e0b',
+        cn_recog:        'rgba(245,158,11,0.38)',
+        cn_direct_multi: 'url(#hatch-cn)',
+        cn_recog_multi:  'url(#hatch-cn)',
+        au_direct:       '#a78bfa',
+        au_recog:        'rgba(167,139,250,0.38)',
+        au_direct_multi: 'url(#hatch-au)',
+        au_recog_multi:  'url(#hatch-au)',
+        none: 'rgba(255,255,255,0.04)'
+      };
+      var BASE_COLORS = {
+        eu_direct:'#4a9eff',       eu_recog:'rgba(74,158,255,0.7)',
+        eu_direct_multi:'#4a9eff', eu_recog_multi:'rgba(74,158,255,0.7)',
+        us_direct:'#34d399',       us_recog:'rgba(52,211,153,0.7)',
+        us_direct_multi:'#34d399', us_recog_multi:'rgba(52,211,153,0.7)',
+        cn_direct:'#f59e0b',       cn_recog:'rgba(245,158,11,0.7)',
+        cn_direct_multi:'#f59e0b', cn_recog_multi:'rgba(245,158,11,0.7)',
+        au_direct:'#a78bfa',       au_recog:'rgba(167,139,250,0.7)',
+        au_direct_multi:'#a78bfa', au_recog_multi:'rgba(167,139,250,0.7)',
+      };
+var CERT_LABELS = {
+          eu_direct:'EU WVTA — Direct market access',
+          eu_recog: 'EU WVTA — Indirect',
+          us_direct:'US FMVSS / NHTSA — Direct (all 50 states)',
+          us_recog: 'US FMVSS — Indirect',
+          cn_direct:'Chinese GB/T — Direct market access',
+          cn_recog: 'Chinese GB/T — Indirect',
+          au_direct:'Australian ADR — Direct market access',
+          au_recog: 'Australian ADR — Indirect',
+        };
+var CERT_COLORS = {
+          eu_direct:'#4a9eff', eu_recog:'rgba(74,158,255,0.8)',
+          us_direct:'#34d399', us_recog:'rgba(52,211,153,0.8)',
+          cn_direct:'#f59e0b', cn_recog:'rgba(245,158,11,0.8)',
+          au_direct:'#a78bfa', au_recog:'rgba(167,139,250,0.8)',
+          eu_direct_multi:'#4a9eff', eu_recog_multi:'rgba(74,158,255,0.7)',
+          us_direct_multi:'#34d399', us_recog_multi:'rgba(52,211,153,0.7)',
+          cn_direct_multi:'#f59e0b', cn_recog_multi:'rgba(245,158,11,0.7)',
+          au_direct_multi:'#a78bfa', au_recog_multi:'rgba(167,139,250,0.7)',
+        };
+
+var HOMOLOG_NAMES = {
+  4:'Afghanistan',8:'Albania',12:'Algeria',24:'Angola',32:'Argentina',
+  36:'Australia',40:'Austria',50:'Bangladesh',56:'Belgium',64:'Bhutan',
+  68:'Bolivia',76:'Brazil',100:'Bulgaria',104:'Myanmar',116:'Cambodia',
+  120:'Cameroon',124:'Canada',140:'C.African Rep.',144:'Sri Lanka',
+  148:'Chad',152:'Chile',156:'China',170:'Colombia',178:'Congo',
+  180:'DR Congo',192:'Cuba',203:'Czechia',208:'Denmark',218:'Ecuador',
+  231:'Ethiopia',246:'Finland',250:'France',276:'Germany',288:'Ghana',
+  300:'Greece',304:'Greenland',320:'Guatemala',324:'Guinea',340:'Honduras',
+  348:'Hungary',356:'India',360:'Indonesia',364:'Iran',368:'Iraq',
+  372:'Ireland',380:'Italy',392:'Japan',400:'Jordan',404:'Kenya',
+  408:'N. Korea',410:'S. Korea',418:'Laos',430:'Liberia',434:'Libya',
+  450:'Madagascar',458:'Malaysia',484:'Mexico',496:'Mongolia',504:'Morocco',
+  508:'Mozambique',516:'Namibia',524:'Nepal',528:'Netherlands',562:'Niger',
+  566:'Nigeria',578:'Norway',586:'Pakistan',598:'Papua NG',
+  604:'Peru',608:'Philippines',616:'Poland',620:'Portugal',642:'Romania',
+  643:'Russia',682:'Saudi Arabia',686:'Senegal',706:'Somalia',
+  710:'South Africa',724:'Spain',729:'Sudan',752:'Sweden',756:'Switzerland',
+  760:'Syria',762:'Tajikistan',764:'Thailand',792:'Turkey',795:'Turkmenistan',
+  800:'Uganda',804:'Ukraine',784:'UAE',818:'Egypt',826:'UK',
+  840:'United States',858:'Uruguay',860:'Uzbekistan',862:'Venezuela',
+  704:'Vietnam',887:'Yemen',894:'Zambia',716:'Zimbabwe'
+};
+
+(function(){
+  /* ── State ── */
+  var activeFilters = new Set([
+    'eu_direct','eu_recog','us_direct','us_recog',
+    'cn_direct','cn_recog','au_direct','au_recog',
+    'eu_direct_multi','eu_recog_multi','us_direct_multi','us_recog_multi',
+    'cn_direct_multi','cn_recog_multi','au_direct_multi','au_recog_multi'
+  ]);
+  var svgSel, pathEls, zoomBeh, currentZoom = 1;
+  var _worldData = null; // cached TopoJSON for resize redraws
+
+  /* ── Bootstrap ── */
+  function init() {
+    var el = document.getElementById('homolog-map');
+    if (!el || el.dataset.ready) return;
+    el.dataset.ready = '1';
+    el.style.position = 'relative';
+
+    buildFilterBar(el);
+    buildSearchBox(el);
+    buildResetBtn(el);
+
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js', function() {
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js', function() {
+        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+          .then(function(r){ return r.json(); })
+          .then(function(world){
+            _worldData = world;
+            draw(world, el);
+            // Redraw whenever the container resizes (handles sidebar collapse, window resize, etc.)
+            if (typeof ResizeObserver !== 'undefined') {
+              new ResizeObserver(function(entries) {
+                if (!_worldData) return;
+                var newW = entries[0].contentRect.width;
+                if (Math.abs(newW - (svgSel ? +svgSel.attr('data-drawn-w') : 0)) > 10) {
+                  redraw(_worldData, el);
+                }
+              }).observe(el);
+            } else {
+              // Fallback: window resize
+              window.addEventListener('resize', function() {
+                if (_worldData) redraw(_worldData, el);
+              });
+            }
+          })
+          .catch(function(){ el.innerHTML += '<p style="color:rgba(255,255,255,0.3);text-align:center;padding:2rem;">Map requires internet connection</p>'; });
+      });
+    });
+  }
+
+  /* ── Filter bar ── */
+  function buildFilterBar(el) {
+    var isMobile = window.innerWidth < 640;
+    var bar = document.createElement('div');
+    bar.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px;padding:7px 10px;background:rgba(0,0,0,0.4);border-bottom:1px solid rgba(74,158,255,0.12);align-items:center;';
+
+    if (isMobile) {
+      // Mobile: single dropdown
+      var sel = document.createElement('select');
+      sel.style.cssText = 'background:rgba(4,10,22,0.9);border:1px solid rgba(74,158,255,0.3);color:#fff;padding:4px 8px;border-radius:4px;font-size:0.85rem;flex:1;';
+      var opts = [
+        ['all','All certifications'],
+        ['eu','EU WVTA only'],['us','US FMVSS only'],
+        ['cn','GB/T only'],['au','ADR only'],
+      ];
+      opts.forEach(function(o) {
+        var opt = document.createElement('option');
+        opt.value = o[0]; opt.textContent = o[1];
+        sel.appendChild(opt);
+      });
+      sel.addEventListener('change', function() {
+        var v = this.value;
+        activeFilters.clear();
+        var all = ['eu_direct','eu_recog','us_direct','us_recog','cn_direct','cn_recog','au_direct','au_recog',
+                   'eu_direct_multi','eu_recog_multi','us_direct_multi','us_recog_multi',
+                   'cn_direct_multi','cn_recog_multi','au_direct_multi','au_recog_multi'];
+        if (v === 'all') { all.forEach(function(c){activeFilters.add(c);}); }
+        else { all.filter(function(c){return c.startsWith(v);}).forEach(function(c){activeFilters.add(c);}); }
+        applyFilter();
+      });
+      bar.appendChild(sel);
+    } else {
+      // Desktop: individual buttons
+      // Compute per-standard market counts from CERT data
+      var stdCounts = {};
+      Object.keys(CERT).forEach(function(k){
+        var v = CERT[k];
+        ['eu','us','cn','au'].forEach(function(s){ if(v.startsWith(s)) stdCounts[s] = (stdCounts[s]||0)+1; });
+      });
+      var groups = [
+        ['EU', [['eu_direct','#4a9eff'],['eu_recog','rgba(74,158,255,0.55)']]],
+        ['US', [['us_direct','#34d399'],['us_recog','rgba(52,211,153,0.55)']]],
+        ['CN', [['cn_direct','#f59e0b'],['cn_recog','rgba(245,158,11,0.55)']]],
+        ['AU', [['au_direct','#a78bfa'],['au_recog','rgba(167,139,250,0.55)']]],
+      ];
+      groups.forEach(function(g) {
+        var lbl = document.createElement('span');
+        lbl.style.cssText = 'font-family:"Barlow Condensed",sans-serif;font-size:0.875rem;letter-spacing:0.1em;color:rgba(180,200,255,0.35);padding:0 3px 0 6px;white-space:nowrap;';
+        var cnt = stdCounts[g[0].toLowerCase()] || 0;
+        lbl.innerHTML = g[0] + '&thinsp;<span style="font-size:0.78rem;letter-spacing:0;color:rgba(180,200,255,0.65);">' + cnt + '</span>';
+        bar.appendChild(lbl);
+        g[1].forEach(function(btn, bi) {
+          var b = document.createElement('button');
+          b.dataset.cert = btn[0];
+          b.style.cssText = 'border:1px solid '+btn[1]+';color:'+btn[1]+';background:transparent;padding:2px 7px;border-radius:3px;font-size:0.85rem;cursor:pointer;font-family:"Barlow Condensed",sans-serif;letter-spacing:0.04em;transition:opacity 0.15s;white-space:nowrap;';
+          b.textContent = bi === 0 ? 'Direct' : 'Indirect';
+          b.addEventListener('click', function() {
+            var c = this.dataset.cert, cm = c+'_multi';
+            if (activeFilters.has(c)) { activeFilters.delete(c); activeFilters.delete(cm); this.style.opacity='0.25'; }
+            else { activeFilters.add(c); activeFilters.add(cm); this.style.opacity='1'; }
+            applyFilter();
+          });
+          bar.appendChild(b);
+        });
+      });
+    }
+
+    // Multi-cert legend swatch (desktop only)
+    if (!isMobile) {
+      var multiLeg = document.createElement('span');
+      multiLeg.style.cssText = 'display:flex;align-items:center;gap:4px;font-family:"Barlow Condensed",sans-serif;font-size:0.85rem;color:rgba(180,200,255,0.45);margin-left:6px;white-space:nowrap;';
+      multiLeg.innerHTML = '<span style="display:inline-block;width:11px;height:11px;border-radius:2px;flex-shrink:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.2) 0,rgba(255,255,255,0.2) 2px,rgba(255,255,255,0.04) 2px,rgba(255,255,255,0.04) 5px);border:1px solid rgba(255,255,255,0.2);"></span>Multi-cert';
+      bar.appendChild(multiLeg);
+    }
+
+    // Fullscreen (both)
+    var sp = document.createElement('span'); sp.style.flex = '1'; bar.appendChild(sp);
+    var fs = document.createElement('button');
+    fs.innerHTML = '&#x26F6;'; fs.title = 'Fullscreen';
+    fs.style.cssText = 'border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.45);background:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:0.85rem;min-width:30px;min-height:30px;';
+    fs.addEventListener('click', function() {
+      var me = document.getElementById('homolog-map');
+      if (!document.fullscreenElement) { me.requestFullscreen && me.requestFullscreen(); }
+      else { document.exitFullscreen && document.exitFullscreen(); }
+    });
+    bar.appendChild(fs);
+    el.insertBefore(bar, el.firstChild);
+  }
+
+  /* ── Search box ── */
+  function buildSearchBox(el) {
+    var inp = document.createElement('input');
+    inp.type = 'text'; inp.placeholder = 'Search country…';
+    if (window.innerWidth < 640) return;
+    inp.style.cssText = 'position:absolute;top:48px;right:10px;z-index:10;background:rgba(4,10,22,0.9);border:1px solid rgba(74,158,255,0.3);color:#fff;padding:4px 10px;border-radius:4px;font-size:0.85rem;width:155px;outline:none;';
+    inp.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      if (!pathEls) return;
+      pathEls.style('opacity', function(d) {
+        if (!q) return 1;
+        var a2 = NUM2A2[+d.id];
+        var info = a2 && COUNTRY_DATA[a2];
+        return (!info || !info.name.toLowerCase().includes(q)) ? 0.08 : 1;
+      });
+      if (q.length >= 2) {
+        var found = Object.keys(COUNTRY_DATA).find(function(a2) {
+          return COUNTRY_DATA[a2].name.toLowerCase().includes(q);
+        });
+        if (found) showCountry(found);
+      }
+    });
+    el.appendChild(inp);
+  }
+
+  /* ── Zoom + reset buttons ── */
+  function buildResetBtn(el) {
+    var btnStyle = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(6,15,30,0.88);border:1px solid rgba(74,158,255,0.25);color:#c8d8f0;font-size:1rem;cursor:pointer;transition:background 0.15s,border-color 0.15s;font-family:sans-serif;line-height:1;padding:0;';
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:absolute;bottom:10px;right:10px;z-index:5;display:flex;flex-direction:column;gap:3px;';
+    [['homolog-zoom-in','+'],['homolog-zoom-out','−'],['homolog-reset','⊙']].forEach(function(pair) {
+      var b = document.createElement('button');
+      b.id = pair[0]; b.textContent = pair[1]; b.style.cssText = btnStyle;
+      b.addEventListener('mouseover', function(){ this.style.background='rgba(74,158,255,0.15)'; this.style.borderColor='rgba(74,158,255,0.6)'; });
+      b.addEventListener('mouseout',  function(){ this.style.background='rgba(6,15,30,0.88)';   this.style.borderColor='rgba(74,158,255,0.25)'; });
+      wrap.appendChild(b);
+    });
+    el.appendChild(wrap);
+  }
+
+  /* ── Draw ── */
+  function draw(world, el) {
+    var W = el.offsetWidth || 960, H = el.offsetHeight || 480;
+    svgSel = d3.select(el).append('svg')
+      .attr('width','100%').attr('height','100%')
+      .style('cursor','grab').style('display','block');
+
+    var g = svgSel.append('g');
+
+    // Hatch patterns
+    var defs = svgSel.append('defs');
+    [{id:'hatch-eu',base:'rgba(74,158,255,0.28)',s:'#4a9eff'},
+     {id:'hatch-us',base:'rgba(52,211,153,0.28)',s:'#34d399'},
+     {id:'hatch-cn',base:'rgba(245,158,11,0.28)',s:'#f59e0b'},
+     {id:'hatch-au',base:'rgba(167,139,250,0.28)',s:'#a78bfa'}
+    ].forEach(function(h) {
+      var p = defs.append('pattern').attr('id',h.id).attr('width',6).attr('height',6)
+        .attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)');
+      p.append('rect').attr('width',6).attr('height',6).attr('fill',h.base);
+      p.append('line').attr('x1',0).attr('y1',0).attr('x2',0).attr('y2',6)
+        .attr('stroke',h.s).attr('stroke-width',2.5).attr('opacity',0.85);
+    });
+
+    var countries = topojson.feature(world, world.objects.countries);
+    var proj = d3.geoNaturalEarth1()
+      .fitSize([W, H], countries);
+    var pathFn = d3.geoPath().projection(proj);
+
+    // Countries
+    pathEls = g.selectAll('path.country')
+      .data(countries.features)
+      .join('path')
+      .attr('class','country')
+      .attr('d', pathFn)
+      .attr('fill', fillFn)
+      .attr('stroke','rgba(255,255,255,0.09)')
+      .attr('stroke-width', 0.3)
+      .style('cursor', function(d) {
+        var a2 = NUM2A2[+d.id];
+        return a2 && CERT[a2] ? 'pointer' : 'default';
+      })
+      .on('click', function(ev, d) {
+        var a2 = NUM2A2[+d.id];
+        if (!a2 || !CERT[a2]) return;
+        showCountry(a2);
+      })
+      .on('mousemove', function(ev, d) {
+        var a2 = NUM2A2[+d.id], t = a2 && CERT[a2]; if (!t) return;
+        var info = COUNTRY_DATA[a2]; if (!info) return;
+        var color = BASE_COLORS[t] || '#4a9eff';
+        var tt = document.getElementById('homolog-tooltip');
+        if (!tt) return;
+        var nn = document.getElementById('homolog-tt-name');
+        if (nn) { nn.textContent = info.flag+' '+info.name; nn.style.color = color; }
+        var tn = document.getElementById('homolog-tt-type');
+        if (tn) { tn.textContent = CERT_LABELS[t]||t; tn.style.color = color; }
+        var no = document.getElementById('homolog-tt-note');
+        if (no) no.textContent = MULTI_CERT[a2] ? '★ Multiple certifications' : '';
+        var rect = el.getBoundingClientRect();
+        tt.style.display = 'block';
+        tt.style.left = (ev.clientX-rect.left+12)+'px';
+        tt.style.top  = (ev.clientY-rect.top-36)+'px';
+      })
+      .on('mouseleave', function() {
+        var tt = document.getElementById('homolog-tooltip');
+        if (tt) tt.style.display = 'none';
+      });
+
+    // Country name labels
+    var labelLayer = g.append('g').attr('class','homolog-labels');
+    var labelData = [];
+    countries.features.forEach(function(feat) {
+      var name = HOMOLOG_NAMES[+feat.id];
+      if (!name) return;
+      var c = d3.geoCentroid(feat);
+      if (!c || isNaN(c[0]) || isNaN(c[1])) return;
+      labelData.push({lon: c[0], lat: c[1], name: name});
+    });
+    labelLayer.selectAll('text')
+      .data(labelData)
+      .join('text')
+      .attr('text-anchor','middle')
+      .attr('dominant-baseline','middle')
+      .attr('fill','rgba(200,220,255,0.5)')
+      .attr('font-size', 7)
+      .attr('font-family','Barlow Condensed, sans-serif')
+      .attr('font-weight', 400)
+      .attr('letter-spacing','0.06em')
+      .attr('pointer-events','none')
+      .text(function(d){ return d.name; });
+
+    function updateLabels() {
+      labelLayer.selectAll('text').each(function(d) {
+        var xy = proj([d.lon, d.lat]);
+        d3.select(this)
+          .attr('x', xy ? xy[0] : -999)
+          .attr('y', xy ? xy[1] : -999)
+          .attr('display', xy ? null : 'none');
+      });
+    }
+    updateLabels();
+
+    // Pan behavior
+    svgSel.call(d3.drag()
+      .on('start', function() { svgSel.style('cursor','grabbing'); })
+      .on('drag', function(ev) {
+        var t = proj.translate();
+        proj.translate([t[0] + ev.dx, t[1] + ev.dy]);
+        pathEls.attr('d', pathFn);
+        updateLabels();
+        var tt = document.getElementById('homolog-tooltip');
+        if (tt) tt.style.display = 'none';
+      })
+      .on('end', function() { svgSel.style('cursor','grab'); })
+    );
+
+    // Wheel zoom + pinch-to-zoom
+    var _initScale = proj.scale(), _initTranslate = proj.translate().slice(), _curScale = _initScale;
+    var _minScale = _initScale * 0.5, _maxScale = _initScale * 5;
+    function _applyZoom() { proj.scale(_curScale); pathEls.attr('d',pathFn); updateLabels(); }
+    el.addEventListener('wheel', function(ev) {
+      ev.preventDefault();
+      _curScale = Math.max(_minScale, Math.min(_maxScale, _curScale * (ev.deltaY < 0 ? 1.12 : 0.9)));
+      _applyZoom();
+    }, { passive: false });
+    var _pinchDist = null;
+    el.addEventListener('touchstart', function(ev) {
+      if (ev.touches.length === 2) {
+        var dx = ev.touches[0].clientX - ev.touches[1].clientX, dy = ev.touches[0].clientY - ev.touches[1].clientY;
+        _pinchDist = Math.sqrt(dx*dx + dy*dy);
+      }
+    }, { passive: true });
+    el.addEventListener('touchmove', function(ev) {
+      if (ev.touches.length !== 2 || !_pinchDist) return;
+      var dx = ev.touches[0].clientX - ev.touches[1].clientX, dy = ev.touches[0].clientY - ev.touches[1].clientY;
+      var d = Math.sqrt(dx*dx + dy*dy);
+      _curScale = Math.max(_minScale, Math.min(_maxScale, _curScale * d / _pinchDist));
+      _pinchDist = d;
+      _applyZoom();
+    }, { passive: true });
+    el.addEventListener('touchend', function() { _pinchDist = null; }, { passive: true });
+
+    // Wire up zoom + reset buttons now that _curScale/_applyZoom/proj/pathFn are in scope
+    function _rewireBtn(id, handler) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var c = el.cloneNode(true);
+      el.parentNode.replaceChild(c, el);
+      // re-attach hover styles lost by cloneNode
+      c.addEventListener('mouseover', function(){ c.style.background='rgba(74,158,255,0.15)'; c.style.borderColor='rgba(74,158,255,0.6)'; });
+      c.addEventListener('mouseout',  function(){ c.style.background='rgba(6,15,30,0.88)';   c.style.borderColor='rgba(74,158,255,0.25)'; });
+      c.addEventListener('click', handler);
+    }
+    _rewireBtn('homolog-zoom-in',  function() { _curScale = Math.min(_maxScale, _curScale * 1.4); _applyZoom(); });
+    _rewireBtn('homolog-zoom-out', function() { _curScale = Math.max(_minScale, _curScale / 1.4); _applyZoom(); });
+    _rewireBtn('homolog-reset', function() {
+      _curScale = _initScale;
+      proj.scale(_initScale).translate(_initTranslate.slice());
+      pathEls.attr('d', pathFn);
+      updateLabels();
+    });
+
+    // Tag the SVG with the width it was drawn at
+    if (svgSel) svgSel.attr('data-drawn-w', W);
+    window.showCountry = showCountry;
+    window.showPanel = showCountry;
+    window.showPanelFromCard = showCountry;
+  }
+
+  /* ── Redraw on resize ── */
+  function redraw(world, el) {
+    // Remove existing SVG and re-draw fresh
+    var existing = el.querySelector('svg');
+    if (existing) existing.remove();
+    svgSel = null; pathEls = null; zoomBeh = null; currentZoom = 1;
+    draw(world, el);
+  }
+
+  function fillFn(d) {
+    var a2 = NUM2A2[+d.id], t = a2 && CERT[a2];
+    if (!t || !activeFilters.has(t)) return COLORS.none;
+    return COLORS[t] || COLORS[t.replace('_multi','')] || COLORS.none;
+  }
+
+  function applyFilter() {
+    if (pathEls) pathEls.attr('fill', fillFn);
+  }
+
+  /* ── Country detail panel ── */
+  function showCountry(a2) {
+    var info = COUNTRY_DATA[a2]; if (!info) return;
+    var certBase = info.cert.split('_')[0];
+    if (window.openDetailModal && window.CERT_DETAIL_CATS && window.CERT_DETAIL_CATS[certBase]) {
+      window.openDetailModal(certBase, a2);
+      return;
+    }
+    // Fallback generic modal for countries without a cert detail view
+    var color = BASE_COLORS[info.cert] || '#4a9eff';
+    var extras = MULTI_CERT[a2];
+    var multiHtml = '';
+    if (extras && extras.length) {
+      multiHtml = '<div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.08);">' +
+        '<div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Also accepted under</div>' +
+        '<div style="font-size:0.875rem;color:var(--muted);line-height:1.8;">' +
+        extras.map(function(e) {
+          var c2 = BASE_COLORS[e[0]]||'#4a9eff';
+          return '<div style="margin-bottom:0.35rem;"><span style="color:'+c2+';font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;">'+e[1]+'</span><br><span style="font-size:0.85rem;color:var(--muted);">'+e[2]+'</span></div>';
+        }).join('') +
+        '</div></div>';
+    }
+    var reqsHtml = info.reqs.map(function(r) {
+      return '<div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;"><span style="color:'+color+';flex-shrink:0;font-size:1rem;line-height:1.3;">&#x203A;</span><span>'+r+'</span></div>';
+    }).join('');
+    var modalHtml = '<div style="max-width:640px;margin:0 auto;padding:2.5rem 2rem;">' +
+      '<div style="font-family:Barlow Condensed, sans-serif;font-size:2rem;font-weight:700;color:var(--off-white);margin-bottom:0.25rem;">' + info.flag + '&nbsp;&nbsp;' + info.name + '</div>' +
+      '<div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;color:' + color + ';margin-bottom:0.75rem;">' + (CERT_LABELS[info.cert]||info.cert) + '</div>' +
+      '<div style="font-size:1rem;font-weight:500;color:' + color + ';line-height:1.5;margin-bottom:0.5rem;">' + info.access + '</div>' +
+      '<div style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">' + info.basis + '</div>' +
+      '<div style="display:inline-block;font-size:0.875rem;font-family:Barlow Condensed, sans-serif;letter-spacing:0.04em;padding:0.35rem 0.85rem;border-radius:4px;border:1px solid ' + color + ';color:' + color + ';background:rgba(255,255,255,0.04);margin-bottom:1.5rem;">Via: ' + info.derivedFrom + '</div>' +
+      '<div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;"><div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;" data-i18n="specs.cert.panel.reqs">'+'Requirements to sell &amp; register'+'</div>' +
+      '<div style="font-size:0.85rem;color:var(--muted);line-height:1.8;">' + reqsHtml + '</div></div>' +
+      multiHtml +
+      '</div>';
+    window.openGenericModal(modalHtml, color);
+  }
+
+  function loadScript(src, cb) {
+    var s = document.createElement('script'); s.src = src;
+    s.onload = cb; s.onerror = function(){ console.warn('Failed:',src); };
+    document.head.appendChild(s);
+  }
+
+  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+
+</script>
 </section>
+
+<!-- Country detail modal (for map click-through) -->
+<div id="cert-modal" style="display:none;position:fixed;inset:0;z-index:9999;" role="dialog" aria-modal="true" aria-label="Detail view">
+  <div id="cert-modal-panel" style="position:absolute;inset:0;background:#0a1628;border:none;border-radius:0;box-shadow:none;overflow-y:auto;-webkit-overflow-scrolling:touch;">
+    <button onclick="closeCertModal()" style="position:fixed;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);cursor:pointer;font-size:1.2rem;line-height:1;padding:0.55rem 0.8rem;border-radius:8px;z-index:10;transition:background 0.15s;" onmouseenter="this.style.background='rgba(255,255,255,0.16)'" onmouseleave="this.style.background='rgba(255,255,255,0.08)'" aria-label="Close">&#x2715;</button>
+    <div id="cert-modal-body" style="padding:0;max-width:960px;margin:0 auto;padding-top:1rem;"></div>
+  </div>
+</div>
+<style>
+#cert-modal.cm-open { display:block !important; animation: cm-fadein 0.18s ease both; }
+@keyframes cm-fadein { from { opacity:0; } to { opacity:1; } }
+#cert-modal.cm-open #cert-modal-panel { animation: cm-slidein 0.25s cubic-bezier(0.22,1,0.36,1) both; }
+@keyframes cm-slidein { from { transform: translateY(40px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+</style>
+<script>
+(function(){
+  window.openGenericModal = function(bodyHtml, accentColor) {
+    var modal = document.getElementById('cert-modal');
+    var body  = document.getElementById('cert-modal-body');
+    var panel = document.getElementById('cert-modal-panel');
+    body.innerHTML = bodyHtml;
+    if (accentColor) panel.style.borderColor = accentColor.replace(')',',0.35)').replace('rgb','rgba');
+    modal.style.display = 'block';
+    modal.offsetHeight;
+    modal.classList.add('cm-open');
+    document.body.style.overflow = 'hidden';
+    var first = modal.querySelector('button,a,[tabindex]');
+    if (first) first.focus();
+  };
+  window.closeCertModal = function() {
+    var modal = document.getElementById('cert-modal');
+    modal.classList.remove('cm-open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ modal.style.display = 'none'; }, 200);
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+      var modal = document.getElementById('cert-modal');
+      if (modal && modal.classList.contains('cm-open')) closeCertModal();
+    }
+  });
+})();
+</script>
 
 
 
@@ -4470,36 +5258,6 @@ function setLang(lang) {
 
 
 
-<!-- 3D TRUCK VIEWER -->
-<section id="truck-3d" style="background:var(--dark); border-top:1px solid var(--border); padding:0;">
-  <div style="padding:2.5rem clamp(1.5rem,5vw,4rem) 1.5rem;">
-    <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">INTERACTIVE 3D MODEL</p>
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,3vw,1.75rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0;">Windrose E670 — Explore in 3D</h2>
-      <a href="truck-3d.html" target="_blank" rel="noopener"
-         style="display:inline-flex;align-items:center;gap:0.45rem;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.4);border-radius:4px;padding:0.5rem 1.1rem;color:#5aaeff;font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:background .15s,border-color .15s;white-space:nowrap;"
-         onmouseover="this.style.background='rgba(74,158,255,0.25)';this.style.borderColor='rgba(74,158,255,0.65)'"
-         onmouseout="this.style.background='rgba(74,158,255,0.15)';this.style.borderColor='rgba(74,158,255,0.4)'">
-        Open full viewer ↗
-      </a>
-    </div>
-  </div>
-  <div style="position:relative;width:100%;height:clamp(340px,55vh,620px);overflow:hidden;border-top:1px solid rgba(74,158,255,0.10);">
-    <iframe
-      src="truck-3d.html"
-      title="Windrose E670 3D Model"
-      style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block;"
-      allow="accelerometer; gyroscope"
-      loading="lazy">
-    </iframe>
-  </div>
-  <div style="padding:0.75rem clamp(1.5rem,5vw,4rem);border-top:1px solid rgba(74,158,255,0.08);">
-    <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:rgba(122,154,191,0.5);margin:0;">
-      Drag to orbit &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-drag to pan &nbsp;·&nbsp;
-      <a href="truck-3d.html" target="_blank" rel="noopener" style="color:rgba(74,158,255,0.55);text-decoration:none;">Open in full screen ↗</a>
-    </p>
-  </div>
-</section>
 
 <!-- PATENTED TECHNOLOGY -->
 <section style="background:#060f1e; border-top:1px solid var(--border);">
@@ -4516,8 +5274,8 @@ function setLang(lang) {
   .tech-img-wrap {
     background: #fff;
     overflow: hidden;
-    aspect-ratio: 4/3;
-    max-height: 220px;
+    aspect-ratio: 1/1;
+    max-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4567,11 +5325,12 @@ function setLang(lang) {
   .patent-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); }
   .patent-card { background: var(--card-bg); display: flex; flex-direction: column; margin: 0; border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; height: 100%; }
   .patent-card .patent-img-wrap { background:#fff; }
-  .patent-card .patent-img-wrap img { width:100%; aspect-ratio: 4/3; object-fit: contain; display:block; }
+  .patent-card .patent-img-wrap img { width:100%; aspect-ratio: 1/1; object-fit: contain; display:block; }
   .patent-card figcaption { font-family:Barlow Condensed, sans-serif; font-size:0.85rem; letter-spacing:0.06em; color:var(--off-white); padding:0.9rem 1.25rem 1.1rem; border-top:1px solid var(--border); margin-top: auto; }
   @media(max-width:750px){
     .tech-grid { grid-template-columns: 1fr; }
     .patent-grid { grid-template-columns: 1fr; }
+    .tech-img-wrap { display: none; }
   }
 </style>
 
@@ -4582,20 +5341,169 @@ function setLang(lang) {
   <style>
     .mv-pair-tech { display:flex; gap:1rem; margin-top:2rem; margin-bottom:2rem; }
     .mv-item-tech { flex:1; min-width:0; display:flex; flex-direction:column; }
-    .mv-item-tech model-viewer { width:100%; flex:1; height:72vh; min-height:400px; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
+    .mv-viewer-wrap { position:relative; height:72vh; min-height:400px; }
+    .mv-item-tech model-viewer { width:100%; height:100%; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
     .mv-label-tech { font-family:Barlow Condensed,sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-align:center; margin:0.4rem 0 0; }
-    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-item-tech model-viewer { height:75vw; min-height:300px; } }
+    .dim-anchor { display:block; width:1px; height:1px; }
+    .dim-svg { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible; z-index:2; }
+    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-viewer-wrap { height:75vw; min-height:300px; } }
   </style>
   <div class="mv-pair-tech">
     <div class="mv-item-tech">
-      <model-viewer src="/assets/Frame.glb" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
+      <div class="mv-viewer-wrap">
+        <model-viewer id="mv-chassis" src="/assets/Frame.glb" poster="/images/chassis-frame-fea.jpg" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar>
+          <div slot="hotspot-dim-c0" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c1" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c2" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c3" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c4" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c5" class="dim-anchor"></div>
+        </model-viewer>
+      </div>
       <p class="mv-label-tech">Chassis Frame &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
     <div class="mv-item-tech">
-      <model-viewer src="/models/windrose-truck.glb" alt="Windrose E670 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
-      <p class="mv-label-tech">E670 Electric Truck &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
+      <div class="mv-viewer-wrap">
+        <model-viewer id="mv-truck" src="/assets/Windrose-truck-3D.glb" poster="/images/truck-xray.jpg" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar>
+          <div slot="hotspot-dim-t0" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t1" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t2" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t3" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t4" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t5" class="dim-anchor"></div>
+        </model-viewer>
+      </div>
+      <p class="mv-label-tech">E700 Electric Truck &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
   </div>
+
+  <script>
+  (function(){
+    var NS = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+    function screenPt(node, svgNode) {
+      var nr = node.getBoundingClientRect(), sr = svgNode.getBoundingClientRect();
+      return { x: nr.left + nr.width/2 - sr.left, y: nr.top + nr.height/2 - sr.top };
+    }
+    function isHidden(node) {
+      return getComputedStyle(node).visibility === 'hidden';
+    }
+
+    function buildSvg(wrap, uid) {
+      var svg = el('svg', { class:'dim-svg', 'aria-hidden':'true' });
+      var defs = el('defs', {});
+      ['s','e'].forEach(function(d) {
+        var m = el('marker', { id:uid+'-a'+d, markerWidth:'8', markerHeight:'8', refX:'4', refY:'4', orient: d==='s' ? 'auto-start-reverse' : 'auto' });
+        m.appendChild(el('path', { d:'M1,1.5 L7,4 L1,6.5 Z', fill:'#5aaeff' }));
+        defs.appendChild(m);
+      });
+      svg.appendChild(defs);
+      ['len','hgt','wid'].forEach(function(k) {
+        svg.appendChild(el('line', { id:uid+'-l-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', 'stroke-dasharray':'none', 'marker-start':'url(#'+uid+'-as)', 'marker-end':'url(#'+uid+'-ae)', opacity:'0' }));
+        svg.appendChild(el('line', { id:uid+'-tk1-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', opacity:'0' }));
+        svg.appendChild(el('line', { id:uid+'-tk2-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', opacity:'0' }));
+        svg.appendChild(el('rect', { id:uid+'-bg-'+k, rx:'3', fill:'rgba(4,11,24,0.88)', opacity:'0' }));
+        svg.appendChild(el('text', { id:uid+'-tx-'+k, fill:'#d0e8ff', 'font-family':'Barlow Condensed,sans-serif', 'font-size':'12', 'font-weight':'700', 'text-anchor':'middle', 'dominant-baseline':'middle', 'letter-spacing':'0.05em', opacity:'0' }));
+      });
+      wrap.appendChild(svg);
+      return svg;
+    }
+
+    function setPositions(mv, uid) {
+      var d = mv.getDimensions(), c = mv.getBoundingBoxCenter();
+      var hx = d.x/2, hy = d.y/2, hz = d.z/2;
+      // 6 anchor points: 0-1=length ends, 2-3=height ends, 4-5=width ends
+      // All placed on the "near side" (max Z) and bottom/top edges
+      var pts = [
+        [c.x-hx, c.y-hy, c.z+hz], [c.x+hx, c.y-hy, c.z+hz],  // length
+        [c.x+hx, c.y-hy, c.z+hz], [c.x+hx, c.y+hy, c.z+hz],  // height
+        [c.x+hx, c.y-hy, c.z-hz], [c.x+hx, c.y-hy, c.z+hz]   // width
+      ];
+      pts.forEach(function(p, i) {
+        var node = mv.querySelector('[slot="hotspot-dim-'+uid+i+'"]');
+        if (node) node.dataset.position = p.join(' ');
+      });
+    }
+
+    function redraw(mv, svg, uid, labels) {
+      var KEYS = ['len','hgt','wid'];
+      var OFF = 22;
+      KEYS.forEach(function(k, i) {
+        var sNode = mv.querySelector('[slot="hotspot-dim-'+uid+(i*2)+'"]');
+        var eNode = mv.querySelector('[slot="hotspot-dim-'+uid+(i*2+1)+'"]');
+        var line = document.getElementById(uid+'-l-'+k);
+        var tk1  = document.getElementById(uid+'-tk1-'+k);
+        var tk2  = document.getElementById(uid+'-tk2-'+k);
+        var bg   = document.getElementById(uid+'-bg-'+k);
+        var txt  = document.getElementById(uid+'-tx-'+k);
+        var els  = [line,tk1,tk2,bg,txt];
+
+        if (!sNode || !eNode || isHidden(sNode) || isHidden(eNode)) {
+          els.forEach(function(e){ if(e) e.setAttribute('opacity','0'); });
+          return;
+        }
+
+        var sp = screenPt(sNode, svg), ep = screenPt(eNode, svg);
+        var dx = ep.x-sp.x, dy = ep.y-sp.y;
+        var dist = Math.sqrt(dx*dx+dy*dy);
+        if (dist < 8) { els.forEach(function(e){ if(e) e.setAttribute('opacity','0'); }); return; }
+
+        // Perpendicular offset direction
+        var nx = -dy/dist, ny = dx/dist;
+        var x1=sp.x+nx*OFF, y1=sp.y+ny*OFF, x2=ep.x+nx*OFF, y2=ep.y+ny*OFF;
+
+        line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+        line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+        line.setAttribute('opacity','0.9');
+        // Fix arrow marker IDs (must reference the actual IDs)
+        line.setAttribute('marker-start','url(#'+uid+'-as)');
+        line.setAttribute('marker-end','url(#'+uid+'-ae)');
+
+        // Perpendicular tick marks at each end
+        var ux=dx/dist*6, uy=dy/dist*6;
+        tk1.setAttribute('x1',x1-ux); tk1.setAttribute('y1',y1-uy);
+        tk1.setAttribute('x2',x1+ux); tk1.setAttribute('y2',y1+uy);
+        tk1.setAttribute('opacity','0.65');
+        tk2.setAttribute('x1',x2-ux); tk2.setAttribute('y1',y2-uy);
+        tk2.setAttribute('x2',x2+ux); tk2.setAttribute('y2',y2+uy);
+        tk2.setAttribute('opacity','0.65');
+
+        // Label at midpoint with background
+        var mx=(x1+x2)/2, my=(y1+y2)/2;
+        txt.textContent = labels[k];
+        txt.setAttribute('x',mx); txt.setAttribute('y',my);
+        txt.setAttribute('opacity','1');
+        try {
+          var bb = txt.getBBox();
+          bg.setAttribute('x',bb.x-5); bg.setAttribute('y',bb.y-3);
+          bg.setAttribute('width',bb.width+10); bg.setAttribute('height',bb.height+6);
+          bg.setAttribute('opacity','1');
+        } catch(err) {}
+      });
+    }
+
+    function init(mvId, uid, labels) {
+      var mv = document.getElementById(mvId);
+      if (!mv) return;
+      var wrap = mv.closest('.mv-viewer-wrap');
+      var svg = buildSvg(wrap, uid);
+      mv.addEventListener('load', function() {
+        setPositions(mv, uid);
+        setTimeout(function(){ redraw(mv, svg, uid, labels); }, 150);
+      });
+      mv.addEventListener('camera-change', function() { redraw(mv, svg, uid, labels); });
+    }
+
+    // Chassis: show length + width (frame alone is lower than full truck height)
+    init('mv-chassis', 'c', { len:'8,100 mm  LENGTH', hgt:'FRAME HEIGHT', wid:'2,545 mm  WIDTH' });
+    // Full truck: all three main dimensions
+    init('mv-truck',   't', { len:'8,100 mm  LENGTH', hgt:'3,935 mm  HEIGHT', wid:'2,545 mm  WIDTH' });
+  })();
+  </script>
 
   <div class="tech-grid">
 
@@ -4715,7 +5623,7 @@ document.addEventListener("DOMContentLoaded", function() {
       a.onmouseleave = function() { this.style.background=''; };
       var img = document.createElement('img');
       img.src = l.img;
-      img.style.cssText = 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;';
+      img.style.cssText = 'width:100%;aspect-ratio:1/1;object-fit:cover;display:block;';
       img.onerror = function() { this.src='/images/31cc724485.svg';this.onerror=null; };
       var body = document.createElement('div');
       body.style.cssText = 'padding:0.9rem 1.1rem;';
@@ -5300,7 +6208,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /* Nav */
   nav {
-    position: fixed; top: 74px; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
     height: 44px; background: rgba(6,15,30,0.97);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: stretch;
@@ -5439,7 +6347,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    padding-top: 118px;
+    padding-top: 88px;
   }
 
   /* NAV */
@@ -5600,7 +6508,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .news-thumb { width: 100%; aspect-ratio: 4/3; max-height: 220px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
+  .news-thumb { width: 100%; aspect-ratio: 1/1; max-height: 280px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
   .news-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .news-thumb-placeholder {
     width: 100%; height: 120px; flex-shrink: 0;
@@ -5646,7 +6554,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .video-card { display: flex; text-decoration: none; background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; border-radius: var(--card-radius); flex-direction: column; height: 100%; }
   .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
   .video-thumb-wrap {
-    position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+    position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
   }
   .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .vthumb-fallback {
@@ -5821,7 +6729,7 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
   /* ══ ROADMAP PAGE MOBILE ══════════════════════════════════════════════ */
 
 
-  body { padding-top: 118px; }
+  body { padding-top: 88px; }
 
   /* ── Hamburger menu (tablet + mobile) ───────────────────────────── */
   
@@ -5915,14 +6823,14 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
   .lang-btn { font-size: 0.875rem; min-width: 48px; padding: 0 0.4rem; height: 36px; letter-spacing: 0.02em; }
 
   /* ── NAV ── */
-  nav { top: 72px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav { top: 36px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   nav::-webkit-scrollbar { display: none; }
   .logo { font-size: 1.0rem; padding: 0 0.8rem; flex-shrink: 0; }
   .nav-links li { flex: 0 0 auto; min-width: auto; }
   .nav-links a { font-size: 0.875rem; padding: 0 0.8rem; white-space: nowrap; letter-spacing: 0.04em; }
 
   /* ── BODY OFFSET ── */
-  body { padding-top: 116px; }
+  body { padding-top: 80px; }
 
   /* ── SECTION SPACING ── */
   section, .hero { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
@@ -6018,13 +6926,11 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   body.scrolled-down #topbar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-  body.scrolled-down #lang-row { transform: translateY(-38px); }
-  body.scrolled-down nav { transform: translateY(-38px); }
-  body.scrolled-down { padding-top: 80px !important; }
+  body.scrolled-down nav { transform: translateY(-44px); }
+  body.scrolled-down { padding-top: 44px !important; }
   @media (max-width: 600px) {
-    body.scrolled-down #lang-row { transform: translateY(-36px); }
     body.scrolled-down nav { transform: translateY(-36px); }
-    body.scrolled-down { padding-top: 80px !important; }
+    body.scrolled-down { padding-top: 44px !important; }
   }
 
   /* Page load fade-in */
@@ -9548,7 +10454,7 @@ function setLang(lang) {
 </script>
 <script src="https://js.stripe.com/v3/" async></script>
 
-<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:120px;}</style>
+<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:96px;}</style>
 </head>
 <body>
 <script>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windrose E670 — Chassis Frame 3D</title>
-  <meta property="og:title" content="Windrose E670 Chassis Frame — Interactive 3D Model">
-  <meta property="og:description" content="Explore the patented modular chassis frame of the Windrose E670 electric truck in 3D.">
+  <title>Windrose E700 — Chassis Frame 3D</title>
+  <meta property="og:title" content="Windrose E700 Chassis Frame — Interactive 3D Model">
+  <meta property="og:description" content="Explore the patented modular chassis frame of the Windrose E700 electric truck in 3D.">
   <meta property="og:image" content="https://www.windrose.ai/images/chassis-frame-fea.jpg">
   <meta property="og:image:width" content="1080">
   <meta property="og:image:height" content="900">
@@ -74,6 +74,34 @@
       background: radial-gradient(ellipse at center, #0d1f3c 0%, #060f1e 100%);
       display: block;
     }
+    .specs-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0 1.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(6,15,30,0.92);
+      border-top: 1px solid rgba(74,158,255,0.12);
+    }
+    .specs-bar .si {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.05rem;
+    }
+    .specs-bar .sv {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #e8eaf2;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .specs-bar .sl {
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4b7aaa;
+    }
     .hint {
       text-align: center;
       font-size: 0.72rem;
@@ -109,7 +137,7 @@
   <div class="viewer-wrap">
     <model-viewer
       src="/assets/Frame.glb"
-      alt="Windrose E670 chassis frame 3D model"
+      alt="Windrose E700 chassis frame 3D model"
       auto-rotate
       auto-rotate-delay="800"
       rotation-per-second="18deg"
@@ -119,6 +147,15 @@
       environment-image="neutral"
       ar
     ></model-viewer>
+    <div class="specs-bar">
+      <div class="si"><span class="sv">8,100 mm</span><span class="sl">Length</span></div>
+      <div class="si"><span class="sv">2,545 mm</span><span class="sl">Width</span></div>
+      <div class="si"><span class="sv">3,935 mm</span><span class="sl">Height</span></div>
+      <div class="si"><span class="sv">4,650 + 1,350 mm</span><span class="sl">Wheelbase</span></div>
+      <div class="si"><span class="sv">44 t</span><span class="sl">GVW</span></div>
+      <div class="si"><span class="sv">705 kWh LFP</span><span class="sl">Battery</span></div>
+      <div class="si"><span class="sv">670 km</span><span class="sl">Range</span></div>
+    </div>
     <p class="hint">Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Pinch on mobile</p>
   </div>
 <script src="./chatbot.js" defer></script>
