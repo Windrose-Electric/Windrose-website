@@ -410,7 +410,7 @@
   }
   
   .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .news-thumb { width: 100%; aspect-ratio: 4/3; max-height: 220px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
+  .news-thumb { width: 100%; aspect-ratio: 1/1; max-height: 280px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
   .news-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .news-thumb-placeholder {
     width: 100%; height: 120px; flex-shrink: 0;
@@ -456,7 +456,7 @@
   .video-card { display: flex; text-decoration: none; background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; border-radius: var(--card-radius); flex-direction: column; height: 100%; }
   .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
   .video-thumb-wrap {
-    position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+    position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
   }
   .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .vthumb-fallback {
@@ -5304,8 +5304,8 @@ var HOMOLOG_NAMES = {
   .tech-img-wrap {
     background: #fff;
     overflow: hidden;
-    aspect-ratio: 4/3;
-    max-height: 220px;
+    aspect-ratio: 1/1;
+    max-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5355,7 +5355,7 @@ var HOMOLOG_NAMES = {
   .patent-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); }
   .patent-card { background: var(--card-bg); display: flex; flex-direction: column; margin: 0; border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; height: 100%; }
   .patent-card .patent-img-wrap { background:#fff; }
-  .patent-card .patent-img-wrap img { width:100%; aspect-ratio: 4/3; object-fit: contain; display:block; }
+  .patent-card .patent-img-wrap img { width:100%; aspect-ratio: 1/1; object-fit: contain; display:block; }
   .patent-card figcaption { font-family:Barlow Condensed, sans-serif; font-size:0.85rem; letter-spacing:0.06em; color:var(--off-white); padding:0.9rem 1.25rem 1.1rem; border-top:1px solid var(--border); margin-top: auto; }
   @media(max-width:750px){
     .tech-grid { grid-template-columns: 1fr; }
@@ -5536,7 +5536,7 @@ document.addEventListener("DOMContentLoaded", function() {
       a.onmouseleave = function() { this.style.background=''; };
       var img = document.createElement('img');
       img.src = l.img;
-      img.style.cssText = 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;';
+      img.style.cssText = 'width:100%;aspect-ratio:1/1;object-fit:cover;display:block;';
       img.onerror = function() { this.src='/images/31cc724485.svg';this.onerror=null; };
       var body = document.createElement('div');
       body.style.cssText = 'padding:0.9rem 1.1rem;';
@@ -6421,7 +6421,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .news-thumb { width: 100%; aspect-ratio: 4/3; max-height: 220px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
+  .news-thumb { width: 100%; aspect-ratio: 1/1; max-height: 280px; overflow: hidden; background: #0a1a30; display: block; flex-shrink: 0; }
   .news-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .news-thumb-placeholder {
     width: 100%; height: 120px; flex-shrink: 0;
@@ -6467,7 +6467,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .video-card { display: flex; text-decoration: none; background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; border-radius: var(--card-radius); flex-direction: column; height: 100%; }
   .video-card:hover { border-color: var(--accent); transform: translateY(-3px); }
   .video-thumb-wrap {
-    position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+    position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
   }
   .video-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .vthumb-fallback {
