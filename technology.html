@@ -5344,49 +5344,166 @@ var HOMOLOG_NAMES = {
     .mv-viewer-wrap { position:relative; height:72vh; min-height:400px; }
     .mv-item-tech model-viewer { width:100%; height:100%; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
     .mv-label-tech { font-family:Barlow Condensed,sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-align:center; margin:0.4rem 0 0; }
-    .mv-dims-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to bottom,transparent 0%,rgba(6,15,30,0.88) 100%); padding:2.5rem 1rem 0.85rem; display:flex; flex-wrap:wrap; gap:0.3rem 0.9rem; justify-content:center; pointer-events:none; border-radius:0 0 8px 8px; }
-    .mv-dim-chip { display:flex; align-items:baseline; gap:0.28rem; }
-    .mv-dim-val { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; color:#e8eaf2; letter-spacing:0.02em; font-variant-numeric:tabular-nums; }
-    .mv-dim-key { font-family:'Barlow Condensed',sans-serif; font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#4b7aaa; }
-    .mv-dim-sep { font-size:0.65rem; color:rgba(74,122,170,0.45); align-self:center; }
-    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-viewer-wrap { height:75vw; min-height:300px; } .mv-dims-overlay { padding:1.5rem 0.75rem 0.65rem; gap:0.25rem 0.6rem; } .mv-dim-val { font-size:0.78rem; } }
+    .dim-anchor { display:block; width:1px; height:1px; }
+    .dim-svg { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible; z-index:2; }
+    @media(max-width:700px) { .mv-pair-tech { flex-direction:column; } .mv-viewer-wrap { height:75vw; min-height:300px; } }
   </style>
   <div class="mv-pair-tech">
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer src="/assets/Frame.glb" poster="/images/chassis-frame-fea.jpg" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
-        <div class="mv-dims-overlay" aria-hidden="true">
-          <div class="mv-dim-chip"><span class="mv-dim-val">8,100 mm</span><span class="mv-dim-key">Length</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">2,545 mm</span><span class="mv-dim-key">Width</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">3,935 mm</span><span class="mv-dim-key">Height</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">4,650 + 1,350 mm</span><span class="mv-dim-key">Wheelbase</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">44 t</span><span class="mv-dim-key">GVW</span></div>
-        </div>
+        <model-viewer id="mv-chassis" src="/assets/Frame.glb" poster="/images/chassis-frame-fea.jpg" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar>
+          <div slot="hotspot-dim-c0" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c1" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c2" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c3" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c4" class="dim-anchor"></div>
+          <div slot="hotspot-dim-c5" class="dim-anchor"></div>
+        </model-viewer>
       </div>
       <p class="mv-label-tech">Chassis Frame &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer src="/assets/Windrose-truck-3D.glb" poster="/images/truck-xray.jpg" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
-        <div class="mv-dims-overlay" aria-hidden="true">
-          <div class="mv-dim-chip"><span class="mv-dim-val">705 kWh</span><span class="mv-dim-key">Battery (LFP)</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">670 km</span><span class="mv-dim-key">Range</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">44 t</span><span class="mv-dim-key">GVW</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">6×4</span><span class="mv-dim-key">Drive Config</span></div>
-          <span class="mv-dim-sep">·</span>
-          <div class="mv-dim-chip"><span class="mv-dim-val">8,100 mm</span><span class="mv-dim-key">Length</span></div>
-        </div>
+        <model-viewer id="mv-truck" src="/assets/Windrose-truck-3D.glb" poster="/images/truck-xray.jpg" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar>
+          <div slot="hotspot-dim-t0" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t1" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t2" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t3" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t4" class="dim-anchor"></div>
+          <div slot="hotspot-dim-t5" class="dim-anchor"></div>
+        </model-viewer>
       </div>
       <p class="mv-label-tech">E700 Electric Truck &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
   </div>
+
+  <script>
+  (function(){
+    var NS = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+    function screenPt(node, svgNode) {
+      var nr = node.getBoundingClientRect(), sr = svgNode.getBoundingClientRect();
+      return { x: nr.left + nr.width/2 - sr.left, y: nr.top + nr.height/2 - sr.top };
+    }
+    function isHidden(node) {
+      return getComputedStyle(node).visibility === 'hidden';
+    }
+
+    function buildSvg(wrap, uid) {
+      var svg = el('svg', { class:'dim-svg', 'aria-hidden':'true' });
+      var defs = el('defs', {});
+      ['s','e'].forEach(function(d) {
+        var m = el('marker', { id:uid+'-a'+d, markerWidth:'8', markerHeight:'8', refX:'4', refY:'4', orient: d==='s' ? 'auto-start-reverse' : 'auto' });
+        m.appendChild(el('path', { d:'M1,1.5 L7,4 L1,6.5 Z', fill:'#5aaeff' }));
+        defs.appendChild(m);
+      });
+      svg.appendChild(defs);
+      ['len','hgt','wid'].forEach(function(k) {
+        svg.appendChild(el('line', { id:uid+'-l-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', 'stroke-dasharray':'none', 'marker-start':'url(#'+uid+'-as)', 'marker-end':'url(#'+uid+'-ae)', opacity:'0' }));
+        svg.appendChild(el('line', { id:uid+'-tk1-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', opacity:'0' }));
+        svg.appendChild(el('line', { id:uid+'-tk2-'+k, stroke:'#5aaeff', 'stroke-width':'1.5', opacity:'0' }));
+        svg.appendChild(el('rect', { id:uid+'-bg-'+k, rx:'3', fill:'rgba(4,11,24,0.88)', opacity:'0' }));
+        svg.appendChild(el('text', { id:uid+'-tx-'+k, fill:'#d0e8ff', 'font-family':'Barlow Condensed,sans-serif', 'font-size':'12', 'font-weight':'700', 'text-anchor':'middle', 'dominant-baseline':'middle', 'letter-spacing':'0.05em', opacity:'0' }));
+      });
+      wrap.appendChild(svg);
+      return svg;
+    }
+
+    function setPositions(mv, uid) {
+      var d = mv.getDimensions(), c = mv.getBoundingBoxCenter();
+      var hx = d.x/2, hy = d.y/2, hz = d.z/2;
+      // 6 anchor points: 0-1=length ends, 2-3=height ends, 4-5=width ends
+      // All placed on the "near side" (max Z) and bottom/top edges
+      var pts = [
+        [c.x-hx, c.y-hy, c.z+hz], [c.x+hx, c.y-hy, c.z+hz],  // length
+        [c.x+hx, c.y-hy, c.z+hz], [c.x+hx, c.y+hy, c.z+hz],  // height
+        [c.x+hx, c.y-hy, c.z-hz], [c.x+hx, c.y-hy, c.z+hz]   // width
+      ];
+      pts.forEach(function(p, i) {
+        var node = mv.querySelector('[slot="hotspot-dim-'+uid+i+'"]');
+        if (node) node.dataset.position = p.join(' ');
+      });
+    }
+
+    function redraw(mv, svg, uid, labels) {
+      var KEYS = ['len','hgt','wid'];
+      var OFF = 22;
+      KEYS.forEach(function(k, i) {
+        var sNode = mv.querySelector('[slot="hotspot-dim-'+uid+(i*2)+'"]');
+        var eNode = mv.querySelector('[slot="hotspot-dim-'+uid+(i*2+1)+'"]');
+        var line = document.getElementById(uid+'-l-'+k);
+        var tk1  = document.getElementById(uid+'-tk1-'+k);
+        var tk2  = document.getElementById(uid+'-tk2-'+k);
+        var bg   = document.getElementById(uid+'-bg-'+k);
+        var txt  = document.getElementById(uid+'-tx-'+k);
+        var els  = [line,tk1,tk2,bg,txt];
+
+        if (!sNode || !eNode || isHidden(sNode) || isHidden(eNode)) {
+          els.forEach(function(e){ if(e) e.setAttribute('opacity','0'); });
+          return;
+        }
+
+        var sp = screenPt(sNode, svg), ep = screenPt(eNode, svg);
+        var dx = ep.x-sp.x, dy = ep.y-sp.y;
+        var dist = Math.sqrt(dx*dx+dy*dy);
+        if (dist < 8) { els.forEach(function(e){ if(e) e.setAttribute('opacity','0'); }); return; }
+
+        // Perpendicular offset direction
+        var nx = -dy/dist, ny = dx/dist;
+        var x1=sp.x+nx*OFF, y1=sp.y+ny*OFF, x2=ep.x+nx*OFF, y2=ep.y+ny*OFF;
+
+        line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+        line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+        line.setAttribute('opacity','0.9');
+        // Fix arrow marker IDs (must reference the actual IDs)
+        line.setAttribute('marker-start','url(#'+uid+'-as)');
+        line.setAttribute('marker-end','url(#'+uid+'-ae)');
+
+        // Perpendicular tick marks at each end
+        var ux=dx/dist*6, uy=dy/dist*6;
+        tk1.setAttribute('x1',x1-ux); tk1.setAttribute('y1',y1-uy);
+        tk1.setAttribute('x2',x1+ux); tk1.setAttribute('y2',y1+uy);
+        tk1.setAttribute('opacity','0.65');
+        tk2.setAttribute('x1',x2-ux); tk2.setAttribute('y1',y2-uy);
+        tk2.setAttribute('x2',x2+ux); tk2.setAttribute('y2',y2+uy);
+        tk2.setAttribute('opacity','0.65');
+
+        // Label at midpoint with background
+        var mx=(x1+x2)/2, my=(y1+y2)/2;
+        txt.textContent = labels[k];
+        txt.setAttribute('x',mx); txt.setAttribute('y',my);
+        txt.setAttribute('opacity','1');
+        try {
+          var bb = txt.getBBox();
+          bg.setAttribute('x',bb.x-5); bg.setAttribute('y',bb.y-3);
+          bg.setAttribute('width',bb.width+10); bg.setAttribute('height',bb.height+6);
+          bg.setAttribute('opacity','1');
+        } catch(err) {}
+      });
+    }
+
+    function init(mvId, uid, labels) {
+      var mv = document.getElementById(mvId);
+      if (!mv) return;
+      var wrap = mv.closest('.mv-viewer-wrap');
+      var svg = buildSvg(wrap, uid);
+      mv.addEventListener('load', function() {
+        setPositions(mv, uid);
+        setTimeout(function(){ redraw(mv, svg, uid, labels); }, 150);
+      });
+      mv.addEventListener('camera-change', function() { redraw(mv, svg, uid, labels); });
+    }
+
+    // Chassis: show length + width (frame alone is lower than full truck height)
+    init('mv-chassis', 'c', { len:'8,100 mm  LENGTH', hgt:'FRAME HEIGHT', wid:'2,545 mm  WIDTH' });
+    // Full truck: all three main dimensions
+    init('mv-truck',   't', { len:'8,100 mm  LENGTH', hgt:'3,935 mm  HEIGHT', wid:'2,545 mm  WIDTH' });
+  })();
+  </script>
 
   <div class="tech-grid">
 
