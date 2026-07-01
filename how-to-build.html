@@ -94,7 +94,7 @@
 
   /* Nav */
   nav {
-    position: fixed; top: 74px; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
     height: 44px; background: rgba(6,15,30,0.97);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: stretch;
@@ -240,7 +240,7 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    padding-top: 118px;
+    padding-top: 88px;
   }
   button,input,select,textarea{font-family:inherit;}
 
@@ -720,14 +720,14 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
   .lang-btn { font-size: 0.875rem; min-width: 48px; padding: 0 0.4rem; height: 36px; letter-spacing: 0.02em; }
 
   /* ── NAV ── */
-  nav { top: 72px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav { top: 36px; height: 44px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   nav::-webkit-scrollbar { display: none; }
   .logo { font-size: 1.0rem; padding: 0 0.8rem; flex-shrink: 0; }
   .nav-links li { flex: 0 0 auto; min-width: auto; }
   .nav-links a { font-size: 0.875rem; padding: 0 0.8rem; white-space: nowrap; letter-spacing: 0.04em; }
 
   /* ── BODY OFFSET ── */
-  body { padding-top: 116px; }
+  body { padding-top: 80px; }
 
   /* ── SECTION SPACING ── */
   section, .hero { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
@@ -841,13 +841,11 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   body.scrolled-down #topbar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-  body.scrolled-down #lang-row { transform: translateY(-38px); }
-  body.scrolled-down nav { transform: translateY(-38px); }
-  body.scrolled-down { padding-top: 80px !important; }
+  body.scrolled-down nav { transform: translateY(-44px); }
+  body.scrolled-down { padding-top: 44px !important; }
   @media (max-width: 600px) {
-    body.scrolled-down #lang-row { transform: translateY(-36px); }
     body.scrolled-down nav { transform: translateY(-36px); }
-    body.scrolled-down { padding-top: 80px !important; }
+    body.scrolled-down { padding-top: 44px !important; }
   }
 
   /* Page load fade-in */
@@ -1096,7 +1094,7 @@ function setLang(lang) {
   .section-label::before, .eyebrow::before { background:#ffffff !important; }
 </style>
 
-<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:120px;}</style>
+<style>/* WR consistent anchor offset */ section[id],#gen-range-bar,#specs-matrix,#scenario-grid-wrap,#manual-search-wrap,#locations,#range-calc,#rc-scenarios{scroll-margin-top:96px;}</style>
 </head>
 <body>
 <script>
@@ -1187,13 +1185,7 @@ function setLang(lang) {
       onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
     <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
   </div>
-  <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
-</div>
-
-<!-- LANG ROW -->
-<div id="lang-row" style="background:rgba(6,15,30,0.97);border-bottom:1px solid var(--border);padding:3px clamp(1rem,3vw,2rem);display:flex;align-items:center;gap:0.75rem;overflow-x:auto;white-space:nowrap;scrollbar-width:none;">
-  <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language"
-    style="background:#0d1f38;border:1px solid rgba(74,158,255,0.25);border-radius:4px;color:#f0f4ff;font-family:DM Sans, sans-serif;font-size:0.875rem;padding:4px 10px;cursor:pointer;min-width:160px;max-width:220px;outline:none;appearance:auto;">
+  <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language" style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.35);border-radius:4px;color:#e8f0ff;font-family:DM Sans,sans-serif;font-size:0.82rem;padding:3px 6px;cursor:pointer;outline:none;appearance:auto;flex-shrink:0;max-width:175px;">
     <option value="en">🌍 English (Global)</option>
     <option value="en_us">🇺🇸 English</option>
     <option value="en_uk">🇬🇧 English</option>
@@ -1218,7 +1210,11 @@ function setLang(lang) {
     <option value="he">🇮🇱 עברית</option>
     <option value="ar">🇸🇦 العربية</option>
   </select>
+  <a href="#" onclick="openStripeModal(); return false;" data-i18n="topbar.btn">Reserve Your Windrose →</a>
 </div>
+
+<!-- LANG ROW -->
+<div id="lang-row" style="display:none;"></div>
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo" data-i18n="nav.home">Home</a>
@@ -1409,7 +1405,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="mfg-title">ENGIE Vianeo — Heavy-Duty Electrification</div>
     </a>
 
-    <a class="mfg-card" href="https://windrose.ai/press/aertssen-assembly-usa.html" target="_blank" rel="noopener">
+    <a class="mfg-card" href="https://www.ttnews.com/articles/windrose-us-assembly-plants" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="mfg-country">🇺🇸 United States</div>
       <div class="mfg-title">Aertssen + Windrose — USA Assembly Sites</div>

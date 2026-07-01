@@ -3,19 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Windrose E670 — Interactive 3D Model</title>
+<title>Windrose E700 — Interactive 3D Model</title>
 <link rel="icon" type="image/svg+xml" href="/images/87dc15a92f.svg">
 <link rel="shortcut icon" href="/images/87dc15a92f.svg">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 100%; height: 100%; overflow: hidden; background: #060f1e; }
 
-  #c {
-    position: fixed; inset: 0; width: 100%; height: 100%;
-    display: block; touch-action: none;
-  }
+  #c { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
 
-  /* Top bar */
   #hud {
     position: fixed; top: 0; left: 0; right: 0; z-index: 10;
     height: 48px; background: rgba(6,15,30,0.88);
@@ -27,8 +23,7 @@
   #hud-logo {
     font-family: 'Barlow Condensed', system-ui, sans-serif;
     font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em;
-    color: #4a9eff; text-decoration: none; white-space: nowrap;
-    text-transform: uppercase;
+    color: #4a9eff; text-decoration: none; text-transform: uppercase;
   }
   #hud-title {
     font-family: 'Barlow Condensed', system-ui, sans-serif;
@@ -44,12 +39,12 @@
   }
   #hud-back:hover { color: #4a9eff; border-color: rgba(74,158,255,0.55); }
 
-  /* Loading overlay */
   #load-overlay {
     position: fixed; inset: 0; z-index: 20;
     background: #060f1e;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center; gap: 1.5rem;
+    pointer-events: none;
   }
   #load-logo {
     font-family: 'Barlow Condensed', system-ui, sans-serif;
@@ -61,12 +56,9 @@
     font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: rgba(122,154,191,0.7);
   }
-  #load-bar-wrap {
-    width: 220px; height: 2px; background: rgba(74,158,255,0.12);
-  }
+  #load-bar-wrap { width: 220px; height: 2px; background: rgba(74,158,255,0.12); }
   #load-bar { height: 100%; width: 0%; background: #4a9eff; transition: width 0.25s ease; }
 
-  /* Controls hint */
   #hint {
     position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
     z-index: 10;
@@ -74,46 +66,41 @@
     font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
     color: rgba(122,154,191,0.45);
     pointer-events: none; text-align: center;
-    transition: opacity 1s ease;
+    transition: opacity 1.5s ease;
   }
 
-  /* Error panel */
-  #error-panel {
-    display: none;
-    position: fixed; inset: 0; z-index: 30;
-    background: #060f1e;
-    align-items: center; justify-content: center; padding: 2rem;
-  }
-  #error-inner {
-    max-width: 520px; text-align: center;
+  #model-badge {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 10;
     font-family: 'Barlow Condensed', system-ui, sans-serif;
-  }
-  #error-inner h2 {
-    font-size: 1.5rem; letter-spacing: 0.06em; color: #f0f4ff;
-    margin-bottom: 1rem;
-  }
-  #error-inner p {
-    font-size: 0.92rem; line-height: 1.7; color: rgba(122,154,191,0.8);
-    margin-bottom: 1.25rem; font-family: system-ui, sans-serif; letter-spacing: 0;
-  }
-  #error-inner code {
-    display: block; background: rgba(74,158,255,0.07);
-    border: 1px solid rgba(74,158,255,0.18);
-    padding: 0.6rem 1rem; font-size: 0.78rem; color: #4a9eff;
-    font-family: 'DM Mono', monospace, system-ui;
-    word-break: break-all; margin-bottom: 1.5rem; text-align: left;
-  }
-  #error-inner a {
-    display: inline-block; background: rgba(74,158,255,0.15);
-    border: 1px solid rgba(74,158,255,0.4);
-    padding: 0.55rem 1.4rem; color: #5aaeff;
-    font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none;
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(122,154,191,0.35);
+    pointer-events: none;
   }
 
-  @media (max-width: 600px) {
-    #hud-title { display: none; }
+  #specs-overlay {
+    position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 10;
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    background: rgba(6,15,30,0.72);
+    border: 1px solid rgba(74,158,255,0.18);
+    backdrop-filter: blur(8px);
+    padding: 0.65rem 0.9rem;
+    pointer-events: none;
+    min-width: 180px;
   }
+  #specs-overlay .so-title {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(74,158,255,0.6); margin-bottom: 0.5rem;
+  }
+  #specs-overlay table { border-collapse: collapse; width: 100%; }
+  #specs-overlay td {
+    font-size: 0.67rem; letter-spacing: 0.06em; padding: 0.12rem 0;
+    vertical-align: top;
+  }
+  #specs-overlay td:first-child { color: rgba(122,154,191,0.55); padding-right: 0.75rem; white-space: nowrap; }
+  #specs-overlay td:last-child { color: rgba(240,244,255,0.75); text-align: right; font-variant-numeric: tabular-nums; }
+  #specs-overlay .so-divider { border: none; border-top: 1px solid rgba(74,158,255,0.1); margin: 0.4rem 0; }
+
+  @media (max-width: 600px) { #hud-title { display: none; } #specs-overlay { display: none; } }
 </style>
 </head>
 <body>
@@ -122,26 +109,33 @@
 
 <div id="hud">
   <a id="hud-logo" href="technology.html">WINDROSE</a>
-  <span id="hud-title">E670 — Interactive 3D Model</span>
+  <span id="hud-title">E700 — Interactive 3D Model</span>
   <a id="hud-back" href="technology.html">← Technology</a>
 </div>
 
 <div id="load-overlay">
   <div id="load-logo">WINDROSE</div>
-  <div id="load-label">Loading 3D model…</div>
+  <div id="load-label">Loading…</div>
   <div id="load-bar-wrap"><div id="load-bar"></div></div>
 </div>
 
 <div id="hint">Drag to orbit &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-drag to pan</div>
+<div id="model-badge">Preview model</div>
 
-<div id="error-panel">
-  <div id="error-inner">
-    <h2>Model not available</h2>
-    <p>The 3D model file could not be loaded. This usually means the Google Drive file needs to be set to <strong style="color:#f0f4ff">"Anyone with the link"</strong> access.</p>
-    <p>Share the file publicly in Google Drive, or host the GLB at:</p>
-    <code>/models/windrose-truck.glb</code>
-    <a href="technology.html">← Back to Technology</a>
-  </div>
+<div id="specs-overlay">
+  <div class="so-title">E700 Specifications</div>
+  <table>
+    <tr><td>Length</td><td>8,100 mm</td></tr>
+    <tr><td>Width</td><td>2,545 mm</td></tr>
+    <tr><td>Height</td><td>3,935 mm</td></tr>
+    <tr><td>Wheelbase</td><td>4,650 + 1,350 mm</td></tr>
+  </table>
+  <hr class="so-divider">
+  <table>
+    <tr><td>GVW</td><td>44 t</td></tr>
+    <tr><td>Battery</td><td>705 kWh LFP</td></tr>
+    <tr><td>Range</td><td>670 km</td></tr>
+  </table>
 </div>
 
 <script type="importmap">
@@ -158,197 +152,303 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-/* ── Renderer ─────────────────────────────────────────── */
+/* ── Renderer ──────────────────────────────────────────── */
 const canvas = document.getElementById('c');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.1;
+renderer.toneMappingExposure = 1.15;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-/* ── Scene ─────────────────────────────────────────────── */
+/* ── Scene ──────────────────────────────────────────────── */
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x060f1e);
-scene.fog = new THREE.FogExp2(0x060f1e, 0.018);
+scene.fog = new THREE.FogExp2(0x060f1e, 0.012);
 
-/* ── Camera ────────────────────────────────────────────── */
-const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 400);
-camera.position.set(8, 3.5, 14);
+/* ── Camera ─────────────────────────────────────────────── */
+const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 500);
+camera.position.set(12, 5, 18);
 
-/* ── Controls ──────────────────────────────────────────── */
+/* ── Controls ───────────────────────────────────────────── */
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.06;
-controls.minDistance = 3;
-controls.maxDistance = 60;
-controls.maxPolarAngle = Math.PI / 1.85;
+controls.minDistance = 4;
+controls.maxDistance = 80;
+controls.maxPolarAngle = Math.PI / 1.9;
 controls.autoRotate = true;
-controls.autoRotateSpeed = 0.5;
+controls.autoRotateSpeed = 0.45;
 
-/* ── Lights ────────────────────────────────────────────── */
-// Ambient fill
-const ambient = new THREE.AmbientLight(0x1a3a5c, 1.8);
-scene.add(ambient);
+/* ── Lights ─────────────────────────────────────────────── */
+scene.add(new THREE.AmbientLight(0x1a3a5c, 2.0));
 
-// Key light — warm-white from upper-right
-const key = new THREE.DirectionalLight(0xd8eeff, 2.2);
-key.position.set(10, 18, 10);
+const key = new THREE.DirectionalLight(0xd8eeff, 2.5);
+key.position.set(12, 20, 12);
 key.castShadow = true;
 key.shadow.mapSize.setScalar(2048);
 key.shadow.bias = -0.001;
 scene.add(key);
 
-// Rim — cool blue from behind
-const rim = new THREE.DirectionalLight(0x4a9eff, 1.0);
-rim.position.set(-12, 6, -10);
+const rim = new THREE.DirectionalLight(0x4a9eff, 1.2);
+rim.position.set(-14, 8, -12);
 scene.add(rim);
 
-// Ground bounce — subtle warm fill from below
-const bounce = new THREE.DirectionalLight(0x2a4a7f, 0.4);
-bounce.position.set(0, -6, 0);
+const bounce = new THREE.DirectionalLight(0x2a4a7f, 0.5);
+bounce.position.set(0, -8, 0);
 scene.add(bounce);
 
-// Accent spotlight on truck front
-const spot = new THREE.SpotLight(0x6ab4ff, 3.0, 60, Math.PI / 6, 0.5, 2);
-spot.position.set(6, 12, 8);
-scene.add(spot);
-
-/* ── Ground plane (subtle reflection) ──────────────────── */
-const groundGeo = new THREE.PlaneGeometry(200, 200);
-const groundMat = new THREE.MeshStandardMaterial({
-  color: 0x030912,
-  roughness: 0.8,
-  metalness: 0.3,
-});
-const ground = new THREE.Mesh(groundGeo, groundMat);
+/* ── Ground ─────────────────────────────────────────────── */
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(300, 300),
+  new THREE.MeshStandardMaterial({ color: 0x030912, roughness: 0.85, metalness: 0.2 })
+);
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
 
-/* ── Grid overlay on ground ─────────────────────────────── */
-const grid = new THREE.GridHelper(80, 40, 0x4a9eff, 0x0d1f38);
-grid.material.opacity = 0.15;
+const grid = new THREE.GridHelper(100, 50, 0x4a9eff, 0x0a1828);
+grid.material.opacity = 0.18;
 grid.material.transparent = true;
 scene.add(grid);
 
-/* ── Load model ─────────────────────────────────────────── */
-const loadBar = document.getElementById('load-bar');
+/* ── Procedural truck (always shown until real GLB loads) ── */
+function makeTruck() {
+  const g = new THREE.Group();
+
+  const bodyM = new THREE.MeshStandardMaterial({ color: 0x162d5a, metalness: 0.65, roughness: 0.28 });
+  const whiteM = new THREE.MeshStandardMaterial({ color: 0xdce8f8, metalness: 0.15, roughness: 0.55 });
+  const glassM = new THREE.MeshStandardMaterial({ color: 0x4a9eff, metalness: 0.05, roughness: 0.04, transparent: true, opacity: 0.45 });
+  const tireM = new THREE.MeshStandardMaterial({ color: 0x181818, metalness: 0.0, roughness: 0.92 });
+  const rimM = new THREE.MeshStandardMaterial({ color: 0x8aaac0, metalness: 0.85, roughness: 0.18 });
+  const accentM = new THREE.MeshStandardMaterial({ color: 0x4a9eff, metalness: 0.3, roughness: 0.5, emissive: 0x1a3a6e, emissiveIntensity: 0.4 });
+  const lightM = new THREE.MeshStandardMaterial({ color: 0xfff0c0, emissive: 0xfff0c0, emissiveIntensity: 1.5, roughness: 0.3 });
+  const drlM = new THREE.MeshStandardMaterial({ color: 0x4a9eff, emissive: 0x4a9eff, emissiveIntensity: 2.0, roughness: 0.3 });
+
+  function box(w, h, d, mat, x, y, z, rx, ry, rz) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+    m.position.set(x, y, z);
+    if (rx) m.rotation.x = rx;
+    if (ry) m.rotation.y = ry;
+    if (rz) m.rotation.z = rz;
+    m.castShadow = true; m.receiveShadow = true;
+    g.add(m); return m;
+  }
+
+  function cyl(rt, rb, h, seg, mat, x, y, z, rx, ry, rz) {
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat);
+    m.position.set(x, y, z);
+    if (rx !== undefined) m.rotation.x = rx;
+    if (ry !== undefined) m.rotation.y = ry;
+    if (rz !== undefined) m.rotation.z = rz;
+    m.castShadow = true;
+    g.add(m); return m;
+  }
+
+  // Coordinate system: truck faces +Z, centered at x=0, floor at y=0
+  const fy = 0.55; // floor (chassis) height
+
+  // ── CHASSIS ───────────────────────────────────────────
+  box(2.3, 0.18, 17.5, bodyM, 0, fy - 0.05, -1.0);
+
+  // ── CAB ───────────────────────────────────────────────
+  const cZ = 6.8; // cab front Z
+  // Lower cab body
+  box(2.5, 2.2, 2.8, bodyM, 0, fy + 1.1, cZ - 1.0);
+  // Upper cab (slightly narrowed)
+  box(2.4, 1.2, 2.5, bodyM, 0, fy + 2.7, cZ - 1.05);
+  // Top aero fairing
+  box(2.4, 0.55, 1.8, bodyM, 0, fy + 3.45, cZ - 1.5);
+  // Aero fairing slope (rear taper)
+  box(2.35, 0.4, 0.6, bodyM, 0, fy + 3.25, cZ - 2.5, -0.3);
+  // Front fascia
+  box(2.5, 2.2, 0.12, bodyM, 0, fy + 1.1, cZ + 0.3);
+
+  // Windshield
+  box(2.0, 1.05, 0.08, glassM, 0, fy + 2.55, cZ + 0.22, -0.22);
+  // Side windows
+  box(0.07, 0.65, 0.75, glassM, -1.22, fy + 2.6, cZ - 0.65);
+  box(0.07, 0.65, 0.75, glassM,  1.22, fy + 2.6, cZ - 0.65);
+
+  // DRL strips (blue LED)
+  box(1.8, 0.08, 0.06, drlM, 0, fy + 2.15, cZ + 0.33);
+  // Headlights
+  box(0.38, 0.28, 0.07, lightM, -0.88, fy + 1.35, cZ + 0.33);
+  box(0.38, 0.28, 0.07, lightM,  0.88, fy + 1.35, cZ + 0.33);
+
+  // Grille (accent)
+  box(2.1, 0.55, 0.07, accentM, 0, fy + 0.78, cZ + 0.33);
+
+  // Door seam lines (thin dark boxes)
+  box(0.04, 2.1, 0.04, tireM, -0.8, fy + 1.1, cZ - 0.0);
+  box(0.04, 2.1, 0.04, tireM,  0.8, fy + 1.1, cZ - 0.0);
+
+  // Mirrors
+  box(0.55, 0.28, 0.12, bodyM, -1.42, fy + 2.5, cZ + 0.05);
+  box(0.55, 0.28, 0.12, bodyM,  1.42, fy + 2.5, cZ + 0.05);
+  // Mirror arms
+  box(0.07, 0.07, 0.35, bodyM, -1.38, fy + 2.5, cZ + 0.22);
+  box(0.07, 0.07, 0.35, bodyM,  1.38, fy + 2.5, cZ + 0.22);
+
+  // ── TRAILER ──────────────────────────────────────────
+  const tL = 13.0, tH = 2.9, tW = 2.52;
+  const tZ = cZ - 2.55 - tL / 2;
+  const tY = fy + 0.22 + tH / 2;
+
+  // Main trailer box
+  box(tW, tH, tL, whiteM, 0, tY, tZ);
+  // Accent stripe (blue, top)
+  box(tW + 0.02, 0.22, tL + 0.02, accentM, 0, tY + tH / 2 - 0.11, tZ);
+  // Accent stripe (blue, bottom)
+  box(tW + 0.02, 0.1, tL + 0.02, accentM, 0, tY - tH / 2 + 0.05, tZ);
+  // Rear doors
+  box(tW - 0.05, tH - 0.05, 0.1, whiteM, 0, tY, tZ - tL / 2);
+  box(0.04, tH - 0.05, 0.12, accentM, 0, tY, tZ - tL / 2);
+  // Rear lights
+  box(0.22, 0.35, 0.08, lightM, -tW / 2 + 0.15, tY - tH / 2 + 0.28, tZ - tL / 2 - 0.02);
+  box(0.22, 0.35, 0.08, lightM,  tW / 2 - 0.15, tY - tH / 2 + 0.28, tZ - tL / 2 - 0.02);
+
+  // ── WHEELS ────────────────────────────────────────────
+  const wy = 0.47;
+  const wo = 1.42; // outboard wheel center X
+
+  function axle(zPos, dual) {
+    [-1, 1].forEach(function(side) {
+      const x = side * wo;
+      // Tire
+      cyl(0.47, 0.47, 0.27, 24, tireM, x, wy, zPos, 0, 0, Math.PI / 2);
+      // Rim
+      cyl(0.3, 0.3, 0.29, 16, rimM, x, wy, zPos, 0, 0, Math.PI / 2);
+      // Hub cap detail
+      cyl(0.12, 0.12, 0.32, 8, bodyM, x, wy, zPos, 0, 0, Math.PI / 2);
+      if (dual) {
+        const dx = side * (wo + 0.31);
+        cyl(0.47, 0.47, 0.27, 24, tireM, dx, wy, zPos, 0, 0, Math.PI / 2);
+        cyl(0.3, 0.3, 0.29, 16, rimM, dx, wy, zPos, 0, 0, Math.PI / 2);
+      }
+    });
+    // Axle bar
+    box(dual ? 3.8 : 3.0, 0.1, 0.1, rimM, 0, wy, zPos);
+  }
+
+  axle(cZ + 0.85, false);         // steer
+  axle(cZ - 1.65, true);          // drive 1
+  axle(cZ - 2.45, true);          // drive 2
+  axle(tZ - tL / 2 + 1.8, true);  // trailer 1
+  axle(tZ - tL / 2 + 2.7, true);  // trailer 2
+  axle(tZ - tL / 2 + 3.6, true);  // trailer 3
+
+  // Fifth wheel
+  cyl(0.55, 0.55, 0.14, 20, rimM, 0, fy + 0.07, cZ - 2.0, 0, 0, 0);
+
+  // Air stacks (exhaust)
+  cyl(0.07, 0.07, 1.8, 10, bodyM, -1.0, fy + 2.3, cZ - 1.8);
+  cyl(0.07, 0.07, 1.8, 10, bodyM,  1.0, fy + 2.3, cZ - 1.8);
+
+  // Center truck at origin
+  const bbox = new THREE.Box3().setFromObject(g);
+  const center = bbox.getCenter(new THREE.Vector3());
+  g.position.sub(center);
+  g.position.y += bbox.getSize(new THREE.Vector3()).y / 2;
+
+  return g;
+}
+
+/* ── Build and show procedural truck immediately ─────────── */
 const loadOverlay = document.getElementById('load-overlay');
-const errorPanel = document.getElementById('error-panel');
+const badge = document.getElementById('model-badge');
 const hint = document.getElementById('hint');
+let rotateTimer = null;
 
-// Try local path first; fall back to Google Drive public URL
-const MODEL_URLS = [
-  '/models/windrose-truck.glb',
-  'https://drive.google.com/uc?export=download&id=1CJYpOrtPz49M2GHqgRWhc9fbY_cTR46t'
-];
+const proceduralTruck = makeTruck();
+scene.add(proceduralTruck);
 
+// Fit camera to procedural truck
+(function fitCamera(obj) {
+  const box = new THREE.Box3().setFromObject(obj);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+  controls.target.copy(center);
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const fov = camera.fov * (Math.PI / 180);
+  const dist = (maxDim / 2) / Math.tan(fov / 2) * 1.7;
+  camera.position.set(center.x + dist * 0.5, center.y + dist * 0.3, center.z + dist * 0.85);
+  controls.minDistance = maxDim * 0.3;
+  controls.maxDistance = maxDim * 7;
+  ground.position.y = box.min.y;
+  grid.position.y = box.min.y + 0.01;
+  controls.update();
+})(proceduralTruck);
+
+// Fade out loading overlay (procedural builds instantly)
+requestAnimationFrame(function() {
+  loadOverlay.style.transition = 'opacity 0.4s ease';
+  loadOverlay.style.opacity = '0';
+  setTimeout(function() { loadOverlay.style.display = 'none'; }, 450);
+  // Fade hint after 5s
+  setTimeout(function() { hint.style.opacity = '0'; }, 5000);
+});
+
+/* ── Try to load real GLB and replace procedural truck ───── */
 const draco = new DRACOLoader();
 draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/libs/draco/gltf/');
 const loader = new GLTFLoader();
 loader.setDRACOLoader(draco);
 
-let modelGroup = null;
-let autoRotate = true;
-let hintFadeTimer = null;
-
-function fitCameraToModel(obj) {
-  const box = new THREE.Box3().setFromObject(obj);
-  const size = box.getSize(new THREE.Vector3());
-  const center = box.getCenter(new THREE.Vector3());
-
-  // Place ground at truck floor
-  ground.position.y = box.min.y;
-  grid.position.y = box.min.y + 0.01;
-
-  // Position controls target at center
-  controls.target.copy(center);
-
-  // Fit camera
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const fov = camera.fov * (Math.PI / 180);
-  const dist = (maxDim / 2) / Math.tan(fov / 2) * 1.6;
-  camera.position.set(center.x + dist * 0.55, center.y + dist * 0.28, center.z + dist * 0.8);
-  controls.minDistance = maxDim * 0.3;
-  controls.maxDistance = maxDim * 6;
-  controls.update();
-}
-
-function tryLoad(urls, idx) {
-  if (idx >= urls.length) {
-    loadOverlay.style.display = 'none';
-    errorPanel.style.display = 'flex';
-    return;
-  }
-  loader.load(
-    urls[idx],
-    function(gltf) {
-      const model = gltf.scene;
-
-      // Ensure transparent materials render correctly
-      model.traverse(function(child) {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-          if (child.material) {
-            var mats = Array.isArray(child.material) ? child.material : [child.material];
-            mats.forEach(function(m) {
-              if (m.transparent) {
-                m.depthWrite = false;
-                m.side = THREE.FrontSide;
-              }
-              m.needsUpdate = true;
-            });
-          }
+loader.load(
+  '/models/windrose-truck.glb',
+  function(gltf) {
+    // Real model loaded — swap out procedural
+    scene.remove(proceduralTruck);
+    const model = gltf.scene;
+    model.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        if (child.material) {
+          var mats = Array.isArray(child.material) ? child.material : [child.material];
+          mats.forEach(function(m) {
+            if (m.transparent) { m.depthWrite = false; }
+            m.needsUpdate = true;
+          });
         }
-      });
-
-      modelGroup = model;
-      scene.add(model);
-      fitCameraToModel(model);
-
-      // Fade out load overlay
-      loadOverlay.style.transition = 'opacity 0.6s ease';
-      loadOverlay.style.opacity = '0';
-      setTimeout(function() { loadOverlay.style.display = 'none'; }, 650);
-
-      // Fade out hint after 5s
-      hintFadeTimer = setTimeout(function() {
-        hint.style.opacity = '0';
-      }, 5000);
-    },
-    function(xhr) {
-      if (xhr.total) {
-        loadBar.style.width = (xhr.loaded / xhr.total * 100) + '%';
       }
-    },
-    function() {
-      // This URL failed — try next
-      tryLoad(urls, idx + 1);
-    }
-  );
-}
+    });
+    scene.add(model);
+    // Re-fit camera
+    const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    controls.target.copy(center);
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const fov = camera.fov * (Math.PI / 180);
+    const dist = (maxDim / 2) / Math.tan(fov / 2) * 1.6;
+    camera.position.set(center.x + dist * 0.55, center.y + dist * 0.28, center.z + dist * 0.8);
+    controls.minDistance = maxDim * 0.3;
+    controls.maxDistance = maxDim * 6;
+    ground.position.y = box.min.y;
+    grid.position.y = box.min.y + 0.01;
+    controls.update();
+    badge.textContent = 'E700 3D Model';
+  },
+  null,
+  null // silently ignore errors — procedural stays visible
+);
 
-tryLoad(MODEL_URLS, 0);
-
-/* ── Pause auto-rotate on user interaction ──────────────── */
+/* ── Controls interaction ────────────────────────────────── */
 controls.addEventListener('start', function() {
   controls.autoRotate = false;
-  clearTimeout(hintFadeTimer);
   hint.style.opacity = '0';
+  clearTimeout(rotateTimer);
 });
 controls.addEventListener('end', function() {
-  // Resume auto-rotate after 4s of inactivity
-  clearTimeout(autoRotate);
-  autoRotate = setTimeout(function() {
-    controls.autoRotate = true;
-  }, 4000);
+  clearTimeout(rotateTimer);
+  rotateTimer = setTimeout(function() { controls.autoRotate = true; }, 4000);
 });
 
-/* ── Resize ─────────────────────────────────────────────── */
+/* ── Resize ──────────────────────────────────────────────── */
 window.addEventListener('resize', function() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();

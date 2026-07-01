@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windrose E670 — Full Truck 3D</title>
-  <meta property="og:title" content="Windrose E670 Electric Truck — Interactive 3D Model">
-  <meta property="og:description" content="Explore the Windrose E670 electric semi-truck in full 3D. Drag to rotate, scroll to zoom.">
+  <title>Windrose E700 — Full Truck 3D</title>
+  <meta property="og:title" content="Windrose E700 Electric Truck — Interactive 3D Model">
+  <meta property="og:description" content="Explore the Windrose E700 electric semi-truck in full 3D. Drag to rotate, scroll to zoom.">
   <meta name="twitter:card" content="summary_large_image">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <style>
@@ -107,6 +107,37 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     .back-link:hover { color: #4b9fff; }
+    .specs-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 0.6rem;
+    }
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .spec-val {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e8eaf2;
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .spec-lbl {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4b7aaa;
+    }
+    .spec-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.08);
+      align-self: stretch;
+      margin: 0.1rem 0;
+    }
+    @media (max-width: 480px) { .spec-divider { display: none; } }
   </style>
 </head>
 <body>
@@ -120,12 +151,27 @@
 
   <div class="viewer-wrap">
     <div>
-      <h1>E670 <span>Electric Truck</span></h1>
-      <p class="sub">The Windrose E670 — a long-haul electric semi-truck engineered for the global market. 400kWh usable capacity, 1,000 km range.</p>
+      <h1>E700 <span>Electric Truck</span></h1>
+      <p class="sub">The Windrose E700 — a long-haul electric semi-truck engineered for the global market. 6×4 tractor, sleeper cab, available 2026.</p>
+      <div class="specs-strip">
+        <div class="spec-item"><span class="spec-val">8,100 mm</span><span class="spec-lbl">Length</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">2,545 mm</span><span class="spec-lbl">Width</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">3,935 mm</span><span class="spec-lbl">Height</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">4,650 + 1,350 mm</span><span class="spec-lbl">Wheelbase</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">44 t</span><span class="spec-lbl">GVW</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">705 kWh</span><span class="spec-lbl">Battery (LFP)</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec-item"><span class="spec-val">670 km</span><span class="spec-lbl">Range</span></div>
+      </div>
     </div>
     <model-viewer
       src="/assets/Windrose-truck-3D.glb"
-      alt="Windrose E670 electric truck 3D model"
+      alt="Windrose E700 electric truck 3D model"
       auto-rotate
       auto-rotate-delay="800"
       rotation-per-second="18deg"
