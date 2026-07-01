@@ -4517,6 +4517,10 @@ function setLang(lang) {
   .tech-specs li { display:flex; align-items:baseline; gap:0.7rem; }
   .tech-specs .tech-spec-val { font-family:Barlow Condensed, sans-serif; font-weight:700; font-size:1.05rem; line-height:1.1; color:var(--accent); letter-spacing:0.01em; flex:0 0 5.2rem; }
   .tech-specs .tech-spec-label { font-family:DM Sans, sans-serif; font-size:0.85rem; color:var(--muted); line-height:1.35; }
+  .tech-link { display:inline-flex; align-items:center; gap:0.4rem; margin-top:1.1rem; font-family:'Barlow Condensed', sans-serif; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:gap 0.2s, color 0.2s; }
+  .tech-link:hover { color:var(--off-white); gap:0.7rem; }
+  .tech-link .arrow { transition:transform 0.2s; }
+  .tech-card:hover .tech-link .arrow { transform:translateX(3px); }
   .tech-desc {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.85rem;
@@ -4735,6 +4739,7 @@ function setLang(lang) {
           <li><span class="tech-spec-val">870 kW</span><span class="tech-spec-label" data-i18n="tech.storage.spec.charging">Max charging power</span></li>
           <li><span class="tech-spec-val">✓</span><span class="tech-spec-label" data-i18n="tech.storage.spec.compat">MCS + CCS compatible</span></li>
         </ul>
+        <a class="tech-link" href="battery-pack-onepager.html" data-i18n="tech.storage.datasheet">View full battery spec sheet <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
