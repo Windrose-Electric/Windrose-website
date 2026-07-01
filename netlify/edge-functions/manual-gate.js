@@ -33,30 +33,52 @@ function getCookie(req, name) {
   return null;
 }
 
-async function validSession(token, secret) {
-  if (!token) return false;
+// Returns the session payload (with .e = email) if valid, else null.
+async function readSession(token, secret) {
+  if (!token) return null;
   const dot = token.indexOf('.');
-  if (dot < 0) return false;
+  if (dot < 0) return null;
   const body = token.slice(0, dot);
   const sig = token.slice(dot + 1);
   const expected = await hmac(secret, body);
-  if (sig.length !== expected.length) return false;
+  if (sig.length !== expected.length) return null;
   let diff = 0;
   for (let i = 0; i < sig.length; i++) diff |= sig.charCodeAt(i) ^ expected.charCodeAt(i);
-  if (diff !== 0) return false;
+  if (diff !== 0) return null;
   let payload;
-  try { payload = JSON.parse(b64urlToString(body)); } catch { return false; }
-  if (payload.t !== 's') return false;
-  if (!payload.x || Math.floor(Date.now() / 1000) > payload.x) return false;
-  return true;
+  try { payload = JSON.parse(b64urlToString(body)); } catch { return null; }
+  if (payload.t !== 's') return null;
+  if (!payload.x || Math.floor(Date.now() / 1000) > payload.x) return null;
+  return payload;
+}
+
+function env(name) {
+  return (globalThis.Netlify && Netlify.env.get(name)) || (globalThis.Deno && Deno.env.get(name)) || '';
+}
+
+// Log a manual page-view (fire-and-forget; never blocks or breaks serving).
+// Forwards the visitor's cookie so manual-log can re-verify and trust the email.
+function logView(request, origin, pathname) {
+  return fetch(origin + '/.netlify/functions/manual-log', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', cookie: request.headers.get('cookie') || '' },
+    body: JSON.stringify({ page: pathname, ts: new Date().toISOString() }),
+  }).catch(() => {});
 }
 
 export default async (request, context) => {
-  const secret = (globalThis.Netlify && Netlify.env.get('MANUAL_AUTH_SECRET'))
-    || (globalThis.Deno && Deno.env.get('MANUAL_AUTH_SECRET'));
-
+  const secret = env('MANUAL_AUTH_SECRET');
   const token = getCookie(request, COOKIE_NAME);
-  if (secret && (await validSession(token, secret))) {
+  const session = secret ? await readSession(token, secret) : null;
+
+  if (session) {
+    // Log only the manual document open (not every image/CSS asset).
+    const url0 = new URL(request.url);
+    const p = url0.pathname;
+    if (p === '/service-manual-us/' || p === '/service-manual-us' || p.endsWith('/index.html')) {
+      const task = logView(request, url0.origin, p);
+      if (task && context && typeof context.waitUntil === 'function') context.waitUntil(task);
+    }
     return context.next(); // authenticated — serve the requested file
   }
 

@@ -26,6 +26,18 @@ Set in **Netlify → Site configuration → Environment variables**:
 | `MANUAL_FROM_EMAIL` | `Windrose Service Manual <noreply@windrose.ai>` | Optional. Must be on the verified domain. |
 | `MANUAL_ACCESS_REQUEST_TO` | `service@windrose.ai` | Optional (default `service@windrose.ai`). Where "Request access" submissions are emailed. |
 
+## Access log (who viewed the manual, and when)
+
+The edge gate fires a background call to `manual-log` on each manual **page open**
+(not per image/CSS asset). `manual-log` re-verifies the session cookie and appends
+one entry `{ ts, email, page }` to a **Netlify Blobs** store (`manual-access-log`).
+No extra env vars or Google setup — it uses `MANUAL_AUTH_SECRET`.
+
+View it at **`/.netlify/functions/manual-access-log`** — a private page (requires a
+valid session and an allowlisted email) showing a filterable table, a live count,
+and a **Download CSV** button (`?format=csv`). Data is email + timestamp + page only
+(no IP). To purge history, clear the `manual-access-log` blob store.
+
 ## Access requests
 
 The login page has a **Request access** button for people not yet on the allowlist.

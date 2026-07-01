@@ -74,6 +74,18 @@ function clearCookie() {
   return `${COOKIE_NAME}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 }
 
+// Parse the session cookie from a Cookie header and return its payload (with .e = email), or null.
+function sessionFromCookies(cookieHeader, secret) {
+  if (!cookieHeader || !secret) return null;
+  for (const part of String(cookieHeader).split(';')) {
+    const i = part.indexOf('=');
+    if (i > -1 && part.slice(0, i).trim() === COOKIE_NAME) {
+      return verify(part.slice(i + 1).trim(), secret, 's');
+    }
+  }
+  return null;
+}
+
 function siteBase(event) {
   if (process.env.URL) return process.env.URL.replace(/\/$/, '');
   const proto = (event && event.headers && event.headers['x-forwarded-proto']) || 'https';
@@ -85,5 +97,5 @@ module.exports = {
   COOKIE_NAME, LINK_TTL_SEC, SESSION_TTL_SEC,
   verify, makeLinkToken, makeSessionToken,
   isAllowed, validEmail, safeNext,
-  sessionCookie, clearCookie, siteBase,
+  sessionCookie, clearCookie, siteBase, sessionFromCookies,
 };
