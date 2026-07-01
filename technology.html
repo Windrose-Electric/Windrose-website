@@ -4581,7 +4581,54 @@ function setLang(lang) {
       </div>
       <p class="mv-label-tech">E700 Electric Truck &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
+    <div class="mv-item-tech">
+      <div class="mv-viewer-wrap">
+        <model-viewer id="mv-battery" src="/assets/Battery.glb" alt="Windrose battery pack 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
+      </div>
+      <p class="mv-label-tech" data-i18n="mv.label.battery">Battery Pack &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
+    </div>
+    <div class="mv-item-tech">
+      <div class="mv-viewer-wrap">
+        <model-viewer id="mv-eaxle" src="/assets/E-axle.glb" alt="Windrose e-axle 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="0.8" exposure="1.1" environment-image="neutral" ar></model-viewer>
+      </div>
+      <p class="mv-label-tech" data-i18n="mv.label.eaxle">E-Axle &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
+    </div>
   </div>
+
+  <script>
+  (function(){
+    var T = window.TRANSLATIONS = window.TRANSLATIONS || {};
+    var NBSP = ' ';
+    function row(battery, eaxle, tail) {
+      return {
+        'mv.label.battery': battery + NBSP + '·' + NBSP + tail,
+        'mv.label.eaxle':   eaxle   + NBSP + '·' + NBSP + tail
+      };
+    }
+    var ML = {
+      en: row('Battery Pack', 'E-Axle', 'Drag to rotate' + NBSP + '·' + NBSP + 'Scroll to zoom'),
+      da: row('Batteripakke', 'E-aksel', 'Træk for at rotere' + NBSP + '·' + NBSP + 'Rul for at zoome'),
+      de: row('Batteriepaket', 'E-Achse', 'Ziehen zum Drehen' + NBSP + '·' + NBSP + 'Scrollen zum Zoomen'),
+      es: row('Paquete de baterías', 'Eje eléctrico', 'Arrastra para girar' + NBSP + '·' + NBSP + 'Desplázate para hacer zoom'),
+      fi: row('Akkupaketti', 'Sähköakseli', 'Vedä kääntääksesi' + NBSP + '·' + NBSP + 'Vieritä lähentääksesi'),
+      fr: row('Bloc-batterie', 'Essieu électrique', 'Faites glisser pour pivoter' + NBSP + '·' + NBSP + 'Défilez pour zoomer'),
+      it: row('Pacco batteria', 'Asse elettrico', 'Trascina per ruotare' + NBSP + '·' + NBSP + 'Scorri per ingrandire'),
+      ja: row('バッテリーパック', 'eアクスル', 'ドラッグして回転' + NBSP + '·' + NBSP + 'スクロールしてズーム'),
+      ko: row('배터리 팩', 'E-액슬', '드래그하여 회전' + NBSP + '·' + NBSP + '스크롤하여 확대'),
+      nl: row('Batterijpakket', 'E-as', 'Sleep om te draaien' + NBSP + '·' + NBSP + 'Scroll om te zoomen'),
+      no: row('Batteripakke', 'E-aksel', 'Dra for å rotere' + NBSP + '·' + NBSP + 'Rull for å zoome'),
+      pl: row('Pakiet baterii', 'Oś elektryczna', 'Przeciągnij, aby obrócić' + NBSP + '·' + NBSP + 'Przewiń, aby powiększyć'),
+      pt: row('Pacote de baterias', 'Eixo elétrico', 'Arraste para girar' + NBSP + '·' + NBSP + 'Role para ampliar'),
+      sv: row('Batteripaket', 'E-axel', 'Dra för att rotera' + NBSP + '·' + NBSP + 'Scrolla för att zooma'),
+      zh: row('电池包', '电驱动桥', '拖动旋转' + NBSP + '·' + NBSP + '滚动缩放'),
+      zh_tw: row('電池包', '電驅動橋', '拖動旋轉' + NBSP + '·' + NBSP + '滾動縮放')
+    };
+    Object.keys(ML).forEach(function(lang) {
+      if (!T[lang]) T[lang] = {};
+      Object.assign(T[lang], ML[lang]);
+    });
+  })();
+  </script>
 
   <script>
   (function(){
