@@ -1425,6 +1425,8 @@ document.addEventListener('DOMContentLoaded', function(){
     .supplier-card .sc-role{font-family:DM Mono, monospace; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.55rem;}
     .supplier-card .sc-name{font-family:Barlow Condensed, sans-serif; font-weight:700; font-size:1.4rem; line-height:1.05; color:var(--off-white); letter-spacing:0.02em; margin-bottom:0.5rem;}
     .supplier-card .sc-desc{font-family:DM Sans, sans-serif; font-size:0.85rem; color:var(--muted); line-height:1.6; margin:0; flex: 1;}
+    a.supplier-card { text-decoration:none; color:inherit; transition:border-color .15s; }
+    a.supplier-card:hover { border-color:var(--accent); }
   </style>
   <div class="supplier-grid">
     <div class="supplier-card" id="supplier-hande">
@@ -1454,7 +1456,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">Zhenghe cab structure — European cab homologation certified</p><!-- zhenghe-photo-added -->
       <p class="sc-desc" data-i18n="suppliers.zhenghe.desc">Driver cab structures and bodywork for the tractor unit.</p>
     </div>
-    <div class="supplier-card" id="supplier-antwerp">
+    <a class="supplier-card" id="supplier-antwerp" href="https://windrose.ai/press/antwerp-port-assembly.html" target="_blank" rel="noopener">
       <div class="sc-role">Belgium Assembly</div>
       <div class="sc-name">Antwerp</div>
       <div style="margin:0.4rem 0 0.6rem;padding:0.35rem 0.6rem;background:rgba(74,158,255,0.07);border:1px solid rgba(74,158,255,0.18);border-radius:6px;display:flex;align-items:center;gap:0.4rem;">
@@ -1462,7 +1464,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;">Van Wellen Group</span>
       </div>
       <p class="sc-desc">European assembly hub at the Port of Antwerp-Bruges, serving Van Wellen Group's fleet operations.</p>
-    </div>
+    </a>
     <div class="supplier-card" id="supplier-france">
       <div class="sc-role">France Assembly</div>
       <div class="sc-name">Valenciennes</div>
@@ -1472,22 +1474,22 @@ document.addEventListener('DOMContentLoaded', function(){
       </div>
       <p class="sc-desc">Assembly site in Valenciennes, northern France, serving PRD's logistics operations.</p>
     </div>
-    <div class="supplier-card" id="supplier-tacoma">
+    <a class="supplier-card" id="supplier-tacoma" href="https://windrose.ai/press/aertssen-assembly-usa.html" target="_blank" rel="noopener">
       <div class="sc-role">US Assembly · Tacoma, WA</div>
       <div class="sc-name">Aertssen</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
       <p class="sc-desc">Final assembly of North American units at Tacoma, Washington, enabling domestic delivery and Buy America compliance.</p>
-    </div>
-    <div class="supplier-card" id="supplier-savannah">
+    </a>
+    <a class="supplier-card" id="supplier-savannah" href="https://windrose.ai/press/aertssen-assembly-usa.html" target="_blank" rel="noopener">
       <div class="sc-role">US Assembly · Savannah, GA</div>
       <div class="sc-name">Aertssen</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
       <p class="sc-desc">Final assembly of North American units at Rincon, Georgia (Savannah metro), enabling domestic delivery and Buy America compliance.</p>
-    </div>
+    </a>
   </div>
 </section>
 <!-- LOCAL ASSEMBLY STEPS -->
