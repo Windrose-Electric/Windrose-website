@@ -1055,21 +1055,50 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     border-radius: 6px;
     padding: 0.75rem 1rem;
     background: rgba(0,0,0,0.2);
-    max-height: 520px;
+    max-height: 600px;
     overflow-y: auto;
     scrollbar-width: thin;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 0 2rem;
   }
-  /* Inline styles in copied content have broken quotes on DM Mono — enforce here */
-  #cert-full-panel-inner > div {
-    align-items: baseline;
-    min-width: 0;
+  /* Groups */
+  .cert-group { margin-bottom: 1.75rem; }
+  .cert-group:last-child { margin-bottom: 0; }
+  .cert-group-hdr {
+    font-family: Barlow Condensed, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.35rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
   }
-  #cert-full-panel-inner > div > span:first-child {
+  .cert-group-count {
+    font-size: 0.68rem !important;
+    padding: 0.1rem 0.45rem !important;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.07);
+    color: var(--muted);
+    letter-spacing: 0.04em;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
+  }
+  .cert-group-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0 2rem;
+  }
+  /* Item font sizes — bigger than original card view */
+  .cert-group-items > div > span:first-child {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: 0;
+  }
+  .cert-group-items > div > span:last-child {
+    font-size: 0.95rem !important;
   }
   @media (max-width: 1100px) {
     .cert-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
@@ -5746,12 +5775,72 @@ document.addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeReserveModal();
 });
+// Cert panel — grouping helpers
+function certGroup(code, key) {
+  if (key === 'eu') {
+    if (/^UN R/.test(code))  return 'UN/ECE Regulations';
+    if (/^EU /.test(code))   return 'EU Regulations & Directives';
+    if (/^IEC /.test(code))  return 'IEC Standards';
+    if (/^ISO /.test(code))  return 'ISO Standards';
+    return 'Other Standards';
+  }
+  if (key === 'us') {
+    if (/49 CFR.*§ 571/.test(code))               return 'FMVSS / 49 CFR Part 571';
+    if (/49 CFR.*§ 39[39]/.test(code))            return 'FMCSR Commercial Safety';
+    if (/49 CFR.*§ 56/.test(code))                return 'Registration & Labelling';
+    if (/^40 CFR/.test(code))                     return 'EPA Emissions';
+    if (/^13 CCR/.test(code))                     return 'CARB / California';
+    if (/^47 CFR/.test(code))                     return 'FCC / EMC';
+    if (/^SAE /.test(code))                       return 'SAE Technical Standards';
+    if (/^UN ST\/SG|^UN 1A/.test(code))           return 'UN 38.3 Transport Testing';
+    if (/^GB\/T|^Mandatory State/.test(code))     return 'Battery Performance Standards';
+    return 'Other Standards';
+  }
+  if (key === 'cn') {
+    if (/^GB\/T/.test(code))             return 'GB/T National Standards';
+    if (/^GB[ \d]/.test(code))           return 'GB Mandatory Standards';
+    if (/^QC\/T/.test(code))             return 'QC/T Automotive Standards';
+    return 'Framework & Approval';
+  }
+  if (key === 'au') {
+    if (/^ADR/.test(code))    return 'Australian Design Rules';
+    if (/^VSB/.test(code))    return 'Vehicle Standards Bulletins';
+    if (/^AS\/NZS/.test(code))return 'AS/NZS Standards';
+    return 'Regulatory Framework';
+  }
+  return 'Standards';
+}
+
+function buildGroupedHtml(key, src) {
+  var order = [];
+  var map = {};
+  var children = src.children;
+  for (var i = 0; i < children.length; i++) {
+    var item = children[i];
+    var codeSpan = item.querySelector('span');
+    var code = codeSpan ? codeSpan.textContent.trim() : '';
+    var group = certGroup(code, key);
+    if (!map[group]) { map[group] = []; order.push(group); }
+    map[group].push(item.outerHTML);
+  }
+  var html = '';
+  for (var g = 0; g < order.length; g++) {
+    var label = order[g];
+    var items = map[label];
+    html += '<div class="cert-group">'
+      + '<div class="cert-group-hdr">' + label
+      + ' <span class="cert-group-count">' + items.length + '</span></div>'
+      + '<div class="cert-group-items">' + items.join('') + '</div>'
+      + '</div>';
+  }
+  return html;
+}
+
 // Cert panel — expand test list full-width below the grid
 function toggleCertPanel(key) {
   var panel = document.getElementById('cert-full-panel');
   var inner = document.getElementById('cert-full-panel-inner');
   var arrow = document.getElementById('test-list-' + key + '-arrow');
-  var colors = {eu:'rgba(74,158,255,0.3)',us:'rgba(52,211,153,0.3)',cn:'rgba(245,158,11,0.3)',au:'rgba(167,139,250,0.3)'};
   var borders = {eu:'rgba(74,158,255,0.2)',us:'rgba(52,211,153,0.2)',cn:'rgba(245,158,11,0.2)',au:'rgba(167,139,250,0.2)'};
 
   if (panel.dataset.openKey === key && panel.style.display !== 'none') {
@@ -5767,8 +5856,7 @@ function toggleCertPanel(key) {
   });
 
   var src = document.getElementById('test-list-' + key);
-  inner.innerHTML = src ? src.innerHTML : '';
-  inner.style.borderColor = borders[key] || 'rgba(255,255,255,0.1)';
+  inner.innerHTML = src ? buildGroupedHtml(key, src) : '';
   panel.style.borderTopColor = borders[key] || 'var(--border)';
   panel.style.display = 'block';
   panel.dataset.openKey = key;
