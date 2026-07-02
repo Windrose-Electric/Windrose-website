@@ -10,7 +10,7 @@
 **TopCo:** Windrose Holdings Limited (Belgium N.V.) — BE 1017.756.464
 
 **Western Branch (under TopCo):**
-- Windrose Electric USA Inc. — Delaware (NYSE: WDRS); renamed from Windrose Technology Inc. on 6 June 2026
+- Windrose Technology Inc. — Delaware (NYSE: WDRS)
   - Windrose Technology B.V. — Netherlands (100%)
   - Windrose Technology Antwerp N.V. — Belgium (100%)
   - Windrose HK Holdings Limited — Hong Kong (100%)
@@ -47,5 +47,4 @@ Published at: `https://claude.ai/code/artifact/c04f7b18-c1f2-4e0f-b643-e6d32ade2
 Source file: `scratchpad/group_structure.html` (session scratchpad)
 
 ## Pending Items
-- BCA v0.13 still references "Windrose Technology Inc." — needs update to "Windrose Electric USA Inc."
 - Google Drive upload of org chart may need retry (previous attempt hit permission stream error)
