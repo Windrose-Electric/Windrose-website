@@ -43,7 +43,7 @@
 - BCA v0.11 Part 2: `1YD_fZ9hr3YVy-X421-6B5Bm4vNtfZnnWDni`
 
 ## Org Chart Artifact
-Published at: `https://claude.ai/code/artifact/7d50045b-a855-42be-a79b-df707aa80435`
+Published at: `https://claude.ai/code/artifact/c04f7b18-c1f2-4e0f-b643-e6d32ade24ec` (draggable version, July 2026)
 Source file: `scratchpad/group_structure.html` (session scratchpad)
 
 ## Pending Items
