@@ -24,3 +24,10 @@
   to = "/404.html"
   status = 404
   force = true
+
+# Internal legal documents (patent transfers, assignments) — never public.
+[[redirects]]
+  from = "/legal/*"
+  to = "/404.html"
+  status = 404
+  force = true
