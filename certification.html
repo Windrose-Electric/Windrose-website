@@ -1059,8 +1059,17 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     overflow-y: auto;
     scrollbar-width: thin;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 0 2rem;
+  }
+  /* Inline styles in copied content have broken quotes on DM Mono — enforce here */
+  #cert-full-panel-inner > div {
+    align-items: baseline;
+    min-width: 0;
+  }
+  #cert-full-panel-inner > div > span:first-child {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   @media (max-width: 1100px) {
     .cert-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
