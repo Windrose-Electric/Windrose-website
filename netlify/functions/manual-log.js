@@ -23,13 +23,19 @@ exports.handler = async (event) => {
   const ts = typeof body.ts === 'string' ? body.ts : new Date().toISOString();
   const entry = { ts, email: session.e, page: (body.page || '').slice(0, 200) };
 
+  const debug = event.queryStringParameters && event.queryStringParameters.debug === '1';
   try {
     const store = getStore(STORE);
     // Key sorts chronologically; suffix keeps concurrent views from colliding.
     const key = `${ts}_${Math.random().toString(36).slice(2, 8)}`;
     await store.setJSON(key, entry);
+    if (debug) {
+      const listed = await store.list();
+      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: true, wrote: key, count: (listed.blobs || []).length }) };
+    }
   } catch (e) {
     console.error('[manual-log] blob write failed:', e && e.message);
+    if (debug) return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: false, error: String(e && e.message), stack: String(e && e.stack).slice(0, 400) }) };
     return { statusCode: 204, body: '' };
   }
   return { statusCode: 204, body: '' };
