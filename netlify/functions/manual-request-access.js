@@ -33,7 +33,9 @@ exports.handler = async (event) => {
   if (!auth.validEmail(email)) return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: 'Please enter a valid email address.' }) };
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.MANUAL_ACCESS_REQUEST_TO || 'service@windrose.ai';
+  // May be a single address or a comma-separated list (e.g. all admins).
+  const to = (process.env.MANUAL_ACCESS_REQUEST_TO || 'service@windrose.ai')
+    .split(',').map((s) => s.trim()).filter(Boolean);
   const from = process.env.MANUAL_FROM_EMAIL || 'Windrose Service Manual <noreply@windrose.ai>';
 
   if (!apiKey) {

@@ -1,12 +1,11 @@
 // Private access-log viewer. Shows who opened the service manual and when.
 // Gated: requires a valid session cookie AND the email must be on the allowlist.
-// GET /.netlify/functions/manual-access-log         -> HTML table
+// GET /.netlify/functions/manual-access-log            -> HTML table
 // GET /.netlify/functions/manual-access-log?format=csv -> CSV download
 //
-// Required env var: MANUAL_AUTH_SECRET
-
-const { getStore } = require('@netlify/blobs');
-const auth = require('./lib/manualAuth');
+// Netlify Functions v2 (ESM) so Blobs auto-configures. Env: MANUAL_AUTH_SECRET
+import { getStore } from '@netlify/blobs';
+import auth from './lib/manualAuth.js';
 
 const STORE = 'manual-access-log';
 
@@ -14,21 +13,17 @@ function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
 
-exports.handler = async (event) => {
+export default async (req) => {
   const secret = process.env.MANUAL_AUTH_SECRET;
-  const cookie = event.headers && (event.headers.cookie || event.headers.Cookie);
-  const session = auth.sessionFromCookies(cookie, secret);
+  const session = auth.sessionFromCookies(req.headers.get('cookie'), secret);
 
-  // Must be signed in …
   if (!session || !session.e) {
-    return { statusCode: 302, headers: { Location: '/manual-login.html?next=' + encodeURIComponent('/.netlify/functions/manual-access-log') }, body: '' };
+    return new Response('', { status: 302, headers: { Location: '/manual-login.html?next=' + encodeURIComponent('/.netlify/functions/manual-access-log') } });
   }
-  // … and on the allowlist (the approved members act as admins).
   if (!auth.isAllowed(session.e)) {
-    return { statusCode: 403, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '<p style="font-family:sans-serif">Your account is not permitted to view the access log.</p>' };
+    return new Response('<p style="font-family:sans-serif">Your account is not permitted to view the access log.</p>', { status: 403, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
   }
 
-  // Load all entries.
   let rows = [];
   try {
     const store = getStore(STORE);
@@ -41,15 +36,11 @@ exports.handler = async (event) => {
   }
   rows.sort((a, b) => (b.ts || '').localeCompare(a.ts || ''));
 
-  const csv = (event.queryStringParameters || {}).format === 'csv';
-  if (csv) {
+  const url = new URL(req.url);
+  if (url.searchParams.get('format') === 'csv') {
     const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
     const lines = ['Timestamp,Email,Page'].concat(rows.map((r) => [q(r.ts), q(r.email), q(r.page)].join(',')));
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="service-manual-access-log.csv"', 'Cache-Control': 'no-store' },
-      body: lines.join('\r\n'),
-    };
+    return new Response(lines.join('\r\n'), { status: 200, headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="service-manual-access-log.csv"', 'Cache-Control': 'no-store' } });
   }
 
   const tbody = rows.map((r) => {
@@ -102,5 +93,5 @@ exports.handler = async (event) => {
 </script>
 </body></html>`;
 
-  return { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }, body: html };
+  return new Response(html, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
 };

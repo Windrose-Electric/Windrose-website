@@ -830,7 +830,7 @@ function setLang(lang) {
       onkeydown="gsKey(event)"
       onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
       onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
-    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'" data-i18n="t.560040c54a">AI</button>
   </div>
   <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language" style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.35);border-radius:4px;color:#e8f0ff;font-family:DM Sans,sans-serif;font-size:0.82rem;padding:3px 6px;cursor:pointer;outline:none;appearance:auto;flex-shrink:0;max-width:175px;">
     <option value="en">🌍 English (Global)</option>
@@ -902,11 +902,11 @@ function setLang(lang) {
       <li><a data-i18n='assembly.label' href='/how-to-build#assembly'>Local Assembly</a></li>
     </ul>
   </li>
-      <li><a href="certification.html">Certification</a>
+      <li><a href="certification.html" data-i18n="t.c9e5cafa69">Certification</a>
     <ul class="nav-dropdown">
-      <li><a href="certification.html#homologation">Market Access</a></li>
-      <li><a href="certification.html#homologation">EU WVTA</a></li>
-      <li><a href="certification.html#homologation">US FMVSS</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.57faa52e48">Market Access</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.ea977369de">EU WVTA</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.a15446f0cd">US FMVSS</a></li>
     </ul>
   </li>
       <li><a data-i18n='nav.about' href='/about-us'>About Us</a>
@@ -1053,7 +1053,7 @@ function setLang(lang) {
       <div class="rc-field-label" data-i18n="rc.field.city">Starting city</div>
       <div class="rc-select-wrap">
         <button id="rc-city-btn" class="rc-select-btn" type="button">
-          <span id="rc-city-label">Antwerp</span>
+          <span id="rc-city-label" data-i18n="t.22172f4179">Antwerp</span>
         </button>
         <div id="rc-city-panel" class="rc-select-panel">
           <input id="rc-city-search" class="rc-select-search" type="text" placeholder="Search cities…" autocomplete="off">
@@ -1065,12 +1065,12 @@ function setLang(lang) {
     <!-- Destination search -->
     <div>
       <div class="rc-field-label" style="display:flex;justify-content:space-between;align-items:center;">
-        <span>Destination</span>
-        <button id="rc-dest-clear" onclick="clearDestination()" style="display:none;background:none;border:none;color:var(--muted);font-size:0.8rem;cursor:pointer;padding:0;letter-spacing:0.06em;font-family:Barlow Condensed,sans-serif;text-transform:uppercase;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Clear ✕</button>
+        <span data-i18n="t.d42713493c">Destination</span>
+        <button id="rc-dest-clear" onclick="clearDestination()" style="display:none;background:none;border:none;color:var(--muted);font-size:0.8rem;cursor:pointer;padding:0;letter-spacing:0.06em;font-family:Barlow Condensed,sans-serif;text-transform:uppercase;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'" data-i18n="t.6c8483287f">Clear ✕</button>
       </div>
       <div class="rc-select-wrap">
         <button id="rc-dest-btn" class="rc-select-btn" type="button">
-          <span id="rc-dest-label">Select destination</span>
+          <span id="rc-dest-label" data-i18n="t.fbe353a85a">Select destination</span>
         </button>
         <div id="rc-dest-panel" class="rc-select-panel">
           <input id="rc-dest-search" class="rc-select-search" type="text" placeholder="Search cities…" autocomplete="off">
@@ -1083,9 +1083,9 @@ function setLang(lang) {
     <div>
       <div class="rc-field-label" data-i18n="rc.field.gen">Generation</div>
       <div class="rc-seg" id="rc-gen">
-        <button class="rc-seg-btn active" data-val="2"><span data-i18n="rc.gen.2">Gen 2</span><br><span style="font-size:0.85rem;opacity:0.65;">670 km</span></button>
-        <button class="rc-seg-btn" data-val="3"><span data-i18n="rc.gen.3">Gen 3</span><br><span style="font-size:0.85rem;opacity:0.65;">815 km</span></button>
-        <button class="rc-seg-btn" data-val="4"><span data-i18n="rc.gen.4">Gen 4</span><br><span style="font-size:0.85rem;opacity:0.65;">1,000 km</span></button>
+        <button class="rc-seg-btn active" data-val="2"><span data-i18n="rc.gen.2">Gen 2</span><br><span style="font-size:0.85rem;opacity:0.65;" data-i18n="t.7430a298dc">670 km</span></button>
+        <button class="rc-seg-btn" data-val="3"><span data-i18n="rc.gen.3">Gen 3</span><br><span style="font-size:0.85rem;opacity:0.65;" data-i18n="t.e256a1cff7">815 km</span></button>
+        <button class="rc-seg-btn" data-val="4"><span data-i18n="rc.gen.4">Gen 4</span><br><span style="font-size:0.85rem;opacity:0.65;" data-i18n="t.5e06ab3538">1,000 km</span></button>
       </div>
     </div>
 
@@ -1103,9 +1103,9 @@ function setLang(lang) {
     <div>
       <div class="rc-field-label" data-i18n="rc.field.speed">Cruising speed</div>
       <div class="rc-seg" id="rc-speed">
-        <button class="rc-seg-btn active" data-val="0">80 km/h</button>
-        <button class="rc-seg-btn" data-val="1">90 km/h</button>
-        <button class="rc-seg-btn" data-val="2">100 km/h</button>
+        <button class="rc-seg-btn active" data-val="0" data-i18n="t.f546ea38cd">80 km/h</button>
+        <button class="rc-seg-btn" data-val="1" data-i18n="t.e8ede2da7d">90 km/h</button>
+        <button class="rc-seg-btn" data-val="2" data-i18n="t.4e22353d9d">100 km/h</button>
       </div>
     </div>
 
@@ -1154,14 +1154,14 @@ function setLang(lang) {
     .chg-dir-country-chevron { color: var(--muted); font-size: 0.8rem; transition: transform 0.2s; }
     .chg-dir-country[open] .chg-dir-country-chevron { transform: rotate(180deg); }
   </style>
-  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Charging Locations</p>
-  <h2 style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.25rem,3vw,1.6rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0 0 1.5rem;">Find a charging site near you</h2>
+  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" data-i18n="t.134261d8dd">Charging Locations</p>
+  <h2 style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.25rem,3vw,1.6rem);font-weight:700;letter-spacing:0.03em;color:var(--off-white);margin:0 0 1.5rem;" data-i18n="t.1e9c1027c3">Find a charging site near you</h2>
 
   <div id="htu-chg-map" style="margin:0 calc(-1 * clamp(1.5rem,5vw,4rem)) 2.5rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);"></div>
 
   <div>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
-      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);">All Charging Sites</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);" data-i18n="t.c25619dc9f">All Charging Sites</span>
       <span style="flex:1;height:1px;background:var(--border);"></span>
       <span id="chg-site-count" style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;letter-spacing:0.1em;color:var(--muted);"></span>
     </div>
@@ -1208,15 +1208,15 @@ function setLang(lang) {
       <div class="gen-name"><span data-i18n="gen.gen2.name">Generation 2</span></div>
       <div class="gen-metric">
         <span class="gen-metric-label" data-i18n="gen.range">Range</span>
-        <span class="gen-metric-value">670 km <span style="font-size:0.85rem;color:var(--muted);">/ 416 mi</span></span>
+        <span class="gen-metric-value">670 km <span style="font-size:0.85rem;color:var(--muted);" data-i18n="t.98878cbadc">/ 416 mi</span></span>
       </div>
       <div class="gen-metric">
         <span class="gen-metric-label" data-i18n="gen.battery">Battery</span>
-        <span class="gen-metric-value">705+ kWh</span>
+        <span class="gen-metric-value" data-i18n="t.31fdcc6169">705+ kWh</span>
       </div>
       <div class="gen-metric">
         <span class="gen-metric-label" data-i18n="gen.consumption">Consumption</span>
-        <span class="gen-metric-value">1.05 kWh/km</span>
+        <span class="gen-metric-value" data-i18n="t.bac07a1d44">1.05 kWh/km</span>
       </div>
     </div>
 
@@ -1226,7 +1226,7 @@ function setLang(lang) {
       <div class="gen-name"><span data-i18n="gen.gen3.name">Generation 3</span></div>
       <div class="gen-metric">
         <span class="gen-metric-label" data-i18n="gen.range">Range</span>
-        <span class="gen-metric-value">815 km <span style="font-size:0.85rem;color:var(--muted);">/ 507 mi</span>
+        <span class="gen-metric-value">815 km <span style="font-size:0.85rem;color:var(--muted);" data-i18n="t.e5ae13341f">/ 507 mi</span>
           <span class="gen-delta">↑ +22%</span></span>
       </div>
       <div class="gen-metric">
@@ -1245,7 +1245,7 @@ function setLang(lang) {
       <div class="gen-name"><span data-i18n="gen.gen4.name">Generation 4</span></div>
       <div class="gen-metric">
         <span class="gen-metric-label" data-i18n="gen.range">Range</span>
-        <span class="gen-metric-value">1,000+ km <span style="font-size:0.85rem;color:var(--muted);">/ 621 mi</span>
+        <span class="gen-metric-value">1,000+ km <span style="font-size:0.85rem;color:var(--muted);" data-i18n="t.4dfff1220d">/ 621 mi</span>
           <span class="gen-delta">↑ +25%</span></span>
       </div>
       <div class="gen-metric">
@@ -1388,9 +1388,9 @@ function setLang(lang) {
 }
 </style>
 <section id="owners-manual" style="background:var(--card-bg); border-top:1px solid var(--border); padding:4rem clamp(1.5rem, 5vw, 4rem) 3rem;">
-  <p style="font-family:Barlow Condensed,sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" id="om-eyebrow">Owner's Manual</p>
-  <h2 style="font-size:1.25rem;line-height:1.15;margin-bottom:0.6rem;" id="om-heading">Windrose Owner's Manual</h2>
-  <p style="font-size:0.95rem;color:var(--muted);max-width:600px;line-height:1.6;margin-bottom:2rem;" id="om-sub">Full vehicle handbook in your language — charging, controls, ADAS, maintenance and more.</p>
+  <p style="font-family:Barlow Condensed,sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" id="om-eyebrow" data-i18n="t.306c6443a5">Owner's Manual</p>
+  <h2 style="font-size:1.25rem;line-height:1.15;margin-bottom:0.6rem;" id="om-heading" data-i18n="t.2738188377">Windrose Owner's Manual</h2>
+  <p style="font-size:0.95rem;color:var(--muted);max-width:600px;line-height:1.6;margin-bottom:2rem;" id="om-sub" data-i18n="t.266b1d8fdf">Full vehicle handbook in your language — charging, controls, ADAS, maintenance and more.</p>
 
   <div class="om-lang-row">
     <label for="om-lang-sel">Edition</label>
@@ -1400,13 +1400,13 @@ function setLang(lang) {
   <a id="om-edition-link" class="om-edition-wrap" href="/owners-manual-eu/" target="_blank" rel="noopener">
     <span class="om-ed-flag" id="om-ed-flag">🇪🇺</span>
     <div class="om-ed-info">
-      <div class="om-ed-title" id="om-ed-title">European Union</div>
-      <div class="om-ed-sub" id="om-ed-sub">Owner's Manual · EN</div>
+      <div class="om-ed-title" id="om-ed-title" data-i18n="t.1e9cb061f2">European Union</div>
+      <div class="om-ed-sub" id="om-ed-sub" data-i18n="t.7b6bfe7aa5">Owner's Manual · EN</div>
     </div>
     <span class="om-ed-arrow">↗</span>
   </a>
 
-  <p style="font-family:Barlow Condensed,sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Key Sections</p>
+  <p style="font-family:Barlow Condensed,sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;" data-i18n="t.abff44a14c">Key Sections</p>
   <div class="mp-grid" id="mp-grid"></div>
 </section>
 <!-- /OWNERS MANUAL -->
@@ -2331,9 +2331,9 @@ document.addEventListener('DOMContentLoaded', function(){
     <button onclick="closeReserveModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:1px solid rgba(74,158,255,0.15); color:rgba(240,244,255,0.45); font-size: 0.875rem; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(74,158,255,0.5)';this.style.color='#f0f4ff'" onmouseout="this.style.borderColor='rgba(74,158,255,0.15)';this.style.color='rgba(240,244,255,0.45)'">✕</button>
 
     <!-- Header -->
-    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;">Windrose Electric</div>
+    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;" data-i18n="t.c22133d6bc">Windrose Electric</div>
     <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.04em; color:#f0f4ff; margin:0 0 0.5rem; line-height:1;" data-i18n="label.reserve">Reserve Your Truck</h2>
-    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;" data-i18n="t.8523d13cf1">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
 
     <!-- Amount pill -->
     <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; background:#0d1f38; border:1px solid rgba(74,158,255,0.12); margin-bottom:1.75rem;">
@@ -2366,7 +2366,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div id="wr-pay-success" style="display:none; text-align:center; padding:2.5rem 0;">
       <div style="font-size: 1.75rem; margin-bottom:1rem;">⚡</div>
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.06em; color:#f0f4ff; margin-bottom:0.6rem;" data-i18n="label.confirmed">Reservation Confirmed</div>
-      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;" data-i18n="t.066a6bb08d">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
     </div>
 
     <!-- Footer -->
@@ -2731,8 +2731,8 @@ function openStripeModal() { openReserveModal(); }
         <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
       </div>
       <div>
-        <a href="certification.html" class="footer-toc-head">Certification</a>
-        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
+        <a href="certification.html" class="footer-toc-head" data-i18n="t.c9e5cafa69">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link" data-i18n="t.57faa52e48">Market Access</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.ea977369de">EU WVTA</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.a15446f0cd">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
@@ -2744,14 +2744,14 @@ function openStripeModal() { openReserveModal(); }
   <!-- /TABLE OF CONTENTS -->
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-bottom:3rem;" class="footer-social-grid">
-    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
-    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
-    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
+    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.34b4d31f9d">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
+    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.31903a5351">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
+    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.c22133d6bc">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
   </div>
 
   <div style="border-top:1px solid var(--border); padding:1.25rem 0 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
     <span style="font-size:0.85rem; color:var(--muted);" data-i18n="footer.copy">© 2026 Windrose Technology. All rights reserved.</span>
-    <span style="font-size:0.85rem; color:var(--muted);">windrose.ai</span>
+    <span style="font-size:0.85rem; color:var(--muted);" data-i18n="t.71884df3e2">windrose.ai</span>
   </div>
 
 </footer>
