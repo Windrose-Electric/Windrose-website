@@ -6,6 +6,9 @@
 - GitHub repo: `git@github.com:Windrose-Electric/Windrose-website.git`
 - Always use `target="_blank" rel="noopener"` on external links; never link to internal `/press/` pages — always use external windrose.ai URLs
 
+## Artifacts / social previews
+- Every time an artifact (Artifact tool page) is created or updated, also produce a **1200×630 social preview thumbnail** (OG standard size) as a separate PNG and send it to the user. Render a dedicated branded card (title + key figures + Windrose/苇渡 branding), not a full-page screenshot. Use the pre-installed Chromium via Playwright at `/opt/pw-browsers/chromium-1194/chrome-linux/chrome` (module at `/opt/node22/lib/node_modules/playwright`), viewport 1200×630, and clip to that box.
+
 ## Owner's Manual
 
 22 language editions at `/owners-manual-{lang}/index.html`, each with its own `styles.css`.
