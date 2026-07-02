@@ -4548,7 +4548,7 @@ function setLang(lang) {
     .mv-pair-tech { display:flex; gap:1rem; margin-top:2rem; margin-bottom:2rem; }
     .mv-item-tech { flex:1; min-width:0; display:flex; flex-direction:column; }
     .mv-viewer-wrap { position:relative; height:72vh; min-height:400px; }
-    .mv-item-tech model-viewer { width:100%; height:100%; background:radial-gradient(ellipse at center,#0d1f3c 0%,#060f1e 100%); border-radius:8px; display:block; }
+    .mv-item-tech model-viewer { width:100%; height:100%; background:radial-gradient(ellipse at center,#1c1e20 0%,#080a0b 100%); border-radius:8px; display:block; }
     .mv-label-tech { font-family:Barlow Condensed,sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-align:center; margin:0.4rem 0 0; }
     .dim-anchor { display:block; width:1px; height:1px; }
     .dim-svg { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:visible; z-index:2; }
@@ -4557,7 +4557,7 @@ function setLang(lang) {
   <div class="mv-pair-tech">
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer id="mv-chassis" src="/assets/Frame.glb" poster="/images/chassis-frame-fea.jpg" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="1.5" exposure="1.6" environment-image="neutral" tone-mapping="commerce" ar>
+        <model-viewer id="mv-chassis" src="/assets/Frame.glb" poster="/images/chassis-frame-fea.jpg" alt="Windrose chassis frame 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="2" exposure="1.9" environment-image="legacy" tone-mapping="aces" ar>
           <div slot="hotspot-dim-c0" class="dim-anchor"></div>
           <div slot="hotspot-dim-c1" class="dim-anchor"></div>
           <div slot="hotspot-dim-c2" class="dim-anchor"></div>
@@ -4570,7 +4570,7 @@ function setLang(lang) {
     </div>
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer id="mv-truck" src="/models/windrose-truck.glb" poster="/images/truck-xray.jpg" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="1.5" exposure="1.6" environment-image="neutral" tone-mapping="commerce" ar>
+        <model-viewer id="mv-truck" src="/models/windrose-truck.glb" poster="/images/truck-xray.jpg" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="2" exposure="1.9" environment-image="legacy" tone-mapping="aces" ar>
           <div slot="hotspot-dim-t0" class="dim-anchor"></div>
           <div slot="hotspot-dim-t1" class="dim-anchor"></div>
           <div slot="hotspot-dim-t2" class="dim-anchor"></div>
@@ -4583,13 +4583,13 @@ function setLang(lang) {
     </div>
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer id="mv-battery" src="/assets/Battery.glb" alt="Windrose battery pack 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="1.5" exposure="1.6" environment-image="neutral" tone-mapping="commerce" ar></model-viewer>
+        <model-viewer id="mv-battery" src="/assets/Battery.glb" alt="Windrose battery pack 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="2" exposure="1.9" environment-image="legacy" tone-mapping="aces" ar></model-viewer>
       </div>
       <p class="mv-label-tech" data-i18n="mv.label.battery">Battery Pack &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
     <div class="mv-item-tech">
       <div class="mv-viewer-wrap">
-        <model-viewer id="mv-eaxle" src="/assets/E-axle.glb" alt="Windrose e-axle 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="1.5" exposure="1.6" environment-image="neutral" tone-mapping="commerce" ar></model-viewer>
+        <model-viewer id="mv-eaxle" src="/assets/E-axle.glb" alt="Windrose e-axle 3D model" auto-rotate auto-rotate-delay="1000" rotation-per-second="20deg" camera-controls shadow-intensity="2" exposure="1.9" environment-image="legacy" tone-mapping="aces" ar></model-viewer>
       </div>
       <p class="mv-label-tech" data-i18n="mv.label.eaxle">E-Axle &nbsp;·&nbsp; Drag to rotate &nbsp;·&nbsp; Scroll to zoom</p>
     </div>
@@ -4762,7 +4762,7 @@ function setLang(lang) {
 
     <div class="tech-card">
       <div class="tech-img-wrap" style="background:#060f1e;">
-        <model-viewer src="/models/windrose-truck.glb" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="800" rotation-per-second="18deg" camera-controls shadow-intensity="1.5" exposure="1.6" environment-image="neutral" tone-mapping="commerce" style="width:100%;height:100%;--progress-bar-color:transparent;"></model-viewer>
+        <model-viewer src="/models/windrose-truck.glb" alt="Windrose E700 electric truck 3D model" auto-rotate auto-rotate-delay="800" rotation-per-second="18deg" camera-controls shadow-intensity="2" exposure="1.9" environment-image="legacy" tone-mapping="aces" style="width:100%;height:100%;--progress-bar-color:transparent;"></model-viewer>
       </div>
       <div class="tech-body">
         <div class="tech-tag" data-i18n="tech.platform.label">Platform Architecture</div>
