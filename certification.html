@@ -5785,15 +5785,15 @@ function certGroup(code, key) {
     return 'Other Standards';
   }
   if (key === 'us') {
-    if (/49 CFR.*§ 571/.test(code))               return 'FMVSS / 49 CFR Part 571';
-    if (/49 CFR.*§ 39[39]/.test(code))            return 'FMCSR Commercial Safety';
-    if (/49 CFR.*§ 56/.test(code))                return 'Registration & Labelling';
-    if (/^40 CFR/.test(code))                     return 'EPA Emissions';
-    if (/^13 CCR/.test(code))                     return 'CARB / California';
-    if (/^47 CFR/.test(code))                     return 'FCC / EMC';
-    if (/^SAE /.test(code))                       return 'SAE Technical Standards';
-    if (/^UN ST\/SG|^UN 1A/.test(code))           return 'UN 38.3 Transport Testing';
-    if (/^GB\/T|^Mandatory State/.test(code))     return 'Battery Performance Standards';
+    if (/49 CFR.*§ 571|^FMVSS /.test(code))            return 'FMVSS / 49 CFR Part 571';
+    if (/49 CFR.*§ 39[39]|^FMCSR/.test(code))          return 'FMCSR Commercial Safety';
+    if (/49 CFR.*§ 56|49 CFR Part 56/.test(code))      return 'Registration & Labelling';
+    if (/^40 CFR|^EPA /.test(code))                    return 'EPA Emissions';
+    if (/^13 CCR|^CARB /.test(code))                   return 'CARB / California';
+    if (/^47 CFR|^FCC /.test(code))                    return 'FCC / EMC';
+    if (/^SAE /.test(code))                            return 'SAE Technical Standards';
+    if (/^UN ST\/SG|^UN 1A|^UN38\.3/.test(code))       return 'UN 38.3 Transport Testing';
+    if (/^GB\/T|^Mandatory State|^Battery /.test(code))return 'Battery Performance Standards';
     return 'Other Standards';
   }
   if (key === 'cn') {
