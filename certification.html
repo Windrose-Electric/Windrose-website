@@ -1043,6 +1043,25 @@ section, .hero { padding-left: 1rem !important; padding-right: 1rem !important; 
     background: var(--card-bg);
     border-top: 1px solid var(--border);
   }
+  #cert-full-panel {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem) 2rem;
+  }
+  #cert-full-panel-inner {
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    background: rgba(0,0,0,0.2);
+    max-height: 520px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0 2rem;
+  }
   @media (max-width: 1100px) {
     .cert-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   }
@@ -5122,11 +5141,11 @@ var HOMOLOG_NAMES = {
 
 </section>
       <div class="cert-cards-grid">
-      <div id="cert-card-europe" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(74,158,255,0.25);border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="event.stopPropagation();var d=document.getElementById('test-list-eu');var a=document.getElementById('test-list-eu-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';">
+      <div id="cert-card-europe" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(74,158,255,0.25);border-radius:var(--card-radius);overflow:visible;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="toggleCertPanel('eu')">
         <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#4a9eff;margin-bottom:0.3rem;" data-i18n="specs.cert.eu.eyebrow">EU WVTA · Reg. 2018/858</div>
         <div style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700;letter-spacing:0.02em;color:var(--off-white);margin-bottom:0.6rem;" data-i18n="specs.cert.eu.region">Europe</div>
         <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.25);border-radius:4px;padding:0.2rem 0.6rem;margin-bottom:0.85rem;width:fit-content;"><span style="color:#4a9eff;font-size:0.85rem;">✓</span><span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;color:#4a9eff;" data-i18n="specs.cert.badge">FULLY HOMOLOGATED</span></div>
-        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(74,158,255,0.25);cursor:pointer;" onclick="event.stopPropagation();var d=document.getElementById('test-list-eu');var a=document.getElementById('test-list-eu-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(74,158,255,0.1);border-right:1px solid rgba(74,158,255,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#4a9eff;line-height:1;">100+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.eu.regs.rules.label">regulations & directives</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(74,158,255,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#4a9eff;line-height:1;">400+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(74,158,255,0.05);border-left:1px solid rgba(74,158,255,0.15);"><span id="test-list-eu-arrow" style="display:inline-block;transition:transform 0.2s;color:#4a9eff;font-size:0.85rem;line-height:1;">▶</span></div></div>
+        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(74,158,255,0.25);cursor:pointer;" onclick="event.stopPropagation();toggleCertPanel('eu');" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(74,158,255,0.1);border-right:1px solid rgba(74,158,255,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#4a9eff;line-height:1;">100+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.eu.regs.rules.label">regulations & directives</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(74,158,255,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#4a9eff;line-height:1;">400+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(74,158,255,0.05);border-left:1px solid rgba(74,158,255,0.15);"><span id="test-list-eu-arrow" style="display:inline-block;transition:transform 0.2s;color:#4a9eff;font-size:0.85rem;line-height:1;">▶</span></div></div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.85rem;" data-i18n="specs.cert.eu.desc">A single EU Whole Vehicle Type Approval gives automatic access across all EU member states and EEA countries. No re-testing per country.</div>
         <div style="flex:1;"><div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;color:rgba(74,158,255,0.7);" data-i18n="specs.cert.eu.direct.label">31 direct markets</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-bottom:1rem;">
@@ -5144,11 +5163,11 @@ var HOMOLOG_NAMES = {
       </div>
       </div>
       </div>
-      <div id="cert-card-us" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(52,211,153,0.25);border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(52,211,153,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="event.stopPropagation();var d=document.getElementById('test-list-us');var a=document.getElementById('test-list-us-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';">
+      <div id="cert-card-us" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(52,211,153,0.25);border-radius:var(--card-radius);overflow:visible;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(52,211,153,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="toggleCertPanel('us')">
         <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#34d399;margin-bottom:0.3rem;" data-i18n="specs.cert.us.eyebrow">FMVSS · 49 CFR · NHTSA</div>
         <div style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700;letter-spacing:0.02em;color:var(--off-white);margin-bottom:0.6rem;" data-i18n="specs.cert.us.region">United States</div>
         <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.25);border-radius:4px;padding:0.2rem 0.6rem;margin-bottom:0.85rem;width:fit-content;"><span style="color:#34d399;font-size:0.85rem;">✓</span><span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;color:#34d399;" data-i18n="specs.cert.badge">FULLY HOMOLOGATED</span></div>
-        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(52,211,153,0.25);cursor:pointer;" onclick="event.stopPropagation();var d=document.getElementById('test-list-us');var a=document.getElementById('test-list-us-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(52,211,153,0.1);border-right:1px solid rgba(52,211,153,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#34d399;line-height:1;">80</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.us.regs.rules.label">active FMVSS standards</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(52,211,153,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#34d399;line-height:1;">112</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(52,211,153,0.05);border-left:1px solid rgba(52,211,153,0.15);"><span id="test-list-us-arrow" style="display:inline-block;transition:transform 0.2s;color:#34d399;font-size:0.85rem;line-height:1;">▶</span></div></div>
+        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(52,211,153,0.25);cursor:pointer;" onclick="event.stopPropagation();toggleCertPanel('us');" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(52,211,153,0.1);border-right:1px solid rgba(52,211,153,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#34d399;line-height:1;">80</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.us.regs.rules.label">active FMVSS standards</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(52,211,153,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#34d399;line-height:1;">112</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(52,211,153,0.05);border-left:1px solid rgba(52,211,153,0.15);"><span id="test-list-us-arrow" style="display:inline-block;transition:transform 0.2s;color:#34d399;font-size:0.85rem;line-height:1;">▶</span></div></div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.85rem;" data-i18n="specs.cert.us.desc">Federal Motor Vehicle Safety Standards self-certification across all 50 states, plus EPA greenhouse gas compliance and CARB zero-emission requirements.</div>
         <div style="flex:1;"><div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;color:rgba(52,211,153,0.7);" data-i18n="specs.cert.us.direct.label">50-state market</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-bottom:1rem;">
@@ -5166,11 +5185,11 @@ var HOMOLOG_NAMES = {
       </div>
       </div>
       </div>
-      <div id="cert-card-china" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(245,158,11,0.25);border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(245,158,11,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="event.stopPropagation();var d=document.getElementById('test-list-cn');var a=document.getElementById('test-list-cn-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';">
+      <div id="cert-card-china" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(245,158,11,0.25);border-radius:var(--card-radius);overflow:visible;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(245,158,11,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="toggleCertPanel('cn')">
         <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#f59e0b;margin-bottom:0.3rem;" data-i18n="specs.cert.cn.eyebrow">GB/T · MIIT Type Approval</div>
         <div style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700;letter-spacing:0.02em;color:var(--off-white);margin-bottom:0.6rem;" data-i18n="specs.cert.cn.region">China & Greater Asia</div>
         <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.25);border-radius:4px;padding:0.2rem 0.6rem;margin-bottom:0.85rem;width:fit-content;"><span style="color:#f59e0b;font-size:0.85rem;">✓</span><span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;color:#f59e0b;" data-i18n="specs.cert.badge">FULLY HOMOLOGATED</span></div>
-        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(245,158,11,0.25);cursor:pointer;" onclick="event.stopPropagation();var d=document.getElementById('test-list-cn');var a=document.getElementById('test-list-cn-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(245,158,11,0.1);border-right:1px solid rgba(245,158,11,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#f59e0b;line-height:1;">50+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.cn.regs.rules.label">GB/T standards & MIIT rules</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(245,158,11,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#f59e0b;line-height:1;">200+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.05);border-left:1px solid rgba(245,158,11,0.15);"><span id="test-list-cn-arrow" style="display:inline-block;transition:transform 0.2s;color:#f59e0b;font-size:0.85rem;line-height:1;">▶</span></div></div>
+        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(245,158,11,0.25);cursor:pointer;" onclick="event.stopPropagation();toggleCertPanel('cn');" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(245,158,11,0.1);border-right:1px solid rgba(245,158,11,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#f59e0b;line-height:1;">50+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.cn.regs.rules.label">GB/T standards & MIIT rules</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(245,158,11,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#f59e0b;line-height:1;">200+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.05);border-left:1px solid rgba(245,158,11,0.15);"><span id="test-list-cn-arrow" style="display:inline-block;transition:transform 0.2s;color:#f59e0b;font-size:0.85rem;line-height:1;">▶</span></div></div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.85rem;" data-i18n="specs.cert.cn.desc">Ministry of Industry and Information Technology type approval covering mainland China, with GB/T standards aligned to UN/ECE protocols.</div>
         <div style="flex:1;"><div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;color:rgba(245,158,11,0.7);" data-i18n="specs.cert.cn.direct.label">China direct</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-bottom:1rem;">
@@ -5189,11 +5208,11 @@ var HOMOLOG_NAMES = {
       </div>
       </div>
       </div>
-      <div id="cert-card-oceania" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(167,139,250,0.25);border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(167,139,250,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="event.stopPropagation();var d=document.getElementById('test-list-au');var a=document.getElementById('test-list-au-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';">
+      <div id="cert-card-oceania" class="cert-card" style="background:var(--card-bg);border:1px solid rgba(167,139,250,0.25);border-radius:var(--card-radius);overflow:visible;display:flex;flex-direction:column;padding:1.25rem;cursor:pointer;transition:box-shadow 0.2s;" onmouseenter="this.style.boxShadow='0 0 0 2px rgba(167,139,250,0.5)'" onmouseleave="this.style.boxShadow=''" onclick="toggleCertPanel('au')">
         <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#a78bfa;margin-bottom:0.3rem;" data-i18n="specs.cert.au.eyebrow">Australian Design Rules · RVSA 2018</div>
         <div style="font-family:Barlow Condensed, sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700;letter-spacing:0.02em;color:var(--off-white);margin-bottom:0.6rem;" data-i18n="specs.cert.au.region">Oceania</div>
         <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.25);border-radius:4px;padding:0.2rem 0.6rem;margin-bottom:0.85rem;width:fit-content;"><span style="color:#a78bfa;font-size:0.85rem;">✓</span><span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;color:#a78bfa;" data-i18n="specs.cert.badge">FULLY HOMOLOGATED</span></div>
-        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(167,139,250,0.25);cursor:pointer;" onclick="event.stopPropagation();var d=document.getElementById('test-list-au');var a=document.getElementById('test-list-au-arrow');d.style.display=d.style.display==='none'?'block':'none';a.style.transform=d.style.display==='block'?'rotate(90deg)':'rotate(0deg)';" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(167,139,250,0.1);border-right:1px solid rgba(167,139,250,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#a78bfa;line-height:1;">80</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.au.regs.rules.label">Australian Design Rules</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(167,139,250,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#a78bfa;line-height:1;">280+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(167,139,250,0.05);border-left:1px solid rgba(167,139,250,0.15);"><span id="test-list-au-arrow" style="display:inline-block;transition:transform 0.2s;color:#a78bfa;font-size:0.85rem;line-height:1;">▶</span></div></div>
+        <div style="display:flex;gap:0;margin-bottom:1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(167,139,250,0.25);cursor:pointer;" onclick="event.stopPropagation();toggleCertPanel('au');" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(167,139,250,0.1);border-right:1px solid rgba(167,139,250,0.25);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#a78bfa;line-height:1;">80</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.au.regs.rules.label">Australian Design Rules</div></div><div style="flex:1;padding:0.65rem 0.85rem;background:rgba(167,139,250,0.1);"><div style="font-family:Barlow Condensed, sans-serif;font-size:1.8rem;font-weight:700;color:#a78bfa;line-height:1;">280+</div><div style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin-top:2px;" data-i18n="specs.cert.regs.tests.label">individual test procedures</div></div><div style="width:28px;display:flex;align-items:center;justify-content:center;background:rgba(167,139,250,0.05);border-left:1px solid rgba(167,139,250,0.15);"><span id="test-list-au-arrow" style="display:inline-block;transition:transform 0.2s;color:#a78bfa;font-size:0.85rem;line-height:1;">▶</span></div></div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.85rem;" data-i18n="specs.cert.au.desc">Australian Design Rules under the Road Vehicle Standards Act 2018, with direct adoption of UN/ECE regulations through the 1958 Agreement.</div>
         <div style="flex:1;"><div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;color:rgba(167,139,250,0.7);" data-i18n="specs.cert.au.direct.label">Australia direct</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-bottom:1rem;">
@@ -5213,6 +5232,9 @@ var HOMOLOG_NAMES = {
       </div>
       </div>
     </div>
+  <div id="cert-full-panel">
+    <div id="cert-full-panel-inner"></div>
+  </div>
   <!-- /HOMOLOGATION & MARKET ACCESS -->
 
 
@@ -5715,6 +5737,36 @@ document.addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeReserveModal();
 });
+// Cert panel — expand test list full-width below the grid
+function toggleCertPanel(key) {
+  var panel = document.getElementById('cert-full-panel');
+  var inner = document.getElementById('cert-full-panel-inner');
+  var arrow = document.getElementById('test-list-' + key + '-arrow');
+  var colors = {eu:'rgba(74,158,255,0.3)',us:'rgba(52,211,153,0.3)',cn:'rgba(245,158,11,0.3)',au:'rgba(167,139,250,0.3)'};
+  var borders = {eu:'rgba(74,158,255,0.2)',us:'rgba(52,211,153,0.2)',cn:'rgba(245,158,11,0.2)',au:'rgba(167,139,250,0.2)'};
+
+  if (panel.dataset.openKey === key && panel.style.display !== 'none') {
+    panel.style.display = 'none';
+    panel.dataset.openKey = '';
+    if (arrow) arrow.style.transform = 'rotate(0deg)';
+    return;
+  }
+
+  ['eu','us','cn','au'].forEach(function(k) {
+    var a = document.getElementById('test-list-' + k + '-arrow');
+    if (a) a.style.transform = 'rotate(0deg)';
+  });
+
+  var src = document.getElementById('test-list-' + key);
+  inner.innerHTML = src ? src.innerHTML : '';
+  inner.style.borderColor = borders[key] || 'rgba(255,255,255,0.1)';
+  panel.style.borderTopColor = borders[key] || 'var(--border)';
+  panel.style.display = 'block';
+  panel.dataset.openKey = key;
+  if (arrow) arrow.style.transform = 'rotate(90deg)';
+  setTimeout(function() { panel.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 30);
+}
+
 // Back-compat: existing onclick="openStripeModal()" calls still work
 function openStripeModal() { openReserveModal(); }
 </script>
