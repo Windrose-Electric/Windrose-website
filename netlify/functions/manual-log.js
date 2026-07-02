@@ -2,41 +2,30 @@
 // edge gate, which forwards the visitor's session cookie. We re-verify the cookie
 // here so the email is trusted (not taken from the client). One blob per view.
 //
-// Required env var: MANUAL_AUTH_SECRET
-
-const { getStore } = require('@netlify/blobs');
-const auth = require('./lib/manualAuth');
+// Netlify Functions v2 (ESM) so Blobs auto-configures. Env: MANUAL_AUTH_SECRET
+import { getStore } from '@netlify/blobs';
+import auth from './lib/manualAuth.js';
 
 const STORE = 'manual-access-log';
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') return { statusCode: 405, body: '' };
+export default async (req) => {
+  if (req.method !== 'POST') return new Response('', { status: 405 });
 
   const secret = process.env.MANUAL_AUTH_SECRET;
-  const cookie = event.headers && (event.headers.cookie || event.headers.Cookie);
-  const session = auth.sessionFromCookies(cookie, secret);
-  if (!session || !session.e) return { statusCode: 204, body: '' }; // not authenticated → ignore silently
+  const session = auth.sessionFromCookies(req.headers.get('cookie'), secret);
+  if (!session || !session.e) return new Response('', { status: 204 }); // not authenticated → ignore
 
   let body = {};
-  try { body = JSON.parse(event.body || '{}'); } catch {}
-
+  try { body = await req.json(); } catch {}
   const ts = typeof body.ts === 'string' ? body.ts : new Date().toISOString();
-  const entry = { ts, email: session.e, page: (body.page || '').slice(0, 200) };
+  const entry = { ts, email: session.e, page: String(body.page || '').slice(0, 200) };
 
-  const debug = event.queryStringParameters && event.queryStringParameters.debug === '1';
   try {
     const store = getStore(STORE);
-    // Key sorts chronologically; suffix keeps concurrent views from colliding.
-    const key = `${ts}_${Math.random().toString(36).slice(2, 8)}`;
+    const key = `${ts}_${Math.random().toString(36).slice(2, 8)}`; // sorts chronologically; suffix avoids collisions
     await store.setJSON(key, entry);
-    if (debug) {
-      const listed = await store.list();
-      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: true, wrote: key, count: (listed.blobs || []).length }) };
-    }
   } catch (e) {
     console.error('[manual-log] blob write failed:', e && e.message);
-    if (debug) return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: false, error: String(e && e.message), stack: String(e && e.stack).slice(0, 400) }) };
-    return { statusCode: 204, body: '' };
   }
-  return { statusCode: 204, body: '' };
+  return new Response('', { status: 204 });
 };
