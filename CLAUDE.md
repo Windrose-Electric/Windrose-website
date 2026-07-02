@@ -8,6 +8,7 @@
 
 ## Artifacts / social previews
 - Every time an artifact (Artifact tool page) is created or updated, also produce a **1200×630 social preview thumbnail** (OG standard size) as a separate PNG and send it to the user. Render a dedicated branded card (title + key figures + Windrose/苇渡 branding), not a full-page screenshot. Use the pre-installed Chromium via Playwright at `/opt/pw-browsers/chromium-1194/chrome-linux/chrome` (module at `/opt/node22/lib/node_modules/playwright`), viewport 1200×630, and clip to that box.
+- **Feishu / IM link previews:** a `claude.ai/code/artifact/…` link will NOT show our custom thumbnail in Feishu/Lark — link unfurling reads the target page's OG meta tags, which claude.ai controls. Options: (1) send the PNG directly into Feishu (simplest; use for sensitive/compliance content); (2) publish a public page on windrose.ai/Netlify with `og:title`/`og:description`/`og:image` tags + the hosted PNG, then share that URL (⚠️ makes content public — not for internal WVTA/compliance docs, which stay behind Netlify 404s); (3) build a Feishu app link-preview integration (private but needs dev work). No Feishu/Lark MCP connector is available in-session. Default: option (1) for sensitive content.
 
 ## Owner's Manual
 
