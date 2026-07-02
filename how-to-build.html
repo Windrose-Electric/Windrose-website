@@ -1183,7 +1183,7 @@ function setLang(lang) {
       onkeydown="gsKey(event)"
       onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
       onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
-    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'" data-i18n="t.560040c54a">AI</button>
   </div>
   <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language" style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.35);border-radius:4px;color:#e8f0ff;font-family:DM Sans,sans-serif;font-size:0.82rem;padding:3px 6px;cursor:pointer;outline:none;appearance:auto;flex-shrink:0;max-width:175px;">
     <option value="en">🌍 English (Global)</option>
@@ -1255,11 +1255,11 @@ function setLang(lang) {
       <li><a href="how-to-build.html#assembly" data-i18n="assembly.label">Local Assembly</a></li>
     </ul>
   </li>
-    <li><a href="certification.html">Certification</a>
+    <li><a href="certification.html" data-i18n="t.c9e5cafa69">Certification</a>
     <ul class="nav-dropdown">
-      <li><a href="certification.html#homologation">Market Access</a></li>
-      <li><a href="certification.html#homologation">EU WVTA</a></li>
-      <li><a href="certification.html#homologation">US FMVSS</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.57faa52e48">Market Access</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.ea977369de">EU WVTA</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.a15446f0cd">US FMVSS</a></li>
     </ul>
   </li>
   <li><a href="about-us.html" data-i18n="nav.about">About Us</a>
@@ -1365,9 +1365,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- MANUFACTURING PARTNERS ROW -->
 <section style="background:var(--dark); border-top:1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;" id="manufacturing">
-  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Manufacturing Partners</p>
-  <h2 style="font-size: 1.25rem; line-height:1.15; margin-bottom:0.6rem;">5 Assembly &amp; Production Sites Across 3 Continents</h2>
-  <p style="font-size:0.875rem; color:var(--muted); max-width:52rem; line-height:1.65; margin-bottom:2rem;">Each region is served by a dedicated local manufacturing partner — enabling domestic delivery, regulatory compliance, and job creation in-market.</p>
+  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" data-i18n="t.9fcbe758e7">Manufacturing Partners</p>
+  <h2 style="font-size: 1.25rem; line-height:1.15; margin-bottom:0.6rem;" data-i18n="t.bf37fba093">5 Assembly &amp; Production Sites Across 3 Continents</h2>
+  <p style="font-size:0.875rem; color:var(--muted); max-width:52rem; line-height:1.65; margin-bottom:2rem;" data-i18n="t.d4207bb515">Each region is served by a dedicated local manufacturing partner — enabling domestic delivery, regulatory compliance, and job creation in-market.</p>
   <style>
     .mfg-partner-row { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
     @media(max-width:900px){ .mfg-partner-row { grid-template-columns:repeat(3,1fr); } }
@@ -1383,32 +1383,32 @@ document.addEventListener('DOMContentLoaded', function(){
 
     <a class="mfg-card" href="https://windrose.ai/press/horiba-mira-uk.html" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-      <div class="mfg-country">🇬🇧 United Kingdom</div>
-      <div class="mfg-title">HORIBA MIRA UK — Validation Complete</div>
+      <div class="mfg-country" data-i18n="t.5d429f1d14">🇬🇧 United Kingdom</div>
+      <div class="mfg-title" data-i18n="t.fa9d316948">HORIBA MIRA UK — Validation Complete</div>
     </a>
 
     <a class="mfg-card" href="how-to-build.html#supplier-hande">
       <div class="mfg-thumb"><img src="/images/drive-axle.jpg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-      <div class="mfg-country">🇨🇳 China · Shiyan</div>
-      <div class="mfg-title">Hande — Electric Drive Axle</div>
+      <div class="mfg-country" data-i18n="t.95d52aab59">🇨🇳 China · Shiyan</div>
+      <div class="mfg-title" data-i18n="t.54cead3efd">Hande — Electric Drive Axle</div>
     </a>
 
     <a class="mfg-card" href="https://windrose.ai/press/antwerp-port-assembly.html" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="og/norway-dealer.png" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-      <div class="mfg-country">🇧🇪 Belgium</div>
-      <div class="mfg-title">European assembly HQ · 2025</div>
+      <div class="mfg-country" data-i18n="t.184fa35ce6">🇧🇪 Belgium</div>
+      <div class="mfg-title" data-i18n="t.81027d5822">European assembly HQ · 2025</div>
     </a>
 
     <a class="mfg-card" href="https://www.engie-vianeo.com/en/news/engie-vianeo-and-windrose-join-forces-to-accelerate-the-electrification-of-heavy-duty-transport/" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="https://www.engie-vianeo.com/wp-content/uploads/2026/03/ENGIEVianeo_windrose2.webp" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-      <div class="mfg-country">🇫🇷 France</div>
-      <div class="mfg-title">ENGIE Vianeo — Heavy-Duty Electrification</div>
+      <div class="mfg-country" data-i18n="t.a93bbf4565">🇫🇷 France</div>
+      <div class="mfg-title" data-i18n="t.7c06cf9482">ENGIE Vianeo — Heavy-Duty Electrification</div>
     </a>
 
     <a class="mfg-card" href="https://www.ttnews.com/articles/windrose-us-assembly-plants" target="_blank" rel="noopener">
       <div class="mfg-thumb"><img src="/images/31cc724485.svg" loading="lazy" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
-      <div class="mfg-country">🇺🇸 United States</div>
-      <div class="mfg-title">Aertssen + Windrose — USA Assembly Sites</div>
+      <div class="mfg-country" data-i18n="t.f36d8a7d40">🇺🇸 United States</div>
+      <div class="mfg-title" data-i18n="t.aada94ae0c">Aertssen + Windrose — USA Assembly Sites</div>
     </a>
 
   </div>
@@ -1429,64 +1429,64 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="supplier-grid">
     <div class="supplier-card" id="supplier-hande">
       <div class="sc-role" data-i18n="suppliers.hande.role">Electric Drive Axle</div>
-      <div class="sc-name">Hande</div>
+      <div class="sc-name" data-i18n="t.7de2c8b427">Hande</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/drive-axle.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">Hande integrated e-axle — 4-motor direct drive</p><!-- hande-photo-added -->
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;" data-i18n="t.7665f2290f">Hande integrated e-axle — 4-motor direct drive</p><!-- hande-photo-added -->
       <p class="sc-desc" data-i18n="suppliers.hande.desc">Integrated e-axle combining the drive motor, reduction gearing and axle into a single unit.</p>
     </div>
     <div class="supplier-card" id="supplier-calb">
       <div class="sc-role" data-i18n="suppliers.calb.role">Battery</div>
-      <div class="sc-name">CALB</div>
+      <div class="sc-name" data-i18n="t.5079c5bdf9">CALB</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/battery-pack.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">CALB LFP 705 kWh modular battery system</p><!-- calb-photo-added -->
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;" data-i18n="t.b66c21919c">CALB LFP 705 kWh modular battery system</p><!-- calb-photo-added -->
       <p class="sc-desc" data-i18n="suppliers.calb.desc">High-voltage lithium battery cells and modules powering the drivetrain.</p>
     </div>
     <div class="supplier-card" id="supplier-zhenghe">
       <div class="sc-role" data-i18n="suppliers.zhenghe.role">Truck Cab</div>
-      <div class="sc-name">Zhenghe</div>
+      <div class="sc-name" data-i18n="t.7ae0513015">Zhenghe</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="og/windrose-antwerp.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;">Zhenghe cab structure — European cab homologation certified</p><!-- zhenghe-photo-added -->
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin:-0.25rem 0 0.85rem;font-style:italic;" data-i18n="t.50e25b9795">Zhenghe cab structure — European cab homologation certified</p><!-- zhenghe-photo-added -->
       <p class="sc-desc" data-i18n="suppliers.zhenghe.desc">Driver cab structures and bodywork for the tractor unit.</p>
     </div>
     <div class="supplier-card" id="supplier-antwerp">
-      <div class="sc-role">Belgium Assembly</div>
-      <div class="sc-name">Antwerp</div>
+      <div class="sc-role" data-i18n="t.d196a9c1bc">Belgium Assembly</div>
+      <div class="sc-name" data-i18n="t.22172f4179">Antwerp</div>
       <div style="margin:0.4rem 0 0.6rem;padding:0.35rem 0.6rem;background:rgba(74,158,255,0.07);border:1px solid rgba(74,158,255,0.18);border-radius:6px;display:flex;align-items:center;gap:0.4rem;">
-        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;">Developer</span>
-        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;">Van Wellen Group</span>
+        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;" data-i18n="t.7e08ebec5e">Developer</span>
+        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;" data-i18n="t.08ac5aba4b">Van Wellen Group</span>
       </div>
-      <p class="sc-desc">European assembly hub at the Port of Antwerp-Bruges, serving Van Wellen Group's fleet operations.</p>
+      <p class="sc-desc" data-i18n="t.d7c10ba667">European assembly hub at the Port of Antwerp-Bruges, serving Van Wellen Group's fleet operations.</p>
     </div>
     <div class="supplier-card" id="supplier-france">
-      <div class="sc-role">France Assembly</div>
-      <div class="sc-name">Valenciennes</div>
+      <div class="sc-role" data-i18n="t.cc21acabbb">France Assembly</div>
+      <div class="sc-name" data-i18n="t.0e001c4643">Valenciennes</div>
       <div style="margin:0.4rem 0 0.6rem;padding:0.35rem 0.6rem;background:rgba(74,158,255,0.07);border:1px solid rgba(74,158,255,0.18);border-radius:6px;display:flex;align-items:center;gap:0.4rem;">
-        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;">Developer</span>
-        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;">PRD</span>
+        <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-family:DM Mono,monospace;" data-i18n="t.7e08ebec5e">Developer</span>
+        <span style="font-size:0.85rem;color:var(--off-white);font-family:DM Sans,sans-serif;font-weight:600;" data-i18n="t.fee8ad0eb6">PRD</span>
       </div>
-      <p class="sc-desc">Assembly site in Valenciennes, northern France, serving PRD's logistics operations.</p>
+      <p class="sc-desc" data-i18n="t.523368192f">Assembly site in Valenciennes, northern France, serving PRD's logistics operations.</p>
     </div>
     <div class="supplier-card" id="supplier-tacoma">
-      <div class="sc-role">US Assembly · Tacoma, WA</div>
-      <div class="sc-name">Aertssen</div>
+      <div class="sc-role" data-i18n="t.78f15d6ed2">US Assembly · Tacoma, WA</div>
+      <div class="sc-name" data-i18n="t.49d40b162b">Aertssen</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p class="sc-desc">Final assembly of North American units at Tacoma, Washington, enabling domestic delivery and Buy America compliance.</p>
+      <p class="sc-desc" data-i18n="t.0dd8272f3a">Final assembly of North American units at Tacoma, Washington, enabling domestic delivery and Buy America compliance.</p>
     </div>
     <div class="supplier-card" id="supplier-savannah">
-      <div class="sc-role">US Assembly · Savannah, GA</div>
-      <div class="sc-name">Aertssen</div>
+      <div class="sc-role" data-i18n="t.89eff0552b">US Assembly · Savannah, GA</div>
+      <div class="sc-name" data-i18n="t.49d40b162b">Aertssen</div>
       <div style="margin:0.75rem -1.5rem 0.85rem;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
         <img src="images/aertssen-assembly.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.closest('div').style.display='none'">
       </div>
-      <p class="sc-desc">Final assembly of North American units at Rincon, Georgia (Savannah metro), enabling domestic delivery and Buy America compliance.</p>
+      <p class="sc-desc" data-i18n="t.255cb4cf0a">Final assembly of North American units at Rincon, Georgia (Savannah metro), enabling domestic delivery and Buy America compliance.</p>
     </div>
   </div>
 </section>
@@ -1641,50 +1641,50 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="asm-grid">
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/8c6cd40dc9dd.png" alt="Step 01: Bare Chassis" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.01">STEP 01</div>
-        <div class="asm-title">Bare Chassis</div>
-        <div class="asm-desc">The structural backbone — lightweight frame ready to receive all modules</div>
+        <div class="asm-title" data-i18n="t.b803b1da15">Bare Chassis</div>
+        <div class="asm-desc" data-i18n="t.ffe58b8b7a">The structural backbone — lightweight frame ready to receive all modules</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/f5e04e9aceb5.png" alt="Step 02: Battery Pack" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.02">STEP 02</div>
-        <div class="asm-title">Battery Pack</div>
-        <div class="asm-desc">High-voltage packs drop into the chassis floor, lowering centre of gravity</div>
+        <div class="asm-title" data-i18n="t.fce9553089">Battery Pack</div>
+        <div class="asm-desc" data-i18n="t.fac09765cc">High-voltage packs drop into the chassis floor, lowering centre of gravity</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/5c52e06876d5.png" alt="Step 03: Drive Axle" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.03">STEP 03</div>
-        <div class="asm-title">Drive Axle</div>
-        <div class="asm-desc">Proprietary electric drive axle — motor, gearbox and brakes in one unit</div>
+        <div class="asm-title" data-i18n="t.2fc86bf76d">Drive Axle</div>
+        <div class="asm-desc" data-i18n="t.e715972708">Proprietary electric drive axle — motor, gearbox and brakes in one unit</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/d5a6ad4f2afc.png" alt="Step 04: Wheels & Tyres" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.04">STEP 04</div>
-        <div class="asm-title">Wheels & Tyres</div>
-        <div class="asm-desc">Heavy-duty tyres fitted — chassis is now road-mobile</div>
+        <div class="asm-title" data-i18n="t.823f37170c">Wheels & Tyres</div>
+        <div class="asm-desc" data-i18n="t.60459f1e94">Heavy-duty tyres fitted — chassis is now road-mobile</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/f966a09efb73.png" alt="Step 05: Cab" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.05">STEP 05</div>
-        <div class="asm-title">Cab</div>
-        <div class="asm-desc">Aerodynamic cab module mounted, housing driver controls and HVAC</div>
+        <div class="asm-title" data-i18n="t.9b42f791fe">Cab</div>
+        <div class="asm-desc" data-i18n="t.09ac7a114d">Aerodynamic cab module mounted, housing driver controls and HVAC</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/426ee2bdc851.png" alt="Step 06: Rear Integration" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.06">STEP 06</div>
-        <div class="asm-title">Rear Integration</div>
-        <div class="asm-desc">Fifth-wheel, charging sockets, lighting and rear fairings fitted</div>
+        <div class="asm-title" data-i18n="t.3c5c0352b7">Rear Integration</div>
+        <div class="asm-desc" data-i18n="t.998ee56fdf">Fifth-wheel, charging sockets, lighting and rear fairings fitted</div>
       </div>
       <div class="asm-arrow">›</div>
     </div>
 <div class="asm-card">
       <div class="asm-img-wrap"><img loading="lazy" src="/images/795bb7e6cfc9.png" alt="Step 07: Complete Truck" loading="lazy"></div><div class="asm-body"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700;font-size:0.875rem;letter-spacing: 0.18em;color:var(--accent);margin-bottom:0.3rem;" data-i18n="build.step.07">STEP 07</div>
-        <div class="asm-title">Complete Truck</div>
-        <div class="asm-desc">Final inspection, software commissioning, ready to haul</div>
+        <div class="asm-title" data-i18n="t.715fe49ca1">Complete Truck</div>
+        <div class="asm-desc" data-i18n="t.6ee0b3ef3f">Final inspection, software commissioning, ready to haul</div>
       </div>
       
     </div>
@@ -1699,9 +1699,9 @@ document.addEventListener('DOMContentLoaded', function(){
     <button onclick="closeReserveModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:1px solid rgba(74,158,255,0.15); color:rgba(240,244,255,0.45); font-size: 0.875rem; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(74,158,255,0.5)';this.style.color='#f0f4ff'" onmouseout="this.style.borderColor='rgba(74,158,255,0.15)';this.style.color='rgba(240,244,255,0.45)'">✕</button>
 
     <!-- Header -->
-    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;">Windrose Electric</div>
+    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;" data-i18n="t.c22133d6bc">Windrose Electric</div>
     <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.04em; color:#f0f4ff; margin:0 0 0.5rem; line-height:1;" data-i18n="label.reserve">Reserve Your Truck</h2>
-    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;" data-i18n="t.8523d13cf1">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
 
     <!-- Amount pill -->
     <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; background:#0d1f38; border:1px solid rgba(74,158,255,0.12); margin-bottom:1.75rem;">
@@ -1734,13 +1734,13 @@ document.addEventListener('DOMContentLoaded', function(){
     <div id="wr-pay-success" style="display:none; text-align:center; padding:2.5rem 0;">
       <div style="font-size: 1.75rem; margin-bottom:1rem;">⚡</div>
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.06em; color:#f0f4ff; margin-bottom:0.6rem;" data-i18n="label.confirmed">Reservation Confirmed</div>
-      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;" data-i18n="t.066a6bb08d">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
     </div>
 
     <!-- Footer -->
     <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(74,158,255,0.07);">
       <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="5.75" width="9.5" height="6.5" rx="0.75" stroke="rgba(122,154,191,0.35)" stroke-width="1.2"/><path d="M2.5 5.5V3.5a3 3 0 016 0V5.5" stroke="rgba(122,154,191,0.35)" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:rgba(122,154,191,0.35); letter-spacing:0.02em;">Secured by Stripe · PCI DSS Level 1</span>
+      <span style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:rgba(122,154,191,0.35); letter-spacing:0.02em;" data-i18n="t.b27ac4b3c0">Secured by Stripe · PCI DSS Level 1</span>
     </div>
   </div>
 </div>
@@ -2149,8 +2149,8 @@ function openStripeModal() { openReserveModal(); }
         <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
       </div>
       <div>
-        <a href="certification.html" class="footer-toc-head">Certification</a>
-        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
+        <a href="certification.html" class="footer-toc-head" data-i18n="t.c9e5cafa69">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link" data-i18n="t.57faa52e48">Market Access</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.ea977369de">EU WVTA</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.a15446f0cd">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
@@ -2162,14 +2162,14 @@ function openStripeModal() { openReserveModal(); }
   <!-- /TABLE OF CONTENTS -->
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-bottom:3rem;" class="footer-social-grid">
-    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
-    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
-    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
+    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.34b4d31f9d">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
+    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.31903a5351">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
+    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.c22133d6bc">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
   </div>
 
   <div style="border-top:1px solid var(--border); padding:1.25rem 0 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
     <span style="font-size:0.85rem; color:var(--muted);" data-i18n="footer.copy">© 2026 Windrose Technology. All rights reserved.</span>
-    <span style="font-size:0.85rem; color:var(--muted);">windrose.ai</span>
+    <span style="font-size:0.85rem; color:var(--muted);" data-i18n="t.71884df3e2">windrose.ai</span>
   </div>
 
 </footer>

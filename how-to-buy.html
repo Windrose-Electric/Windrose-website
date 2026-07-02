@@ -1179,7 +1179,7 @@ function setLang(lang) {
       onkeydown="gsKey(event)"
       onfocus="this.style.borderColor='rgba(74,158,255,0.85)';this.style.background='rgba(255,255,255,0.13)';this.style.boxShadow='0 0 0 2px rgba(74,158,255,0.14)'"
       onblur="this.style.borderColor='rgba(74,158,255,0.42)';this.style.background='rgba(255,255,255,0.09)';this.style.boxShadow='none'">
-    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'">AI</button>
+    <button onclick="var i=document.getElementById('gs-input');if(i.value.trim()){window.gsAskAI();}else{i.focus();}" title="Ask AI" aria-label="Ask AI" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:rgba(74,158,255,0.16);border:1px solid rgba(74,158,255,0.38);border-radius:3px;color:#5aaeff;font-family:Barlow Condensed,sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.14rem 0.44rem;cursor:pointer;line-height:1.5;transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='rgba(74,158,255,0.28)';this.style.color='#8ec8ff';this.style.borderColor='rgba(74,158,255,0.6)'" onmouseout="this.style.background='rgba(74,158,255,0.16)';this.style.color='#5aaeff';this.style.borderColor='rgba(74,158,255,0.38)'" data-i18n="t.560040c54a">AI</button>
   </div>
   <select id="lang-select" onchange="setLang(this.value)" aria-label="Select language" style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,158,255,0.35);border-radius:4px;color:#e8f0ff;font-family:DM Sans,sans-serif;font-size:0.82rem;padding:3px 6px;cursor:pointer;outline:none;appearance:auto;flex-shrink:0;max-width:175px;">
     <option value="en">🌍 English (Global)</option>
@@ -1251,11 +1251,11 @@ function setLang(lang) {
       <li><a href="how-to-build.html#assembly" data-i18n="assembly.label">Local Assembly</a></li>
     </ul>
   </li>
-    <li><a href="certification.html">Certification</a>
+    <li><a href="certification.html" data-i18n="t.c9e5cafa69">Certification</a>
     <ul class="nav-dropdown">
-      <li><a href="certification.html#homologation">Market Access</a></li>
-      <li><a href="certification.html#homologation">EU WVTA</a></li>
-      <li><a href="certification.html#homologation">US FMVSS</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.57faa52e48">Market Access</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.ea977369de">EU WVTA</a></li>
+      <li><a href="certification.html#homologation" data-i18n="t.a15446f0cd">US FMVSS</a></li>
     </ul>
   </li>
   <li><a href="about-us.html" data-i18n="nav.about">About Us</a>
@@ -1671,10 +1671,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:var(--off-white); line-height:1;">£220,000</span>
         </div>
         <a href="https://www.gov.uk/government/news/1-billion-to-cut-costs-for-businesses-drive-growth-and-clean-up-uk-roads" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="display:flex; justify-content:space-between; align-items:baseline; padding:0.5rem 0.6rem; background:rgba(74,255,158,0.1); border-radius:2px; margin-bottom:0.5rem; text-decoration:none; transition:background 0.15s;" onmouseover="this.style.background='rgba(74,255,158,0.18)'" onmouseout="this.style.background='rgba(74,255,158,0.1)'">
-      <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:#4aff9e; letter-spacing: 0.08em; text-transform:uppercase;">UK ZE HGV Grant ↗</span>
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:#4aff9e; letter-spacing: 0.08em; text-transform:uppercase;" data-i18n="t.61e7fb35a7">UK ZE HGV Grant ↗</span>
           <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:#4aff9e; line-height:1;">− £81,000</span>
         </a>
-        <div style="font-size: 0.875rem; color:rgba(122,154,191,0.6); line-height:1.5;">Zero Emission HGV grant, subject to eligibility. <a href="https://www.gov.uk/government/news/1-billion-to-cut-costs-for-businesses-drive-growth-and-clean-up-uk-roads" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color:rgba(122,154,191,0.9);">
+        <div style="font-size: 0.875rem; color:rgba(122,154,191,0.6); line-height:1.5;">Zero Emission HGV grant, subject to eligibility. <a href="https://www.gov.uk/government/news/1-billion-to-cut-costs-for-businesses-drive-growth-and-clean-up-uk-roads" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color:rgba(122,154,191,0.9);" data-i18n="t.bdda9f9adb">
       Learn more →</a></div>
       </div>
       <div style="margin-top:auto; padding-top:1rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform:uppercase; color:#4a9eff;" data-i18n="pricing.enquire">Enquire →</div>
@@ -1695,10 +1695,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:var(--off-white); line-height:1;">$300,000</span>
         </div>
         <a href="https://californiahvip.org/vehicles/windrose-wdr4b0ev-battery-electric-tractor/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="display:flex; justify-content:space-between; align-items:baseline; padding:0.5rem 0.6rem; background:rgba(74,255,158,0.1); border-radius:2px; margin-bottom:0.5rem; text-decoration:none; transition:background 0.15s;" onmouseover="this.style.background='rgba(74,255,158,0.18)'" onmouseout="this.style.background='rgba(74,255,158,0.1)'">
-      <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:#4aff9e; letter-spacing: 0.08em; text-transform:uppercase;">CA HVIP Subsidy ↗</span>
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:#4aff9e; letter-spacing: 0.08em; text-transform:uppercase;" data-i18n="t.9c76a81b44">CA HVIP Subsidy ↗</span>
           <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:#4aff9e; line-height:1;">− $120,000+</span>
         </a>
-        <div style="font-size: 0.875rem; color:rgba(122,154,191,0.6); line-height:1.5;">California HVIP eligible. <a href="https://californiahvip.org/vehicles/windrose-wdr4b0ev-battery-electric-tractor/" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:rgba(122,154,191,0.9);">
+        <div style="font-size: 0.875rem; color:rgba(122,154,191,0.6); line-height:1.5;">California HVIP eligible. <a href="https://californiahvip.org/vehicles/windrose-wdr4b0ev-battery-electric-tractor/" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:rgba(122,154,191,0.9);" data-i18n="t.bdda9f9adb">
       Learn more →</a></div>
       </div>
       <div style="margin-top:auto; padding-top:1rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform:uppercase; color:#4a9eff;" data-i18n="pricing.enquire">Enquire →</div>
@@ -1711,7 +1711,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="price-currency" data-i18n="pricing.rmb.region">RMB · China</div>
       <div class="price-amount"><em style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.15em; text-transform:uppercase; font-style:normal; vertical-align:middle; margin-right:0.25em; color:var(--muted);">RMB</em><em style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; font-style:normal; letter-spacing: 0.02em;">¥</em>1,280,000</div>
       
-      <div class="price-label">Starting price<br>excl. local taxes</div>
+      <div class="price-label" data-i18n="t.7509705edb">Starting price<br>excl. local taxes</div>
       <div style="margin-top:auto; padding-top:1rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform:uppercase; color:#4a9eff;" data-i18n="pricing.enquire">Enquire →</div>
     </div>
 
@@ -1736,13 +1736,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div style="background:var(--card-bg); padding: 1.4rem clamp(1.5rem, 5vw, 4rem); text-align:left;">
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem;" data-i18n="label.early.delivery">Early Delivery</div>
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:var(--off-white); line-height:1; letter-spacing: 0.04em;">Q3 2026</div>
-      <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;">60% advanced payment required to secure priority allocation.</div>
+      <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;" data-i18n="t.68056c0027">60% advanced payment required to secure priority allocation.</div>
     </div>
 
     <div style="background:var(--card-bg); padding: 1.4rem clamp(1.5rem, 5vw, 4rem); border-left:1px solid var(--border); text-align:left;">
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem;" data-i18n="label.standard.delivery">Standard Delivery</div>
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color:var(--off-white); line-height:1; letter-spacing: 0.04em;">Q4 2026</div>
-      <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;">5% deposit to reserve. Balance due prior to delivery.</div>
+      <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;" data-i18n="t.07472b737a">5% deposit to reserve. Balance due prior to delivery.</div>
     </div>
 
   </div>
@@ -1753,26 +1753,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="tco" style="background:var(--card-bg); border-top:1px solid var(--border); padding: 3.5rem clamp(1.5rem, 5vw, 4rem);">
   <div style="padding: 3rem 0 1.5rem;">
     <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" data-i18n="tco.label">Lease & TCO Calculator</p>
-  <h2 style="font-size:1.25rem; line-height:1.15; margin-bottom:0.5rem;">Total cost of ownership</h2>
-    <p style="font-size:0.875rem; color:var(--muted); max-width:600px; margin-bottom:1.25rem; line-height:1.6;">Combine lease and fuel costs for a complete monthly picture. Windrose E700 vs a comparable diesel Class 8 — adjust inputs to your market and contract.</p>
+  <h2 style="font-size:1.25rem; line-height:1.15; margin-bottom:0.5rem;" data-i18n="t.391e3cda2b">Total cost of ownership</h2>
+    <p style="font-size:0.875rem; color:var(--muted); max-width:600px; margin-bottom:1.25rem; line-height:1.6;" data-i18n="t.2b31755558">Combine lease and fuel costs for a complete monthly picture. Windrose E700 vs a comparable diesel Class 8 — adjust inputs to your market and contract.</p>
 
     <!-- Currency & Unit Toggles -->
     <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2rem;">
       <div style="display:flex;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;">
-        <button onclick="lc_setCurrency('EUR')" id="lc-cur-EUR" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:#4a9eff;color:#fff;">€ EUR</button>
-        <button onclick="lc_setCurrency('USD')" id="lc-cur-USD" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);">$ USD</button>
-        <button onclick="lc_setCurrency('GBP')" id="lc-cur-GBP" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);">£ GBP</button>
-        <button onclick="lc_setCurrency('CNY')" id="lc-cur-CNY" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);">¥ CNY</button>
-        <button onclick="lc_setCurrency('AUD')" id="lc-cur-AUD" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);">A$ AUD</button>
+        <button onclick="lc_setCurrency('EUR')" id="lc-cur-EUR" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:#4a9eff;color:#fff;" data-i18n="t.c8fb9c99ec">€ EUR</button>
+        <button onclick="lc_setCurrency('USD')" id="lc-cur-USD" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);" data-i18n="t.0d7c01a8be">$ USD</button>
+        <button onclick="lc_setCurrency('GBP')" id="lc-cur-GBP" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);" data-i18n="t.081abe0948">£ GBP</button>
+        <button onclick="lc_setCurrency('CNY')" id="lc-cur-CNY" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);" data-i18n="t.1c1806a978">¥ CNY</button>
+        <button onclick="lc_setCurrency('AUD')" id="lc-cur-AUD" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);" data-i18n="t.d898ed4f91">A$ AUD</button>
       </div>
       <div style="display:flex;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;">
-        <button onclick="lc_setUnit('km')" id="lc-unit-km" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:#4a9eff;color:#fff;">km</button>
-        <button onclick="lc_setUnit('mi')" id="lc-unit-mi" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);">mi</button>
+        <button onclick="lc_setUnit('km')" id="lc-unit-km" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:#4a9eff;color:#fff;" data-i18n="t.08ec69f5be">km</button>
+        <button onclick="lc_setUnit('mi')" id="lc-unit-mi" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:none;cursor:pointer;transition:background .15s;background:rgba(255,255,255,0.06);color:var(--muted);" data-i18n="t.9c51ad8660">mi</button>
       </div>
     </div>
 
     <!-- INPUT SECTION LABEL -->
-    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);">Usage</div>
+    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);" data-i18n="t.0bb18642b7">Usage</div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0.7rem 0.8rem; margin-bottom:1.5rem; align-items:start;">
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
         <label style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);line-height:1.2;min-height:2.1em;">Monthly km driven</label>
@@ -1781,7 +1781,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(255,255,255,0.06);border:1px solid rgba(74,158,255,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(74,158,255,0.6)'" onblur="this.style.borderColor='rgba(74,158,255,0.2)'"
             oninput="var v=parseFloat(this.value)||10000;document.getElementById('lc-annual-km').value=Math.round(v*12);var d=parseFloat(document.getElementById('lc-working-days').value)||22;document.getElementById('lc-daily-km').value=Math.round(v/d);var wrP=parseFloat(document.getElementById('lc-wr-pkm').value)||0.38;document.getElementById('lc-wr-mo').value=Math.round(wrP*v);var dMo=parseFloat(document.getElementById('lc-diesel-mo').value)||4800;document.getElementById('lc-d-pkm').value=(dMo/v).toFixed(4);leaseCalc()">
-          <span class="lc-dist-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">km/mo</span>
+          <span class="lc-dist-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.e3abf7814f">km/mo</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1791,7 +1791,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(255,255,255,0.06);border:1px solid rgba(74,158,255,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(74,158,255,0.6)'" onblur="this.style.borderColor='rgba(74,158,255,0.2)'"
             oninput="var mo=Math.round(this.value/12);document.getElementById('lc-monthly-km').value=mo;var d=parseFloat(document.getElementById('lc-working-days').value)||22;document.getElementById('lc-daily-km').value=Math.round(mo/d);leaseCalc()">
-          <span class="lc-dist-unit-yr" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">km/yr</span>
+          <span class="lc-dist-unit-yr" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.579a6450ee">km/yr</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1801,7 +1801,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(255,255,255,0.06);border:1px solid rgba(74,158,255,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(74,158,255,0.6)'" onblur="this.style.borderColor='rgba(74,158,255,0.2)'"
             oninput="var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;var d=parseFloat(this.value)||22;document.getElementById('lc-daily-km').value=Math.round(mo/d);leaseCalc()">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">days</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.5548ae4f34">days</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1811,13 +1811,13 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(255,255,255,0.06);border:1px solid rgba(74,158,255,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(74,158,255,0.6)'" onblur="this.style.borderColor='rgba(74,158,255,0.2)'"
             oninput="var d=parseFloat(document.getElementById('lc-working-days').value)||22;var mo=Math.round(this.value*d);document.getElementById('lc-monthly-km').value=mo;document.getElementById('lc-annual-km').value=mo*12;leaseCalc()">
-          <span class="lc-dist-unit-day" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">km/day</span>
+          <span class="lc-dist-unit-day" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.6996e8b6d8">km/day</span>
         </div>
       </div>
     </div>
 
     <!-- WINDROSE INPUTS -->
-    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(52,211,153,0.8);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(52,211,153,0.15);">Windrose E700</div>
+    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(52,211,153,0.8);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(52,211,153,0.15);" data-i18n="t.d9ae66836c">Windrose E700</div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0.7rem 0.8rem; margin-bottom:1.5rem; align-items:start;">
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
         <label style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(52,211,153,0.8);line-height:1.2;min-height:2.1em;">Lease rate</label>
@@ -1825,7 +1825,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="number" id="lc-wr-pkm" value="0.38" step="0.01" min="0"
             style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(52,211,153,0.6)'" onblur="this.style.borderColor='rgba(52,211,153,0.2)'" oninput="var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-wr-mo').value=Math.round(this.value*mo);leaseCalc()">
-          <span class="lc-per-dist" data-prefix="€/" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">€/km</span>
+          <span class="lc-per-dist" data-prefix="€/" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.5d84d79331">€/km</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1835,7 +1835,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(52,211,153,0.6)'" onblur="this.style.borderColor='rgba(52,211,153,0.2)'"
             oninput="var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-wr-pkm').value=(this.value/mo).toFixed(4);leaseCalc()">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">€/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.7b05396f2c">€/mo</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1844,7 +1844,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="number" id="lc-eprice" value="0.18" step="0.01" min="0"
             style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(52,211,153,0.6)'" onblur="this.style.borderColor='rgba(52,211,153,0.2)'" oninput="leaseCalc()">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">€/kWh</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.6f032bed46">€/kWh</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1853,14 +1853,14 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="number" id="lc-econs" value="1.1" step="0.05" min="0"
             style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(52,211,153,0.6)'" onblur="this.style.borderColor='rgba(52,211,153,0.2)'" oninput="leaseCalc()">
-          <span class="lc-econs-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">kWh/km</span>
+          <span class="lc-econs-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.8729f69e38">kWh/km</span>
         </div>
       </div>
 
     </div>
 
     <!-- DIESEL INPUTS -->
-    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,120,120,0.8);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(255,100,100,0.15);">Diesel Class 8</div>
+    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,120,120,0.8);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(255,100,100,0.15);" data-i18n="t.9c39008c5a">Diesel Class 8</div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0.7rem 0.8rem; margin-bottom:2rem; align-items:start;">
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
         <label style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,120,120,0.8);line-height:1.2;min-height:2.1em;">Lease rate per km</label>
@@ -1869,7 +1869,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style="background:rgba(255,100,100,0.05);border:1px solid rgba(255,100,100,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(255,100,100,0.6)'" onblur="this.style.borderColor='rgba(255,100,100,0.2)'"
             oninput="var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-diesel-mo').value=Math.round(this.value*mo);leaseCalc()">
-          <span class="lc-per-dist" data-prefix="€/" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">€/km</span>
+          <span class="lc-per-dist" data-prefix="€/" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.5d84d79331">€/km</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1878,7 +1878,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="number" id="lc-diesel-mo" value="4800" step="100" min="0"
             style="background:rgba(255,100,100,0.05);border:1px solid rgba(255,100,100,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(255,100,100,0.6)'" onblur="this.style.borderColor='rgba(255,100,100,0.2)'" oninput="var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(this.value/mo).toFixed(4);leaseCalc()">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">€/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.7b05396f2c">€/mo</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.3rem;min-width:0;">
@@ -1896,7 +1896,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <input type="number" id="lc-dcons" value="32" step="0.5" min="0"
             style="background:rgba(255,100,100,0.05);border:1px solid rgba(255,100,100,0.2);border-radius:4px;color:var(--off-white);font-family:DM Mono, monospace;font-size:0.85rem;padding:0.4rem 0.5rem;outline:none;transition:border-color .15s;flex:1;min-width:0;box-sizing:border-box;"
             onfocus="this.style.borderColor='rgba(255,100,100,0.6)'" onblur="this.style.borderColor='rgba(255,100,100,0.2)'" oninput="leaseCalc()">
-          <span class="lc-dcons-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;">L/100km</span>
+          <span class="lc-dcons-unit" style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;color:var(--muted);white-space:nowrap;" data-i18n="t.3940ffed6a">L/100km</span>
         </div>
       </div>
 
@@ -1905,153 +1905,153 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Diesel lease references -->
     <div style="margin-bottom:1.75rem;">
       <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,120,120,0.6);">Class 8 diesel truck lease — market references</div>
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.4);">↩ = guaranteed buyback after 5 years &nbsp;·&nbsp; click any row to set</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,120,120,0.6);" data-i18n="t.5cb9f29515">Class 8 diesel truck lease — market references</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.4);" data-i18n="t.88d492cfdb">↩ = guaranteed buyback after 5 years &nbsp;·&nbsp; click any row to set</div>
       </div>
       <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
       <details open style="flex:1;min-width:260px;">
         <summary style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding-bottom:0.35rem;border-bottom:1px solid rgba(255,100,100,0.15);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.45rem;user-select:none;" onclick="">
-          <span><span style="color:rgba(255,120,120,0.8);">Finance lease — truck only</span><span style="color:rgba(255,120,120,0.35);margin-left:0.6rem;font-size:0.875rem;">excl. maintenance &amp; service</span></span>
+          <span><span style="color:rgba(255,120,120,0.8);" data-i18n="t.3601edb36e">Finance lease — truck only</span><span style="color:rgba(255,120,120,0.35);margin-left:0.6rem;font-size:0.875rem;" data-i18n="t.844caa6189">excl. maintenance &amp; service</span></span>
           <span class="lc-chevron-bare" style="color:rgba(255,120,120,0.4);font-size:0.85rem;transition:transform .2s;">▲</span>
         </summary>
         <div style="display:flex;flex-direction:column;gap:0.3rem;">
         <div onclick="document.getElementById('lc-diesel-mo').value=2100;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2100/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇪🇺 Europe (avg)</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€1,800–2,400/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.69ad717c49">🇪🇺 Europe (avg)</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.37f0433ef2">€1,800–2,400/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €36,000–42,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2300;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2300/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇩🇪 Germany</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€2,000–2,600/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.beb86611e2">🇩🇪 Germany</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.05160e171b">€2,000–2,600/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €38,000–44,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2100;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2100/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇫🇷 France</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€1,800–2,400/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.a93bbf4565">🇫🇷 France</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.37f0433ef2">€1,800–2,400/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €35,000–42,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=1900;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(1900/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇪🇸 Spain / Portugal</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€1,600–2,200/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.fe6a1eab85">🇪🇸 Spain / Portugal</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.c05a1ad3a3">€1,600–2,200/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €32,000–38,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2000;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2000/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇬🇧 United Kingdom</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">£1,700–2,300/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.5d429f1d14">🇬🇧 United Kingdom</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.092a3ef3e2">£1,700–2,300/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ £28,000–36,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2200;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2200/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇺🇸 United States</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">$1,800–2,600/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.f36d8a7d40">🇺🇸 United States</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.b2364807a5">$1,800–2,600/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ $36,000–48,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2600;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2600/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇦🇺 Australia</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">A$2,200–3,000/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.0f145087a7">🇦🇺 Australia</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.b20c3ae416">A$2,200–3,000/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ A$44,000–58,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=11000;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(11000/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇨🇳 China</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">¥8,000–14,000/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.79bd55ca1d">🇨🇳 China</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.05919ecced">¥8,000–14,000/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ ¥200,000–260,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=2550;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(2550/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇳🇴 Nordics</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€2,200–2,900/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.a7401a1732">🇳🇴 Nordics</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.3f4e38a771">€2,200–2,900/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €40,000–50,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=1900;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(1900/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇦🇪 UAE / Middle East</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">$1,600–2,200/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.f00d56c861">🇦🇪 UAE / Middle East</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.9903d83943">$1,600–2,200/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ $32,000–42,000</span>
         </div>
         </div>
       </details>
       <details style="flex:1;min-width:260px;">
         <summary style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding-bottom:0.35rem;border-bottom:1px solid rgba(255,100,100,0.15);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.45rem;user-select:none;" onclick="">
-          <span><span style="color:rgba(255,120,120,0.8);">Full-service operating lease</span><span style="color:rgba(255,120,120,0.35);margin-left:0.6rem;font-size:0.875rem;">incl. maintenance, tyres, roadside</span></span>
+          <span><span style="color:rgba(255,120,120,0.8);" data-i18n="t.3dc3f01db2">Full-service operating lease</span><span style="color:rgba(255,120,120,0.35);margin-left:0.6rem;font-size:0.875rem;" data-i18n="t.63987e1889">incl. maintenance, tyres, roadside</span></span>
           <span class="lc-chevron-full" style="color:rgba(255,120,120,0.4);font-size:0.85rem;transition:transform .2s;">▼</span>
         </summary>
         <div style="display:flex;flex-direction:column;gap:0.3rem;">
         <div onclick="document.getElementById('lc-diesel-mo').value=4800;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(4800/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇪🇺 Europe (avg)</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€3,800–5,200/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.69ad717c49">🇪🇺 Europe (avg)</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.357ecd8655">€3,800–5,200/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €35,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=5200;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(5200/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇩🇪 Germany</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€4,500–5,800/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.beb86611e2">🇩🇪 Germany</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.b69b6346b9">€4,500–5,800/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €38,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=4500;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(4500/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇫🇷 France</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€3,800–5,200/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.a93bbf4565">🇫🇷 France</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.357ecd8655">€3,800–5,200/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €35,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=4200;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(4200/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇪🇸 Spain / Portugal</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€3,500–4,800/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.fe6a1eab85">🇪🇸 Spain / Portugal</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.549bf451b7">€3,500–4,800/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €32,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=5000;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(5000/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇬🇧 United Kingdom</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">£3,800–5,000/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.5d429f1d14">🇬🇧 United Kingdom</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.ad6a1d1c2e">£3,800–5,000/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ £28,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=5500;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(5500/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇺🇸 United States</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">$4,500–6,500/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.f36d8a7d40">🇺🇸 United States</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.acda89dc61">$4,500–6,500/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ $38,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=5200;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(5200/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇦🇺 Australia</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">A$5,000–7,000/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.0f145087a7">🇦🇺 Australia</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.f927e77eea">A$5,000–7,000/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ A$48,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=28000;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(28000/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇨🇳 China</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">¥22,000–32,000/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.79bd55ca1d">🇨🇳 China</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.5f18307e4f">¥22,000–32,000/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ ¥210,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=5800;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(5800/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇳🇴 Nordics</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">€5,000–6,500/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.a7401a1732">🇳🇴 Nordics</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.615c0f924d">€5,000–6,500/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ €40,000</span>
         </div>
         <div onclick="document.getElementById('lc-diesel-mo').value=4800;var mo=parseFloat(document.getElementById('lc-monthly-km').value)||10000;document.getElementById('lc-d-pkm').value=(4800/mo).toFixed(4);leaseCalc();" style="display:flex;align-items:baseline;padding:0.4rem 0.7rem;background:rgba(255,100,100,0.04);border:1px solid rgba(255,100,100,0.12);border-radius:3px;cursor:pointer;transition:background .15s;gap:0.5rem;" onmouseover="this.style.background='rgba(255,100,100,0.1)'" onmouseout="this.style.background='rgba(255,100,100,0.04)'">
-          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;">🇦🇪 UAE / Middle East</span>
-          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;">$4,000–5,500/mo</span>
+          <span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;color:var(--muted);flex:1;" data-i18n="t.f00d56c861">🇦🇪 UAE / Middle East</span>
+          <span style="font-family:DM Mono, monospace;font-size:0.875rem;font-weight:700;color:rgba(255,120,120,0.9);white-space:nowrap;" data-i18n="t.37f6e915d5">$4,000–5,500/mo</span>
           <span style="font-family:DM Mono, monospace;font-size:0.85rem;color:rgba(255,120,120,0.5);white-space:nowrap;margin-left:0.5rem;" title="Guaranteed buyback after 5 years">↩ $35,000</span>
         </div>
         </div>
       </details>
       </div>
-      <div style="font-family:DM Sans, sans-serif;font-size:0.85rem;color:rgba(122,154,191,0.45);margin-top:0.6rem;line-height:1.5;">Volvo FH / Scania R / Mercedes Actros 40–44t, 5-year term, 2024–2025 market rates excl. VAT. Finance lease is truck financing only — add ~€800–1,200/mo for maintenance. Sources: Fraikin, Ryder, Petit Forestier, TRATON, industry fleet surveys.</div>
+      <div style="font-family:DM Sans, sans-serif;font-size:0.85rem;color:rgba(122,154,191,0.45);margin-top:0.6rem;line-height:1.5;" data-i18n="t.ba9c3e859d">Volvo FH / Scania R / Mercedes Actros 40–44t, 5-year term, 2024–2025 market rates excl. VAT. Finance lease is truck financing only — add ~€800–1,200/mo for maintenance. Sources: Fraikin, Ryder, Petit Forestier, TRATON, industry fleet surveys.</div>
     </div>
 
 
 
     <!-- Per km economics strip -->
-    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;padding-bottom:0.4rem;border-top:1px solid var(--border);padding-top:1.25rem;margin-top:0.5rem;">Per km · Per mile</div>
+    <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;padding-bottom:0.4rem;border-top:1px solid var(--border);padding-top:1.25rem;margin-top:0.5rem;" data-i18n="t.06b1ee546e">Per km · Per mile</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.5rem;margin-bottom:1.75rem;">
       <div style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.18);border-radius:4px;padding:0.6rem 0.9rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;">E700 energy / km</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;" data-i18n="t.55a9a5f69a">E700 energy / km</div>
         <div id="lc-stat-wr-pkm" style="font-family:DM Mono, monospace;font-size:1rem;font-weight:700;color:#34d399;">—</div>
       </div>
       <div style="background:rgba(255,100,100,0.06);border:1px solid rgba(255,100,100,0.18);border-radius:4px;padding:0.6rem 0.9rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.65);margin-bottom:0.2rem;">Diesel fuel / km</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.65);margin-bottom:0.2rem;" data-i18n="t.8a19f0310d">Diesel fuel / km</div>
         <div id="lc-stat-d-pkm" style="font-family:DM Mono, monospace;font-size:1rem;font-weight:700;color:#ff7878;">—</div>
       </div>
       <div style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.18);border-radius:4px;padding:0.6rem 0.9rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;">E700 total / km</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;" data-i18n="t.9cec5ea676">E700 total / km</div>
         <div id="lc-stat-wr-total-pkm" style="font-family:DM Mono, monospace;font-size:1rem;font-weight:700;color:#34d399;">—</div>
       </div>
       <div style="background:rgba(255,100,100,0.06);border:1px solid rgba(255,100,100,0.18);border-radius:4px;padding:0.6rem 0.9rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.65);margin-bottom:0.2rem;">Diesel total / km</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.65);margin-bottom:0.2rem;" data-i18n="t.8c7676f51b">Diesel total / km</div>
         <div id="lc-stat-d-total-pkm" style="font-family:DM Mono, monospace;font-size:1rem;font-weight:700;color:#ff7878;">—</div>
       </div>
       <div style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.18);border-radius:4px;padding:0.6rem 0.9rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;">Saving / km</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.65);margin-bottom:0.2rem;" data-i18n="t.cbf772d42b">Saving / km</div>
         <div id="lc-stat-save-pkm" style="font-family:DM Mono, monospace;font-size:1rem;font-weight:700;color:#34d399;">—</div>
       </div>
     </div>
@@ -2072,17 +2072,17 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Summary result boxes -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.6rem;">
       <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:4px;padding:0.75rem 1.1rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.7);margin-bottom:0.3rem;">Windrose total / mo</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.7);margin-bottom:0.3rem;" data-i18n="t.7f1875f1a2">Windrose total / mo</div>
         <div id="lc-wr-total" style="font-family:Barlow Condensed, sans-serif;font-size:1.6rem;font-weight:700;color:#34d399;">—</div>
         <div id="lc-wr-breakdown" style="font-family:DM Mono, monospace;font-size:0.85rem;color:var(--muted);margin-top:0.2rem;line-height:1.5;">—</div>
       </div>
       <div style="background:rgba(255,100,100,0.06);border:1px solid rgba(255,100,100,0.2);border-radius:4px;padding:0.75rem 1.1rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.7);margin-bottom:0.3rem;">Diesel total / mo</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,120,120,0.7);margin-bottom:0.3rem;" data-i18n="t.9e3ab2d275">Diesel total / mo</div>
         <div id="lc-diesel-total" style="font-family:Barlow Condensed, sans-serif;font-size:1.6rem;font-weight:700;color:#ff7878;">—</div>
         <div id="lc-diesel-breakdown" style="font-family:DM Mono, monospace;font-size:0.85rem;color:var(--muted);margin-top:0.2rem;line-height:1.5;">—</div>
       </div>
       <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:4px;padding:0.75rem 1.1rem;">
-        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.7);margin-bottom:0.3rem;">Monthly saving</div>
+        <div style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(52,211,153,0.7);margin-bottom:0.3rem;" data-i18n="t.f0f9a76907">Monthly saving</div>
         <div id="lc-mo-saving" style="font-family:Barlow Condensed, sans-serif;font-size:1.6rem;font-weight:700;color:#34d399;">—</div>
         <div id="lc-mo-saving-pct" style="font-family:DM Mono, monospace;font-size:0.85rem;color:var(--muted);margin-top:0.2rem;">—</div>
       </div>
@@ -2323,8 +2323,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- BUY MAP: Dealers & Customers -->
 <section style="background:var(--dark); border-top:1px solid var(--border); padding: 4rem clamp(1.5rem, 5vw, 4rem) 2.5rem;">
-  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Where Windrose Runs</p>
-  <h2 style="font-size: clamp(1.5rem, 4vw, 1.75rem); line-height:1.15; margin-bottom:2rem;">Dealers &amp; Customers Around the World</h2>
+  <p style="font-family:Barlow Condensed, sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;" data-i18n="t.249b348dda">Where Windrose Runs</p>
+  <h2 style="font-size: clamp(1.5rem, 4vw, 1.75rem); line-height:1.15; margin-bottom:2rem;" data-i18n="t.f778b90237">Dealers &amp; Customers Around the World</h2>
   <div id="buy-map" style="width:100%;height:480px;position:relative;border-radius:8px;overflow:hidden;background:#050e1e;border:1px solid rgba(74,158,255,0.12);"></div>
 </section>
 
@@ -2336,7 +2336,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="news-grid">
 
     <a class="news-card" href="https://www.ttnews.com/articles/windroses-us-deliveries-may" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div class="card-country-badge">🇺🇸 United States · North America</div>
+      <div class="card-country-badge" data-i18n="t.61ea9daeb7">🇺🇸 United States · North America</div>
       <div class="news-thumb"><img loading="lazy" src="https://www.ttnews.com/sites/default/files/styles/article_full_width_webp/public/2026-03/Windrose-1200.jpg.webp" alt="Windrose R700 electric truck United States delivery" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-thumb-placeholder" style="display:none;"><svg viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="news-body">
@@ -2345,7 +2345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
 
     <a class="news-card" href="https://www.linkedin.com/posts/wenwindrosetrucks_windrose-evtruck-teamverksted-share-7442509739542065152-NJyk?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div class="card-country-badge">🇳🇴 Norway · Europe</div>
+      <div class="card-country-badge" data-i18n="t.0872d8ee91">🇳🇴 Norway · Europe</div>
       <div class="news-thumb"><img loading="lazy" src="og/norway-dealer.png" alt="Windrose electric truck Norway" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-thumb-placeholder" style="display:none;"><svg viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="news-body">
@@ -2354,7 +2354,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
 
     <a class="news-card" href="https://www.tiempo21.cl/100-electrico-llega-a-chile-el-camion-de-largo-alcance-mas-moderno-del-mundo/" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div class="card-country-badge">🇨🇱 Chile · South America</div>
+      <div class="card-country-badge" data-i18n="t.9e868803a7">🇨🇱 Chile · South America</div>
       <div class="news-thumb"><img loading="lazy" src="https://img.youtube.com/vi/1fhczNbcv0s/maxresdefault.jpg" alt="Windrose electric truck Chile" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-thumb-placeholder" style="display:none;"><svg viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="news-body">
@@ -2364,7 +2364,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
     <a class="news-card" href="https://windrose.ai/press/windrose-canada-launch.html" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div class="card-country-badge">🇨🇦 Canada · North America</div>
+      <div class="card-country-badge" data-i18n="t.234cca8c11">🇨🇦 Canada · North America</div>
       <div class="news-thumb"><img loading="lazy" src="/images/31cc724485.svg" alt="Windrose R700 electric truck Canada launch" style="object-fit:contain;background:#0a1628;" onerror="this.onerror=null;this.src='/images/31cc724485.svg';this.style.objectFit='contain';this.style.background='#0a1628';"></div>
       <div class="news-body">
         <h3 class="news-title" data-i18n="dealer.canada">Windrose Canada launch — 677 km range, from C$399,000</h3>
@@ -2564,8 +2564,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <ul class="footer-toc-list" style="margin-bottom:0;"><li><a href="how-to-build-manufacturing.html" class="toc-link" data-i18n="mfg.label">Manufacturing</a></li><li><a href="how-to-build.html#assembly" class="toc-link" data-i18n="assembly.label">Local Assembly</a></li></ul>
       </div>
       <div>
-        <a href="certification.html" class="footer-toc-head">Certification</a>
-        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link">Market Access</a></li><li><a href="certification.html" class="toc-link">EU WVTA</a></li><li><a href="certification.html" class="toc-link">US FMVSS</a></li></ul>
+        <a href="certification.html" class="footer-toc-head" data-i18n="t.c9e5cafa69">Certification</a>
+        <ul class="footer-toc-list"><li><a href="certification.html#homologation" class="toc-link" data-i18n="t.57faa52e48">Market Access</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.ea977369de">EU WVTA</a></li><li><a href="certification.html" class="toc-link" data-i18n="t.a15446f0cd">US FMVSS</a></li></ul>
       </div>
       <div>
         <a href="about-us.html" class="footer-toc-head" data-i18n="nav.about">About Us</a>
@@ -2577,14 +2577,14 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- /TABLE OF CONTENTS -->
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-bottom:3rem;" class="footer-social-grid">
-    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
-    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
-    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
+    <a href="https://www.linkedin.com/company/windrosetrucks/" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.linkedin">LINKEDIN</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.34b4d31f9d">Windrose Trucks</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.linkedin.desc">Follow our latest updates, partner milestones, and deployments on LinkedIn.</div></a>
+    <a href="https://www.youtube.com/@windrose-electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.youtube">YOUTUBE</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.31903a5351">Windrose EV Truck</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.youtube.desc">Watch route validations, charging demonstrations, and commercial deployment videos.</div></a>
+    <a href="https://www.facebook.com/windrose.electric" target="_blank" rel="noopener" class="footer-social-card"><div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:var(--accent)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span style="font-family:Barlow Condensed, sans-serif;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);" data-i18n="footer.social.facebook">FACEBOOK</span></div><div style="font-size:1rem;font-weight:500;color:var(--off-white);margin-bottom:0.3rem;" data-i18n="t.c22133d6bc">Windrose Electric</div><div style="font-size:0.875rem;color:var(--muted);line-height:1.5;" data-i18n="footer.social.facebook.desc">Follow Windrose Electric on Facebook for updates, events, and community news.</div></a>
   </div>
 
   <div style="border-top:1px solid var(--border); padding:1.25rem 0 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
     <span style="font-size:0.85rem; color:var(--muted);" data-i18n="footer.copy">© 2026 Windrose Technology. All rights reserved.</span>
-    <span style="font-size:0.85rem; color:var(--muted);">windrose.ai</span>
+    <span style="font-size:0.85rem; color:var(--muted);" data-i18n="t.71884df3e2">windrose.ai</span>
   </div>
 
 </footer>
@@ -2597,9 +2597,9 @@ document.addEventListener('DOMContentLoaded', function() {
     <button onclick="closeReserveModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:1px solid rgba(74,158,255,0.15); color:rgba(240,244,255,0.45); font-size: 0.875rem; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(74,158,255,0.5)';this.style.color='#f0f4ff'" onmouseout="this.style.borderColor='rgba(74,158,255,0.15)';this.style.color='rgba(240,244,255,0.45)'">✕</button>
 
     <!-- Header -->
-    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;">Windrose Electric</div>
+    <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.22em; text-transform:uppercase; color:#4a9eff; margin-bottom:0.4rem;" data-i18n="t.c22133d6bc">Windrose Electric</div>
     <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.04em; color:#f0f4ff; margin:0 0 0.5rem; line-height:1;" data-i18n="label.reserve">Reserve Your Truck</h2>
-    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; margin:0 0 2rem; line-height:1.65;" data-i18n="t.8523d13cf1">Fully refundable reservation deposit. A Windrose representative will contact you within 48 hours to discuss your configuration and delivery timeline.</p>
 
     <!-- Amount pill -->
     <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; background:#0d1f38; border:1px solid rgba(74,158,255,0.12); margin-bottom:1.75rem;">
@@ -2632,13 +2632,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div id="wr-pay-success" style="display:none; text-align:center; padding:2.5rem 0;">
       <div style="font-size: 1.75rem; margin-bottom:1rem;">⚡</div>
       <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.06em; color:#f0f4ff; margin-bottom:0.6rem;" data-i18n="label.confirmed">Reservation Confirmed</div>
-      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:#7a9abf; line-height:1.7; max-width:360px; margin:0 auto;" data-i18n="t.066a6bb08d">A Windrose representative will reach out within 48 hours. Check your email for confirmation.</div>
     </div>
 
     <!-- Footer -->
     <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(74,158,255,0.07);">
       <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="5.75" width="9.5" height="6.5" rx="0.75" stroke="rgba(122,154,191,0.35)" stroke-width="1.2"/><path d="M2.5 5.5V3.5a3 3 0 016 0V5.5" stroke="rgba(122,154,191,0.35)" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:rgba(122,154,191,0.35); letter-spacing:0.02em;">Secured by Stripe · PCI DSS Level 1</span>
+      <span style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color:rgba(122,154,191,0.35); letter-spacing:0.02em;" data-i18n="t.b27ac4b3c0">Secured by Stripe · PCI DSS Level 1</span>
     </div>
   </div>
 </div>
